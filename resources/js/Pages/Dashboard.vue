@@ -8,11 +8,11 @@ import { Head } from '@inertiajs/vue3';
 	
 	<AuthenticatedLayout>
 		<template #header>
-			Dashboard
+			Panel de administración
 		</template>
 		
 		<div class="p-4 bg-white rounded-lg shadow-xs">
-			You're logged in!
+			Ha iniciado sesión!
 		</div>
 	</AuthenticatedLayout>
 </template>
