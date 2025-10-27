@@ -17,7 +17,9 @@ class GuiasturistFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nomguiatur' => $this->faker->name(),
+            'telguiatur' => $this->faker->numerify('##########'),
+            'corguiatur' => $this->faker->unique()->safeEmail(),
         ];
     }
 }
