@@ -33,7 +33,7 @@
         </li>
 
         <li class="relative px-6 py-3">
-          <NavLink :href="route('about')" :active="route().current('about')">
+          <NavLink :href="route('centrosturist.index')" :active="route().current('centrosturist.index')">
             <template #icon>
               <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,7 +41,7 @@
                     d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
               </svg>
             </template>
-            About us
+            Agencias Turisticas
           </NavLink>
         </li>
 
@@ -62,10 +62,17 @@
                     clip-rule="evenodd"></path>
             </svg>
           </button>
-            <ul v-show="showingTwoLevelMenu" class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+            <ul v-show="showingTwoLevelMenu || route().current('centrosturist.index') || route().current('centrosturist.create')" class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
                 aria-label="submenu">
               <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <a class="w-full" href="#">Child menu</a>
+                <NavLink :href="route('centrosturist.index')" :active="route().current('centrosturist.index')"> 
+                  Lista
+                </NavLink>
+              </li>
+              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <NavLink :href="route('centrosturist.create')" :active="route().current('centrosturist.create')"> 
+                  Crear
+                </NavLink>
               </li>
             </ul>
         </li>

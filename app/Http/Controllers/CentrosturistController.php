@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\centrosturist;
+use App\Models\producto;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class CentrosturistController extends Controller
@@ -12,7 +14,12 @@ class CentrosturistController extends Controller
      */
     public function index()
     {
-        //
+        $productos = producto::all();
+        $centrosturisticos = centrosturist::with('producto:idproduct,nomproduct')->get();
+        return Inertia::render('Centrosturist/Index', [
+            'centrosturist' => $centrosturisticos,
+            'productos' => $productos,
+        ]);
     }
 
     /**
