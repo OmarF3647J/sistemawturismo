@@ -12,17 +12,17 @@ import DarkButton from '@/Components/DarkButton.vue';
 
 
 const props = defineProps({
-    centrosturist: {type:Object},productos: {type:Object}
+    guiasturist: {type:Object}
 });
 
 </script>
 
 <template>
-    <Head title="Centros Turísticos" />
+    <Head title="Agencias Turísticas" />
     
     <AuthenticatedLayout>
         <template #header>
-            Centros Turísticos
+            Agencias Turísticas
         </template>
         
         <div class="w-full overflow-hidden rounded-lg border shadow-md">
@@ -35,20 +35,15 @@ const props = defineProps({
                             <th class="px-4 py-3">Nombre</th>
                             <th class="px-4 py-3">Telefono</th>
                             <th class="px-4 py-3">Correo</th>
-                            <th class="px-4 py-3">Producto Asociado</th>
-                            <th class="px-4 py-3">Detalle</th>
-                            <th class="px-4 py-3">Editar</th>
-                            <th class="px-4 py-3">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-100">
-                        <tr v-for="centro in centrosturist" :key="centro.idcentrosturist"
+                        <tr v-for="guias in guiasturist" :key="guias.idguiaturist"
                             class="text-gray-700">
-                            <td class="px-4 py-3 text-sm">{{ centro.idcentur }}</td>
-                            <td class="px-4 py-3 text-sm">{{ centro.nomcentur}}</td>
-                            <td class="px-4 py-3 text-sm">{{ centro.telcentur }}</td>
-                            <td class="px-4 py-3 text-sm">{{ centro.corcentur }}</td>
-                            <td class="px-4 py-3 text-sm">{{ centro.producto.nomproduct }}</td>
+                            <td class="px-4 py-3 text-sm">{{ guias.idguiatur }}</td>
+                            <td class="px-4 py-3 text-sm">{{ guias.nomguiatur}}</td>
+                            <td class="px-4 py-3 text-sm">{{ guias.telguiatur }}</td>
+                            <td class="px-4 py-3 text-sm">{{ guias.corguiatur }}</td>
                             <td class="px-4 py-3 text-sm"><SecondaryButton>Ver</SecondaryButton></td>
                             <td class="px-4 py-3 text-sm"><WarningButton>Edit</WarningButton></td>
                             <td class="px-4 py-3 text-sm"><DangerButton>Elim</DangerButton></td>

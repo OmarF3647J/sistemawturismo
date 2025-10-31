@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\guiasturist;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class GuiasturistController extends Controller
@@ -12,7 +13,10 @@ class GuiasturistController extends Controller
      */
     public function index()
     {
-        //
+        $guiasturist = guiasturist::all();
+        return Inertia::render('Guiasturist/Index', [
+            'guiasturist' => $guiasturist,
+        ]);
     }
 
     /**
