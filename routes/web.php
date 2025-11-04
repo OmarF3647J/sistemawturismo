@@ -41,6 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('centrosturist', App\Http\Controllers\CentrosturistController::class);
     Route::resource('guiasturist', App\Http\Controllers\GuiasturistController::class);
+    Route::resource('actividadturist', App\Http\Controllers\ActividadturistController::class);
+    Route::resource('serviciosturist', App\Http\Controllers\ServiciosturistController::class);
 });
 
 require __DIR__.'/auth.php';

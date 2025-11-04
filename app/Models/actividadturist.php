@@ -15,11 +15,11 @@ class actividadturist extends Model
 
     protected $fillable = ['nomacttur'];
 
-    public function centros() : BelongsToMany {
+    public function centrosturist() : BelongsToMany {
         return $this->belongsToMany(centrosturist::class,'centrosturist_actividadturist','idacttur','idcentur');
     }
 
-    public function guias() : BelongsToMany {
+    public function guiasturist() : BelongsToMany {
         return $this->belongsToMany(guiasturist::class,'guiasturist_actividadturist','idacttur','idguiatur');
     }
 

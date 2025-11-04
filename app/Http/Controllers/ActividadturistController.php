@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\actividadturist;
+use App\Models\guiasturist;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class ActividadturistController extends Controller
@@ -12,7 +14,18 @@ class ActividadturistController extends Controller
      */
     public function index()
     {
-        //
+        // $actividadturist = actividadturist::with('centrosturist','guiasturist')->get();
+        $actividadturist = actividadturist::with('guiasturist')->get();
+        $guiasturist = guiasturist::all();
+        return Inertia::render('Actividadturist/Index', [
+            'actividadturist' => $actividadturist,
+            'guiasturist' => $guiasturist,
+        ]);
+
+        // $actividadturist = actividadturist::all();
+        // return Inertia::render('Actividadturist/Index', [
+        //     'actividadturist' => $actividadturist,
+        // ]);
     }
 
     /**

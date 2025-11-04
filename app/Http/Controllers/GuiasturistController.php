@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\guiasturist;
+use App\Models\actividadturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,13 @@ class GuiasturistController extends Controller
      */
     public function index()
     {
-        $guiasturist = guiasturist::all();
+        $guiasturist = guiasturist::with('actividadturist')->get();
+        // los nombre de las relaciones deben coincidir con los definidos en el modelo
+        // actividadturist es la relacion definida en el modelo guiasturist
+        $actividadturist = actividadturist::all();
         return Inertia::render('Guiasturist/Index', [
             'guiasturist' => $guiasturist,
+            'actividadturist' => $actividadturist,
         ]);
     }
 

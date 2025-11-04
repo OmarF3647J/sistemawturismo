@@ -20,15 +20,15 @@ class centrosturist extends Model
         return $this->belongsTo(producto::class, 'idproduct', 'idproduct');
     }
 
-    public function servicios() : BelongsToMany {
+    public function serviciosturist() : BelongsToMany {
         return $this->belongsToMany(serviciosturist::class,'centrosturist_serviciosturist','idcentur','idsertur');
     }
 
-    public function actividades() : BelongsToMany {
+    public function actividadturist() : BelongsToMany {
         return $this->belongsToMany(actividadturist::class,'centrosturist_actividadturist','idcentur','idacttur');
     }
 
-    public function guias() : BelongsToMany {
+    public function guiasturist() : BelongsToMany {
         return $this->belongsToMany(guiasturist::class,'centrosturist_guiasturist','idcentur','idguiatur');
     }
 }

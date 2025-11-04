@@ -15,7 +15,7 @@ class producto extends Model
 
     protected $fillable = ['nomproduct'];
 
-    public function centros() : HasMany {
+    public function centrosturist() : HasMany {
         return $this->hasMany(centrosturist::class, 'idproduct', 'idproduct');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\centrosturist;
 use App\Models\producto;
+use App\Models\actividadturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -14,14 +15,33 @@ class CentrosturistController extends Controller
      */
     public function index()
     {
+        $centrosturist = centrosturist::with('producto','actividadturist')->get();
+        // los nombre de las relaciones deben coincidir con los definidos en el modelo
+        // producto y actividadturist son las relaciones definidas en el modelo centrosturist
         $productos = producto::all();
-        $centrosturisticos = centrosturist::with('producto:idproduct,nomproduct')->get();
+        $actividadturist = actividadturist::all();
         return Inertia::render('Centrosturist/Index', [
-            'centrosturist' => $centrosturisticos,
+            'centrosturist' => $centrosturist,
             'productos' => $productos,
+            'actividadturist' => $actividadturist,
         ]);
+        
     }
 
+        // $productos = producto::all();
+        // $centrosturisticos = centrosturist::with('producto:idproduct,nomproduct','actividadturist:idacttur,nomacttur')->get();
+        // return Inertia::render('Centrosturist/Index', [
+        //     'centrosturist' => $centrosturisticos,
+        //     'productos' => $productos,
+        //     'actividadturist' => actividadturist::all(),
+        // ]);
+
+        // $centrosturisticos = centrosturist::with('producto:idproduct,nomproduct','actividadturist:idacttur,')->get();
+
+        // return Inertia::render('Centrosturist/Index', [
+        //     'centrosturist' => $centrosturisticos,
+        //     'productos' => $productos,
+        // ]);
     /**
      * Show the form for creating a new resource.
      */

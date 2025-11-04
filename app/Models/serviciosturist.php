@@ -15,7 +15,7 @@ class serviciosturist extends Model
 
     protected $fillable = ['nomsertur'];
 
-    public function centros() : BelongsToMany {
+    public function centrosturist() : BelongsToMany {
         return $this->belongsToMany(centrosturist::class,'centrosturist_serviciosturist','idsertur','idcentur');
     }
 
