@@ -13,14 +13,15 @@ import { ref } from 'vue';
 
 
 const props = defineProps({
-    serviciosturist: {type:Object}
+    serviciosturist: {type:Object},centrosturist: {type:Object}
 });
 
 const form = useForm({
     idsertur: '',
     nomsertur: '',
+    idcentur: '',
 });
-const v = ref({idsertur: '',nomsertur: ''
+const v = ref({idsertur: '',nomsertur: '',centrosturist: []
 
 }); 
 const showModalView = ref(false); //para la vista de detalle
@@ -129,6 +130,21 @@ const closeModalDelete = () => {
                 <p>ID del servicio: <span class="text-lg font-medium text-gray-900">{{ v.idsertur }}</span></p>
                 <p>Nombre del : <span class="text-lg font-medium text-gray-900">{{ v.nomsertur }}</span></p>
                 
+
+
+                <!-- Los guias -->
+                <p>Guias Turísricos que realizan esta actividad: <span class="text-lg font-medium text-gray-900">
+                    <ul class="ml-10 list-disc"> <!-- ml-10 el numero funciona como tabulador o espaciado -->
+                        <!-- actividad es solo una variable par6a el ciclo for -->
+                        <li v-for="centros in v.centrosturist" :key="centros.idcentur" > 
+                            {{ centros.nomcentur }}
+                        </li>
+                    </ul>
+                </span></p>
+
+
+
+
             </div>
             <div class="m-6 flex justify-end">
                 <SecondaryButton @click="closeModalView">Cerrar</SecondaryButton>

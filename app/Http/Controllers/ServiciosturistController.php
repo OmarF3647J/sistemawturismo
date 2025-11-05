@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\serviciosturist;
+use App\Models\centrosturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,11 @@ class ServiciosturistController extends Controller
      */
     public function index()
     {
-        $serviciosturist = serviciosturist::all();
+        $serviciosturist = serviciosturist::with('centrosturist')->get();
+        $centrosturist = centrosturist::all();
         return Inertia::render('Serviciosturist/Index', [
             'serviciosturist' => $serviciosturist,
+            'centrosturist' => $centrosturist,
         ]);
     }
 

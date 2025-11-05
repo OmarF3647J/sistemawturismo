@@ -33,9 +33,10 @@ const form = useForm({
     corcentur: '',
     idproduct: '',
     idacttur: '',
+    idguiatur: '',
 });
 
-const v = ref({idcentur: '',nomcentur: '',telcentur: '',corcentur: '', producto: {nomproduct: ''}, actividadturist: []
+const v = ref({idcentur: '',nomcentur: '',telcentur: '',corcentur: '', producto: {nomproduct: ''}, actividadturist: [],guiasturist: []
 
 });
 
@@ -100,6 +101,7 @@ const closeModalDelete = () => {
                             <th class="px-4 py-3">Telefono</th>
                             <th class="px-4 py-3">Correo</th>
                             <th class="px-4 py-3">Producto Asociado</th>
+                            <th class="px-4 py-3">PDF</th>
                             <th class="px-4 py-3">Detalle</th>
                             <th class="px-4 py-3">Editar</th>
                             <th class="px-4 py-3">Eliminar</th>
@@ -157,6 +159,28 @@ const closeModalDelete = () => {
                         </li>
                     </ul>
                 </span></p>
+
+
+
+
+
+
+                <p>Agencias Turísticas Asociadas: <span class="text-lg font-medium text-gray-900">
+                    <ul class="ml-10 list-disc"> <!-- ml-10 el numero funciona como tabulador o espaciado -->
+                        <!-- actividad es solo una variable par6a el ciclo for -->
+                        <li v-for="guias in v.guiasturist" :key="guias.idguiatur" > 
+                            {{ guias.nomguiatur }}
+                        </li>
+                    </ul>
+                </span></p>
+
+
+
+                
+
+
+
+
             </div>
             <div class="m-6 flex justify-end">
                 <SecondaryButton @click="closeModalView">Cerrar</SecondaryButton>
