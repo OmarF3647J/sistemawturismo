@@ -27,14 +27,14 @@ class DatabaseSeeder extends Seeder
         $actividades = actividadturist::all();
 
         foreach ($centros as $centro) {
-            $centro->servicios()->attach($servicios->random(4)); // 2 servicios
-            $centro->actividades()->attach($actividades->random(4)); // 3 actividades
-            $centro->guias()->attach($guias->random(4)); // 2 guías
+            $centro->serviciosturist()->attach($servicios->random(4)); // 2 servicios
+            $centro->actividadturist()->attach($actividades->random(4)); // 3 actividades
+            $centro->guiasturist()->attach($guias->random(4)); // 2 guías
         }
 
         // Guías con actividades
         foreach ($guias as $guia) {
-            $guia->actividades()->attach($actividades->random(4));
+            $guia->actividadturist()->attach($actividades->random(4));
         }
 
     }

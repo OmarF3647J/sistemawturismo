@@ -233,6 +233,76 @@
 
 
 
+
+
+
+
+
+
+
+
+
+        <li class="relative px-6 py-3">
+          <span 
+            v-show="route().current('producto.*')" 
+            class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" 
+            aria-hidden="true">
+          </span>
+          <button @click="toggleMenu('producto')"
+              class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+              aria-haspopup="true">
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                    </svg>
+                    <span class="ml-4">Categorias centros</span>
+                </span>
+            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+          </button>
+            <ul v-if="showingProductoMenu"
+            class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+                aria-label="submenu">
+              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <NavLink 
+                :href="route('producto.index')" 
+                :active="route().current('producto.index')" 
+                @click="closeAllMenus()"> 
+                  Lista
+                </NavLink>
+              </li>
+              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <NavLink :href="route('producto.create')" 
+                :active="route().current('producto.create')" 
+                @click="closeAllMenus()"> 
+                  Crear
+                </NavLink>
+              </li>
+            </ul>
+        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </ul>
     </div>
   </aside>
@@ -264,6 +334,7 @@ export default {
     const showingGuiasMenu = ref(false)
     const showingActividadMenu = ref(false)
     const showingServiciosMenu = ref(false)
+    const showingProductoMenu = ref(false)
 
 
   // Detectar la ruta actual para mostrar el submenú correspondiente
@@ -300,47 +371,64 @@ export default {
       if (current && current.startsWith('serviciosturist')) {
         showingServiciosMenu.value = true
       }
-    })
+      if (current && current.startsWith('producto')) {
+        showingProductoMenu.value = true
+      }
+    });
 
-      // Función para alternar un menú y cerrar el otro
-    // function toggleMenu(menu) {
-    //   if (menu === 'centros') {
-    //     showingCentrosMenu.value = !showingCentrosMenu.value
-    //     showingGuiasMenu.value = false
-    //   } else if (menu === 'guias') {
-    //     showingGuiasMenu.value = !showingGuiasMenu.value
-    //     showingCentrosMenu.value = false
-    //   } else if (menu === 'actividad') {
-    //     showingActividadMenu.value = !showingActividadMenu.value
-    //     showingServiciosMenu.value = false
-    //   } else if (menu === 'servicios') {
-    //     showingServiciosMenu.value = !showingServiciosMenu.value
-    //     showingActividadMenu.value = false
-    //   }
-    // }
+   
+    // Función para alternar un menú sin cerrar los otros
+    // simplemente cambia el estado del menú seleccionado
     function toggleMenu(menu) {
       if (menu === 'centros') {
         showingCentrosMenu.value = !showingCentrosMenu.value
-        showingGuiasMenu.value = false
-        showingActividadMenu.value = false
-        showingServiciosMenu.value = false
       } else if (menu === 'guias') {
         showingGuiasMenu.value = !showingGuiasMenu.value
-        showingCentrosMenu.value = false
-        showingActividadMenu.value = false
-        showingServiciosMenu.value = false
       } else if (menu === 'actividad') {
         showingActividadMenu.value = !showingActividadMenu.value
-        showingCentrosMenu.value = false
-        showingGuiasMenu.value = false
-        showingServiciosMenu.value = false
       } else if (menu === 'servicios') {
         showingServiciosMenu.value = !showingServiciosMenu.value
-        showingCentrosMenu.value = false
-        showingGuiasMenu.value = false
-        showingActividadMenu.value = false
+      } else if (menu === 'producto') {
+        showingProductoMenu.value = !showingProductoMenu.value
       }
     }
+
+    //--------------------------------------------------------------------------------
+
+    // Función para alternar un menú y cerrar los otros
+    //  function toggleMenu(menu) {
+    //   showingCentrosMenu.value = false
+    //   showingGuiasMenu.value = false
+    //   showingActividadMenu.value = false
+    //   showingServiciosMenu.value = false
+    //   showingProductoMenu.value = false
+
+    //   if (menu === 'centros') {
+    //     showingCentrosMenu.value = true
+    //   } else if (menu === 'guias') {
+    //     showingGuiasMenu.value = true
+    //   } else if (menu === 'actividad') {
+    //     showingActividadMenu.value = true
+    //   } else if (menu === 'servicios') {
+    //     showingServiciosMenu.value = true
+    //   } else if (menu === 'producto') {
+    //     showingProductoMenu.value = true
+    //   }
+    // }
+
+//--------------------------------------------------------------------------------
+
+  // Función para alternar un menú y cerrar los otros 
+  // utilizando un enfoque más conciso
+    // function toggleMenu(menu) {
+    //   showingCentrosMenu.value = menu === 'centros' ? !showingCentrosMenu.value : false
+    //   showingGuiasMenu.value = menu === 'guias' ? !showingGuiasMenu.value : false
+    //   showingActividadMenu.value = menu === 'actividad' ? !showingActividadMenu.value : false
+    //   showingServiciosMenu.value = menu === 'servicios' ? !showingServiciosMenu.value : false
+    //   showingProductoMenu.value = menu === 'producto' ? !showingProductoMenu.value : false
+    // }
+
+
 
     // Cierra todos los menús
     function closeAllMenus() {
@@ -348,6 +436,7 @@ export default {
       showingGuiasMenu.value = false
       showingActividadMenu.value = false
       showingServiciosMenu.value = false
+      showingProductoMenu.value = false
     }
 
     // Retornar los estados y métodos al template
@@ -368,9 +457,10 @@ export default {
       showingGuiasMenu,
       showingActividadMenu,
       showingServiciosMenu,
+      showingProductoMenu,
       toggleMenu,
       closeAllMenus,
     }
-  },
+  }
 }
 </script>

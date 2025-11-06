@@ -18,6 +18,7 @@ class GuiasturistFactory extends Factory
     {
         return [
             'nomguiatur' => $this->faker->name(),
+            'nomresguiatur' => $this->faker->name(),
             'telguiatur' => $this->faker->numerify('##########'),
             'corguiatur' => $this->faker->unique()->safeEmail(),
         ];

@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('guiasturist', App\Http\Controllers\GuiasturistController::class);
     Route::resource('actividadturist', App\Http\Controllers\ActividadturistController::class);
     Route::resource('serviciosturist', App\Http\Controllers\ServiciosturistController::class);
+    Route::resource('producto', App\Http\Controllers\ProductoController::class);
 });
 
 require __DIR__.'/auth.php';

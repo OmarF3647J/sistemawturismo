@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\producto;
+use App\Models\centrosturist;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -12,7 +14,14 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $producto = producto::with('centrosturist')->get();
+        // los nombre de las relaciones deben coincidir con los definidos en el modelo
+        // centrosturist es la relacion definida en el modelo producto
+        $centrosturist = centrosturist::all();
+        return Inertia::render('Producto/Index', [
+            'producto' => $producto,
+            'centrosturist' => $centrosturist,
+        ]);
     }
 
     /**

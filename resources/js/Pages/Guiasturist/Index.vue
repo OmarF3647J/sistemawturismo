@@ -20,12 +20,13 @@ const props = defineProps({
 const form = useForm({
     idguiatur: '',
     nomguiatur: '',
+    nomresguiatur: '',
     telguiatur: '',
     corguiatur: '',
     idacttur: '',
 });
 
-const v = ref({idguiatur: '',nomguiatur: '',telguiatur: '',corguiatur: '', actividadturist: []
+const v = ref({idguiatur: '',nomguiatur: '', nomresguiatur: '',telguiatur: '',corguiatur: '', actividadturist: []
 
 });
 
@@ -91,7 +92,8 @@ const closeModalDelete = () => {
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
                             <th class="px-4 py-3">ID</th>
-                            <th class="px-4 py-3">Nombre</th>
+                            <th class="px-4 py-3">Nombre de la Agencia</th>
+                            <th class="px-4 py-3">Responsable</th>
                             <th class="px-4 py-3">Telefono</th>
                             <th class="px-4 py-3">Correo</th>
                             <th class="px-4 py-3">Detalle</th>
@@ -104,6 +106,7 @@ const closeModalDelete = () => {
                             class="text-gray-700">
                             <td class="px-4 py-3 text-sm">{{ guias.idguiatur }}</td>
                             <td class="px-4 py-3 text-sm">{{ guias.nomguiatur}}</td>
+                            <td class="px-4 py-3 text-sm">{{ guias.nomresguiatur}}</td>
                             <td class="px-4 py-3 text-sm">{{ guias.telguiatur }}</td>
                             <td class="px-4 py-3 text-sm">{{ guias.corguiatur }}</td>
                             <td class="px-4 py-3 text-sm">
@@ -137,7 +140,8 @@ const closeModalDelete = () => {
 
         <Modal :show ="showModalView" @close="closeModalView">
             <div class="p-6">
-                <p>Nombre: <span class="text-lg font-medium text-gray-900">{{ v.nomguiatur }}</span></p>
+                <p>Nombre de la Agencia: <span class="text-lg font-medium text-gray-900">{{ v.nomguiatur }}</span></p>
+                <p>Responsable: <span class="text-lg font-medium text-gray-900">{{ v.nomresguiatur }}</span></p>
                 <p>Teléfono: <span class="text-lg font-medium text-gray-900">{{ v.telguiatur }}</span></p>
                 <p>Correo: <span class="text-lg font-medium text-gray-900">{{ v.corguiatur }}</span></p>
                 
