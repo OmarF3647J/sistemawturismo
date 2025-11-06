@@ -8,6 +8,7 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import WarningButton from '@/Components/WarningButton.vue';
 import DarkButton from '@/Components/DarkButton.vue';
 import InputGroup from '@/Components/InputGroup.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { ref } from 'vue';
 
 
@@ -39,9 +40,20 @@ const openModalView = (actividad) => {
     v.value = actividad;
     showModalView.value = true;
 };
-const openModalForm = () => {
+
+const openModalForm = (op, actividad) => {
+    operation.value = op;
+    if (op === 1) {
+        title.value = 'Crear Actividad Turística';
+        form.reset();
+    } else if (op === 2) {
+        title.value = 'Editar Actividad Turística';
+        form.idacttur = actividad.idacttur;
+        form.nomacttur = actividad.nomacttur;
+    }
     showModalForm.value = true;
 };
+
 const openModalDelete = () => {
     showModalDelete.value = true;
 };
@@ -51,14 +63,60 @@ const openModalDelete = () => {
 const closeModalView = () => {
     showModalView.value = false;
 };
+
 const closeModalForm = () => {
     showModalForm.value = false;
+    form.reset();
+
 };
+
 const closeModalDelete = () => {
     showModalDelete.value = false;
 };
 
 
+
+const guardar = () => {
+    if (operation.value === 1) {
+        form.post('/actividadturist', {
+            onSuccess: () => {
+                ok("Actividad creada con éxito");
+            },
+        });
+    } else if (operation.value === 2) {
+        form.put(`/actividadturist/${form.idacttur}`, {
+            onSuccess: () => {
+                ok('Actividad actualizada con éxito');
+            },
+        });
+    }
+}
+
+//cierra un modal y el otro lo deja abierto(limpia el formulario)
+const ok = (m) => {
+    if (operation.value === 2) {
+        closeModalForm();
+    } 
+    closeModalDelete();
+    form.reset();
+    msj.value = m;
+    classMsj.value = 'block';
+}
+
+
+
+
+
+//cierra ambos modales y muestra el mensaje de exito
+
+// const ok = (m) => {
+//     if (m) {
+//         msj.value = m;
+//         classMsj.value = 'alert-success';
+//     }
+//     closeModalForm();
+    
+// }
 
 </script>
 
@@ -68,7 +126,7 @@ const closeModalDelete = () => {
     <AuthenticatedLayout>
         <template #header>
             Actividades Turísticas
-            <DarkButton>
+            <DarkButton @click="openModalForm(1)">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
                 </svg>
@@ -102,7 +160,7 @@ const closeModalDelete = () => {
                                 </SecondaryButton>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <WarningButton @click="openModalForm(actividad)">
+                                <WarningButton @click="openModalForm(2,actividad)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                     </svg>
@@ -162,13 +220,19 @@ const closeModalDelete = () => {
             <div class="p-6">
                 <h2 class="text-lg font-medium text-gray-900">{{title }}</h2>
                 <div class="mt-6 mb-6 space-y-6 max-w-xl">
-                    
-                    <InputGroup>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        </svg>
 
+                    <InputGroup :text="'Actividad'" :required="'required'" v-model="form.nomacttur" type="text">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                        </svg>
+                        
                     </InputGroup>
+                    
+                    <InputError :message="form.errors.nomacttur" class="mt-2"></InputError>
+                    
+                    <PrimaryButton @click="guardar" >
+                        Guardar
+                    </PrimaryButton>
 
                 </div>
             </div>

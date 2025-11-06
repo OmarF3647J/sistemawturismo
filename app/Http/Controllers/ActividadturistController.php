@@ -41,7 +41,12 @@ class ActividadturistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nomacttur' => 'required|string|max:50',
+        ]);
+        $actividadturist = new Actividadturist($request->input());
+        $actividadturist->save();
+        return redirect()->route('actividadturist.index');
     }
 
     /**
@@ -65,7 +70,11 @@ class ActividadturistController extends Controller
      */
     public function update(Request $request, actividadturist $actividadturist)
     {
-        //
+        $request->validate([
+            'nomacttur' => 'required|string|max:50',
+        ]);
+        $actividadturist->update($request->input());
+        return redirect()->route('actividadturist.index');
     }
 
     /**
@@ -73,6 +82,7 @@ class ActividadturistController extends Controller
      */
     public function destroy(actividadturist $actividadturist)
     {
-        //
+        $actividadturist->delete();
+        return redirect()->route('actividadturist.index');
     }
 }
