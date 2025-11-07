@@ -21,20 +21,8 @@ use Inertia\Inertia;
 |
 */
 
-<<<<<<< Updated upstream
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-=======
 
 // Página principal (Landing Page - /)
-
-
 Route::get('/', [SitioController::class, 'inicio'])->name('inicio');
 Route::get('/centro/{nombre}', [SitioController::class, 'centro'])->name('centro.mostrar');
 Route::get('/guia/{nombre}', [SitioController::class, 'guia'])->name('guia.mostrar');
@@ -53,7 +41,6 @@ Route::get('/apompal', function () {
      //]);
     //return redirect('/dashboard');
 //});
->>>>>>> Stashed changes
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
