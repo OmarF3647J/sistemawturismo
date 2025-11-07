@@ -1,0 +1,65 @@
+/* Preloader styles */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e7e9f0e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #2a9ae4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+/* Spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+/* construccion */
+.const_origen{
+  transform: translateY(20px); /* Desplazado hacia abajo */
+  transition: opacity 2s ease, transform 2s ease; /* Transición suave */
+}
+.construccion{
+  margin: 0;
+  padding-top: 17%;
+  padding-left: 15%;
+  width: 100%;
+  height: 600px;
+  color: #000;
+}
+.texto_construccion{
+  margin-top: 0;
+  padding: 0;
+  width: 60%;
+  text-align: left;
+  font-size: 100px;
+  font-family: "Century Gothic", Arial;
+  color: #000000;
+	position: relative; /* Necesario para posicionar el pseudo-elemento */
+	transition: color 0.3s ease; /* Transición para el color del texto */
+}
+
+
+
+
+
+
+ 

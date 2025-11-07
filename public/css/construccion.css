@@ -1,0 +1,114 @@
+/* icono api whatsapp y footer */
+
+@charset "UTF-8";
+
+body{
+  font-family: Century Gothic, Arial;
+  background: linear-gradient(to bottom, #dfe2ec, #dfe2ec, #dfe2ec, #dfe2ec, #dfe2ec, #dfe2ec, #dfe2ec, #dfe2ec);
+  text-decoration: none;
+  color: #373a49;
+  padding-top: 0;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+h2{
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+h3{
+  color: white;
+}
+h4{
+  color: white;
+}
+
+h5{
+  color: #e6e6ec;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+}
+h5 a{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+a{
+  text-decoration: none;
+  border: none;
+  color: inherit;
+}
+a img {
+  border: none; /* Elimina bordes en navegadores más antiguos */
+}
+
+
+
+/* Appear automatico */
+.appear_auto{
+  margin-top: 10vh; /* Asegurarse de que esté más abajo de la pantalla inicial */
+  opacity: 0; /* Inicialmente invisible */
+  transform: translateY(20px); /* Desplazado hacia abajo */
+  transition: opacity 2s ease, transform 2s ease; /* Transición suave */
+  width: 100%;
+}
+.appear_auto img{
+  width: 100%;
+}
+
+.appear_auto.visible {
+  opacity: 1; /* Aparece gradualmente */
+  transform: translateY(0); /* Se mueve a su posición original */
+}
+
+
+
+/* construccion */
+.const_origen{
+  transform: translateY(20px); /* Desplazado hacia abajo */
+  transition: opacity 2s ease, transform 2s ease; /* Transición suave */
+}
+.construccion{
+  margin: 0;
+  padding-top: 17%;
+  padding-left: 15%;
+  width: 100%;
+  height: 600px;
+  color: #000;
+}
+.texto_construccion{
+  margin-top: 0;
+  padding: 0;
+  width: 60%;
+  text-align: left;
+  font-size: 100px;
+  font-family: "Century Gothic", Arial;
+  color: #000000;
+	position: relative; /* Necesario para posicionar el pseudo-elemento */
+	transition: color 0.3s ease; /* Transición para el color del texto */
+}
+
+/*Estilos para TELEFONOS*/
+@media only screen and (max-width: 768px) {
+  /* Reglas de estilo para tamaños de pantalla de hasta 768 píxeles de ancho */
+
+  body{
+    background:  #dfe2ec;
+  }
+
+  .agrupador_header{
+    margin: 0
+  }
+
+}

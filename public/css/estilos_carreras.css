@@ -1,0 +1,904 @@
+@charset "UTF-8";
+
+body{
+  font-family: Century Gothic, Arial;
+  background-color: #dfe2ec;
+  text-decoration: none;
+  color: #373a49;
+  padding-top: 0
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+h2{
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+h3{
+  color: white;
+}
+
+h4{
+  color: white;
+}
+
+h5{
+  color: #e6e6ec;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+}
+h5 a{
+  text-decoration: none;
+  color: inherit;
+}
+
+a{
+  text-decoration: none;
+  border: none;
+}
+a img {
+  border: none; /* Elimina bordes en navegadores más antiguos */
+}
+
+
+/* Preloader styles */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e7e9f0e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+/* Spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.nombre_carrera{
+  margin-top: 0;
+  padding: 0;
+  width: 45%;
+  text-align: left;
+  font-size: 4rem;
+  font-family: "Century Gothic", Arial;
+  font-style: regular;
+  font-weight: 600;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Sombra gris suave */
+	position: relative; /* Necesario para posicionar el pseudo-elemento */
+	transition: color 0.3s ease; /* Transición para el color del texto */
+}
+.nombre_carrera::after {
+	content: ""; /* Obligatorio para pseudo-elementos */
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0; /* Empieza con un ancho de 0 */
+	height: 3px;
+	background-color: #66dafd; /* Color inicial del borde */
+	transition: width 0.5s ease; /* Efecto suave en la animación */
+  }
+  
+  .nombre_carrera:hover:after {
+	width: 100%; /* Expande el borde hasta el ancho completo */
+  }
+  
+  .nombre_carrera:hover {
+	color: #ffffff; /* Cambia el color del texto al pasar el cursor */
+  }
+
+
+
+
+/* appear_contacto */
+#content {
+  margin-top: 8vh; /* Asegurarse de que esté más abajo de la pantalla inicial */
+  opacity: 0; /* Inicialmente invisible */
+  transform: translateY(20px); /* Desplazado hacia abajo */
+  transition: opacity 2s ease, transform 2s ease; /* Transición suave */
+}
+#content.visible {
+  opacity: 1; /* Aparece gradualmente */
+  transform: translateY(0); /* Se mueve a su posición original */
+}
+
+
+
+/* Estilos contacto*/
+.contacto-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2%;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 85%;
+  margin: 50px auto;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 10px;
+  margin: 1%;
+  padding-bottom: 8px;
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+	transition: color 0.3s ease; /* Transición para el color del texto */
+}
+.contacto-item::after {
+	content: ""; /* Obligatorio para pseudo-elementos */
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0; /* Empieza con un ancho de 0 */
+	height: 3px;
+	background-color: #66dafd; /* Color inicial del borde */
+	transition: width 0.5s ease; /* Efecto suave en la animación */
+  }
+  
+  .contacto-item:hover::after {
+	width: 100%; /* Expande el borde hasta el ancho completo */
+  }
+  
+
+.icon {
+  width: 16%;
+  height: 16%;
+}
+
+.texto_contacto{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px
+}
+
+.btn_enviawsp{
+  margin: auto;
+  width: 25%;
+  background-color: #f7f9ff;
+  padding: 1.5%;
+  color: #09168b;
+  font-size: 110%;
+  font-weight: 600;
+  border: 3px solid  #09168b;
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  transition: transform 0.3s ease; /* Suavidad en la transicion */}
+.btn_enviawsp:hover{
+  transform: scale(0.95); /* Escala al 120% del tamaÃ±o original */
+  background: #09168b;
+  color: #f7f9ff;
+}
+
+
+
+/* Btns planes estudio */
+    .contsPlanEstu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 80%;
+      margin: 1% auto 0;
+      padding: 0;
+    }
+
+    .contPlanEstu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30%;
+      margin: 10px;
+      height: 120px;
+      background-color: #1c1b6a;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      overflow: hidden;
+      text-decoration: none;
+    }
+
+    .contPlanEstu:hover {
+      background-color: #0a1575;
+      transform: scale(1.05);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+
+      
+
+
+
+/*VENTANAS EMERGENTES MISION VISION*/
+    .modalDialogMision,
+    .modalDialogVision,
+    .modalDialogObGe,
+    .modalDialogPerIn,
+    .modalDialogPerEg,
+    .modalDialogCamLa {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 1, 1, 0.8);
+      z-index: 99999;
+      display: flex;
+      align-items: center;  /* Centra verticalmente */
+      justify-content: center;  /* Centra horizontalmente */
+      opacity: 0;
+      transition: opacity 400ms ease-in;
+      pointer-events: none;
+    }
+
+    .modalDialogMision:target,
+    .modalDialogVision:target,
+    .modalDialogObGe:target,
+    .modalDialogPerIn:target,
+    .modalDialogPerEg:target,
+    .modalDialogCamLa:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modalDialogMision > div,
+    .modalDialogVision > div,
+    .modalDialogObGe > div,
+    .modalDialogPerIn > div,
+    .modalDialogCamLa > div,
+    .modalDialogPerEg > div {
+      width: 50%;
+      position: relative;
+      margin: 10% auto;
+      padding: 22px 40px 27px 40px;
+      border-radius: 10px;
+      background: #f0eff7;
+      transition: opacity 400ms ease-in;
+    }
+
+
+
+/*Estilo X de mision vision*/
+    .closeMision,
+    .closeVision,
+    .closeObGe{
+      background: #FFFFFF;
+      color: #000000;
+      line-height: 25px;
+      position: absolute;
+      right: -12px;
+      top: -10px;
+      width: 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 12px;
+      box-shadow: 1px 1px 3px #000;
+    }
+
+    .closeMision:hover,
+    .closeVision:hover,
+    .closeObGe:hover,
+    .closePerIn:hover,
+    .closePerEg:hover,
+    .closeCamLa:hover {
+      background: #21105c;
+      color: white;
+    }
+
+
+
+/*Estilo X de perfiles*/
+    .closePerIn,
+    .closePerEg,
+    .closeCamLa {
+      background: #FFFFFF;
+      color: #000000;
+      line-height: 25px;
+      position: absolute;
+      right: -2px;
+      top: -2px;
+      width: 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 12px;
+      box-shadow: 1px 1px 3px #000;
+    }
+
+
+
+
+
+
+
+/* PERFIL INGRESO-EGRESO, CAMPO LABORAL */
+
+.contPerfilesCampo{
+  margin: auto;
+  box-sizing: border-box; /* Para que el borde no aumente el ancho del elemento */
+  align-items: center;
+  display: flex;
+  width: 70%;
+  height: 70%;
+	border-radius: 15px;
+  border-radius: 15px;
+  padding: 0;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  font-size: 110%;
+  
+}
+
+/*imagen izq*/
+.imagenPerfilesCampo{
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.50);
+}
+
+/*contendor de 3 botones*/
+.contsDerechoPerfil {
+  margin: 0;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  height: 100%;
+  padding: 1px;
+}
+
+
+/*botones perfiles*/
+.contPlanEstuPerfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 7%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  background-color: #f3f1fa;
+  color: #30343a;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid rgb(151, 147, 147);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contPlanEstuPerfil:hover {
+  background-color: #1c1c27;
+  transform: scale(1.04);
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+}
+
+ 
+
+
+/* Reticula Especialidades */
+.descargar_reticula{
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background: linear-gradient(to right, #0b156e, #0b156e, #0a0d36); 
+  color: white;
+  font-size: 150%;
+  margin: 0;
+  border: none;
+}
+.descargar_reticula:hover{
+  background: linear-gradient(to right, #070e4b, #070e4b, #05071d); 
+}
+
+
+/* Especialidades */
+.titulo_reticula{
+	display: block;
+	background: #9D2449;
+	width: 100%;
+	color: white;
+	font-family: "Century Gothic", Arial;
+	font-size: 160%;
+	padding: 3%;
+  padding-bottom: 1%;
+  justify-content: center;
+}
+
+.reticula{
+	text-align: center;
+	align-items: center;
+  display: flex;
+  flex-wrap: wrap; /* Para permitir que los elementos se envuelvan cuando no haya suficiente espacio */
+	background: #9D2449;
+	font-family: "Century Gothic", Arial;
+	color: white;
+	padding-left: 15%;
+	padding-right: 15%;
+	padding-top: 2%;
+	padding-bottom: 5%;
+}
+
+
+
+/*PDFS*/
+  /* Estilos del botón */
+  .btn-pdf {
+    margin: auto;
+    box-sizing: border-box; /* Para que el borde no aumente el ancho del elemento */
+    width: 40%;
+    height: 50%;
+    background: #621132;
+    font-size: 110%;
+    padding: 3%;
+    color: white;
+    transition: background-color 0.3s;
+    border: none;
+  }
+  .btn-pdf:hover {
+    background: #560d2b;
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.50);
+  }
+
+
+  /* Estilos del fondo de la ventana modal */
+  .modal-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;   /* Centra la emergente de PDF*/
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+  }
+  /* Estilos de la ventana modal */
+  .modal-content {
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+  /* Estilos del botón de cierre */
+  .close-btn {
+    margin-top: 1%;
+    position: absolute;
+    width: 35px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    background: red;
+    border-radius: 12px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+  /*Carrusel*/
+  * {
+    box-sizing: border-box;
+  }
+
+  .main-gallery {
+    width: 50%;
+    max-width: 800px;  /* Define un ancho máximo */
+    margin: 0 auto;  /* Centra el carrusel */
+    padding: 0;
+  }
+
+  .gallery-cell {
+    width: 100%; /* Ajusta al tamaño del carrusel */
+    margin-right: 10px;
+    height: 450px;
+  }
+
+  .gallery-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen sin deformarla */
+  }
+  /*fin*/
+
+
+
+  /* Estilos del iframe para mostrar el PDF */
+  .modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+/* Estilos de Galerias */
+.gallery-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.carousel-container-l {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.main-image-l {
+  flex: 2;
+  margin-right: 20px;
+}
+
+.main-image-l img, .thumbnail-l {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease;
+}
+
+.thumbnail-l {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.thumbnail-l:hover, .thumbnail-l.active {
+  opacity: 1;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+}
+
+.thumbnails-l {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  align-self: center;
+}
+
+
+
+
+
+/*Tablas pdfs semestres*/
+.cont_tablas_semestres{
+  margin: 0;
+  width: 70%;
+  padding: 0;
+}
+ /*Navbar semestres*/
+.tabs {
+  font-family: Century Gothic, sans-serif;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Estilo para los enlaces de las pestañas */
+.tab-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border-bottom: 2px solid #ccc;
+}
+
+.tab-links li {
+  width: 10%;
+}
+
+.tab-links a {
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  width: 100%; /* Ocupar todo el ancho del contenedor */
+
+}
+
+.tab-links a:hover {
+  color: white;
+  background-color: #9ed8f9;
+  text-decoration: none;
+}
+
+.tab-links .active a {
+  background-color: #2e3bd3;
+  text-decoration: none;
+}
+
+/* Estilo para el contenido de las pestañas */
+.tab-content .tab {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border: none;
+}
+
+.tab-content .tab.active {
+  display: block;
+}
+
+
+
+
+/* Estilo general para la tabla de materias */
+.custom-table {
+  margin: 0;
+  width: 100%;
+  border-collapse: collapse; /* Elimina los espacios entre bordes */
+  text-align: left; /* Alinea el texto a la izquierda */
+  font-family: Century Gothic, sans-serif; /* Fuente genérica */
+  border-collapse: collapse; /* Eliminar los bordes entre celdas */
+  padding: 0;
+}
+
+/* Encabezado de la tabla */
+.custom-table .table-header {
+  background-color: #212756; /* Color de fondo para la fila del encabezado */
+  font-weight: bold; /* Texto en negrita */
+  color: white;
+}
+
+/* Bordes y relleno para las celdas */
+.custom-table th{
+  padding: 8px; /* Espaciado interno */
+  border: none; /* Sin bordes entre las celdas */
+  height: 40px;
+  font-size: 90%;
+  color: #e8ecf0;
+}
+.custom-table td {
+  padding: 5px 8px 5px 8px; /* Espaciado interno */
+  border: none; /* Sin bordes entre las celdas */
+  height: 40px;
+  font-size: 90%;
+  color: #1a1d20;
+  font-style: normal;
+}
+
+/* Estilo alternativo para las filas (opcional) */
+.custom-table tr:nth-child(even) {
+  background-color: #f3f2ff; /* Color de fondo alterno para filas pares */
+}
+
+
+
+
+
+
+
+/*Estilos para TELEFONOS*/
+@media only screen and (max-width: 768px) {
+    /* Reglas de estilo para tamaños de pantalla de hasta 768 píxeles de ancho */
+
+  body{
+    background-color: #dfe2ec;
+  }
+
+
+  .agrupador_header{
+    margin: 0
+  }
+
+  /*ítem contacto*/
+  .contacto-container{
+    display: block;
+  }
+  .contacto-item {
+    display: block;
+    align-items: center;
+    text-align: left;
+    width: 95%;
+    margin-bottom: 10%;
+  }
+  .btn_enviawsp{
+    width: 85%;
+    padding: 4%;
+  }
+
+
+
+  /*--------------------------------*/
+	.contPlanEstu{
+		width: 100%;
+		font-size: 130%;
+    padding: 0;
+    margin: 0 0 20px 0;
+
+	}
+	
+
+  .modalDialogMision > div{
+    width: 85%;
+  } 
+  .modalDialogVision > div{
+    width: 85%;
+  }
+  .modalDialogObGe > div{
+    width: 85%;
+  }
+  .modalDialogPerIn > div{
+    width: 85%;
+  }
+  .modalDialogCamLa > div {
+     width: 85%;
+  }
+  .modalDialogPerEg > div{
+    width: 95%;
+    font-size: 85%;
+  }
+
+
+
+  /*--------------------------------*/
+  .contPerfilesCampo{
+    width: 95%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .imagenPerfilesCampo{
+    width: 100%;
+    margin-bottom: 5%;
+  }
+
+  .contsDerechoPerfil{
+    width: 90%;
+  }
+
+  .cont_botones_perfiles{
+    width: 100%;
+  }
+
+  .main-gallery {
+    width: 100%;
+  }
+  .gallery-cell {
+    height: 320px;
+  }
+
+
+  
+
+/* Reticula Especialidades */
+  .descargar_reticula{
+    padding-top: 3.5%;
+    padding-bottom: 3.5%;
+  }
+  
+  .titulo_reticula{
+  	padding-top: 9%;
+  }
+
+  .reticula{
+  	padding-bottom: 12%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .btn-pdf{
+  	width: 87%;
+  	margin-top: 4%;
+  }
+
+/*-------------Galerias----------*/
+  .carousel-container-l {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 95%;
+    border-radius: 0;
+}
+
+.main-image-l {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: 0;
+    border-radius: 0;
+    margin-bottom: 5%
+}
+.main-image-l img, .thumbnail-l {
+  height: auto;
+  margin: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease;
+}
+
+/*--------------------------------*/
+  .cont_tablas_semestres{
+    margin: 0;
+    width: 98%;
+  }
+  /* Estilo alternativo para las filas*/
+  .custom-table tr:nth-child(even) {
+    background-color: #eae8fc; /* Color de fondo alterno para filas pares */
+  }
+
+ }/*fin condicion moviles*/
+
+
+
+ /*Estilos para pantallas mas GRANDES*/
+ @media only screen and (min-width: 1367px) {
+
+    .fondo_carrera{
+      padding-top: 10%;
+    }
+
+    .nombre_carrera{
+      width: 30%; 
+   }
+
+   /*botones perfiles*/
+    .contPlanEstuPerfil {
+      height: 120%;
+      padding: 10%;
+    }
+
+
+    .carousel-container-l{
+      width: 150%;
+    }
+
+
+
+} /*fin para pantallas mas grandes*/
+ 
