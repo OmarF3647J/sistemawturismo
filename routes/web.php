@@ -22,10 +22,12 @@ use Inertia\Inertia;
 */
 
 
+
 // Página principal (Landing Page - /)
+
+
 Route::get('/', [SitioController::class, 'inicio'])->name('inicio');
 Route::get('/centro/{nombre}', [SitioController::class, 'centro'])->name('centro.mostrar');
-Route::get('/guia/{nombre}', [SitioController::class, 'guia'])->name('guia.mostrar');
 
 Route::get('/apompal', function () {
     return view('apompal');
@@ -41,6 +43,7 @@ Route::get('/apompal', function () {
      //]);
     //return redirect('/dashboard');
 //});
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

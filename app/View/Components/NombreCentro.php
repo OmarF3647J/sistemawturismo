@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\View\Component;  
 use Illuminate\Contracts\View\View;
-use App\Models\Centrosturist; 
+use App\Models\CentroTurist; 
 
 
 
@@ -19,7 +19,7 @@ class NombreCentro extends Component
     public function __construct($id)
     {
         // 1. Buscamos el centro en la base de datos usando la ID
-        $centro = Centrosturist::find($id);
+        $centro = CentroTurist::find($id);
 
         // 2. Almacenamos el nombre (o un valor por defecto)
         $this->nombreCentro = $centro ? $centro->nomcentur : 'Centro no encontrado';
