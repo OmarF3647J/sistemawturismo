@@ -183,7 +183,7 @@
 <br>
 
 
-<!--Menpu centros ecoturisticos-->
+<!--Menu centros ecoturisticos-->
 <div style="text-align: center;">
   <h2>Centros Ecoturísticos</h2>
   <h3><b>en la región de los Tuxtlas.</b></h3>
