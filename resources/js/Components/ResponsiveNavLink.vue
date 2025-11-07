@@ -2,8 +2,15 @@
   <span v-show="active" class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg bg-purple-600" aria-hidden="true"></span>
   <div class="flex">
     <slot name="icon" />
-    <Link :href="href" class="inline-flex w-full items-center justify-between text-sm font-semibold transition-colors duration-150 hover:text-gray-800">
-      <span class="ml-4">
+    <Link :href="href" 
+    :class="[
+        'inline-flex w-full items-center justify-between text-sm font-semibold transition-colors duration-150 hover:text-gray-800',
+        active
+          ? 'text-purple-700 bg-purple-100'
+          : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
+      ]"  
+    >
+    <span class="ml-4">
         <slot />
       </span>
     </Link>

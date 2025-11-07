@@ -19,6 +19,7 @@ const props = defineProps({
 		</template>
 		
 		<div class="p-4 bg-white rounded-lg shadow-xs">
+			
 			<div class="inline-flex overflow-hidden mb-4 w-full bg-white rounded-lg shadow-md">
 				<div class="flex justify-center items-center w-12 bg-blue-500">
 					<svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
