@@ -35,7 +35,12 @@ class ServiciosturistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nomsertur' => 'required|string|max:25',
+        ]); 
+        $serviciosturist = new Serviciosturist($request->input());
+        $serviciosturist->save();
+        return redirect()->route('serviciosturist.index');
     }
 
     /**
@@ -59,7 +64,11 @@ class ServiciosturistController extends Controller
      */
     public function update(Request $request, serviciosturist $serviciosturist)
     {
-        //
+        $request->validate([
+            'nomsertur' => 'required|string|max:25',
+        ]);
+        $serviciosturist->update($request->input());
+        return redirect()->route('serviciosturist.index');
     }
 
     /**
@@ -67,6 +76,7 @@ class ServiciosturistController extends Controller
      */
     public function destroy(serviciosturist $serviciosturist)
     {
-        //
+        $serviciosturist->delete();
+        return redirect()->route('serviciosturist.index');
     }
 }

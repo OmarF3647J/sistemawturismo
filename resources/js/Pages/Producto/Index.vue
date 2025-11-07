@@ -8,10 +8,11 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import WarningButton from '@/Components/WarningButton.vue';
 import DarkButton from '@/Components/DarkButton.vue';
 import InputGroup from '@/Components/InputGroup.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { ref } from 'vue';
 
 const props = defineProps({
-    producto: {type:Object}
+    producto: {type:Object}, centrosturist: {type:Object},
 });
 
 const form = useForm({
@@ -39,7 +40,16 @@ const openModalView = (producto) => {
     v.value = producto;
     showModalView.value = true;
 };
-const openModalForm = () => {
+const openModalForm = (op, producto) => {
+    operation.value = op;
+    if (op === 1) {
+        title.value = 'Crear Categoría Turística';
+        form.reset();
+    } else if (op === 2) {
+        title.value = 'Editar Categoría Turística';
+        form.idproduct = producto.idproduct;
+        form.nomproduct = producto.nomproduct;
+    }
     showModalForm.value = true;
 };
 const openModalDelete = () => {
@@ -53,10 +63,48 @@ const closeModalView = () => {
 };
 const closeModalForm = () => {
     showModalForm.value = false;
+    form.reset();
 };
 const closeModalDelete = () => {
     showModalDelete.value = false;
 };
+
+
+
+
+
+
+const guardar = () => {
+    if (operation.value === 1) {
+        form.post('/producto', {
+            onSuccess: () => {
+                ok("Categoría creada con éxito");
+            },
+        });
+    } else if (operation.value === 2) {
+        form.put(`/producto/${form.idproduct}`, {
+            onSuccess: () => {
+                ok('Categoría actualizada con éxito');
+            },
+        });
+    }
+}
+
+//cierra un modal y el otro lo deja abierto(limpia el formulario)
+const ok = (m) => {
+    if (operation.value === 2) {
+        closeModalForm();
+    } 
+    closeModalDelete();
+    form.reset();
+    msj.value = m;
+    classMsj.value = 'block';
+}
+
+
+
+
+
 
 
 
@@ -67,8 +115,8 @@ const closeModalDelete = () => {
     
     <AuthenticatedLayout>
         <template #header>
-            Actividades Turísticas
-            <DarkButton>
+            Categorías Turísticas
+            <DarkButton @click="openModalForm(1)">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
                 </svg>
@@ -102,7 +150,7 @@ const closeModalDelete = () => {
                                 </SecondaryButton>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <WarningButton @click="openModalForm(producto)">
+                                <WarningButton @click="openModalForm(2,producto)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                     </svg>
@@ -136,12 +184,12 @@ const closeModalDelete = () => {
 
         <Modal :show ="showModalView" @close="closeModalView">
             <div class="p-6">
-                <p>ID de la categoria: <span class="text-lg font-medium text-gray-900">{{ v.idproduct }}</span></p>
-                <p>Nombre de la categoria: <span class="text-lg font-medium text-gray-900">{{ v.nomproduct }}</span></p>
+                <p>ID de la categoría: <span class="text-lg font-medium text-gray-900">{{ v.idproduct }}</span></p>
+                <p>Nombre de la categoría: <span class="text-lg font-medium text-gray-900">{{ v.nomproduct }}</span></p>
                 
 
                 <!-- Los guias -->
-                <p>Centros Trísticos asociados a esta categoria: <span class="text-lg font-medium text-gray-900">
+                <p>Centros Trísticos asociados a esta categoría: <span class="text-lg font-medium text-gray-900">
                     <ul class="ml-10 list-disc"> <!-- ml-10 el numero funciona como tabulador o espaciado -->
                         <!-- actividad es solo una variable par6a el ciclo for -->
                         <li v-for="centro in v.centrosturist" :key="centro.idcentur" > 
@@ -160,7 +208,23 @@ const closeModalDelete = () => {
 
         <Modal :show ="showModalForm" @close="closeModalForm">
             <div class="p-6">
+                <h2 class="text-lg font-medium text-gray-900">{{title }}</h2>
+                <div class="mt-6 mb-6 space-y-6 max-w-xl">
 
+                    <InputGroup :text="'Categoria'" :required="'required'" v-model="form.nomproduct" type="text">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                        </svg>
+                        
+                    </InputGroup>
+                    
+                    <InputError :message="form.errors.nomproduct" class="mt-2"></InputError>
+                    
+                    <PrimaryButton @click="guardar" >
+                        Guardar
+                    </PrimaryButton>
+
+                </div>
             </div>
             <div class="m-6 flex justify-end">
                 <SecondaryButton @click="closeModalForm">Cerrar</SecondaryButton>

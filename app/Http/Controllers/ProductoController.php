@@ -37,7 +37,12 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nomproduct' => 'required|string|max:50',
+        ]); 
+        $producto = new Producto($request->input());
+        $producto->save();
+        return redirect()->route('producto.index');
     }
 
     /**
@@ -61,7 +66,11 @@ class ProductoController extends Controller
      */
     public function update(Request $request, producto $producto)
     {
-        //
+        $request->validate([
+            'nomproduct' => 'required|string|max:50',
+        ]);
+        $producto->update($request->input());
+        return redirect()->route('producto.index');
     }
 
     /**
@@ -69,6 +78,7 @@ class ProductoController extends Controller
      */
     public function destroy(producto $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('producto.index');
     }
 }

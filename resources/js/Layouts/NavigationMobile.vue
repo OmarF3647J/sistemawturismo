@@ -34,34 +34,24 @@
             </ResponsiveNavLink>
           </li>
 
-          <li class="relative px-6 py-3">
-            <ResponsiveNavLink :href="route('users.index')" :active="route().current('users.index')">
-              <template #icon>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                     xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                </svg>
-              </template>
-              Users
-            </ResponsiveNavLink>
-          </li>
 
-          <li class="relative px-6 py-3">
-            <ResponsiveNavLink :href="route('centrosturist.index')" :active="route().current('centrosturist.index')">
-              <template #icon>
-                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                     stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                      d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
-                </svg>
-              </template>
-              About us
-            </ResponsiveNavLink>
-          </li>
+          
+
+
+
+          
 
         <li class="relative px-6 py-3">
-          <button @click="showingTwoLevelMenu = !showingTwoLevelMenu"
+
+
+          <span 
+            v-show="route().current('centrosturist.*')" 
+            class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" 
+            aria-hidden="true">
+          </span>
+
+
+          <button @click="toggleMenu('centros')"
               class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
               aria-haspopup="true">
                 <span class="inline-flex items-center">
@@ -76,13 +66,28 @@
                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                     clip-rule="evenodd"></path>
             </svg>
+
+
+
           </button>
-            <ul v-show="showingTwoLevelMenu" class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+
+
+            <ul v-if="showingCentrosMenu" 
+            class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
                 aria-label="submenu">
               <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <a class="w-full" href="#">Child menu</a>
+                <ResponsiveNavLink :href="route('centrosturist.index')" :active="route().current('centrosturist.index')" @click="closeAllMenus()"> 
+                  Lista
+                </ResponsiveNavLink>
+              </li>
+              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <ResponsiveNavLink :href="route('centrosturist.create')" :active="route().current('centrosturist.create')" @click="closeAllMenus()"> 
+                  Crear
+                </ResponsiveNavLink>
               </li>
             </ul>
+
+
         </li>
         </ul>
       </div>
@@ -90,10 +95,159 @@
   </transition>
 </template>
 
-<script setup>
+<script>
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue'
 import { Link } from '@inertiajs/vue3';
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
-let showingTwoLevelMenu = ref(false)
+
+export default {
+  components: {
+    ResponsiveNavLink,
+    Link,
+  },
+
+  setup() {
+
+    // Estados para controlar la visibilidad de los submenús
+    // utilizando la función ref de Vue 3
+    // para crear referencias reactivas
+    // que permiten que el DOM se actualice automáticamente
+    // cuando cambian los valores de estas referencias
+    // esto es útil para manejar la visibilidad
+    // de los submenús en función de las interacciones del usuario
+    const showingCentrosMenu = ref(false)
+    const showingGuiasMenu = ref(false)
+    const showingActividadMenu = ref(false)
+    const showingServiciosMenu = ref(false)
+    const showingProductoMenu = ref(false)
+
+
+  // Detectar la ruta actual para mostrar el submenú correspondiente
+  // al cargar el componente por primera vez si la ruta coincide
+  // con alguna de las rutas de los submenús 
+  // utilizando el ciclo de vida onMounted de Vue 3 
+  // para ejecutar el código después de que el componente
+  // haya sido montado en el DOM
+  // de esta manera se asegura que el DOM esté listo
+  // antes de intentar acceder a la ruta actual
+  // y se evita cualquier error relacionado con el acceso
+  // a propiedades que aún no están disponibles
+
+    // onMounted(() => {
+    //   const current = route().current()
+    //   if (current?.startsWith('centrosturist')) showingCentrosMenu.value = true
+    //   if (current?.startsWith('guiasturist')) showingGuiasMenu.value = true
+    //   if (current?.startsWith('actividadturist')) showingActividadMenu.value = true
+    //   if (current?.startsWith('serviciosturist')) showingServiciosMenu.value = true
+    // })
+
+
+    onMounted(() => {
+      const current = route().current()
+      if (current && current.startsWith('centrosturist')) {
+        showingCentrosMenu.value = true
+      }
+      if (current && current.startsWith('guiasturist')) {
+        showingGuiasMenu.value = true
+      }
+      if (current && current.startsWith('actividadturist')) {
+        showingActividadMenu.value = true
+      }
+      if (current && current.startsWith('serviciosturist')) {
+        showingServiciosMenu.value = true
+      }
+      if (current && current.startsWith('producto')) {
+        showingProductoMenu.value = true
+      }
+    });
+
+   
+    // Función para alternar un menú sin cerrar los otros
+    // simplemente cambia el estado del menú seleccionado
+    function toggleMenu(menu) {
+      if (menu === 'centros') {
+        showingCentrosMenu.value = !showingCentrosMenu.value
+      } else if (menu === 'guias') {
+        showingGuiasMenu.value = !showingGuiasMenu.value
+      } else if (menu === 'actividad') {
+        showingActividadMenu.value = !showingActividadMenu.value
+      } else if (menu === 'servicios') {
+        showingServiciosMenu.value = !showingServiciosMenu.value
+      } else if (menu === 'producto') {
+        showingProductoMenu.value = !showingProductoMenu.value
+      }
+    }
+
+    //--------------------------------------------------------------------------------
+
+    // Función para alternar un menú y cerrar los otros
+    //  function toggleMenu(menu) {
+    //   showingCentrosMenu.value = false
+    //   showingGuiasMenu.value = false
+    //   showingActividadMenu.value = false
+    //   showingServiciosMenu.value = false
+    //   showingProductoMenu.value = false
+
+    //   if (menu === 'centros') {
+    //     showingCentrosMenu.value = true
+    //   } else if (menu === 'guias') {
+    //     showingGuiasMenu.value = true
+    //   } else if (menu === 'actividad') {
+    //     showingActividadMenu.value = true
+    //   } else if (menu === 'servicios') {
+    //     showingServiciosMenu.value = true
+    //   } else if (menu === 'producto') {
+    //     showingProductoMenu.value = true
+    //   }
+    // }
+
+//--------------------------------------------------------------------------------
+
+  // Función para alternar un menú y cerrar los otros 
+  // utilizando un enfoque más conciso
+    // function toggleMenu(menu) {
+    //   showingCentrosMenu.value = menu === 'centros' ? !showingCentrosMenu.value : false
+    //   showingGuiasMenu.value = menu === 'guias' ? !showingGuiasMenu.value : false
+    //   showingActividadMenu.value = menu === 'actividad' ? !showingActividadMenu.value : false
+    //   showingServiciosMenu.value = menu === 'servicios' ? !showingServiciosMenu.value : false
+    //   showingProductoMenu.value = menu === 'producto' ? !showingProductoMenu.value : false
+    // }
+
+
+
+    // Cierra todos los menús
+    function closeAllMenus() {
+      showingCentrosMenu.value = false
+      showingGuiasMenu.value = false
+      showingActividadMenu.value = false
+      showingServiciosMenu.value = false
+      showingProductoMenu.value = false
+    }
+
+    // Retornar los estados y métodos al template
+    // para que puedan ser utilizados
+    // en la sección de template del componente Vue 
+    // y en otras partes del componente
+    // como en los manejadores de eventos
+    // y las directivas de visibilidad
+    // por ejemplo v-show
+    // de esta manera se logra una mejor organización
+    // y reutilización del código dentro del componente Vue
+    // además de facilitar el mantenimiento y la comprensión del mismo
+    // al tener una estructura clara y modular
+    // lo que es especialmente útil en componentes Vue
+    // más complejos con múltiples funcionalidades
+    return {
+      showingCentrosMenu,
+      showingGuiasMenu,
+      showingActividadMenu,
+      showingServiciosMenu,
+      showingProductoMenu,
+      toggleMenu,
+      closeAllMenus,
+    }
+  }
+}
+
 </script>

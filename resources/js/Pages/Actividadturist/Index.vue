@@ -14,7 +14,7 @@ import { ref } from 'vue';
 
 
 const props = defineProps({
-    actividadturist: {type:Object}
+    actividadturist: {type:Object}, guiasturist: {type:Object},
 });
 
 const form = useForm({
