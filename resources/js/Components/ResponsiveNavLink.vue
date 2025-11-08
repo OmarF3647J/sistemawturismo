@@ -4,7 +4,7 @@
     <slot name="icon" />
     <Link :href="href" 
     :class="[
-        'inline-flex w-full items-center justify-between text-sm font-semibold transition-colors duration-150 hover:text-gray-800',
+        'inline-flex w-full items-center justify-between text-sm font-semibold transition-colors duration-150 hover:text-gray-800 rounded-lg',
         active
           ? 'text-purple-700 bg-purple-100'
           : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'

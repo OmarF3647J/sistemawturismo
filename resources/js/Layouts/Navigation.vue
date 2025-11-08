@@ -120,182 +120,52 @@
 
 
 
-
-
-
-
-
-
-
-
-
         <li class="relative px-6 py-3">
-          <span 
-            v-show="route().current('actividadturist.*')" 
-            class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" 
-            aria-hidden="true">
-          </span>
-          <button @click="toggleMenu('actividad')"
-              class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-              aria-haspopup="true">
-                <span class="inline-flex items-center">
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+          <NavLink :href="route('actividadturist.index')" :active="route().current('actividadturist.*')">
+                <template #icon>
+                    <svg class="w-6 h-6 " aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                          stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                     </svg>
-                    <span class="ml-4">Actividades Turísticas</span>
-                </span>
-            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"></path>
-            </svg>
-          </button>
-            <ul v-if="showingActividadMenu" 
-            class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
-                aria-label="submenu">
-              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <NavLink :href="route('actividadturist.index')" :active="route().current('actividadturist.index')" @click="closeAllMenus()"> 
-                  Lista
-                </NavLink>
-              </li>
-              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <NavLink :href="route('actividadturist.create')" :active="route().current('actividadturist.create')" @click="closeAllMenus()"> 
-                  Crear
-                </NavLink>
-              </li>
-            </ul>
+                    
+                </template>
+
+            Actividades Turísticas
+          </NavLink>
         </li>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
         <li class="relative px-6 py-3">
-          <span 
-            v-show="route().current('serviciosturist.*')" 
-            class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" 
-            aria-hidden="true">
-          </span>
-          <button @click="toggleMenu('servicios')"
-              class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-              aria-haspopup="true">
-                <span class="inline-flex items-center">
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+          <NavLink :href="route('serviciosturist.index')" :active="route().current('serviciosturist.*')">
+                <template #icon>
+                    <svg class="w-6 h-6 " aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                          stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                     </svg>
-                    <span class="ml-4">Actividades Turísticas</span>
-                </span>
-            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"></path>
-            </svg>
-          </button>
-            <ul v-if="showingServiciosMenu"
-            class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
-                aria-label="submenu">
-              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <NavLink 
-                :href="route('serviciosturist.index')" 
-                :active="route().current('serviciosturist.index')" 
-                @click="closeAllMenus()"> 
-                  Lista
-                </NavLink>
-              </li>
-              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <NavLink :href="route('serviciosturist.create')" 
-                :active="route().current('serviciosturist.create')" 
-                @click="closeAllMenus()"> 
-                  Crear
-                </NavLink>
-              </li>
-            </ul>
+                </template>
+            Servicios Turísticos
+          </NavLink>
         </li>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
 
 
         <li class="relative px-6 py-3">
-          <span 
-            v-show="route().current('producto.*')" 
-            class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" 
-            aria-hidden="true">
-          </span>
-          <button @click="toggleMenu('producto')"
-              class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-              aria-haspopup="true">
-                <span class="inline-flex items-center">
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+          <NavLink :href="route('producto.index')" :active="route().current('producto.*')">
+                <template #icon>
+                    <svg class="w-6 h-6 " aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                          stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                     </svg>
-                    <span class="ml-4">Categorias centros</span>
-                </span>
-            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"></path>
-            </svg>
-          </button>
-            <ul v-if="showingProductoMenu"
-            class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
-                aria-label="submenu">
-              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <NavLink 
-                :href="route('producto.index')" 
-                :active="route().current('producto.index')" 
-                @click="closeAllMenus()"> 
-                  Lista
-                </NavLink>
-              </li>
-              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <NavLink :href="route('producto.create')" 
-                :active="route().current('producto.create')" 
-                @click="closeAllMenus()"> 
-                  Crear
-                </NavLink>
-              </li>
-            </ul>
+                </template>
+            Categorias centros
+          </NavLink>
         </li>
-
-
-
-
-
-
-
-
-
 
 
 

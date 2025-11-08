@@ -53,8 +53,11 @@ const openModalForm = (op,servicios) => {
     showModalForm.value = true;
 };
 
-const openModalDelete = () => {
+const openModalDelete = (servicios) => {
     showModalDelete.value = true;
+    v.value = servicios;
+    value.idsertur = servicios.idsertur;
+    value.nomsertur = servicios.nomsertur;
 };
 
 
@@ -99,9 +102,31 @@ const ok = (m) => {
     form.reset();
     msj.value = m;
     classMsj.value = 'block';
+    setTimeout(() => {
+        classMsj.value = 'hidden';
+    }, 5000);
 }
 
 
+//cierra ambos modales y muestra el mensaje de exito
+
+// const ok = (m) => {
+//     if (m) {
+//         msj.value = m;
+//         classMsj.value = 'alert-success';
+//     }
+//     closeModalForm();
+    
+// }
+
+// función para eliminar actividad turística
+const deleteServicios = () => {
+    form.delete(route('serviciosturist.destroy', v.value.idsertur), {
+        onSuccess: () => {
+            ok('Servicio eliminado con éxito');
+        },
+    });
+};
 
 
 
@@ -121,6 +146,28 @@ const ok = (m) => {
             </DarkButton>
         </template>
         
+
+
+            <div class="inline-flex overflow-hidden mb-4 w-full bg-white rounded-lg shadow-md" :class="classMsj" v-if="msj">
+                <!-- oculta el mensaje  -->
+                <!-- En el video no se agrega la siguiente linea v-if="msj -->
+				<div class="flex justify-center items-center w-12 bg-green-500">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+				</div>
+				
+				<div class="px-4 py-2 -mx-3">
+					<div class="mx-3">
+						<span class="font-semibold text-green-600">Succes</span>
+						<p class="text-sm text-gray-600">{{ msj }}</p>
+					</div>
+				</div>
+			</div>
+
+
+
         <div class="w-full overflow-hidden rounded-lg border shadow-md">
             <div class="w-full overflow-x-auto bg-white">
                 <table class="w-full whitespace-no-wrap">
@@ -228,7 +275,28 @@ const ok = (m) => {
 
         <Modal :show ="showModalDelete" @close="closeModalDelete">
             <div class="p-6">
+                <p class="text-2xl text-gray-500">
+                    Estas seguro de eliminar el servicio turístico: 
+                    <span class="text-2xl font-medium text-gray-900">{{ v.nomsertur }}</span> ?</p>
 
+                    <!-- Una forma de eliminar (es necesario hacer una función función "deleteActividad" que se relaciones con el controlador)-->
+                     <!-- se pasa el parametro actividad a openModalDelete -->
+                    <PrimaryButton @click = "deleteServicios">
+                        Si, Eliminar
+                    </PrimaryButton>
+
+
+
+                    <!-- Una forma de eliminar (sin necesidad de hacer uan función "deleteActividad")-->
+                     
+                    <!-- <PrimaryButton @click ="form.delete(`/actividadturist/${v.idacttur}`, {
+                        onSuccess: () => {
+                            ok('Actividad eliminada con éxito');
+                        },
+                    })" class="mt-6 bg-red-600 hover:bg-red-700 focus:border-red-700 focus:ring-red-700">   
+
+                        Si, Eliminar
+                    </PrimaryButton> -->
             </div>
             <div class="m-6 flex justify-end">
                 <SecondaryButton @click="closeModalDelete">Cerrar</SecondaryButton>
