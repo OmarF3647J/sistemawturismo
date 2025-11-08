@@ -725,9 +725,7 @@ width: 100%; /* Expande el borde hasta el ancho completo */
     align-self: flex-start;
   }
   
-  .thumbnail-l {
-    /* No se necesita flex-basis aquí, ya que Grid lo maneja */
-  }
+
 
   .main-image-l img {
     width: 100%;
