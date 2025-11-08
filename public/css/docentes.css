@@ -2,14 +2,14 @@
     width: 90%;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgb(241, 243, 255);
+    background-color: #f2f3fb;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .docentes {
     text-align: center;
 }
 .titulo-docentes {
-    color: #1B396A;
+    color: #1c1a6a;
 }
 .grid {
     display: flex;
@@ -24,10 +24,11 @@
 .img-docente {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
-    border: 2px solid #2663c5;
+    padding: 3%;
+    border-bottom: 2px solid #46c36b;
     margin-bottom: 10px;
 }
+
 .texto-docente {
     font-size: 14px;
     color: #333;
@@ -41,8 +42,7 @@
 }
 .btn-pdf_docentes {
     padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+    border: none;   
     background-color: transparent;
     transition: transform 0.3s ease; /* Suavidad en la transición */
 }

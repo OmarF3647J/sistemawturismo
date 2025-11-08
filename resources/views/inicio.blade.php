@@ -173,11 +173,15 @@
 
   <div class="imagen_full">
       <div class="texto-sobre-full">
-          Conecta con la Naturaleza
+        @include('partials.conecta-con-naturaleza')
       </div>
   </div>
 
 </div>
+
+
+
+
 
 
 <br>
@@ -268,7 +272,7 @@
 
 <div class="agrupador-guias-turisticas">
 
-
+  <!--
   <div class="agrupador-itemgt-y-tarjeta">
       <div class="grid-itemgt">
         <img src="{{ asset('images/noimage.jpg') }}" loading="lazy">
@@ -286,7 +290,7 @@
       <h4>Actividades que realizan <span style="font-weight: 300;">bd</span></h4>
   
       <br>
-      <!-- Contenedor de iconos -->
+      
       <div class="btn-redes-sociales">
         <a href="https://facebook.com" target="_blank" class="cat">
           <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
@@ -301,7 +305,7 @@
 
     </div>
   </div>
-
+  -->
 
   <div class="agrupador-itemgt-tarjeta">
         <div class="grid-itemgt">
@@ -357,12 +361,7 @@
           <a href="https://www.facebook.com/explorecatemaco" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
           </a>
-          <a href="https://instagram.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
-          </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-          </a>
+
         </div>
 
       </div>
@@ -418,12 +417,6 @@
           <a href="https://www.facebook.com/chagala.elias" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
           </a>
-          <a href="https://instagram.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
-          </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-          </a>
         </div>
 
       </div>
@@ -452,9 +445,7 @@
           <a href="https://www.instagram.com/minoleitours" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
           </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-          </a>
+
         </div>
  
       </div>
@@ -514,9 +505,7 @@
           <a href="https://www.instagram.com/river_tours_los_tuxtla?fbclid=IwY2xjawN6ZVJleHRuA2FlbQIxMABicmlkETFMN05ub1N1cEpHc2RQYUFpc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpzdJFGM6rxL1i2YpHWtMcTlJU4RCiH-mEN0zmFR1zaybBongxWj8HTF_hRN_aem_PZC-itdhmwhZ2sTnAvsT0A" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
           </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-          </a>
+
         </div>
 
       </div>
@@ -573,12 +562,7 @@
           <a href="https://www.facebook.com/profile.php?id=100064053428400" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
           </a>
-          <a href="https://www.instagram.com/ricardogallardocoto?fbclid=IwY2xjawN6Z1pleHRuA2FlbQIxMABicmlkETFMN05ub1N1cEpHc2RQYUFpc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhngJpKUS3ILZISxRnjXN8C4JxjXWEHFcfut96h1iJQgBolWwNoxs_H9tA8W_aem_27IzWcv6mxc7HfeAaTXsjg" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
-          </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-          </a>
+
         </div>
 
       </div>
@@ -600,7 +584,7 @@
         <h4>Actividades que realizan <span style="font-weight: 300;">bd</span></h4>
 
         <br>
-        <!-- Contenedor de iconos -->
+        <!-- Contenedor de iconos 
         <div class="btn-redes-sociales">
           <a href="https://facebook.com" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
@@ -612,6 +596,7 @@
             <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
           </a>
         </div>
+        -->
 
       </div>
     </div>
@@ -637,7 +622,7 @@
           <a href="https://www.facebook.com/profile.php?id=100063525416990" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
           </a>
-          <a href="https://instagram.com" target="_blank" class="cat">
+          <a href="https://www.instagram.com/splitrock_tours/" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
           </a>
           <a href="https://www.tiktok.com/@splitrock_tours" target="_blank" class="cat">
@@ -670,12 +655,7 @@
           <a href="https://www.facebook.com/temazcalcatemaco" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
           </a>
-          <a href="https://instagram.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
-          </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-          </a>
+
         </div>
         
       </div>
@@ -702,12 +682,7 @@
           <a href="https://www.facebook.com/rocapartidaveracruz20" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
           </a>
-          <a href="https://instagram.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
-          </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-          </a>
+
         </div>
          
       </div>
@@ -734,12 +709,7 @@
           <a href="hhttps://www.facebook.com/tribuwounaan" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
           </a>
-          <a href="https://instagram.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
-          </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-          </a>
+
         </div>
 
       </div>
@@ -768,9 +738,7 @@
           <a href="https://www.instagram.com/turismo_sontecomapan?fbclid=IwY2xjawN6cXBleHRuA2FlbQIxMABicmlkETFMN05ub1N1cEpHc2RQYUFpc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuVi6adKzyQxdY7f9qUFti9RLNOIxjnjHicFk_LEniykTCH1gHLCslZugFM9_aem_fL0ILyRfRbzmaWJ2-zAL_w" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
           </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
-            <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-          </a>
+
         </div>
 
       </div>

@@ -55,14 +55,14 @@
     <div class="contenedor" id="contenedorDesvanecer"> 
         <center>
           
-            <a href="https://www.gob.mx/"><img src="{{ asset('images/logos/gobierno_mexico.png') }}" class="logos_header" style="height: 38px;" alt="Gobierno de México"></a>
+            <a href="https://www.gob.mx/"><img src="{{ asset('images/logos/SEGOB_2024.png') }}" class="logos_header" style="height: 38px;" alt="Gobierno de México"></a>
             <a href="https://www.sep.gob.mx/"><img src="{{ asset('images/logos/educacion.png') }}" class="logos_header" style="height: 40px;" alt="Educación"></a>
             <!--<a href="https://www.tecnm.mx//"><img src="img/logos/tecnm_azul_nb.png" class="logos_header" height="45px" alt="TecNM"></a>&nbsp;-->
-            <a href="https://www.itssat.edu.mx//"><img src="{{ asset('images/logos/ITSSAT.jpg') }}" class="logos_header" style="height: 38px;" alt="ITSSAT"></a>
+            <a href="https://www.itssat.edu.mx//"><img src="{{ asset('images/logos/ITSSAT.png') }}" class="logos_header" style="height: 38px;" alt="ITSSAT"></a>
             <a href="https://www.veracruz.gob.mx/"><img src="{{ asset('images/logos/gob_veracruz.png') }}" class="logos_header" style="height: 40px;" alt="Gobierno Veracruz"></a>&nbsp;&nbsp;
             <a href="https://www.sev.gob.mx/#!/"><img src="{{ asset('images/logos/sev.png') }}" class="logos_header" style="height: 35px;" alt="SEV"></a>&nbsp;&nbsp;
             <a href="https://www.sev.gob.mx/media-superior/#!/"><img src="{{ asset('images/logos/sectur_2024.png') }}" class="logos_header" style="height: 35px;" alt="SECTUR"></a>&nbsp;&nbsp;
-            <a href="https://www.sev.gob.mx/educacion-tecnologica//"><img src="{{ asset('images/logos/det.jpg') }}" class="logos_header" style="height: 35px;" alt="DET"></a>&nbsp;&nbsp;
+            <a href="https://www.sev.gob.mx/educacion-tecnologica//"><img src="{{ asset('images/logos/det.png') }}" class="logos_header" style="height: 35px;" alt="DET"></a>&nbsp;&nbsp;
    
         </center>
     </div> <!-- Fin contendor desvanecido -->
@@ -72,7 +72,6 @@
 
 <!-- Inicio del contendor sticky -->
 <div class="contenedor" id="contenedorPegajoso">
-
 
     <!-- MENU AZUL -->
     <header>

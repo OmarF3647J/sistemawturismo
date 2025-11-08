@@ -750,7 +750,6 @@ a img {
   }
 
 
-
   /*--------------------------------*/
 	.contPlanEstu{
 		width: 100%;
@@ -781,8 +780,6 @@ a img {
     font-size: 85%;
   }
 
-
-
   /*--------------------------------*/
   .contPerfilesCampo{
     width: 95%;
@@ -805,15 +802,6 @@ a img {
     width: 100%;
   }
 
-  .main-gallery {
-    width: 100%;
-  }
-  .gallery-cell {
-    height: 320px;
-  }
-
-
-  
 
 /* Reticula Especialidades */
   .descargar_reticula{
@@ -845,7 +833,13 @@ a img {
     width: 95%;
     border-radius: 0;
 }
-
+.main-gallery {
+    width: 100%;
+}
+.gallery-cell {
+    height: 320px;
+}
+ 
 .main-image-l {
     width: 100%;
     justify-content: center;
@@ -861,6 +855,8 @@ a img {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease;
 }
+
+
 
 /*--------------------------------*/
   .cont_tablas_semestres{

@@ -30,7 +30,7 @@
             
               <img src="{{ asset('images/favicon/telefono_circular.png') }}" width="25px">&nbsp;
               <a href="tel:+5212949479100" class="phone-link">
-                <font color="white" size="4px">
+                <font color="white" size="3px">
                   Tel. (294) 94 79 100
                 </font>
               </a>
@@ -39,7 +39,7 @@
 
               <img src="{{ asset('images/favicon/correo.png') }}" width="25px">&nbsp;
               <a href="https://mail.google.com/">
-                <font color="white" size="4px">
+                <font color="white" size="3px">
                   informacion@itssat.edu.mx
                 </font>
               </a>
@@ -63,21 +63,22 @@
   </div>
 
   <div class="cont_footer3">
-    <div class="footer_item_gob"> <img src="{{ asset('images/logos/logo_footer.svg') }}" width="80%">
-      <h5>Sistema web desarrollado por alumnos de <a href="informatica.php">
-        <b>Ingeniería Informática. </a></b>
+    <div class="footer_item_gob"> <img src="{{ asset('images/logos/footer_gob_mx.png') }}" width="80%">
+      <h5>Sistema web desarrollado por egresados de <a href="https://sandrestuxtla.tecnm.mx/informatica.php">
+        <b>Ingeniería Informática.</a></b>
+        <br>
         <a href="https://www.facebook.com/share/12DdVgttvDz/" target="_blank"> 
-          <span style="color: #751A3F;"> Christian Millán. </span>
+          <span style="color: #ffcde1ff;">Christian Millán.</span>
         </a> 
         <a href="https://www.facebook.com/share/12HLHcZiRHA/" target="_blank">
-          <span style="color: #751A3F;">Omar Fiscal.</span>
+          <span style="color: #ffcde1ff;">Omar Fiscal.</span>
         </a>
         
         <h5>
     </div>
     
       <div class="footer_item_gob">
-        <h3>Enlaces</h3>
+        <h3><b>Enlaces</b></h3>
         <ul class="enlaces_footer_gob">                           
           <li><a href="https://participa.gob.mx">Participa</a></li>
           <li><a href="https://www.gob.mx/publicaciones">Publicaciones Oficiales</a></li>
@@ -89,7 +90,7 @@
       </div>
 
 
-      <div class="footer_item_gob"><h3>¿Qué es gob.mx?</h3>
+      <div class="footer_item_gob"><h3><b>¿Qué es gob.mx?</b></h3>
         <ul class="enlaces_footer_gob">                           
           <li><a href="https://datos.gob.mx">Portal de datos abiertos</a></li>
           <li><a href="https://www.gob.mx/accesibilidad">Declaración de accesibilidad</a></li>
@@ -103,10 +104,10 @@
 
       <div class="footer_item_gob">
         <a href="https://www.gob.mx/tramites/ficha/presentacion-de-quejas-y-denuncias-en-la-sfp/SFP54">
-          <h4>Denuncia contra servidores públicos</h4>
+          <h3><b>Denuncia contra servidores públicos</b></h3>
         </a>
             <br><br>
-          <h4>Síguenos en:</h4>
+          <h3><b>Síguenos en:</b></h3>
           <br>
           <a href="https://www.facebook.com/gobmexico"><img src="{{ asset('images/favicon/facebook_gray.png') }}" width="40px"></a>&nbsp;&nbsp;
           <a href="https://twitter.com/GobiernoMX"><img src="{{ asset('images/favicon/twitter_gray.png') }}" width="40px"></a>&nbsp;&nbsp;

@@ -226,6 +226,10 @@ a img {
 }
 
 
+
+
+
+
 .descripcion_centros{
   margin: 3% auto;
   width: 95%;
@@ -309,9 +313,9 @@ a img {
   margin: 3% auto;
   width: 95%;
   padding: 5%;
-  background-color: #fd7cbcb5;
+  background-color: #fdc6e1b5;
   text-align: justify;
-  color: #420822bc;;
+  color: #420822db;;
   max-width: 850px;
 }
 
@@ -439,7 +443,7 @@ a img {
 
 /* Tarjeta de opinión del turista */
 :root{
-  --card-height: 220px;   /* alt. tarjeta — ajustar según necesites */
+  --card-height: 260px;   /* alt. tarjeta — ajustar según necesites */
   --bg1: #ffffff;
   --bg2: #ffffff;
   --bg3: #ffffff;
@@ -453,7 +457,7 @@ a img {
   width: 85%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   box-sizing: border-box;
 }
 
@@ -473,7 +477,7 @@ a img {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0.5rem 1rem;   /* acolchonamiento interno (no separa elementos) */
+  padding: 3%;   /* acolchonamiento interno (no separa elementos) */
   font-size: 0.95rem;
   box-sizing: border-box;
   /* quitar cualquier margin para que queden pegados */
@@ -494,6 +498,9 @@ a img {
 .opinion_turista .bloque-3 { background-color: var(--bg3); font-size: 0.9rem; color: #666; padding: 4%;}
 
 /* ====
+
+
+
 
 
 
@@ -562,10 +569,14 @@ body{
 .agrupador_opinion {
   grid-template-columns: repeat(3, 1fr); /* 3 tarjetas lado a lado */
   gap: 0; /* sin separación, las líneas de borde marcan separación */
+  width: 95%;
 }
-.opinion_turista .bloque-1 { background-color: var(--bg1); font-size: 0.95rem; padding: 2%;}
-.opinion_turista .bloque-2 { background-color: var(--bg2); font-size: 1.25rem; font-weight: 700; padding: 2%;}
-.opinion_turista .bloque-3 { background-color: var(--bg3); font-size: 0.9rem; color: #666; padding: 2%;}
+.opinion_turista .bloque {
+  padding: 8%;
+}
+.opinion_turista .bloque-1 { background-color: var(--bg1); font-size: 0.95rem; padding: 4%;}
+.opinion_turista .bloque-2 { background-color: var(--bg2); font-size: 1.25rem; font-weight: 700; padding: 4%;}
+.opinion_turista .bloque-3 { background-color: var(--bg3); font-size: 0.9rem; color: #666; padding: 4%;}
 
 }/* fin tabletas*/
 
@@ -619,8 +630,8 @@ body{
   /*btn conocer mas*/
   .btn-sobre-imagen {
     position:fixed; /* Posiciona el botón sobre la imagen */
-    top: 60%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
-    left: 25%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
+    top: 65%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
+    left: 18%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
     padding: 15px 25px; /* Ajusta el tamaño del botón */
     font-family: "Lexend", "Century Gothic", Arial;
     font-weight: bold;
@@ -719,9 +730,9 @@ body{
   }
 
   :root { --card-height: 240px; }
-  .opinion_turista .bloque-1 { padding: 5%;}
-  .opinion_turista .bloque-2 { padding: 5%;}
-  .opinion_turista .bloque-3 { padding: 5%;}  
+  .opinion_turista .bloque-1 { padding: 3%;}
+  .opinion_turista .bloque-2 { padding: 3%;}
+  .opinion_turista .bloque-3 { padding: 3%;}  
 
 }/*fin laptops*/
 
