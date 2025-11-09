@@ -17,7 +17,7 @@ class CentrosturistController extends Controller
      */
     public function index()
     {
-        $centrosturist = centrosturist::with('producto','actividadturist','guiasturist')->paginate(10);
+        $centrosturist = centrosturist::with('producto','actividadturist','guiasturist.actividadturist')->paginate(10);
         // los nombre de las relaciones deben coincidir con los definidos en el modelo
         // producto y actividadturist son las relaciones definidas en el modelo centrosturist
         $productos = producto::all();
@@ -29,6 +29,13 @@ class CentrosturistController extends Controller
             'actividadturist' => $actividadturist,
             'guiasturist' => $guiasturist,
         ]);
+        // opcion de IA 
+        // return Inertia::render('Centrosturist/Index', [
+        // 'centrosturist'   => $centrosturist,
+        // 'productos'       => producto::all(),
+        // 'actividadturist' => actividadturist::all(),
+        // 'guiasturist'     => guiasturist::all(),
+        // ]);
         
     }
             
@@ -68,8 +75,20 @@ class CentrosturistController extends Controller
      */
     public function show(centrosturist $centrosturist)
     {
-        //
+        $centrosturist->load([
+            'producto:idproduct,nomproduct',
+            'actividadturist:idacttur,nomacttur',              
+            'guiasturist:idguiatur,nomguiatur',
+            'guiasturist.actividadturist:idacttur,nomacttur' // esto es para mostrar las actividades por guia
+        ]);
+
+        return Inertia::render('Centrosturist/Show', [
+            'centrosturist' => $centrosturist,
+        ]);
     }
+
+
+
 
     /**
      * Show the form for editing the specified resource.
