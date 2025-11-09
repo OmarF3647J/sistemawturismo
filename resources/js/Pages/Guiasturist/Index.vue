@@ -1,6 +1,8 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
+import NavLink from '@/Components/NavLink.vue';
+import Pagination from '@/Components/Pagination.vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import InputError from '@/Components/InputError.vue';
 import Modal from '@/Components/Modal.vue';
@@ -8,58 +10,65 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import WarningButton from '@/Components/WarningButton.vue';
 import DarkButton from '@/Components/DarkButton.vue';
 import InputGroup from '@/Components/InputGroup.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { ref } from 'vue';
 // import { c } from 'vite/dist/node/moduleRunnerTransport.d-DJ_mE5sf';
 
 
 
-const props = defineProps({
-    guiasturist: {type:Object},actividadturist: {type:Object}
-});
+const props = defineProps({guiasturist: {type:Object},actividadturist: {type:Object},flash: {type:Object},});
 
-const form = useForm({
-    idguiatur: '',
-    nomguiatur: '',
-    nomresguiatur: '',
-    telguiatur: '',
-    corguiatur: '',
-    idacttur: '',
-});
+const form = useForm({idguiatur: '', nomguiatur: '', nomresguiatur: '', telguiatur: '', corguiatur: '', idacttur: '', imgguiatur: '',});
 
-const v = ref({idguiatur: '',nomguiatur: '', nomresguiatur: '',telguiatur: '',corguiatur: '', actividadturist: []
+// const v = ref({idguiatur: '',nomguiatur: '', nomresguiatur: '',telguiatur: '',corguiatur: '', actividadturist: [], imgguiatur: '',});
 
-});
-
-const showModalView = ref(false); //para la vista de detalle
-const showModalForm = ref(false); //para el formulario de crear y editar
+// const showModalView = ref(false); //para la vista de detalle
+// const showModalForm = ref(false); //para el formulario de crear y editar
 const showModalDelete = ref(false); //para eliminar
-const title = ref(''); //titulo del modal
-const operation = ref(1); //operacion a realizar create o edit
-const msj = ref(''); //mensaje de exito o error
-const classMsj = ref(''); //clase del mensaje   
-const openModalView = (guias) => {
-    v.value = guias;
+// const title = ref(''); //titulo del modal
+// const operation = ref(1); //operacion a realizar create o edit
+const msj = ref((props.flash.success != null) ? props.flash.success : ''); //mensaje de exito o error
+const classMsj = ref((props.flash.success != null) ? '' : 'hidden'); //clase del mensaje 
 
-    showModalView.value = true;
-};
-const openModalForm = () => {
-    showModalForm.value = true;
-};
-const openModalDelete = () => {
+
+
+const openModalDelete = (guias) => {
+    form.idguiatur = guias.idguiatur;
+    form.nomguiatur = guias.nomguiatur;
+    form.nomresguiatur = guias.nomresguiatur;
+    form.telguiatur = guias.telguiatur;
+    form.corguiatur = guias.corguiatur;
+    form.imgguiatur = guias.imgguiatur;
+    form.idacttur = guias.actividadturist.idacttur;
+    // form.idacttur = guias.actividadturist.map(act => act.idacttur); sugerido por IA/ si es necesario llenar el formulario con las actividades asociadas
+    // v.value = guias; //asignar el objeto completo para mostrar las
     showModalDelete.value = true;
-};  
-
-
-
-const closeModalView = () => {
-    showModalView.value = false;
 };
-const closeModalForm = () => {
-    showModalForm.value = false;
-};
+
 const closeModalDelete = () => {
     showModalDelete.value = false;
 };
+
+
+const deleteGuias = () => {
+    form.delete(route('guiasturist.destroy', form.idguiatur), {
+        onSuccess: () => {ok('Agencia turística eliminada con éxito')}
+    });
+};
+
+
+
+const ok = (m) => {
+    closeModalDelete();
+    form.reset();
+    msj.value = m;
+    classMsj.value = 'block';
+    setTimeout(() => {
+        classMsj.value = 'hidden';
+    }, 5000);
+}
+
+
 
 //Forma alternativa de cerrar todos los modales(IA sugerido)
 // const closeAllModals = () => {
@@ -85,6 +94,32 @@ const closeModalDelete = () => {
             </DarkButton>
         </template>
         
+
+
+
+
+            <div class="inline-flex overflow-hidden mb-4 w-full bg-white rounded-lg shadow-md" :class="classMsj" v-if="msj">
+                <!-- oculta el mensaje  -->
+                <!-- En el video no se agrega la siguiente linea v-if="msj -->
+				<div class="flex justify-center items-center w-12 bg-green-500">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+				</div>
+				
+				<div class="px-4 py-2 -mx-3">
+					<div class="mx-3">
+						<span class="font-semibold text-green-600">Succes</span>
+						<p class="text-sm text-gray-600">{{ msj }}</p>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
         <div class="w-full overflow-hidden rounded-lg border shadow-md">
             <div class="w-full overflow-x-auto bg-white">
                 <table class="w-full whitespace-no-wrap">
@@ -96,21 +131,25 @@ const closeModalDelete = () => {
                             <th class="px-4 py-3">Responsable</th>
                             <th class="px-4 py-3">Telefono</th>
                             <th class="px-4 py-3">Correo</th>
+                            <th class="px-4 py-3">Imagen</th>
                             <th class="px-4 py-3">Detalle</th>
                             <th class="px-4 py-3">Editar</th>
                             <th class="px-4 py-3">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-100">
-                        <tr v-for="guias in guiasturist" :key="guias.idguiaturist"
+                        <tr v-for="guias in guiasturist.data" :key="guias.idguiaturist"
                             class="text-gray-700">
                             <td class="px-4 py-3 text-sm">{{ guias.idguiatur }}</td>
                             <td class="px-4 py-3 text-sm">{{ guias.nomguiatur}}</td>
                             <td class="px-4 py-3 text-sm">{{ guias.nomresguiatur}}</td>
                             <td class="px-4 py-3 text-sm">{{ guias.telguiatur }}</td>
                             <td class="px-4 py-3 text-sm">{{ guias.corguiatur }}</td>
+                            <td class="px-4 py-3 text-sm" >
+                                <img class="rounded-lg" :src="'storage'+guias.imgguiatur" width="75">
+                            </td>
                             <td class="px-4 py-3 text-sm">
-                                <SecondaryButton @click="openModalView(guias)">
+                                <SecondaryButton>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -118,7 +157,7 @@ const closeModalDelete = () => {
                                 </SecondaryButton>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <WarningButton @click="openModalForm(guias)">
+                                <WarningButton>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                     </svg>
@@ -135,48 +174,25 @@ const closeModalDelete = () => {
                     </tbody>
                 </table>
             </div>
+            <div
+				class="px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-50 border-t sm:grid-cols-9">
+				<pagination :links="guiasturist.links" />
+			</div>
         </div>
 
 
-        <Modal :show ="showModalView" @close="closeModalView">
-            <div class="p-6">
-                <p>Nombre de la Agencia: <span class="text-lg font-medium text-gray-900">{{ v.nomguiatur }}</span></p>
-                <p>Responsable: <span class="text-lg font-medium text-gray-900">{{ v.nomresguiatur }}</span></p>
-                <p>Teléfono: <span class="text-lg font-medium text-gray-900">{{ v.telguiatur }}</span></p>
-                <p>Correo: <span class="text-lg font-medium text-gray-900">{{ v.corguiatur }}</span></p>
-                
-                <!-- Las actibi -->
-                <p>Actividades Turísticas Asociadas: <span class="text-lg font-medium text-gray-900">
-                    <ul class="ml-10 list-disc"> <!-- ml-10 el numero funciona como tabulador o espaciado -->
-                        <!-- actividad es solo una variable par6a el ciclo for -->
-                        <li v-for="actividad in v.actividadturist" :key="actividad.idacttur" > 
-                            {{ actividad.nomacttur }}
-                        </li>
-                    </ul>
-                </span></p>
-
-
-
-            </div>
-            <div class="m-6 flex justify-end">
-                <SecondaryButton @click="closeModalView">Cerrar</SecondaryButton>
-            </div>
-        </Modal>
-
-
-        <Modal :show ="showModalForm" @close="closeModalForm">
-            <div class="p-6">
-
-            </div>
-            <div class="m-6 flex justify-end">
-                <SecondaryButton @click="closeModalForm">Cerrar</SecondaryButton>
-            </div>
-        </Modal>
+        
 
 
         <Modal :show ="showModalDelete" @close="closeModalDelete">
             <div class="p-6">
-
+                <p class="text-2xl text-gray-500">
+                    Estas seguro de eliminar la categoría turística: 
+                    <span class="text-2xl font-medium text-gray-900">{{ form.nomguiatur }}</span> ?
+                </p>
+                <PrimaryButton @click ="deleteGuias">
+                    Si, Eliminar
+                </PrimaryButton>
             </div>
             <div class="m-6 flex justify-end">
                 <SecondaryButton @click="closeModalDelete">Cerrar</SecondaryButton>

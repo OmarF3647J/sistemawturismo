@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('rescentur', 80);
             $table->string('telcentur', 10);
             $table->string('corcentur', 50);
+            $table->string('imgcentur', 100);
             $table->foreignId('idproduct')->nullable()->constrained('productos', 'idproduct')
                 ->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();

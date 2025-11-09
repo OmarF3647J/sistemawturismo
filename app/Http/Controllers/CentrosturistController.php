@@ -8,6 +8,7 @@ use App\Models\actividadturist;
 use App\Models\guiasturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CentrosturistController extends Controller
 {
@@ -16,7 +17,7 @@ class CentrosturistController extends Controller
      */
     public function index()
     {
-        $centrosturist = centrosturist::with('producto','actividadturist','guiasturist')->get();
+        $centrosturist = centrosturist::with('producto','actividadturist','guiasturist')->paginate(10);
         // los nombre de las relaciones deben coincidir con los definidos en el modelo
         // producto y actividadturist son las relaciones definidas en el modelo centrosturist
         $productos = producto::all();
@@ -30,6 +31,7 @@ class CentrosturistController extends Controller
         ]);
         
     }
+            
 
         // $productos = producto::all();
         // $centrosturisticos = centrosturist::with('producto:idproduct,nomproduct','actividadturist:idacttur,nomacttur')->get();
@@ -90,6 +92,7 @@ class CentrosturistController extends Controller
      */
     public function destroy(centrosturist $centrosturist)
     {
-        //
+        $centrosturist->delete();
+        return redirect('centrosturist')->with('success', 'Centro turístico eliminado con éxito');
     }
 }

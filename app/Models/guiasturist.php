@@ -12,7 +12,7 @@ class guiasturist extends Model
     use HasFactory;
     protected $primaryKey = 'idguiatur';
 
-    protected $fillable = ['nomguiatur', 'nomresguiatur', 'telguiatur', 'corguiatur'];
+    protected $fillable = ['nomguiatur', 'nomresguiatur', 'telguiatur', 'corguiatur', 'imgguiatur'];
 
     public function centrosturist() : BelongsToMany {
         return $this->belongsToMany(centrosturist::class,'centrosturist_guiasturist','idguiatur','idcentur');

@@ -6,6 +6,8 @@ use App\Models\guiasturist;
 use App\Models\actividadturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class GuiasturistController extends Controller
 {
@@ -14,7 +16,7 @@ class GuiasturistController extends Controller
      */
     public function index()
     {
-        $guiasturist = guiasturist::with('actividadturist')->get();
+        $guiasturist = guiasturist::with('actividadturist')->paginate(10);
         // los nombre de las relaciones deben coincidir con los definidos en el modelo
         // actividadturist es la relacion definida en el modelo guiasturist
         $actividadturist = actividadturist::all();
@@ -69,6 +71,7 @@ class GuiasturistController extends Controller
      */
     public function destroy(guiasturist $guiasturist)
     {
-        //
+        $guiasturist->delete();
+        return redirect('guiasturist')->with('succes', 'Agencia turística eliminada correctamente');
     }
 }

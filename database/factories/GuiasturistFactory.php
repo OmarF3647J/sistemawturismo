@@ -21,6 +21,7 @@ class GuiasturistFactory extends Factory
             'nomresguiatur' => $this->faker->name(),
             'telguiatur' => $this->faker->numerify('##########'),
             'corguiatur' => $this->faker->unique()->safeEmail(),
+            'imgguiatur' => '/img/example.jpg',
         ];
     }
 }

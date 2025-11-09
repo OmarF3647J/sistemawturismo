@@ -23,6 +23,7 @@ class CentrosturistFactory extends Factory
             'rescentur' => $this->faker->name(),
             'telcentur' => $this->faker->numerify('##########'),
             'corcentur' => $this->faker->unique()->safeEmail(),
+            'imgcentur' => '/img/example.jpg',
             'idproduct' => $this->faker->numberBetween(1, 2), #productos entre el ID 1 y 2, sino existen esos ID va a marcar error
         ];
     }

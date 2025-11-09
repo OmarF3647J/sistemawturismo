@@ -1,6 +1,8 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
+import NavLink from '@/Components/NavLink.vue';
+import Pagination from '@/Components/Pagination.vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import InputError from '@/Components/InputError.vue';
 import Modal from '@/Components/Modal.vue';
@@ -8,6 +10,7 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import WarningButton from '@/Components/WarningButton.vue';
 import DarkButton from '@/Components/DarkButton.vue';
 import InputGroup from '@/Components/InputGroup.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { ref } from 'vue';
 
 
@@ -22,57 +25,81 @@ import { ref } from 'vue';
 // actividadturist es la lista de actividades turísticas
 // estas props se usan para mostrar los datos en la tabla
 const props = defineProps({
-    centrosturist: {type:Object},productos: {type:Object},actividadturist: {type:Object}
-});
+    centrosturist: {type:Object},productos: {type:Object},actividadturist: {type:Object}, flash: {type:Object},});
 
 //Formulario de Centros Turísticos 
-const form = useForm({
-    idcentur: '',
-    nomcentur: '',
-    telcentur: '',
-    corcentur: '',
-    idproduct: '',
-    idacttur: '',
-    idguiatur: '',
-});
+const form = useForm({idcentur: '',nomcentur: '',telcentur: '',corcentur: '',imgcentur: '',idproduct: '',idacttur: '',idguiatur: '',});
 
-const v = ref({idcentur: '',nomcentur: '',telcentur: '',corcentur: '', producto: {nomproduct: ''}, actividadturist: [],guiasturist: []
+// const v = ref({idcentur: '',nomcentur: '',telcentur: '',corcentur: '', producto: {nomproduct: ''}, actividadturist: [],guiasturist: []
 
-});
+// });
 
 
 
-const showModalView = ref(false); //para la vista de detalle
-const showModalForm = ref(false); //para el formulario de crear y editar
+// const showModalView = ref(false); //para la vista de detalle
+// const showModalForm = ref(false); //para el formulario de crear y editar
 const showModalDelete = ref(false); //para eliminar
-const title = ref(''); //titulo del modal
-const operation = ref(1); //operacion a realizar create o edit
-const msj = ref(''); //mensaje de exito o error
-const classMsj = ref(''); //clase del mensaje
+// const title = ref(''); //titulo del modal
+// const operation = ref(1); //operacion a realizar create o edit
+const msj = ref((props.flash.success != null) ? props.flash.success : ''); //mensaje de exito o error
+const classMsj = ref((props.flash.success != null) ? '' : 'hidden'); //clase del mensaje
 
-const openModalView = (centro) => {
-    v.value = centro;
-
-    showModalView.value = true;
-};
-const openModalForm = () => {
-    showModalForm.value = true;
-};
-const openModalDelete = () => {
+const openModalDelete = (centro) => {
+    form.idcentur = centro.idcentur;
+    form.nomcentur = centro.nomcentur;
+    form.telcentur = centro.telcentur;
+    form.corcentur = centro.corcentur;
+    form.imgcentur = centro.imgcentur;
+    form.idproduct = centro.producto.idproduct;
     showModalDelete.value = true;
+
 };
 
-
-
-const closeModalView = () => {
-    showModalView.value = false;
-};
-const closeModalForm = () => {
-    showModalForm.value = false;
-};
 const closeModalDelete = () => {
     showModalDelete.value = false;
 };
+
+const deleteCentros = () => {
+    form.delete(route('centrosturist.destroy', form.idcentur), {
+        onSuccess: () => {ok('Centro turístico eliminado con éxito')}
+    });
+};
+
+
+const ok = (m) => {
+    closeModalDelete();
+    form.reset();
+    msj.value = m;
+    classMsj.value = 'block';
+    setTimeout(() => {
+        classMsj.value = 'hidden';
+    }, 5000);
+}
+
+
+// const openModalView = (centro) => {
+//     v.value = centro;
+
+//     showModalView.value = true;
+// };
+// const openModalForm = () => {
+//     showModalForm.value = true;
+// };
+// const openModalDelete = () => {
+//     showModalDelete.value = true;
+// };
+
+
+
+// const closeModalView = () => {
+//     showModalView.value = false;
+// };
+// const closeModalForm = () => {
+//     showModalForm.value = false;
+// };
+// const closeModalDelete = () => {
+//     showModalDelete.value = false;
+// };
 
 
 </script>
@@ -83,13 +110,29 @@ const closeModalDelete = () => {
     <AuthenticatedLayout>
         <template #header>
             Centros Turísticos
-            <DarkButton>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
-                </svg>
-            </DarkButton>
+            
         </template>
-        
+
+            <div class="inline-flex overflow-hidden mb-4 w-full bg-white rounded-lg shadow-md" :class="classMsj" v-if="msj">
+                <!-- oculta el mensaje  -->
+                <!-- En el video no se agrega la siguiente linea v-if="msj -->
+				<div class="flex justify-center items-center w-12 bg-green-500">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+				</div>
+				
+				<div class="px-4 py-2 -mx-3">
+					<div class="mx-3">
+						<span class="font-semibold text-green-600">Succes</span>
+						<p class="text-sm text-gray-600">{{ msj }}</p>
+					</div>
+				</div>
+			</div>
+
+
+
         <div class="w-full overflow-hidden rounded-lg border shadow-md">
             <div class="w-full overflow-x-auto bg-white">
                 <table class="w-full whitespace-no-wrap">
@@ -100,21 +143,24 @@ const closeModalDelete = () => {
                             <th class="px-4 py-3">Nombre</th>
                             <th class="px-4 py-3">Telefono</th>
                             <th class="px-4 py-3">Correo</th>
-                            <th class="px-4 py-3">Producto Asociado</th>
+                            <th class="px-4 py-3">Imagen</th>
                             <th class="px-4 py-3">PDF</th>
                             <th class="px-4 py-3">Detalle</th>
                             <th class="px-4 py-3">Editar</th>
                             <th class="px-4 py-3">Eliminar</th>
-                        </tr>
+                        </tr> 
                     </thead>
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-100">
-                        <tr v-for="centro in centrosturist" :key="centro.idcentrosturist"
+                        <tr v-for="centro in centrosturist.data" :key="centro.idcentur"
                             class="text-gray-700">
                             <td class="px-4 py-3 text-sm">{{ centro.idcentur }}</td>
                             <td class="px-4 py-3 text-sm">{{ centro.nomcentur}}</td>
                             <td class="px-4 py-3 text-sm">{{ centro.telcentur }}</td>
                             <td class="px-4 py-3 text-sm">{{ centro.corcentur }}</td>
-                            <td class="px-4 py-3 text-sm">{{ centro.producto.nomproduct }}</td>
+                            <td class="px-4 py-3 text-sm" >
+                                <img class="rounded-lg" :src="'storage'+centro.imgcentur" width="75">
+                            </td>
+                            <!-- <td class="px-4 py-3 text-sm">{{ centro.producto.nomproduct }}</td> -->
                             <td class="px-4 py-3 text-sm">
                                 <DangerButton >
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -123,7 +169,7 @@ const closeModalDelete = () => {
                                 </DangerButton>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <SecondaryButton @click="openModalView(centro)">
+                                <SecondaryButton>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -131,7 +177,7 @@ const closeModalDelete = () => {
                                 </SecondaryButton>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <WarningButton @click="openModalForm(centro)"> 
+                                <WarningButton> 
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                     </svg>
@@ -148,71 +194,45 @@ const closeModalDelete = () => {
                     </tbody>
                 </table>
             </div>
+            <div
+				class="px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-50 border-t sm:grid-cols-9">
+				<pagination :links="centrosturist.links" />
+			</div>
         </div>
 
 
-        <Modal :show ="showModalView" @close="closeModalView">
-            <div class="p-6">
-                <p>Nombre: <span class="text-lg font-medium text-gray-900">{{ v.nomcentur }}</span></p>
-                <p>Teléfono: <span class="text-lg font-medium text-gray-900">{{ v.telcentur }}</span></p>
-                <p>Correo: <span class="text-lg font-medium text-gray-900">{{ v.corcentur }}</span></p>
-                <p>Producto Asociado: <span class="text-lg font-medium text-gray-900">{{ v.producto.nomproduct }}</span></p>
-                <!-- Las actibi -->
-                <p>Actividad Turística Asociada: <span class="text-lg font-medium text-gray-900">
-                    <ul class="ml-10 list-disc"> <!-- ml-10 el numero funciona como tabulador o espaciado -->
-                        <!-- actividad es solo una variable par6a el ciclo for -->
-                        <li v-for="actividad in v.actividadturist" :key="actividad.idacttur" > 
-                            {{ actividad.nomacttur }}
-                        </li>
-                    </ul>
-                </span></p>
-
-
-
-
-
-
-                <p>Agencias Turísticas Asociadas: <span class="text-lg font-medium text-gray-900">
-                    <ul class="ml-10 list-disc"> <!-- ml-10 el numero funciona como tabulador o espaciado -->
-                        <!-- actividad es solo una variable par6a el ciclo for -->
-                        <li v-for="guias in v.guiasturist" :key="guias.idguiatur" > 
-                            {{ guias.nomguiatur }}
-                        </li>
-                    </ul>
-                </span></p>
-
-
-
-                
-
-
-
-
-            </div>
-            <div class="m-6 flex justify-end">
-                <SecondaryButton @click="closeModalView">Cerrar</SecondaryButton>
-            </div>
-        </Modal>
-
-
-        <Modal :show ="showModalForm" @close="closeModalForm">
-            <div class="p-6">
-
-            </div>
-            <div class="m-6 flex justify-end">
-                <SecondaryButton @click="closeModalForm">Cerrar</SecondaryButton>
-            </div>
-        </Modal>
+        
 
 
         <Modal :show ="showModalDelete" @close="closeModalDelete">
             <div class="p-6">
+                <p class="text-2xl text-gray-500">
+                    Estas seguro de eliminar la categoría turística: 
+                    <span class="text-2xl font-medium text-gray-900">{{ form.nomcentur }}</span> ?
+                </p>
 
+                    <!-- Una forma de eliminar (es necesario hacer una función función "deleteActividad" que se relaciones con el controlador)-->
+                     <!-- se pasa el parametro actividad a openModalDelete -->
+                    <PrimaryButton @click ="deleteCentros">
+                        Si, Eliminar
+                    </PrimaryButton>
+
+
+
+                    <!-- Una forma de eliminar (sin necesidad de hacer uan función "deleteActividad")-->
+                     
+                    <!-- <PrimaryButton @click ="form.delete(`/actividadturist/${v.idacttur}`, {
+                        onSuccess: () => {
+                            ok('Actividad eliminada con éxito');
+                        },
+                    })" class="mt-6 bg-red-600 hover:bg-red-700 focus:border-red-700 focus:ring-red-700">   
+
+                        Si, Eliminar
+                    </PrimaryButton> -->
             </div>
             <div class="m-6 flex justify-end">
                 <SecondaryButton @click="closeModalDelete">Cerrar</SecondaryButton>
             </div>
         </Modal>
-        
     </AuthenticatedLayout>
 </template>

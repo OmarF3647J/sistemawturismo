@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nomresguiatur', 80);
             $table->string('telguiatur', 10);
             $table->string('corguiatur', 50);
+            $table->string('imgguiatur', 100);
             $table->timestamps();
         });
     }

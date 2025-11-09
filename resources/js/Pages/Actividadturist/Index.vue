@@ -97,18 +97,18 @@ const guardar = () => {
 }
 
 //cierra un modal y el otro lo deja abierto(limpia el formulario)
-const ok = (m) => {
-    if (operation.value === 2) {
-        closeModalForm();
-    } 
-    closeModalDelete();
-    form.reset();
-    msj.value = m;
-    classMsj.value = 'block';
-    setTimeout(() => {
-        classMsj.value = 'hidden';
-    }, 5000);
-}
+    const ok = (m) => {
+        if (operation.value === 2) {
+            closeModalForm();
+        } 
+        closeModalDelete();
+        form.reset();
+        msj.value = m;
+        classMsj.value = 'block';
+        setTimeout(() => {
+            classMsj.value = 'hidden';
+        }, 5000);
+    }
 
 
 
