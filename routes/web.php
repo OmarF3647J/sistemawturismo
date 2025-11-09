@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SitioController;
+use App\Http\Controllers\ReporteController;
 
 
 use Inertia\Inertia;
@@ -27,11 +28,18 @@ use Inertia\Inertia;
 
 
 Route::get('/', [SitioController::class, 'inicio'])->name('inicio');
+
 Route::get('/centro/{nombre}', [SitioController::class, 'centro'])->name('centro.mostrar');
 
+
+// Ruta para dirigir a vistas
 Route::get('/apompal', function () {
     return view('apompal');
 })->name('apompal');
+
+
+Route::get('/reportes/Apompal-CentroTuristico', [ReporteController::class, 'generarPDF'])->name('reportes.Apompal-CentroTuristico');
+
 
 
 //Route::get('/', function () {

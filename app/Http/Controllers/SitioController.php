@@ -7,33 +7,29 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\CentroTurist;
-use App\Models\guiasturist;
+
 
 
 
 class SitioController extends Controller
 {
-    public function inicio()
-    {
+    //public function inicio()
+    //{
         // Obtener nombre por id
-         $centroPorID = CentroTurist::find(1); 
+         //$centroPorID = CentroTurist::find(1); 
 
-        // Obtener el primer registro de cada tabla
-        $primerCentro = CentroTurist::first();
-        //$primerGuia = Guiasturist::first();
 
         // Enviamos las variables a la vista inicio.blade.php
-        return view('inicio', compact('primerCentro', 'centroPorID'));
+        //return view('inicio', compact('centroPorID'));
+    //}
+public function inicio(){
+    // Cargar los centros que necesites por ID
+    $centros = CentroTurist::whereIn('idcentur', [1, 2, 3, 4, 5, 6, 7, 8, 8, 10, 11, 12])->get()->keyBy('idcentur');
 
-    }
+    // `keyBy` convierte la colección en algo como:
+    // [1 => Centro(id=1), 3 => Centro(id=3), 5 => Centro(id=5)]
 
-
-    public function centro($nombre)
-    {
-        $centro = CentroTurist::where('nomcentur', $nombre)->firstOrFail();
-        return view('centro', compact('centro'));
-    }
-
-
+    return view('inicio', compact('centros'));
+}
 
 }

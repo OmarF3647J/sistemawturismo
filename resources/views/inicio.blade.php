@@ -206,17 +206,17 @@
 
   <a href="{{ route('apompal') }}">
       <div class="grid-item" style="background-image: url('{{ asset('images/apompal/portada2.jpg') }}');" loading="lazy">
-          <h3>Apompal Miguel Hidalgo</h3>
+          <h3>{{ $centros[1]->nomcentur }}</h3>
       </div>
   </a>
 
 
     <div class="grid-item" style="background-image: url('{{ asset('images/benito-juarez/cascada2.jpg') }}');" loading="lazy">
-        <h3>Benito Juárez</h3>
+        <h3>{{ $centros[2]->nomcentur }}</h3>
     </div>
 
     <div class="grid-item" style="background-image: url('{{ asset('images/arrecifes/portada.jpg') }}');" loading="lazy">
-        <h3>Arrecifes</h3>
+        <h3>{{ $centros[3]->nomcentur }}</h3>
     </div>
     
     <!--
@@ -230,11 +230,11 @@
     -->
 
     <div class="grid-item" style="background-image: url('{{ asset('images/jomxuk/portada.jpg') }}');" loading="lazy">
-        <h3>Jomxuk</h3>
+        <h3>{{ $centros[6]->nomcentur }}</h3>
     </div>
 
     <div class="grid-item" style="background-image: url('{{ asset('images/kan-tasejkan/portada.jpg') }}');" loading="lazy">
-        <h3>Kan tasejkan</h3>
+        <h3>{{ $centros[7]->nomcentur }}</h3>
     </div>
 
     <div class="grid-item" style="background-image: url('{{ asset('images/laguna-del-ostion/BARRA_LAGUNADELOSTION.jpg') }}');" loading="lazy">
