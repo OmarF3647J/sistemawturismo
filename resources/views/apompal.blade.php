@@ -70,7 +70,7 @@
 <div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
   <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div>
 </div><!-- end boounce -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d121139.86460485452!2d-95.11520129450184!3d18.41010298093382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9dd8c599d2117%3A0x675fa0cc0958abfd!2s95873%20Miguel%20Hidalgo%2C%20Ver.!3m2!1d18.371563!2d-94.95262269999999!5e0!3m2!1ses!2smx!4v1762565899589!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d92274.50624197905!2d-95.11520129450182!3d18.41010298093382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9dd8c599d2117%3A0x675fa0cc0958abfd!2sMiguel%20Hidalgo%2C%2095873%20Ver.!3m2!1d18.371563!2d-94.95262269999999!5e1!3m2!1ses!2smx!4v1762739165916!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
 
@@ -117,7 +117,7 @@
 
 
 
-    <a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca de la carrera Ingeniería Informática">
+    <a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca del Turismo Comunitario">
       <div title="Clic para enviar mensaje" class="btn_enviawsp">
         Quiero hablar con una persona...
       </div>
@@ -138,7 +138,7 @@
 
 <br>
 
-
+<!--Servicios -->
 <div class="contenedor-docentes">
   <div class="docentes">   
     <div class="grid">
@@ -234,7 +234,7 @@
 
 <div class="agrupador-guias-turisticas">
 
-  <div class="agrupador-itemgt-tarjeta">
+    <div class="agrupador-itemgt-tarjeta">
         <div class="grid-itemgt">
           <img src="{{ asset('images/degraaf-travel.jpg') }}" loading="lazy">
         </div>
@@ -266,6 +266,7 @@
         
       </div>
     </div>
+
 
     <div class="agrupador-itemgt-y-tarjeta">
         <div class="grid-itemgt">
@@ -438,6 +439,8 @@
       </div>
     </div>
 
+
+
     <div class="agrupador-itemgt-y-tarjeta">
         <div class="grid-itemgt">
           <img src="{{ asset('images/riviera-del-toro.jpg') }}" loading="lazy">
@@ -458,16 +461,18 @@
           <a href="https://www.facebook.com/profile.php?id=100066491815971" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
           </a>
-          <a href="https://instagram.com" target="_blank" class="cat">
+          <a href="https://www.instagram.com/rivieradeltoro/?igsh=MXJpZzR5ZDk2bTVsdQ%3D%3D&fbclid=IwY2xjawN-ZhhleHRuA2FlbQIxMABicmlkETE1ZFN3cU85T0NPc2RMdms5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHk8rP1A6PP4dAJU4P1j-fBow4jWaFXlu-4-GBkw-7kMwLC2ESTCxfCdUTMGt_aem_jIUzu6vfgFZYgDXLGCNJaA#" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
           </a>
-          <a href="https://tiktok.com" target="_blank" class="cat">
+          <a href="https://www.tiktok.com/@rivieradeltoro?_r=1&_t=ZS-91H9X8uIoAa&fbclid=IwY2xjawN-ZhtleHRuA2FlbQIxMABicmlkETE1ZFN3cU85T0NPc2RMdms5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvgpp5-R3enuekXLMHgob1kR9DhnYTKNc6dq2DqL9Ksofv2FBm8TVmVUJ7PR_aem_2ur5v8xUCeADytEp1vWFPA" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
           </a>
+
         </div>
 
       </div>
     </div>
+
 
     <div class="agrupador-itemgt-y-tarjeta">
       <div class="grid-itemgt">
@@ -789,42 +794,109 @@
 
 <!--Galeria-->
 <script>
-  const laboratorioImages = ['{{ asset('images/apompal/1.jpg') }}', '{{ asset('images/apompal/2.jpg') }}', '{{ asset('images/apompal/3.jpg') }}', '{{ asset('images/apompal/4.jpg') }}', '{{ asset('images/apompal/5.jpg') }}'];
+    // Las rutas de las imágenes se mantienen igual
+    const laboratorioImages = ['{{ asset('images/apompal/4.jpg') }}', '{{ asset('images/apompal/2.jpg') }}', '{{ asset('images/apompal/3.jpg') }}', '{{ asset('images/apompal/1.jpg') }}', '{{ asset('images/apompal/5.jpg') }}'];
 
-  function setupGallery(images, featuredId, thumbnailsId) {
-      const featuredImage = document.getElementById(featuredId);
-      const thumbnailsContainer = document.getElementById(thumbnailsId);
-      thumbnailsContainer.innerHTML = images.map((img, index) => `<img class="thumbnail-l" src="${img}" alt="Imagen ${index + 1}" data-index="${index}">`).join('');
-      const thumbnails = thumbnailsContainer.querySelectorAll('.thumbnail-l');
+    // Esta es la URL de una imagen de baja calidad o un placeholder que se cargará INMEDIATAMENTE.
+    // Usamos una URL simple para el ejemplo. En un caso real, sería un SVG o una imagen muy pequeña.
+    const placeholderSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; 
 
-      let currentIndex = 0;
-      function changeImage(index) {
-          featuredImage.style.opacity = 0;
-          setTimeout(() => {
-              featuredImage.src = images[index];
-              featuredImage.style.opacity = 1;
-          }, 500);
-          thumbnails.forEach(thumb => thumb.classList.remove('active'));
-          thumbnails[index].classList.add('active');
-          currentIndex = index;
-      }
+    // --- FUNCIÓN DE CARGA DIFERIDA ---
+    function setupLazyLoading(images) {
+        // Opción de configuración: la imagen se carga cuando está al 100px de distancia de ser visible
+        const options = {
+            rootMargin: '100px', 
+            threshold: 0.01 // Dispara cuando 1% del elemento es visible
+        };
 
-      thumbnails.forEach(thumb => {
-          thumb.addEventListener('click', () => {
-              clearInterval(autoSlide);
-              changeImage(thumb.dataset.index);
-              autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
-          });
-      });
+        // 1. Definimos la acción que se ejecuta al intersectar (hacerse visible)
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const lazyImage = entry.target;
+                    // Mueve la URL final (guardada en data-src) al atributo src
+                    lazyImage.src = lazyImage.dataset.src;
+                    
+                    // Detenemos la observación una vez que la imagen se ha cargado
+                    observer.unobserve(lazyImage); 
+                }
+            });
+        }, options);
 
-      let autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
-      changeImage(0);
-  }
+        // 2. Registramos todas las miniaturas para ser observadas
+        images.forEach(imageElement => {
+            observer.observe(imageElement);
+        });
+    }
+    // --- FIN FUNCIÓN DE CARGA DIFERIDA ---
 
-  window.onload = () => {
-      setupGallery(laboratorioImages, 'featured-laboratorio', 'laboratorio-thumbnails');
-  };
-</script>
+
+    function setupGallery(images, featuredId, thumbnailsId) {
+        const featuredImage = document.getElementById(featuredId);
+        const thumbnailsContainer = document.getElementById(thumbnailsId);
+        
+        // --- CAMBIO CLAVE A: Generación de Miniaturas con Carga Diferida ---
+        // 1. Usamos 'src' para el placeholder (carga inmediata, ligero)
+        // 2. Usamos 'data-src' para guardar la URL real de alta resolución
+        thumbnailsContainer.innerHTML = images.map((img, index) => 
+            `<img 
+                class="thumbnail-l" 
+                src="${placeholderSrc}" 
+                data-src="${img}" 
+                alt="Imagen ${index + 1}" 
+                data-index="${index}"
+            >`).join('');
+        // --- FIN CAMBIO CLAVE A ---
+
+        const thumbnails = thumbnailsContainer.querySelectorAll('.thumbnail-l');
+        
+        // --- CAMBIO CLAVE B: Inicializamos la carga diferida para las miniaturas ---
+        setupLazyLoading(thumbnails);
+        // --- FIN CAMBIO CLAVE B ---
+
+
+        let currentIndex = 0;
+        
+        // El resto de la lógica para cambiar la imagen principal se mantiene igual
+        function changeImage(index) {
+            featuredImage.style.opacity = 0;
+            setTimeout(() => {
+                // Aquí usamos la URL real del array original, no el placeholder
+                featuredImage.src = images[index]; 
+                featuredImage.style.opacity = 1;
+            }, 500);
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            
+            // Usamos data-index para asegurar que seleccionamos la miniatura correcta
+            // y la cargamos inmediatamente si aún no lo ha hecho el observer.
+            const targetThumb = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
+            targetThumb.classList.add('active');
+            
+            // Aseguramos que la imagen principal también esté cargada
+            if (targetThumb.dataset.src && targetThumb.src === placeholderSrc) {
+                targetThumb.src = targetThumb.dataset.src;
+            }
+
+            currentIndex = parseInt(index);
+        }
+
+        // ... Lógica de click y autoSlide ...
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                clearInterval(autoSlide);
+                changeImage(thumb.dataset.index);
+                autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
+            });
+        });
+
+        let autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
+        changeImage(0); // Carga la primera imagen inmediatamente
+    }
+
+    window.onload = () => {
+        setupGallery(laboratorioImages, 'featured-laboratorio', 'laboratorio-thumbnails');
+    };
+  </script>
 <!-------------------- Fin Galeria------------------->
 
 

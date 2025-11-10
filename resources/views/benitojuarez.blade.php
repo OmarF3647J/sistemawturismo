@@ -27,7 +27,8 @@
 
   
   <!-- CSS estilos de esta página -->
-   <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/estilos-centros.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/docentes.css') }}">
 
 
   <!-- Google Font -->
@@ -54,259 +55,172 @@
 @include('partials.header')
 
 
-<!---carrusel carreras--->
-<div class="carrusel_carreras js-flickity"
-  data-flickity-options='{
-    "cellAlign": "left", 
-    "contain": true, 
-    "wrapAround": true, 
-    "autoPlay": 3000, 
-    "pauseAutoPlayOnHover": false, 
-    "prevNextButtons": true, 
-    "selectedAttraction": 0.01, 
-    "friction": 0.2 
-  }'> 
-
-  
-  <div class="carrusel_portadas">
-    <a href="{{ route('apompal') }}">
-      <img src="{{ asset('images/apompal/portada2.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Apompal Miguel Hidalgo</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-
-  <div class="carrusel_portadas">
-    <a href="{{ route('arrecifes') }}">
-      <img src="{{ asset('images/arrecifes/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Arrecifes</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-
-  <div class="carrusel_portadas">
-    <a href="{{ route('benitojuarez') }}">
-      <img src="{{ asset('images/benito-juarez/cascada2.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Benito Juárez</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-  
-    <!--
-    <div class="carrusel_portadas">
-      <a href="{{ route('inicio') }}">
-        <img src="{{ asset('images/cabanas-encantadas/portada.jpg') }}" loading="lazy">
-        <div class="titulo_carrera_telefono">Cabañas Encantadas</div>
-        <br>
-        <button class="btn-sobre-imagen">Conocer más...</button>
-      </a>
-    </div>
-
-    <div class="carrusel_portadas">
-      <a href="{{ route('inicio') }}">
-        <img src="{{ asset('images/cascadas-encantadas/portada.jpg') }}" loading="lazy">
-        <div class="titulo_carrera_telefono">Cascadas encantadas</div>
-        <br>
-        <button class="btn-sobre-imagen">Conocer más...</button>
-      </a>
-    </div>
-  -->
-
-  <div class="carrusel_portadas">
-    <a href="{{ route('jomxuk') }}">
-      <img src="{{ asset('images/jomxuk/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Jomxuk</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-
-  <div class="carrusel_portadas">
-    <a href="{{ route('kantasejkan') }}">
-      <img src="{{ asset('images/kan-tasejkan/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Kan Tasejkan</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-
-  <div class="carrusel_portadas">
-    <a href="{{ route('barralagunadelostion') }}">
-      <img src="{{ asset('images/laguna-del-ostion/BARRA_LAGUNADELOSTION.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Laguna del Ostion</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-
-  <div class="carrusel_portadas">
-    <a href="{{ route('lasmargaritas') }}">
-      <img src="{{ asset('images/las-margaritas/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Las Margaritas</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-
-  <div class="carrusel_portadas">
-    <a href="{{ route('ranchodonaelia') }}">
-      <img src="{{ asset('images/rancho-dona-elia/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Rancho Sustentable Doña Helia - Laguna encantada</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-
-  <div class="carrusel_portadas">
-    <a href="{{ route('rocapartida') }}">
-      <img src="{{ asset('images/roca-partida/portada.png') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Roca Partida</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-
- <div class="carrusel_portadas">
-    <a href="{{ route('selvaelmarinero') }}">
-      <img src="{{ asset('images/selva-el-marinero/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Selva El Marinero</div>
-      <br>
-      <button class="btn-sobre-imagen">Conocer más...</button>
-    </a>
-  </div>
-
-</div><!---fin carrusel--->
-<div class="flickity-page-dots"></div>
-<!---fin carrusel--->
 
 
-<br><br><br> 
 
-<!---Contador vacacionistas--->
-<div class="visitantes">
-  Más de  <div class="counter">85,000</div>
+<div class="imagen_full" style="background-image: url('{{ asset('images/apompal/portada2.jpg') }}');" loading="lazy">
+      <div class="texto-sobre-full">
+        @include('partials.title-benitojuarez')
+      </div>
 </div>
-<div class="visitantes">visitantes en el último año...</div>
 
+
+
+<!---bounce left--->
+<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+  <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div>
+</div><!-- end boounce -->
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d92274.50624197905!2d-95.11520129450182!3d18.41010298093382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9dd8c599d2117%3A0x675fa0cc0958abfd!2sMiguel%20Hidalgo%2C%2095873%20Ver.!3m2!1d18.371563!2d-94.95262269999999!5e1!3m2!1ses!2smx!4v1762739165916!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+
+<br>
 
 <!--appear scroll-->
 <div id="content">
 
-  <div class="imagen_full">
-      <div class="texto-sobre-full">
-        @include('partials.conecta-con-naturaleza')
+  <center>
+  <!---Información y botones de contacto--->
+    <h2>Contáctanos</h2>
+
+
+    <div class="contacto-container">
+      <div class="contacto-item">
+          <img src="{{ asset('images/favicon/reloj.png') }}" alt="Horaio" class="icon" loading="lazy">
+          <div>
+              <div class="texto_contacto">Horario de Atención</div>
+              <p>9:00 a 17:00 hrs.</p>
+          </div>
+      </div>
+      <div class="contacto-item">
+          <img src="{{ asset('images/favicon/responsable.png') }}" alt="Responsable" class="icon" loading="lazy">
+          <div>
+              <div class="texto_contacto">Responsable</div>
+              <p>db</p>
+          </div>
+      </div>
+      <div class="contacto-item">
+          <img src="{{ asset('images/favicon/correo_sinfondo.png') }}" alt="Correo electronico" class="icon" loading="lazy">
+          <div>
+              <div class="texto_contacto">Correo Electrónico</div>
+              <p>ing_informatica@itssat.edu.mx</p>
+          </div>
+      </div>
+      <div class="contacto-item">
+          <img src="{{ asset('images/favicon/llamada.png') }}" alt="Telefono" class="icon" loading="lazy">
+          <div>
+              <div class="texto_contacto">Teléfono</div>
+              <p>222-456-7890</p>
+          </div>
       </div>
   </div>
 
-</div>
 
 
+    <a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca del Turismo Comunitario">
+      <div title="Clic para enviar mensaje" class="btn_enviawsp">
+        Quiero hablar con una persona...
+      </div>
+    </a>
+  </center>
+
+</div><!--end appear-->
 
 
-
-
-<br>
-
+<br><br><br><br>
+<hr>
+<br><br>
 
 <!--Menu centros ecoturisticos-->
 <div style="text-align: center;">
-  <h2>Centros Ecoturísticos</h2>
-  <h3><b>en la región de los Tuxtlas.</b></h3>
-</div><!--fin agrupador centros ecoturisticos  -->
+  <h2>Servicios</h2>
+</div>
 
 <br>
 
-<!---bounce left--->
-<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
-  <div class="descripcion_centros"> Estos lugares ofrecen alojamiento en cabañas, sanitarios, espacio para camping, restaruantes, artesanías y <b>paisajes naturales inolvidables.</b></div>
-</div><!-- end boounce -->
+<!--Servicios -->
+<div class="contenedor-docentes">
+  <div class="docentes">   
+    <div class="grid">
 
-
-<!--inicio agrupador centros turitticos -->
-<div class="agrupador-centros-turisticos">
-
-  <a href="{{ route('apompal') }}">
-      <div class="grid-item" style="background-image: url('{{ asset('images/apompal/portada2.jpg') }}');" loading="lazy">
-          <h3>{{ $centros[1]->nomcentur }}</h3>
+      <div class="card">
+        <div class="btn-pdf_docentes">
+          <img class="img-docente" src="{{ asset('images/favicon/estacionamiento.png') }}" alt="Servicio estacionamiento">
+            <p class="role-docente">Estacionamiento</p>
+        </div>
       </div>
-  </a>
 
-  
-  <a href="{{ route('arrecifes') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/arrecifes/portada.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[2]->nomcentur }}</h3>
+      <div class="card">
+        <div class="btn-pdf_docentes">
+          <img class="img-docente" src="{{ asset('images/favicon/wifi.png') }}" alt="Servicio WiFi">
+            <p class="role-docente">WiFi</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="btn-pdf_docentes">
+          <img class="img-docente" src="{{ asset('images/favicon/restaurante.png') }}" alt="Servicio Restaurante Comida">
+            <p class="role-docente">Restaurante</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="btn-pdf_docentes">
+          <img class="img-docente" src="{{ asset('images/favicon/cuarto-de-bano.png') }}" alt="Servicio Sanitarios Baño">
+            <p class="role-docente">Sanitarios</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="btn-pdf_docentes">
+          <img class="img-docente" src="{{ asset('images/favicon/cabana.png') }}" alt="Servicio Cabañas">
+            <p class="role-docente">Cabañas</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="btn-pdf_docentes">
+          <img class="img-docente" src="{{ asset('images/favicon/ducha.png') }}" alt="Servicio Regaderas Ducha">
+            <p class="role-docente">Regaderas</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="btn-pdf_docentes">
+          <img class="img-docente" src="{{ asset('images/favicon/camping.png') }}" alt="Servicio Espacio para Camping">
+            <p class="role-docente">Espacio para Camping</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="btn-pdf_docentes">
+          <img class="img-docente" src="{{ asset('images/favicon/souvenirs.png') }}" alt="Servicio Artesanías">
+            <p class="role-docente">Artesanías</p>
+        </div>
+      </div>
+
+
     </div>
-  </a>
-
-
-  <a href="{{ route('benitojuarez') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/benito-juarez/cascada2.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[3]->nomcentur }}</h3>
-    </div>  
-  </a>
-    <!--
-    <div class="grid-item" style="background-image: url('{{ asset('images/cabanas-encantadas/portada.jpg') }}');" loading="lazy">
-        <h3>Cabañas Encantadas</h3>
-    </div>
-
-    <div class="grid-item" style="background-image: url('{{ asset('images/cascadas-encantadas/portada.jpg') }}');" loading="lazy">
-        <h3>Cascadas Encantadas</h3>
-    </div>
-    -->
-
-  <a href="{{ route('jomxuk') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/jomxuk/portada.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[6]->nomcentur }}</h3>
-    </div>
-  </a>
-
-
-  <a href="{{ route('kantasejkan') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/kan-tasejkan/portada.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[7]->nomcentur }}</h3>
-    </div>
-  </a>
-
-
-  <a href="{{ route('barralagunadelostion') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/laguna-del-ostion/BARRA_LAGUNADELOSTION.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[8]->nomcentur }}</h3>
-    </div>
-  </a>
-
-  <a href="{{ route('lasmargaritas') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/las-margaritas/portada.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[9]->nomcentur }}</h3>
-    </div>
-  </a>
-
-  <a href="{{ route('ranchodonaelia') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/rancho-dona-elia/portada.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[10]->nomcentur }}</h3>
-    </div>
-  </a>
-
-  <a href="{{ route('rocapartida') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/roca-partida/portada.png') }}');" loading="lazy">
-        <h3>{{ $centros[11]->nomcentur }}</h3>
-    </div>
-  </a>
-
-  <a href="{{ route('selvaelmarinero') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/selva-el-marinero/portada.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[12]->nomcentur }}</h3>
-    </div>
-  </a>
-    
+  </div>
 </div>
 
 
 
+<br><br><br><br><br>
 
-<br><br><br>
+<h2>Galería</h2>
+<div class="carousel-container-l">
+    <div class="main-image-l">
+        <img id="featured-laboratorio" src="mycss/img_css/info/a5.jpg" alt="Imagen Principal">
+    </div>
+    <div class="thumbnails-l" id="laboratorio-thumbnails">
+        <!-- Las imágenes se añaden dinámicamente -->
+    </div>
+</div>
+
+<br><br><br><br><br>
+
+
 
 
 <div class="titulo-guias">
@@ -314,49 +228,13 @@
 </div>
 
 <div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
-  <div class="descripcion_guias"> Ellos pueden <b>llevarte</b> a los Centros Ecoturísticos de la región de Los Tuxtlas y pueden ofrecerte algunas <b>actividades.</b></div>
+  <div class="descripcion_guias"> Estas guías colaboran con este Centro Ecoturistico, pueden <b>llevarte</b> a este lugar y pueden ofrecerte algunas <b>actividades para que disfrutes de tu estancia... </b><br><br>¡Ponte en contacto con ellos y disfruta tu viaje!</div>
 </div>
 
 
-<!--inicio agrupador guias turisticas -->
 <div class="agrupador-guias-turisticas">
 
-  <!--
-  <div class="agrupador-itemgt-y-tarjeta">
-      <div class="grid-itemgt">
-        <img src="{{ asset('images/noimage.jpg') }}" loading="lazy">
-      </div>
-
-    <div class="tarjeta-guia">
-        
-      <div style="text-align: center;">
-        <h3>Ecoturismo el Apompal</h3>
-      </div>
-
-      <h4>Responsable: <span style="font-weight: 300;">Nombre</span> </h4>
-      <h4>Número: <span style="font-weight: 300;">bd</span></h4>
-      <h4>Correo: <span style="font-weight: 300;">bd</span></h4>   
-      <h4>Actividades que realizan <span style="font-weight: 300;">bd</span></h4>
-  
-      <br>
-      
-      <div class="btn-redes-sociales">
-        <a href="https://facebook.com" target="_blank" class="cat">
-          <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
-        </a>
-        <a href="https://instagram.com" target="_blank" class="cat">
-          <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
-        </a>
-        <a href="https://tiktok.com" target="_blank" class="cat">
-          <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
-        </a>
-      </div>
-
-    </div>
-  </div>
-  -->
-
-  <div class="agrupador-itemgt-tarjeta">
+    <div class="agrupador-itemgt-tarjeta">
         <div class="grid-itemgt">
           <img src="{{ asset('images/degraaf-travel.jpg') }}" loading="lazy">
         </div>
@@ -388,6 +266,7 @@
         
       </div>
     </div>
+
 
     <div class="agrupador-itemgt-y-tarjeta">
         <div class="grid-itemgt">
@@ -436,10 +315,10 @@
           <a href="https://www.facebook.com/Ixmatisturismo" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/facebook_circular.png') }}" alt="Facebook" loading="lazy">
           </a>
-          <a href="https://www.instagram.com/ixmatis_tours/" target="_blank" class="cat">
+          <a href="https://instagram.com" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/ig.png') }}" alt="Instagram" loading="lazy">
           </a>
-          <a href="hhttps://www.tiktok.com/@ixmatistours" target="_blank" class="cat">
+          <a href="https://tiktok.com" target="_blank" class="cat">
             <img src="{{ asset('images/favicon/tiktok-circular.png') }}" alt="Tiktok" loading="lazy">
           </a>
         </div>
@@ -560,6 +439,8 @@
       </div>
     </div>
 
+
+
     <div class="agrupador-itemgt-y-tarjeta">
         <div class="grid-itemgt">
           <img src="{{ asset('images/riviera-del-toro.jpg') }}" loading="lazy">
@@ -591,6 +472,7 @@
 
       </div>
     </div>
+
 
     <div class="agrupador-itemgt-y-tarjeta">
       <div class="grid-itemgt">
@@ -799,12 +681,7 @@
 </div><!--fin agrupador guias turisticas -->
 
 
-
-
-<br><br><br><br>
-
-
-
+<!--
 <div class="titulo_opinion_turistas">
   ¿Qué dicen los turistas?
 </div>
@@ -831,21 +708,15 @@
   </div>
 
 </div>
+-->
 
 
-
-
-
-<!-- Mapa -->
-<br><br><br><br><br>
-<h2>¡Vísitanos!</h2>
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15140.214781280141!2d-95.169389!3d18.435871!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c272311db4bbeb%3A0x55cb48e28a387d4!2sTecNM-Campus%20-%20San%20Andr%C3%A9s%20Tuxtla!5e0!3m2!1ses-419!2smx!4v1737149286702!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+<br><br><br>
 
 
 <br>
 <!------------------------ wsp icon -------------------------->
-<a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca del Turismo Comunitario">
+<a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca de la oferta educativa que ofrece el ITSSAT">
   <div id="wsp" title="Whatsapp">
     <img src="{{ asset('images/favicon/whatsapp.png') }}" width="60px">
   </div>
@@ -865,6 +736,11 @@
 
 @include('partials.footer')
 
+
+<!-- WOW.js bounce -->
+<script>
+  new WOW().init();  // Inicialización de WOW.js
+</script>
 
 
 <!--------- Appr up contacto ------->
@@ -888,16 +764,6 @@
 
  
 
-<script>
-  // Asegurar que autoplay se reanude tras interacción en móviles
-  document.addEventListener('touchstart', () => {
-    if (window.innerWidth <= 768) {
-      flktyMobile.playPlayer();
-    }
-  });
-
-</script>
-
 
 <script>
     function animateCounter(target, from, to, duration) {
@@ -917,7 +783,6 @@
             }
         });
     }
-
     // 🚀 Llamada corregida y simplificada:
     // 1. Apuntamos directo a la clase '.counter'.
     // 2. Establecemos el valor final en 85000.
@@ -927,42 +792,113 @@
 </script>
 
 
-<!-- carrusel carreras -->
+<!--Galeria-->
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var flkty = new Flickity('.carrusel_carreras', {
-      cellAlign: 'left',
-      contain: true,
-      wrapAround: true,
-      autoPlay: 3000, // Cambio automático cada 3 segundos
-      pauseAutoPlayOnHover: false, 
-      prevNextButtons: true, // Habilita botones de navegación
-      selectedAttraction: 0.01,
-      friction: 0.2,
-      pageDots: true, // mantener dots
+    // Las rutas de las imágenes se mantienen igual
+    const laboratorioImages = ['{{ asset('images/apompal/4.jpg') }}', '{{ asset('images/apompal/2.jpg') }}', '{{ asset('images/apompal/3.jpg') }}', '{{ asset('images/apompal/1.jpg') }}', '{{ asset('images/apompal/5.jpg') }}'];
 
-    });
+    // Esta es la URL de una imagen de baja calidad o un placeholder que se cargará INMEDIATAMENTE.
+    // Usamos una URL simple para el ejemplo. En un caso real, sería un SVG o una imagen muy pequeña.
+    const placeholderSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; 
 
-      flkty.on('select', function () {
-      flkty.playPlayer(); // Reinicia el autoplay después de cualquier acción
-    });
+    // --- FUNCIÓN DE CARGA DIFERIDA ---
+    function setupLazyLoading(images) {
+        // Opción de configuración: la imagen se carga cuando está al 100px de distancia de ser visible
+        const options = {
+            rootMargin: '100px', 
+            threshold: 0.01 // Dispara cuando 1% del elemento es visible
+        };
 
-    // Evitar que el autoplay se detenga al usar los botones de flecha
-    var prevButton = document.querySelector('.flickity-prev-next-button.previous');
-    var nextButton = document.querySelector('.flickity-prev-next-button.next');
+        // 1. Definimos la acción que se ejecuta al intersectar (hacerse visible)
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const lazyImage = entry.target;
+                    // Mueve la URL final (guardada en data-src) al atributo src
+                    lazyImage.src = lazyImage.dataset.src;
+                    
+                    // Detenemos la observación una vez que la imagen se ha cargado
+                    observer.unobserve(lazyImage); 
+                }
+            });
+        }, options);
 
-    [prevButton, nextButton].forEach(function(button) {
-      button.addEventListener('click', function() {
-        flkty.playPlayer();
-      });
-    });
-  });
-</script>
+        // 2. Registramos todas las miniaturas para ser observadas
+        images.forEach(imageElement => {
+            observer.observe(imageElement);
+        });
+    }
+    // --- FIN FUNCIÓN DE CARGA DIFERIDA ---
 
-<!-- WOW.js bounce -->
-<script>
-  new WOW().init();  // Inicialización de WOW.js
-</script>
+
+    function setupGallery(images, featuredId, thumbnailsId) {
+        const featuredImage = document.getElementById(featuredId);
+        const thumbnailsContainer = document.getElementById(thumbnailsId);
+        
+        // --- CAMBIO CLAVE A: Generación de Miniaturas con Carga Diferida ---
+        // 1. Usamos 'src' para el placeholder (carga inmediata, ligero)
+        // 2. Usamos 'data-src' para guardar la URL real de alta resolución
+        thumbnailsContainer.innerHTML = images.map((img, index) => 
+            `<img 
+                class="thumbnail-l" 
+                src="${placeholderSrc}" 
+                data-src="${img}" 
+                alt="Imagen ${index + 1}" 
+                data-index="${index}"
+            >`).join('');
+        // --- FIN CAMBIO CLAVE A ---
+
+        const thumbnails = thumbnailsContainer.querySelectorAll('.thumbnail-l');
+        
+        // --- CAMBIO CLAVE B: Inicializamos la carga diferida para las miniaturas ---
+        setupLazyLoading(thumbnails);
+        // --- FIN CAMBIO CLAVE B ---
+
+
+        let currentIndex = 0;
+        
+        // El resto de la lógica para cambiar la imagen principal se mantiene igual
+        function changeImage(index) {
+            featuredImage.style.opacity = 0;
+            setTimeout(() => {
+                // Aquí usamos la URL real del array original, no el placeholder
+                featuredImage.src = images[index]; 
+                featuredImage.style.opacity = 1;
+            }, 500);
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            
+            // Usamos data-index para asegurar que seleccionamos la miniatura correcta
+            // y la cargamos inmediatamente si aún no lo ha hecho el observer.
+            const targetThumb = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
+            targetThumb.classList.add('active');
+            
+            // Aseguramos que la imagen principal también esté cargada
+            if (targetThumb.dataset.src && targetThumb.src === placeholderSrc) {
+                targetThumb.src = targetThumb.dataset.src;
+            }
+
+            currentIndex = parseInt(index);
+        }
+
+        // ... Lógica de click y autoSlide ...
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                clearInterval(autoSlide);
+                changeImage(thumb.dataset.index);
+                autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
+            });
+        });
+
+        let autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
+        changeImage(0); // Carga la primera imagen inmediatamente
+    }
+
+    window.onload = () => {
+        setupGallery(laboratorioImages, 'featured-laboratorio', 'laboratorio-thumbnails');
+    };
+  </script>
+<!-------------------- Fin Galeria------------------->
+
 
 
 

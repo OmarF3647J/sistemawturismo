@@ -227,9 +227,6 @@ a img {
 
 
 
-
-
-
 .descripcion_centros{
   margin: 3% auto;
   width: 95%;
@@ -239,6 +236,9 @@ a img {
   color: #0a5235;
   max-width: 850px;
 }
+
+
+
 /* Agrupador principal del centtos turisticos */
 .agrupador-centros-turisticos {
     display: grid;
@@ -274,6 +274,7 @@ a img {
     font-weight: 600;
     z-index: 2; /* Para que esté sobre el overlay */
     text-align: center;
+    text-shadow: 0 0 15px rgba(29, 30, 29, 0.71);
 }
 
 /* El elemento/efecto de hover */
@@ -288,16 +289,27 @@ a img {
     /* Transición suave para el efecto de difuminado/oscurecimiento */
     transition: background-color 0.3s ease; 
     z-index: 1;
+    background-color: rgba(27, 26, 26, 0.33);
+
 }
+
+
+
 
 /* Efecto al pasar el mouse (hover) */
 .grid-item:hover::before {
     /* Oscurece la imagen (simula difuminado) */
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.394);
     backdrop-filter: blur(2px); 
     /* Opcional pero recomendado para máxima compatibilidad */
     -webkit-backdrop-filter: blur(2px);
+
 }
+
+
+
+
+
 
 .titulo-guias{
     width: 100%;

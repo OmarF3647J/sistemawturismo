@@ -56,10 +56,10 @@
         <center>
           
             <a href="https://www.gob.mx/"><img src="{{ asset('images/logos/SEGOB_2024.png') }}" class="logos_header" style="height: 38px;" alt="Gobierno de México"></a>
-            <a href="https://www.sep.gob.mx/"><img src="{{ asset('images/logos/educacion.png') }}" class="logos_header" style="height: 40px;" alt="Educación"></a>
+            <a href="https://www.sep.gob.mx/"><img src="{{ asset('images/logos/educacion.png') }}" class="logos_header" style="height: 32px;" alt="Educación"></a>
             <!--<a href="https://www.tecnm.mx//"><img src="img/logos/tecnm_azul_nb.png" class="logos_header" height="45px" alt="TecNM"></a>&nbsp;-->
             <a href="https://www.itssat.edu.mx//"><img src="{{ asset('images/logos/ITSSAT.png') }}" class="logos_header" style="height: 38px;" alt="ITSSAT"></a>
-            <a href="https://www.veracruz.gob.mx/"><img src="{{ asset('images/logos/gob_veracruz.png') }}" class="logos_header" style="height: 40px;" alt="Gobierno Veracruz"></a>&nbsp;&nbsp;
+            <a href="https://www.veracruz.gob.mx/"><img src="{{ asset('images/logos/gob-veracruz.png') }}" class="logos_header" style="height: 35px;" alt="Gobierno Veracruz"></a>&nbsp;&nbsp;
             <a href="https://www.sev.gob.mx/#!/"><img src="{{ asset('images/logos/sev.png') }}" class="logos_header" style="height: 35px;" alt="SEV"></a>&nbsp;&nbsp;
             <a href="https://www.sev.gob.mx/media-superior/#!/"><img src="{{ asset('images/logos/sectur_2024.png') }}" class="logos_header" style="height: 35px;" alt="SECTUR"></a>&nbsp;&nbsp;
             <a href="https://www.sev.gob.mx/educacion-tecnologica//"><img src="{{ asset('images/logos/det.png') }}" class="logos_header" style="height: 35px;" alt="DET"></a>&nbsp;&nbsp;
@@ -80,7 +80,7 @@
         <a href="https://www.tecnm.mx/"><img src="{{ asset('images/logos/tecnm_menu.png') }}" width="110px"></a>&nbsp;
       </div>
       <div class="escritorio_btec">
-        <a href="index.php"><img src="{{ asset('images/favicon/home.png') }}" width="30px"></a>&nbsp;
+        <a href="{{ route('inicio') }}"><img src="{{ asset('images/favicon/home.png') }}" width="30px"></a>&nbsp;
       </div>
 
 
@@ -94,7 +94,7 @@
 
 
           <div class="fant_home">
-            <a href="index.php"><img src="{{ asset('images/favicon/home.png') }}" width="30px"></a>&nbsp;
+            <a href="{{ route('inicio') }}"><img src="{{ asset('images/favicon/home.png') }}" width="30px"></a>&nbsp;
           </div>
 
 
@@ -110,31 +110,30 @@
       <nav>
         
         <ul>
-          <li><a href="index.php">Inicio</a></li>
+          <li><a href="{{ route('inicio') }}">Inicio</a></li>
 
-          <li><a href="index.php">Turismo Comunitario</a></li>
+          <li><a href="{{ route('inicio') }}">Turismo Comunitario</a></li>
 
           <li class="submenu">
           <a href="#">Centros Ecoturísticos</a>
             <ul class="children">
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
-              <li><a href="construccion.php">Nombre</a></li>
+              <li><a href="{{ route('apompal') }}">{{ $centros[0]->nomcentur }}</a></li>
+              <li><a href="{{ route('arrecifes') }}">{{ $centros[1]->nomcentur }}</a></li>
+              <li><a href="{{ route('benitojuarez') }}">{{ $centros[2]->nomcentur }}</a></li>
+              <li><a href="{{ route('jomxuk') }}">{{ $centros[3]->nomcentur }}</a></li>
+              <li><a href="{{ route('kantasejkan') }}">{{ $centros[4]->nomcentur }}</a></li>
+              <li><a href="{{ route('barralagunadelostion') }}">{{ $centros[5]->nomcentur }}</a></li>
+              <li><a href="{{ route('lasmargaritas') }}">{{ $centros[6]->nomcentur }}</a></li>
+              <li><a href="{{ route('ranchodonaelia') }}">{{ $centros[7]->nomcentur }}</a></li>
+              <li><a href="{{ route('rocapartida') }}">{{ $centros[8]->nomcentur }}</a></li>
+              <li><a href="{{ route('selvaelmarinero') }}">{{ $centros[9]->nomcentur }}</a></li>
+
 
             </ul>
           </li>
           
           
-          <li><a href="https://www.itssat.edu.mx/transparencia/contenido/">Contacto</a></li>
+          <li><a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca de la carrera Ingeniería Informática">Contacto</a></li>
         </ul>
       </nav>
     </header>

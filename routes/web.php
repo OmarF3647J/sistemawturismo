@@ -37,8 +37,55 @@ Route::get('/apompal', function () {
     return view('apompal');
 })->name('apompal');
 
-
 Route::get('/reportes/Apompal-CentroTuristico', [ReporteController::class, 'generarPDF'])->name('reportes.Apompal-CentroTuristico');
+
+
+
+
+// Ruta para dirigir a vistas
+Route::get('/arrecifes', function () {
+    return view('arrecifes');
+})->name('arrecifes');
+
+// Ruta para dirigir a vistas
+Route::get('/benitojuarez', function () {
+    return view('benitojuarez');
+})->name('benitojuarez');
+
+// Ruta para dirigir a vistas
+Route::get('/jomxuk', function () {
+    return view('jomxuk');
+})->name('jomxuk');
+
+// Ruta para dirigir a vistas
+Route::get('/kantasejkan', function () {
+    return view('kantasejkan');
+})->name('kantasejkan');
+
+// Ruta para dirigir a vistas
+Route::get('/barralagunadelostion', function () {
+    return view('barralagunadelostion');
+})->name('barralagunadelostion');
+
+// Ruta para dirigir a vistas
+Route::get('/lasmargaritas', function () {
+    return view('lasmargaritas');
+})->name('lasmargaritas');
+
+// Ruta para dirigir a vistas
+Route::get('/ranchodonaelia', function () {
+    return view('ranchodonaelia');
+})->name('ranchodonaelia');
+
+// Ruta para dirigir a vistas
+Route::get('/rocapartida', function () {
+    return view('rocapartida');
+})->name('rocapartida');
+
+// Ruta para dirigir a vistas
+Route::get('/selvaelmarinero', function () {
+    return view('selvaelmarinero');
+})->name('selvaelmarinero');
 
 
 

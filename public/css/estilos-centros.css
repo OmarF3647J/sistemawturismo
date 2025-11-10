@@ -221,6 +221,7 @@ hr{
   width: 95%;
   border-radius: 0;
   margin: 0 auto;
+
 }
 
 .main-image-l {
@@ -278,7 +279,7 @@ hr{
   padding: 7%;
   background-color: #ffffff;
   text-align: justify;
-  color: #420822bc;;
+  color: #670c35f9;;
   max-width: 850px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -706,7 +707,7 @@ width: 100%; /* Expande el borde hasta el ancho completo */
     display: flex; /* Layout horizontal para laptops */
     justify-content: center;
     align-items: flex-start;
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     margin: 0 auto;
   }
