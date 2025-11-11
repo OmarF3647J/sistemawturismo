@@ -95,25 +95,25 @@
     </a>
   </div>
   
-    <!--
-    <div class="carrusel_portadas">
-      <a href="{{ route('inicio') }}">
-        <img src="{{ asset('images/cabanas-encantadas/portada.jpg') }}" loading="lazy">
-        <div class="titulo_carrera_telefono">Cabañas Encantadas</div>
-        <br>
-        <button class="btn-sobre-imagen">Conocer más...</button>
-      </a>
-    </div>
+  
+  <div class="carrusel_portadas">
+    <a href="{{ route('cabanasencantadas') }}">
+      <img src="{{ asset('images/cabanas-encantadas/portada.jpg') }}" loading="lazy">
+      <div class="titulo_carrera_telefono">Cabañas Encantadas</div>
+      <br>
+      <button class="btn-sobre-imagen">Conocer más...</button>
+    </a>
+  </div>
 
-    <div class="carrusel_portadas">
-      <a href="{{ route('inicio') }}">
-        <img src="{{ asset('images/cascadas-encantadas/portada.jpg') }}" loading="lazy">
-        <div class="titulo_carrera_telefono">Cascadas encantadas</div>
-        <br>
-        <button class="btn-sobre-imagen">Conocer más...</button>
-      </a>
-    </div>
-  -->
+  <div class="carrusel_portadas">
+    <a href="{{ route('cascadasencantadas') }}">
+      <img src="{{ asset('images/cascadas-encantadas/portada.jpg') }}" loading="lazy">
+      <div class="titulo_carrera_telefono">Cascadas encantadas</div>
+      <br>
+      <button class="btn-sobre-imagen">Conocer más...</button>
+    </a>
+  </div>
+ 
 
   <div class="carrusel_portadas">
     <a href="{{ route('jomxuk') }}">
@@ -134,7 +134,7 @@
   </div>
 
   <div class="carrusel_portadas">
-    <a href="{{ route('barralagunadelostion') }}">
+    <a href="{{ route('lagunadelostion') }}">
       <img src="{{ asset('images/laguna-del-ostion/BARRA_LAGUNADELOSTION.jpg') }}" loading="lazy">
       <div class="titulo_carrera_telefono">Laguna del Ostion</div>
       <br>
@@ -247,15 +247,18 @@
         <h3>{{ $centros[3]->nomcentur }}</h3>
     </div>  
   </a>
-    <!--
+    
+  <a href="{{ route('cabanasencantadas') }}">
     <div class="grid-item" style="background-image: url('{{ asset('images/cabanas-encantadas/portada.jpg') }}');" loading="lazy">
         <h3>Cabañas Encantadas</h3>
     </div>
+  </a>
 
+  <a href="{{ route('cascadasencantadas') }}">
     <div class="grid-item" style="background-image: url('{{ asset('images/cascadas-encantadas/portada.jpg') }}');" loading="lazy">
         <h3>Cascadas Encantadas</h3>
     </div>
-    -->
+  </a>
 
   <a href="{{ route('jomxuk') }}">
     <div class="grid-item" style="background-image: url('{{ asset('images/jomxuk/portada.jpg') }}');" loading="lazy">
@@ -271,7 +274,7 @@
   </a>
 
 
-  <a href="{{ route('barralagunadelostion') }}">
+  <a href="{{ route('lagunadelostion') }}">
     <div class="grid-item" style="background-image: url('{{ asset('images/laguna-del-ostion/BARRA_LAGUNADELOSTION.jpg') }}');" loading="lazy">
         <h3>{{ $centros[8]->nomcentur }}</h3>
     </div>

@@ -39,7 +39,7 @@
   <!-- Icono pestaña -->
   <link rel="icon" href="{{ asset('images/favicon/tecnm.ico') }}"/>
   <!-- Titulo pestaña -->
-  <title>Centros Ecoturísticos – ¡Conoce la Región de los Tuxtlas!</title>
+  <title>Benito Juárez – ¡Conoce este Centro Ecoturístico!</title>
 
 
 </head>
@@ -58,7 +58,7 @@
 
 
 
-<div class="imagen_full" style="background-image: url('{{ asset('images/apompal/portada2.jpg') }}');" loading="lazy">
+<div class="imagen_full" style="background-image: url('{{ asset('images/benito-juarez/horizontal.jpg') }}');" loading="lazy">
       <div class="texto-sobre-full">
         @include('partials.title-benitojuarez')
       </div>
@@ -70,8 +70,8 @@
 <div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
   <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div>
 </div><!-- end boounce -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d92274.50624197905!2d-95.11520129450182!3d18.41010298093382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9dd8c599d2117%3A0x675fa0cc0958abfd!2sMiguel%20Hidalgo%2C%2095873%20Ver.!3m2!1d18.371563!2d-94.95262269999999!5e1!3m2!1ses!2smx!4v1762739165916!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d46629.499158856546!2d-95.05458578375234!3d18.404284882043708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x85e9df23ec5246c1%3A0x875035b9da12d36e!2sCoyame%2C%20Ver.!3m2!1d18.4369399!2d-95.02360999999999!4m5!1s0x85e9e17adb17b497%3A0x43c56b63f2fefa9c!2sReserva%20Ecol%C3%B3gica%20Benito%20Ju%C3%A0rez%2C%20Unnamed%20Road%2C%20Ver.!3m2!1d18.361602899999998!2d-95.0153339!5e1!3m2!1ses!2smx!4v1762842467191!5m2!1ses!2smx
+" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
 <br>
@@ -210,13 +210,24 @@
 
 <h2>Galería</h2>
 <div class="carousel-container-l">
+  
     <div class="main-image-l">
-        <img id="featured-laboratorio" src="mycss/img_css/info/a5.jpg" alt="Imagen Principal">
+        <img id="featured-laboratorio">      
     </div>
+
+
+      <!-- Modal para ampliar -->
+    <div id="modalImagen" class="iframe-modal-img">
+      <img id="imagenAmpliada" src="" alt="Vista ampliada">
+    </div>
+
+
+    
     <div class="thumbnails-l" id="laboratorio-thumbnails">
         <!-- Las imágenes se añaden dinámicamente -->
     </div>
 </div>
+
 
 <br><br><br><br><br>
 
@@ -681,34 +692,6 @@
 </div><!--fin agrupador guias turisticas -->
 
 
-<!--
-<div class="titulo_opinion_turistas">
-  ¿Qué dicen los turistas?
-</div>
-<center><h3>¡Las personas aman esta región!</h3></center>
-
-<div class="agrupador_opinion">
-
-  <div class="opinion_turista">
-    <div class="bloque bloque-1">"Me encantó el lugar pude realizar senderismo, nadar en una cascada y hospedarme con una gran anfitriona Sra. Amelia y su hija Marisela. Una cabaña junto a un estanque."</div>
-    <div class="bloque bloque-2">★★★★</div>
-    <div class="bloque bloque-3">-Anónimo</div>
-  </div>
-
-  <div class="opinion_turista">
-    <div class="bloque bloque-1">"Se trata de un lugar hermoso, muestra perfecta de como la Naturaleza y el hombre pueden convivir en una sinergia equilibrada"</div>
-    <div class="bloque bloque-2">★★★★★</div>
-    <div class="bloque bloque-3">-Visitante Mexicano</div>
-  </div>
-
-  <div class="opinion_turista">
-    <div class="bloque bloque-1">"Excelente Lugar es una Maravilla Especialmente la Atención Al Turista"</div>
-    <div class="bloque bloque-2">★★★★★</div>
-    <div class="bloque bloque-3">-Anónimo</div>
-  </div>
-
-</div>
--->
 
 
 <br><br><br>
@@ -765,37 +748,12 @@
  
 
 
-<script>
-    function animateCounter(target, from, to, duration) {
-        const counter = { value: from };
-
-        gsap.to(counter, {
-            value: to,
-            duration: duration,
-            ease: "power1.out",
-            onUpdate: function () {
-                // Selecciona el elemento y actualiza su texto.
-                // Usamos toLocaleString('es-MX') para que se muestren las comas (85,000).
-                document.querySelector(target).innerText = Math.ceil(counter.value).toLocaleString('es-MX');
-            },
-            onComplete: function () {
-                console.log(`Animación de ${target} completada.`);
-            }
-        });
-    }
-    // 🚀 Llamada corregida y simplificada:
-    // 1. Apuntamos directo a la clase '.counter'.
-    // 2. Establecemos el valor final en 85000.
-    // 3. El elemento .counter debe comenzar en 0 en tu HTML (o el valor 'from' de la función).
-  
-    animateCounter('.counter', 0, 85000, 5);
-</script>
 
 
 <!--Galeria-->
 <script>
     // Las rutas de las imágenes se mantienen igual
-    const laboratorioImages = ['{{ asset('images/apompal/4.jpg') }}', '{{ asset('images/apompal/2.jpg') }}', '{{ asset('images/apompal/3.jpg') }}', '{{ asset('images/apompal/1.jpg') }}', '{{ asset('images/apompal/5.jpg') }}'];
+    const laboratorioImages = ['{{ asset('images/benito-juarez/cascada.jpg') }}', '{{ asset('images/benito-juarez/rio.jpg') }}', '{{ asset('images/benito-juarez/6.jpg') }}', '{{ asset('images/benito-juarez/portada.jpg') }}', '{{ asset('images/benito-juarez/13.jpg') }}', '{{ asset('images/benito-juarez/7.jpg') }}', '{{ asset('images/benito-juarez/9.jpg') }}', '{{ asset('images/benito-juarez/12.jpg') }}'];
 
     // Esta es la URL de una imagen de baja calidad o un placeholder que se cargará INMEDIATAMENTE.
     // Usamos una URL simple para el ejemplo. En un caso real, sería un SVG o una imagen muy pequeña.
@@ -857,28 +815,31 @@
 
         let currentIndex = 0;
         
-        // El resto de la lógica para cambiar la imagen principal se mantiene igual
         function changeImage(index) {
-            featuredImage.style.opacity = 0;
-            setTimeout(() => {
-                // Aquí usamos la URL real del array original, no el placeholder
-                featuredImage.src = images[index]; 
-                featuredImage.style.opacity = 1;
-            }, 500);
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
-            
-            // Usamos data-index para asegurar que seleccionamos la miniatura correcta
-            // y la cargamos inmediatamente si aún no lo ha hecho el observer.
-            const targetThumb = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
-            targetThumb.classList.add('active');
-            
-            // Aseguramos que la imagen principal también esté cargada
-            if (targetThumb.dataset.src && targetThumb.src === placeholderSrc) {
-                targetThumb.src = targetThumb.dataset.src;
-            }
 
-            currentIndex = parseInt(index);
-        }
+        setTimeout(() => {
+        featuredImage.src = images[index];
+        
+        const img = new Image();
+          img.src = newSrc;
+
+        img.onload = () => {
+          featuredImage.src = newSrc;
+          featuredImage.classList.add('fade-in');
+        };
+    
+        featuredImage.classList.remove('fade-out');
+        void featuredImage.offsetWidth; // ⚙️ Reinicia la animación
+        featuredImage.classList.add('fade-in');
+      }, 300);
+
+        thumbnails.forEach(thumb => thumb.classList.remove('active'));
+        const targetThumb = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
+        targetThumb.classList.add('active');
+
+        currentIndex = parseInt(index);
+    }
+
 
         // ... Lógica de click y autoSlide ...
         thumbnails.forEach(thumb => {
@@ -899,10 +860,36 @@
   </script>
 <!-------------------- Fin Galeria------------------->
 
+<script>
+  // Manejo de miniaturas y modal
+  const thumbnails = document.querySelectorAll('.main-image-l img');
+  const modal = document.getElementById('modalImagen');
+  const modalImage = document.getElementById('imagenAmpliada');
 
+  thumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener('click', () => {
+      modalImage.src = thumbnail.src;
+      modal.style.display = 'flex';
+      if (window.innerWidth > 768) {
+        flktyDesktop.pausePlayer();
+      } else {
+        flktyMobile.pausePlayer();
+      }
+    });
+  });
 
-
-
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+      modalImage.src = '';
+      if (window.innerWidth > 768) {
+        flktyDesktop.playPlayer();
+      } else {
+        flktyMobile.playPlayer();
+      }
+    }
+  });
+</script>
 
 
 </body>

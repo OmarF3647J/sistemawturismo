@@ -69,7 +69,7 @@ a img {
   .carrusel_carreras {
     width: 100%;
     margin: 0 auto;
-    aspect-ratio: 16 / 9; /* Mantiene proporción sin forzar altura */
+    aspect-ratio: 16 / 12; /* Mantiene proporción sin forzar altura */
     margin-top: 20%;
   }
   .carrusel_portadas {
@@ -98,8 +98,8 @@ a img {
   }
   .flickity-page-dots .dot {
     /* CLAVE 1: Aumentar el tamaño del círculo */
-    width: 20px; /* Aumenta el ancho (ejemplo de 12px) */
-    height: 20px; /* Aumenta la altura para que siga siendo un círculo */
+    width: 20px;
+    height: 20px; 
     
     /* CLAVE 2: Cambiar el color de fondo de los dots NO activos */
     background: #7f8b84; /* Un gris claro para los inactivos */
@@ -117,6 +117,7 @@ a img {
 }
 /*fin carrusel*/
 
+
   /*nombre centrtos turisticos dentro de carrusel*/
   .titulo_carrera_telefono{
     width: 90%;
@@ -127,7 +128,7 @@ a img {
     padding: 15px 25px; /* Ajusta el tamaño del botón */
     font-family: "Lexend","Century Gothic", Arial;
     font-weight: bold;
-    font-size: 30px; /* Tamaño del texto */
+    font-size: 200%; /* Tamaño del texto */
     color: #fff; /* Color del texto */
     text-shadow: 0 0 15px rgba(0, 0, 0, 1.0);
     text-align: center; /* Centra el texto dentro del botón */
@@ -139,7 +140,7 @@ a img {
     position: absolute; /* Posiciona el botón sobre la imagen */
     margin: auto;
     top: 70%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
-    left: 28%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
+    left: 30%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
     padding: 3%; /* Ajusta el tamaño del botón */
     font-family: "Lexend","Century Gothic", Arial;
     font-weight: 400;
@@ -264,7 +265,14 @@ a img {
     /* Sin esquinas redondeadas */
     border-radius: 0; 
     overflow: hidden; /* Oculta lo que se salga, útil para el hover */
+    filter: saturate(130%);
+    transition: transform 0.3s ease; 
+
 }
+.grid-item:hover{
+  transform: scale(1.02); 
+}
+
 
 
 /* Estilo del texto centrado */
@@ -290,10 +298,7 @@ a img {
     transition: background-color 0.3s ease; 
     z-index: 1;
     background-color: rgba(27, 26, 26, 0.33);
-
 }
-
-
 
 
 /* Efecto al pasar el mouse (hover) */
@@ -303,7 +308,6 @@ a img {
     backdrop-filter: blur(2px); 
     /* Opcional pero recomendado para máxima compatibilidad */
     -webkit-backdrop-filter: blur(2px);
-
 }
 
 
@@ -528,11 +532,11 @@ body{
 /*Carrusel inicial*/
 .carrusel_carreras {
   margin-top: 20%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 12;
 }
 
 .titulo_carrera_telefono{
-    font-size: 48px; /* tamaño del texto */
+    font-size: 420%; /* Tamaño del texto */
 }
 .btn-sobre-imagen{
     left: 38%;
@@ -616,9 +620,7 @@ body{
   .carrusel_portadas img {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    object-fit: cover;
-    display: block; /* Elimina el espacio extra alrededor de la imagen */
+    display: block; 
     filter: saturate(120%);
     filter: brightness(65%); /* Oscurece la imagen al 50% */
     background-size: cover; /*rellena el contendor*/
@@ -629,12 +631,12 @@ body{
     width: 70%;
     position: absolute; /* Posiciona el botón sobre la imagen */
     top: 50%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
-    left: 45%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
+    left: 48%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
     padding: 15px 25px; /* Ajusta el tamaño del botón */
     font-family: "Lexend", "Century Gothic", Arial;
+    font-size: 390%; /* Tamaño del texto */
     font-weight: bold;
     color: #fff; /* Color del texto */
-    font-size: 50px; /* Tamaño del texto */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     text-align: left; /* Centra el texto dentro del botón */
 }
@@ -642,7 +644,7 @@ body{
   /*btn conocer mas*/
   .btn-sobre-imagen {
     position:fixed; /* Posiciona el botón sobre la imagen */
-    top: 65%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
+    top: 67%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
     left: 18%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
     padding: 15px 25px; /* Ajusta el tamaño del botón */
     font-family: "Lexend", "Century Gothic", Arial;

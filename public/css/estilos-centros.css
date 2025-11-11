@@ -36,6 +36,7 @@ h3{
   width: 100%;
   font-weight: 300;
 }
+
 h4{
   font-family: "Lexend","Century Gothic", Arial;
 }
@@ -69,30 +70,39 @@ hr{
 
 
 .imagen_full{
-  display: flex;
-  margin-top: 8%;
-  margin-bottom: 2%;
-  width: 100%;
-  height: 600px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  background-position: center;
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(--background-url);
-  background-repeat: no-repeat;
+    display: flex;
+    margin-top: 8%;
+    margin-bottom: 2%;
+    width: 100%;
+    height: 600px;
+    align-items: center; 
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.459), rgba(0, 0, 0, 0.558)), url(--background-url);
+    background-repeat: no-repeat;
 }
 .imagen_full img{
   width: 100%;
   height: 100%;
-  filter: brightness(65%); /* Oscurece la imagen al 50% */
+  
 }
 .texto-sobre-full {
     color: white;
-    font-size: 350%; /* 40px (puedes ajustar esto) */
+    font-size: 350%;
     font-weight: bold;
-    margin-left: 4%;
-    margin-right: 4%;
+    width: 100%;
+    height: 100%;
+    background-color: #090c0a4c;
+    
+    /* --- CAMBIOS CLAVE AQUÍ: Aplicamos Flexbox para centrar el contenido (el partial) --- */
+    display: flex;
+    /* Centrado horizontal */
+    justify-content: center; 
+    /* Centrado vertical */
+    align-items: center; 
+    /* Aseguramos que el texto dentro del partial también se centre horizontalmente */
+    text-align: center;
 }
 
 
@@ -215,23 +225,39 @@ hr{
 /* Galeria */
 .carousel-container-l {
   display: block; /* Se mantiene para apilar en móviles */
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 95%;
-  border-radius: 0;
   margin: 0 auto;
-
-}
-
-.main-image-l {
+  border-radius: 0;
   width: 100%;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.main-image-l {
+  display: flex;
+  width: 100%;
+  height: 370px;
   margin: 0;
   border-radius: 0;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Evita que nada se desborde */
 }
+.main-image-l img {
+  width: 100%;           /* La imagen siempre ocupa el ancho total del contenedor */
+  height: 100%;          /* Se ajusta a la altura del contenedor */
+  object-fit: cover;     /* Rellena sin deformar ni desbordar */
+  display: block;
+  border-radius: 3px;
+  transition: ease-in-out, transform 1.5s ease-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  filter: saturate(130%);
+}
+
+
+
+
 
 /* --- CORRECCIÓN CLAVE AQUÍ: Miniaturas en 2 columnas con Grid para MÓVILES/TABLETAS --- */
 .thumbnails-l {
@@ -239,30 +265,68 @@ hr{
   grid-template-columns: repeat(2, 1fr); /* ¡Aquí las 2 columnas de igual ancho! */
   gap: 10px; /* Espacio entre las miniaturas */
   justify-items: center; /* Centra las miniaturas dentro de sus celdas de grid si no llenan el 100% */
+  margin: 1%;
 }
 
 /* Estilos de imagen compartidos (efectos, transición, sombras) */
-.main-image-l img, .thumbnail-l {
+.thumbnail-l {
+  position: relative;
   width: 100%; /* Aseguramos que la imagen ocupe el 100% de su contenedor (celda de grid o main-image) */
   height: auto;
   display: block;
   border-radius: 3px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease;
-}
-
-.thumbnail-l {
+  transition: transform 0.3s ease; /* Suavidad en la transición */
   cursor: pointer;
-  opacity: 0.6;
-  /* Ya no necesitamos flex-basis, el grid lo maneja */
+  overflow: hidden;
+  filter: brightness(70%); /* inactiva, + bajo % más oscuro */
 }
 
-.thumbnail-l:hover, .thumbnail-l.active {
-  opacity: 1;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+.thumbnail-l.active {
+  box-shadow: 0 4px 10px rgba(31, 31, 31, 0.671);
+  border-bottom: 6px solid #13d1db;
+  filter: brightness(100%); /* */
+  filter: saturate(135%);
+}
+
+.thumbnail-l:hover{
+  transform: scale(1.02); 
+  filter: brightness(95%);
+  filter: saturate(135%); 
+}
+
+/* Estilo del modal */
+#iframeModal, #modalImagen {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+/* Imagen en el modal */
+#iframeModal img, #modalImagen img {
+  width: 100%;
+  height: auto; /* Limita la altura máxima al 90% del contenedor */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  filter: saturate(130%);
 }
 
 
+
+
+
+
+
+
+
+
+/*Guias*/
 .titulo-guias{
     width: 100%;
     text-align: center;
@@ -494,7 +558,6 @@ body{
   grid-template-columns: repeat(2, 1fr); /* Crea dos columnas de igual ancho (1fr) */
   gap: 50px
 }
-
 .contacto-item {
   display: flex;
   align-items: center;
@@ -515,23 +578,19 @@ body{
 	background-color: #66dafd; /* Color inicial del borde */
 	transition: width 0.5s ease; /* Efecto suave en la animación */
   }
-  
 .contacto-item:hover::after {
 width: 100%; /* Expande el borde hasta el ancho completo */
 }
-  
 .icon {
   width: 50px;
   height: 50px;
 }
-
 .texto_contacto{
   margin: 0;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 5px
 }
-
 .btn_enviawsp{
   margin: auto;
   width: 55%;
@@ -549,29 +608,23 @@ width: 100%; /* Expande el borde hasta el ancho completo */
   color: #f7f9ff;
 }
 
-
-.descripcion_guias{
-  padding: 4%;
-  margin: 2% auto;
-}
-.agrupador-centros-turisticos {
-  /* 3 columnas iguales en tabletas */
-  grid-template-columns: repeat(3, 1fr); 
-  padding: 20px;
+.main-image-l {
+  height: 720px;
 }
 
-  /* Opcional: Aumentar la altura de los contenedores en tabletas */
-.grid-item {
-  height: 250px; 
-}
 
+/* Guias */
 .titulo-guias{
     background: linear-gradient(to right, #da135c, #da135c, #be1738, #da135c, #da135c);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-/* Guias */
+.descripcion_guias{
+  padding: 4%;
+  margin: 2% auto;
+}
+
 .agrupador-guias-turisticas {
   /* 3 columnas iguales en tabletas */
   grid-template-columns: repeat(2, 1fr); 
@@ -637,23 +690,19 @@ width: 100%; /* Expande el borde hasta el ancho completo */
 	background-color: #66dafd; /* Color inicial del borde */
 	transition: width 0.5s ease; /* Efecto suave en la animación */
   }
-  
   .contacto-item:hover::after {
 	width: 100%; /* Expande el borde hasta el ancho completo */
   }
-  
 .icon {
   width: 16%;
   height: 16%;
 }
-
 .texto_contacto{
   margin: 0;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 5px
 }
-
 .btn_enviawsp{
   margin: auto;
   width: 25%;
@@ -702,22 +751,25 @@ width: 100%; /* Expande el borde hasta el ancho completo */
     margin: 0 auto;
   }
 
+
 /*-----Galeria-----*/
 .carousel-container-l {
     display: flex; /* Layout horizontal para laptops */
     justify-content: center;
     align-items: flex-start;
     width: 90%;
-    max-width: 800px;
     margin: 0 auto;
   }
-
   .main-image-l {
     flex: 2; /* 2/3 del espacio para la imagen principal */
     margin-right: 20px;
     margin-bottom: 0;
+    height: 450px;
   }
-  
+  .main-image-l img {
+    width: 100%;
+    height: 100%;
+  }
   .thumbnails-l {
     flex: 1; /* 1/3 del espacio para las miniaturas */
     display: grid; /* Se mantiene Grid para las miniaturas */
@@ -725,13 +777,10 @@ width: 100%; /* Expande el borde hasta el ancho completo */
     gap: 10px;
     align-self: flex-start;
   }
-  
-
-
-  .main-image-l img {
-    width: 100%;
-    height: auto;
+  #iframeModal img, #modalImagen img {
+  width: 70%;
   }
+
 
 
 
@@ -761,23 +810,13 @@ width: 100%; /* Expande el borde hasta el ancho completo */
 
 
 
-/* Escritorio grande (mínimo 1440px) */
+/* Monitor pc (mínimo 1440px) */
 @media (min-width: 1440px) {
 body{
     background: #dfe2ec;
 }
 
-  /*------carrusel carreras--------*/
-  .carrusel_carreras {
-    width: 100%;
-    margin: 0 auto;
-    aspect-ratio: 16 / 6; /* Mantiene proporción sin forzar altura */
-  }
-
-  .carrusel_portadas {
-    height: 100%;
-    
-  }
+  
 
   .agrupador-centros-turisticos {
     /* Mantener 3 columnas, pero dar más espacio a los lados */

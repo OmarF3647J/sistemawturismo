@@ -53,6 +53,7 @@ header nav ul li {
 	display:inline-block;
 	position: relative;
 	margin: 0;
+    padding: 0;
     border-bottom: 0;
     position: relative; /* Necesario para posicionar el pseudo-elemento */
     transition: color 0.3s ease; /* Transicion para el color del texto */
@@ -75,28 +76,34 @@ header nav ul li:hover:after {
 }
 
 header nav ul li a {
+    margin: 0;
 	color:#fff;
 	display:block;
 	height: 100%;
 	text-decoration:none;
-	padding-top: 20px;
-	padding-bottom: 20px;/*distancia debajo de opciones primarias*/
+	padding-top: 18px;/*distancia debajo de opciones primarias*/
+	padding-bottom: 18px;/*distancia debajo de opciones primarias*/
 	padding-right: 13px;
 	padding-left: 13px;
-	font-size: 90%; /*tamaño de letra de menu en escritorio*/
+	font-size: 80%; /*tamaño de letra de menu en escritorio*/
 	font-family: "Lexend","Century Gothic", Arial;
 }
 
 header nav ul li a span {
+    margin: 0;
 	margin-right:10px;
+    padding: 0;
 }
 
 header nav ul li .children {
+    margin: 0;
 	display: none;
 	background-color: #f5f4f4;
 	position: absolute;
     top: 100%; /* Distancia debajo del elemento principal */
 	width: 150%;
+    padding: 0;
+
 	z-index:1000;
     font-size: 88%;  /*tamaño de letra de submenu en escritorio*/
 }
@@ -127,13 +134,15 @@ header nav ul li .children li a {
 header nav ul li .children li a span {
 	float: right;
 	position: relative;
-	top: 3px;
+    margin: 0;
+    pad: 0;
+	top: 6px;
 	margin-right:0;
 }
 
 header nav ul li .caret {
 	position: relative;
-	top: 3px;
+	top: 6px;
 	margin-right: 0;
 }
 

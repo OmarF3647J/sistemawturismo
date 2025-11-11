@@ -120,14 +120,18 @@
               <li><a href="{{ route('apompal') }}">{{ $centros[0]->nomcentur }}</a></li>
               <li><a href="{{ route('arrecifes') }}">{{ $centros[1]->nomcentur }}</a></li>
               <li><a href="{{ route('benitojuarez') }}">{{ $centros[2]->nomcentur }}</a></li>
-              <li><a href="{{ route('jomxuk') }}">{{ $centros[3]->nomcentur }}</a></li>
-              <li><a href="{{ route('kantasejkan') }}">{{ $centros[4]->nomcentur }}</a></li>
-              <li><a href="{{ route('barralagunadelostion') }}">{{ $centros[5]->nomcentur }}</a></li>
-              <li><a href="{{ route('lasmargaritas') }}">{{ $centros[6]->nomcentur }}</a></li>
-              <li><a href="{{ route('ranchodonaelia') }}">{{ $centros[7]->nomcentur }}</a></li>
-              <li><a href="{{ route('rocapartida') }}">{{ $centros[8]->nomcentur }}</a></li>
-              <li><a href="{{ route('selvaelmarinero') }}">{{ $centros[9]->nomcentur }}</a></li>
-
+              <li><a href="{{ route('cabanasencantadas') }}">{{ $centros[3]->nomcentur }}</a></li>
+              <li><a href="{{ route('cascadasencantadas') }}">{{ $centros[4]->nomcentur }}</a></li>
+              <li><a href="{{ route('ceytaks') }}">{{ $centros[5]->nomcentur }}</a></li>
+              <li><a href="{{ route('elmirador') }}">{{ $centros[6]->nomcentur }}</a></li>
+              <li><a href="{{ route('jomxuk') }}">{{ $centros[7]->nomcentur }}</a></li>
+              <li><a href="{{ route('kantasejkan') }}">{{ $centros[8]->nomcentur }}</a></li>
+              <li><a href="{{ route('lagunadelostion') }}">{{ $centros[9]->nomcentur }}</a></li>
+              <li><a href="{{ route('lasmargaritas') }}">{{ $centros[10]->nomcentur }}</a></li>
+              <li><a href="{{ route('manglaressontecomapan') }}">{{ $centros[11]->nomcentur }}</a></li>
+              <li><a href="{{ route('ranchodonaelia') }}">{{ $centros[12]->nomcentur }}</a></li>
+              <li><a href="{{ route('rocapartida') }}">{{ $centros[13]->nomcentur }}</a></li>
+              <li><a href="{{ route('selvaelmarinero') }}">{{ $centros[14]->nomcentur }}</a></li>
 
             </ul>
           </li>

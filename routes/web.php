@@ -32,7 +32,7 @@ Route::get('/', [SitioController::class, 'inicio'])->name('inicio');
 Route::get('/centro/{nombre}', [SitioController::class, 'centro'])->name('centro.mostrar');
 
 
-// Ruta para dirigir a vistas
+// 1
 Route::get('/apompal', function () {
     return view('apompal');
 })->name('apompal');
@@ -41,48 +41,73 @@ Route::get('/reportes/Apompal-CentroTuristico', [ReporteController::class, 'gene
 
 
 
-
-// Ruta para dirigir a vistas
+// 2
 Route::get('/arrecifes', function () {
     return view('arrecifes');
 })->name('arrecifes');
 
-// Ruta para dirigir a vistas
+// 3
 Route::get('/benitojuarez', function () {
     return view('benitojuarez');
 })->name('benitojuarez');
 
-// Ruta para dirigir a vistas
+// 4
+Route::get('/cabanasencantadas', function () {
+    return view('cabanasencantadas');
+})->name('cabanasencantadas');
+
+// 5
+Route::get('/cascadasencantadas', function () {
+    return view('cascadasencantadas');
+})->name('cascadasencantadas');
+
+// 6
+Route::get('/ceytaks', function () {
+    return view('ceytaks');
+})->name('ceytaks');
+
+// 7
+Route::get('/elmirador', function () {
+    return view('elmirador');
+    })->name('elmirador');
+
+// 8
 Route::get('/jomxuk', function () {
     return view('jomxuk');
 })->name('jomxuk');
 
-// Ruta para dirigir a vistas
+// 9
 Route::get('/kantasejkan', function () {
     return view('kantasejkan');
 })->name('kantasejkan');
 
-// Ruta para dirigir a vistas
-Route::get('/barralagunadelostion', function () {
-    return view('barralagunadelostion');
-})->name('barralagunadelostion');
+// 10
+Route::get('/lagunadelostion', function () {
+    return view('lagunadelostion');
+})->name('lagunadelostion');
 
-// Ruta para dirigir a vistas
+
+// 11
 Route::get('/lasmargaritas', function () {
     return view('lasmargaritas');
 })->name('lasmargaritas');
 
-// Ruta para dirigir a vistas
+// 12
+Route::get('/manglaressontecomapan', function () {
+    return view('manglaressontecomapan');
+})->name('manglaressontecomapan');
+
+// 13
 Route::get('/ranchodonaelia', function () {
     return view('ranchodonaelia');
 })->name('ranchodonaelia');
 
-// Ruta para dirigir a vistas
+// 14
 Route::get('/rocapartida', function () {
     return view('rocapartida');
 })->name('rocapartida');
 
-// Ruta para dirigir a vistas
+// 15
 Route::get('/selvaelmarinero', function () {
     return view('selvaelmarinero');
 })->name('selvaelmarinero');
