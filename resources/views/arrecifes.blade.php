@@ -755,7 +755,7 @@
 <!--Galeria-->
 <script>
     // Las rutas de las imágenes se mantienen igual
-    const laboratorioImages = ['{{ asset('images/arrecifes/8.jpg') }}', '{{ asset('images/arrecifes/6.jpg') }}', '{{ asset('images/arrecifes/4.jpg') }}', '{{ asset('images/arrecifes/portada.jpg') }}', '{{ asset('images/arrecifes/5.jpg') }}', '{{ asset('images/arrecifes/2.jpg') }}'];
+    const laboratorioImages = ['{{ asset('images/arrecifes/8.jpg') }}', '{{ asset('images/arrecifes/6.jpg') }}', '{{ asset('images/arrecifes/4.jpg') }}', '{{ asset('images/arrecifes/portada.jpg') }}', '{{ asset('images/arrecifes/5.jpg') }}', '{{ asset('images/arrecifes/agua.jpg') }}'];
 
     // Esta es la URL de una imagen de baja calidad o un placeholder que se cargará INMEDIATAMENTE.
     // Usamos una URL simple para el ejemplo. En un caso real, sería un SVG o una imagen muy pequeña.

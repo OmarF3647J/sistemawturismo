@@ -39,7 +39,7 @@
   <!-- Icono pestaña -->
   <link rel="icon" href="{{ asset('images/favicon/tecnm.ico') }}"/>
   <!-- Titulo pestaña -->
-  <title>Centros Ecoturísticos – ¡Conoce la Región de los Tuxtlas!</title>
+  <title>Cascadas encantadas – ¡Conoce este Centro Ecoturístico!</title>
 
 
 </head>
@@ -58,9 +58,9 @@
 
 
 
-<div class="imagen_full" style="background-image: url('{{ asset('images/arrecifes/portada.jpg') }}');" loading="lazy">
+<div class="imagen_full" style="background-image: url('{{ asset('images/cascadas-encantadas/portada.jpg') }}');" loading="lazy">
       <div class="texto-sobre-full">
-        @include('partials.title-arrecifes')
+        @include('partials.title-cascadasencantadas')
       </div>
 </div>
 
@@ -70,9 +70,7 @@
 <div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
   <div class="descripcion_centros"> El "Centro Ecoturístico Los Arrecifes Los Tuxtlas" se encuentra en la comunidad de Los Arrecifes, Mecayapan, en la región de Los Tuxtlas, Veracruz. Este centro se enfoca en la conservación de la fauna marina, especialmente las tortugas que llegan a desovar de marzo a octubre, y ofrece actividades como hospedaje, recorridos por senderos y paseos en lancha a la zona de arrecifes. </b></div>
 </div><!-- end boounce -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d184469.77616271164!2d-95.14720707993611!3d18.483867178492112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9c5748f825add%3A0xda1b39ab46cfe770!2sCentro%20Ecoturistico%20Los%20Arrecifes%2C%20Los%20arrecifes%2C%2C%20Mecayapan%2C%20Ver.!3m2!1d18.5344391!2d-94.8517384!5e1!3m2!1ses!2smx!4v1762760097102!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d46138.699951184346!2d-95.04800461845589!3d18.40470415509153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x85e9df23ec5246c1%3A0x875035b9da12d36e!2s95883%20Coyame%2C%20Ver.!3m2!1d18.4369399!2d-95.02360999999999!4m5!1s0x85e9e12fc11ef059%3A0xf31ec8c01f68902f!2sCaba%C3%B1as%20cascadas%20encantadas%20Localidad%2095870%20Catemaco%2C%20Ver.!3m2!1d18.368568!2d-95.0250976!5e1!3m2!1ses!2smx!4v1762847332210!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 <br>
 
@@ -779,7 +777,7 @@
 <!--Galeria-->
 <script>
     // Las rutas de las imágenes se mantienen igual
-    const laboratorioImages = ['{{ asset('images/arrecifes/8.jpg') }}', '{{ asset('images/arrecifes/6.jpg') }}', '{{ asset('images/arrecifes/4.jpg') }}', '{{ asset('images/arrecifes/portada.jpg') }}', '{{ asset('images/arrecifes/5.jpg') }}', '{{ asset('images/arrecifes/2.jpg') }}'];
+    const laboratorioImages = ['{{ asset('images/cascadas-encantadas/portada.jpg') }}', '{{ asset('images/cascadas-encantadas/2.jpg') }}', '{{ asset('images/cascadas-encantadas/3.jpg') }}', '{{ asset('images/cascadas-encantadas/4.jpg') }}', '{{ asset('images/cascadas-encantadas/5.jpg') }}', '{{ asset('images/cascadas-encantadas/6.jpg') }}', '{{ asset('images/cascadas-encantadas/7.jpg') }}'];
 
     // Esta es la URL de una imagen de baja calidad o un placeholder que se cargará INMEDIATAMENTE.
     // Usamos una URL simple para el ejemplo. En un caso real, sería un SVG o una imagen muy pequeña.
@@ -841,18 +839,18 @@
 
         let currentIndex = 0;
         
-function changeImage(index) {
+  function changeImage(index) {
 
     setTimeout(() => {
         featuredImage.src = images[index];
-        
-const img = new Image();
-  img.src = newSrc;
+                
+        const img = new Image();
+          img.src = newSrc;
 
-  img.onload = () => {
-    featuredImage.src = newSrc;
-    featuredImage.classList.add('fade-in');
-  };
+          img.onload = () => {
+            featuredImage.src = newSrc;
+            featuredImage.classList.add('fade-in');
+          };
     
         featuredImage.classList.remove('fade-out');
         void featuredImage.offsetWidth; // ⚙️ Reinicia la animación

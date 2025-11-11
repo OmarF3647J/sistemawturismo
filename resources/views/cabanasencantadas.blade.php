@@ -39,7 +39,7 @@
   <!-- Icono pestaña -->
   <link rel="icon" href="{{ asset('images/favicon/tecnm.ico') }}"/>
   <!-- Titulo pestaña -->
-  <title>Centros Ecoturísticos – ¡Conoce la Región de los Tuxtlas!</title>
+  <title>Cabañas encantadas – ¡Conoce este Centro Ecoturístico!</title>
 
 
 </head>
@@ -58,9 +58,9 @@
 
 
 
-<div class="imagen_full" style="background-image: url('{{ asset('images/arrecifes/portada.jpg') }}');" loading="lazy">
+<div class="imagen_full" style="background-image: url('{{ asset('images/cabanas-encantadas/portada.jpg') }}');" loading="lazy">
       <div class="texto-sobre-full">
-        @include('partials.title-arrecifes')
+        @include('partials.title-cabanasencantadas')
       </div>
 </div>
 
@@ -70,8 +70,7 @@
 <div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
   <div class="descripcion_centros"> El "Centro Ecoturístico Los Arrecifes Los Tuxtlas" se encuentra en la comunidad de Los Arrecifes, Mecayapan, en la región de Los Tuxtlas, Veracruz. Este centro se enfoca en la conservación de la fauna marina, especialmente las tortugas que llegan a desovar de marzo a octubre, y ofrece actividades como hospedaje, recorridos por senderos y paseos en lancha a la zona de arrecifes. </b></div>
 </div><!-- end boounce -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d184469.77616271164!2d-95.14720707993611!3d18.483867178492112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9c5748f825add%3A0xda1b39ab46cfe770!2sCentro%20Ecoturistico%20Los%20Arrecifes%2C%20Los%20arrecifes%2C%2C%20Mecayapan%2C%20Ver.!3m2!1d18.5344391!2d-94.8517384!5e1!3m2!1ses!2smx!4v1762760097102!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d46139.31093807584!2d-95.05914647382706!3d18.4024238072045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x85e9df23ec5246c1%3A0x875035b9da12d36e!2sCoyame%2C%20Ver.!3m2!1d18.4369399!2d-95.02360999999999!4m5!1s0x85e9dfd0df6310cd%3A0xfd21bb86bb397499!2sCaba%C3%B1as%20Encantadas%20Benito%20Ju%C3%A1rez%2C%20Catemaco%2C%20Ver.!3m2!1d18.3687777!2d-95.0261982!5e1!3m2!1ses!2smx!4v1762845777992!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
 <br>
@@ -208,7 +207,7 @@
 
 <br><br><br><br><br>
 
-<h2>Galería</h2>
++<h2>Galería</h2>
 <div class="carousel-container-l">
   
     <div class="main-image-l">
@@ -749,37 +748,13 @@
  
 
 
-<script>
-    function animateCounter(target, from, to, duration) {
-        const counter = { value: from };
 
-        gsap.to(counter, {
-            value: to,
-            duration: duration,
-            ease: "power1.out",
-            onUpdate: function () {
-                // Selecciona el elemento y actualiza su texto.
-                // Usamos toLocaleString('es-MX') para que se muestren las comas (85,000).
-                document.querySelector(target).innerText = Math.ceil(counter.value).toLocaleString('es-MX');
-            },
-            onComplete: function () {
-                console.log(`Animación de ${target} completada.`);
-            }
-        });
-    }
-    // 🚀 Llamada corregida y simplificada:
-    // 1. Apuntamos directo a la clase '.counter'.
-    // 2. Establecemos el valor final en 85000.
-    // 3. El elemento .counter debe comenzar en 0 en tu HTML (o el valor 'from' de la función).
-  
-    animateCounter('.counter', 0, 85000, 5);
-</script>
 
 
 <!--Galeria-->
 <script>
     // Las rutas de las imágenes se mantienen igual
-    const laboratorioImages = ['{{ asset('images/arrecifes/8.jpg') }}', '{{ asset('images/arrecifes/6.jpg') }}', '{{ asset('images/arrecifes/4.jpg') }}', '{{ asset('images/arrecifes/portada.jpg') }}', '{{ asset('images/arrecifes/5.jpg') }}', '{{ asset('images/arrecifes/2.jpg') }}'];
+    const laboratorioImages = ['{{ asset('images/cabanas-encantadas/portada.jpg') }}', '{{ asset('images/cabanas-encantadas/2.jpg') }}', '{{ asset('images/cabanas-encantadas/3.jpg') }}', '{{ asset('images/cabanas-encantadas/4.jpg') }}', '{{ asset('images/cabanas-encantadas/5.jpg') }}', '{{ asset('images/cabanas-encantadas/6.jpg') }}', '{{ asset('images/cabanas-encantadas/7.jpg') }}', '{{ asset('images/cabanas-encantadas/8.jpg') }}'];
 
     // Esta es la URL de una imagen de baja calidad o un placeholder que se cargará INMEDIATAMENTE.
     // Usamos una URL simple para el ejemplo. En un caso real, sería un SVG o una imagen muy pequeña.
@@ -841,30 +816,30 @@
 
         let currentIndex = 0;
         
-function changeImage(index) {
+    function changeImage(index) {
 
     setTimeout(() => {
         featuredImage.src = images[index];
         
-const img = new Image();
-  img.src = newSrc;
+    const img = new Image();
+      img.src = newSrc;
 
-  img.onload = () => {
-    featuredImage.src = newSrc;
-    featuredImage.classList.add('fade-in');
-  };
+      img.onload = () => {
+        featuredImage.src = newSrc;
+        featuredImage.classList.add('fade-in');
+      };
     
         featuredImage.classList.remove('fade-out');
         void featuredImage.offsetWidth; // ⚙️ Reinicia la animación
         featuredImage.classList.add('fade-in');
     }, 300);
 
-    thumbnails.forEach(thumb => thumb.classList.remove('active'));
-    const targetThumb = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
-    targetThumb.classList.add('active');
+      thumbnails.forEach(thumb => thumb.classList.remove('active'));
+      const targetThumb = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
+      targetThumb.classList.add('active');
 
-    currentIndex = parseInt(index);
-}
+      currentIndex = parseInt(index);
+  }
 
 
         // ... Lógica de click y autoSlide ...
@@ -917,7 +892,6 @@ const img = new Image();
     }
   });
 </script>
-
 
 
 
