@@ -11,6 +11,7 @@ import WarningButton from '@/Components/WarningButton.vue';
 import DarkButton from '@/Components/DarkButton.vue';
 import InputGroup from '@/Components/InputGroup.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import SelectInput from '@/Components/SelectInput.vue';
 import { ref } from 'vue';
 
 
@@ -47,15 +48,14 @@ const classMsj = ref((props.flash.success != null) ? '' : 'hidden'); //clase del
 const openModalDelete = (centro) => {
     form.idcentur = centro.idcentur;
     form.nomcentur = centro.nomcentur;
-    form.telcentur = centro.telcentur;
-    form.corcentur = centro.corcentur;
-    form.imgcentur = centro.imgcentur;
-    form.idproduct = centro.producto.idproduct;
     showModalDelete.value = true;
+
 
 };
 
-const closeModalDelete = () => {
+
+const closeModalDelete = (centro) => {
+    form.reset();
     showModalDelete.value = false;
 };
 
@@ -74,33 +74,7 @@ const ok = (m) => {
     setTimeout(() => {
         classMsj.value = 'hidden';
     }, 5000);
-}
-
-
-// const openModalView = (centro) => {
-//     v.value = centro;
-
-//     showModalView.value = true;
-// };
-// const openModalForm = () => {
-//     showModalForm.value = true;
-// };
-// const openModalDelete = () => {
-//     showModalDelete.value = true;
-// };
-
-
-
-// const closeModalView = () => {
-//     showModalView.value = false;
-// };
-// const closeModalForm = () => {
-//     showModalForm.value = false;
-// };
-// const closeModalDelete = () => {
-//     showModalDelete.value = false;
-// };
-
+};
 
 </script>
 
@@ -158,7 +132,8 @@ const ok = (m) => {
                             <td class="px-4 py-3 text-sm">{{ centro.telcentur }}</td>
                             <td class="px-4 py-3 text-sm">{{ centro.corcentur }}</td>
                             <td class="px-4 py-3 text-sm" >
-                                <img class="rounded-lg" :src="'storage'+centro.imgcentur" width="75">
+                                <!-- <img class="rounded-lg" :src="'storage'+centro.imgcentur" width="75"> -->
+                                <img v-if="centro.imgcentur" :src="`/storage/${centro.imgcentur}`" alt="Imagen" class="rounded" width="75"/>
                             </td>
                             <!-- <td class="px-4 py-3 text-sm">{{ centro.producto.nomproduct }}</td> -->
                             <td class="px-4 py-3 text-sm">
@@ -179,14 +154,16 @@ const ok = (m) => {
                                 </NavLink>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <WarningButton> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                                    </svg>
-                                </WarningButton>
+                                <NavLink :href="route('centrosturist.edit', centro.idcentur)">
+                                    <WarningButton> 
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                        </svg>
+                                    </WarningButton>
+                                </NavLink>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <DangerButton @click="openModalDelete(centro)">
+                                <DangerButton  @click.prevent="openModalDelete(centro)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>

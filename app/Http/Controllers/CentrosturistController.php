@@ -59,20 +59,108 @@ class CentrosturistController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Centrosturist/Create', [
+            'productos'       => producto::all(),
+            'actividadturist' => actividadturist::all(),
+            'guiasturist'     => guiasturist::all(),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+{
+    $data = $request->validate([
+        'nomcentur'   => 'required|max:80',
+        'dircentur'   => 'required|max:100',
+        'descentur'   => 'required|max:350',
+        'rescentur'   => 'required|max:80',
+        'telcentur'   => 'required|max:10',
+        'corcentur'   => 'required|max:50',
+        'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
+        'idproduct'   => 'required|exists:productos,idproduct',
+        'idacttur'    => 'nullable|array',
+        'idacttur.*'  => 'exists:actividadturists,idacttur',
+        'idguiatur'   => 'nullable|array',
+        'idguiatur.*' => 'exists:guiasturists,idguiatur',
+    ]);
+
+    // Crear modelo con los campos concretos (usar fill si tienes $fillable)
+    $centrosturist = new centrosturist();
+    $centrosturist->nomcentur = $data['nomcentur'];
+    $centrosturist->dircentur = $data['dircentur'];
+    $centrosturist->descentur = $data['descentur'];
+    $centrosturist->rescentur = $data['rescentur'];
+    $centrosturist->telcentur = $data['telcentur'];
+    $centrosturist->corcentur = $data['corcentur'];
+    $centrosturist->idproduct = $data['idproduct'];
+
+    if ($request->hasFile('imgcentur')) {
+        $path = $request->file('imgcentur')->store('img', 'public');
+        $centrosturist->imgcentur = $path;
+    } else {
+        $centrosturist->imgcentur = null;
     }
 
-    /**
-     * Display the specified resource.
-     */
+    $centrosturist->save();
+
+    // sincronizar relaciones many-to-many (tabla pivot)
+    // si no viene, pasamos array vacío para no dejar residuos
+    $centrosturist->actividadturist()->sync($request->input('idacttur', []));
+    $centrosturist->guiasturist()->sync($request->input('idguiatur', []));
+
+    return redirect()->route('centrosturist.index')->with('success', 'Centro turístico creado con éxito');
+}
+
+public function updatecentrosturist(Request $request)
+{
+    $data = $request->validate([
+        'idcentur'    => 'required|exists:centrosturists,idcentur',
+        'nomcentur'   => 'required|max:80',
+        'dircentur'   => 'required|max:100',
+        'descentur'   => 'required|max:350',
+        'rescentur'   => 'required|max:80',
+        'telcentur'   => 'required|max:10',
+        'corcentur'   => 'required|email|max:50',
+        'idproduct'   => 'required|exists:productos,idproduct',
+        'idacttur'    => 'nullable|array',
+        'idacttur.*'  => 'exists:actividadturists,idacttur',
+        'idguiatur'   => 'nullable|array',
+        'idguiatur.*' => 'exists:guiasturists,idguiatur',
+        'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
+    ]);
+
+    $centrosturist = centrosturist::findOrFail($data['idcentur']);
+
+    // rellenar campos (usar fill si tiene $fillable en el modelo)
+    $centrosturist->nomcentur = $data['nomcentur'];
+    $centrosturist->dircentur = $data['dircentur'];
+    $centrosturist->descentur = $data['descentur'];
+    $centrosturist->rescentur = $data['rescentur'];
+    $centrosturist->telcentur = $data['telcentur'];
+    $centrosturist->corcentur = $data['corcentur'];
+    $centrosturist->idproduct = $data['idproduct'];
+
+    if ($request->hasFile('imgcentur')) {
+        if ($centrosturist->imgcentur && Storage::disk('public')->exists($centrosturist->imgcentur)) {
+            Storage::disk('public')->delete($centrosturist->imgcentur);
+        }
+        $path = $request->file('imgcentur')->store('img', 'public');
+        $centrosturist->imgcentur = $path;
+    }
+
+    $centrosturist->save();
+
+    // sincronizar relaciones many-to-many
+    $centrosturist->actividadturist()->sync($request->input('idacttur', []));
+    $centrosturist->guiasturist()->sync($request->input('idguiatur', []));
+
+    return redirect()->route('centrosturist.index')->with('success', 'Centro turístico actualizado con éxito');
+}
+
+
+    
     public function show(centrosturist $centrosturist)
     {
         $centrosturist->load([
@@ -95,7 +183,23 @@ class CentrosturistController extends Controller
      */
     public function edit(centrosturist $centrosturist)
     {
-        //
+        return Inertia::render('Centrosturist/Edit', [
+            'centrosturist' => $centrosturist,
+            'productos'       => producto::all(),
+            'actividadturist' => actividadturist::all(),
+            'guiasturist'     => guiasturist::all(),
+            'centrosturist_actividadturist' => $centrosturist->actividadturist()->pluck('actividadturists.idacttur')->toArray(),
+            'centrosturist_guiasturist'     => $centrosturist->guiasturist()->pluck('guiasturists.idguiatur')->toArray(),
+
+        ]);
+
+        // $centrosturist->load([
+        //     'producto:idproduct,nomproduct',
+        //     'actividadturist:idacttur,nomacttur',              
+        //     'guiasturist:idguiatur,nomguiatur',
+        //     'guiasturist.actividadturist:idacttur,nomacttur' // esto es para mostrar las actividades por guia
+        // ]);
+
     }
 
     /**
@@ -103,7 +207,7 @@ class CentrosturistController extends Controller
      */
     public function update(Request $request, centrosturist $centrosturist)
     {
-        //
+        
     }
 
     /**
@@ -111,7 +215,13 @@ class CentrosturistController extends Controller
      */
     public function destroy(centrosturist $centrosturist)
     {
+        // eliminar imagen asociada si existe
+        if ($centrosturist->imgcentur) {
+            Storage::disk('public')->delete($centrosturist->imgcentur);
+        }
+
         $centrosturist->delete();
-        return redirect('centrosturist')->with('success', 'Centro turístico eliminado con éxito');
+        // return back()->with('success', 'Centro turístico eliminado con éxito');
+        return redirect()->route('centrosturist.index')->with('success', 'Centro turístico eliminado con éxito');
     }
 }

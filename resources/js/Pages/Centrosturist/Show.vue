@@ -39,10 +39,11 @@ const centerActIds = computed(() => {
                 <p>Responsable: <span class="text-gray-900 font-semibold">{{ centrosturist.rescentur }}</span></p>
                 <p>Telefono: <span class="text-gray-900 font-semibold">{{ centrosturist.telcentur }}</span></p>
                 <p>Correo: <span class="text-gray-900 font-semibold">{{ centrosturist.corcentur }}</span></p>
-                <p>categoría: <span class="text-gray-900 font-semibold">{{centrosturist.producto.nomproduct }}</span></p>
+                <p>Categoría: <span class="text-gray-900 font-semibold">{{centrosturist.producto.nomproduct }}</span></p>
                 <p>Actividades que se realizan: 
                     <span class="text-gray-900 font-semibold">
-                        <ul class="ml-10 list-disc"> <!-- ml-10 el numero funciona como tabulador o espaciado -->
+                        <!-- ml-10 el numero funciona como tabulador o espaciado -->
+                        <ul class="ml-10 list-disc"> 
                             <!-- actividad es solo una variable par6a el ciclo for -->
                             <li v-for="actividad in (centrosturist?.actividadturist ?? [])" :key="actividad.idacttur">
                                 {{ actividad.nomacttur }}
@@ -52,7 +53,8 @@ const centerActIds = computed(() => {
                 </p>
                 <p>Agencias Turísticas asociadas: 
                     <span class="text-gray-900 font-semibold">
-                        <ul class="ml-10 list-disc"> <!-- ml-10 el numero funciona como tabulador o espaciado -->
+                        <!-- ml-10 el numero funciona como tabulador o espaciado -->
+                        <ul class="ml-10 list-disc"> 
                             <!-- actividad es solo una variable par6a el ciclo for -->
                             <li v-for="guias in (centrosturist?.guiasturist ?? [])" :key="guias.idguiatur">
                                 {{ guias.nomguiatur  }}

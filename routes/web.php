@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('actividadturist', App\Http\Controllers\ActividadturistController::class);
     Route::resource('serviciosturist', App\Http\Controllers\ServiciosturistController::class);
     Route::resource('producto', App\Http\Controllers\ProductoController::class);
+    Route::post('updatecentrosturist', [App\Http\Controllers\CentrosturistController::class, 'updatecentrosturist'])->name('updatecentrosturist');
 });
 
 require __DIR__.'/auth.php';
