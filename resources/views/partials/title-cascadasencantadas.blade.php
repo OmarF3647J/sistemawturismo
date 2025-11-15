@@ -215,7 +215,7 @@
 <body>
 
 
-  <h1 class="title">Cascadas encantadas
+  <h1 class="title">{{ $centros[4]->nomcentur }}
     <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>

@@ -32,86 +32,103 @@ Route::get('/', [SitioController::class, 'inicio'])->name('inicio');
 Route::get('/centro/{nombre}', [SitioController::class, 'centro'])->name('centro.mostrar');
 
 
-// 1
+// 1 impresion en vistas de blade.php
 Route::get('/apompal', function () {
-    return view('apompal');
-})->name('apompal');
-
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('apompal', compact('centros'));
+});
+//reporte pdf
 Route::get('/reportes/Apompal-CentroTuristico', [ReporteController::class, 'generarPDF'])->name('reportes.Apompal-CentroTuristico');
 
 
 
 // 2
 Route::get('/arrecifes', function () {
-    return view('arrecifes');
-})->name('arrecifes');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('arrecifes', compact('centros'));
+});
 
 // 3
 Route::get('/benitojuarez', function () {
-    return view('benitojuarez');
-})->name('benitojuarez');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('benitojuarez', compact('centros'));
+});
 
 // 4
 Route::get('/cabanasencantadas', function () {
-    return view('cabanasencantadas');
-})->name('cabanasencantadas');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('benitojuarez', compact('centros'));
+});
 
 // 5
 Route::get('/cascadasencantadas', function () {
-    return view('cascadasencantadas');
-})->name('cascadasencantadas');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('cascadasencantadas', compact('centros'));
+});
+
 
 // 6
 Route::get('/ceytaks', function () {
-    return view('ceytaks');
-})->name('ceytaks');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('ceytaks', compact('centros'));
+});
 
 // 7
 Route::get('/elmirador', function () {
-    return view('elmirador');
-    })->name('elmirador');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('elmirador', compact('centros'));
+});
 
 // 8
 Route::get('/jomxuk', function () {
-    return view('jomxuk');
-})->name('jomxuk');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('jomxuk', compact('centros'));
+});
+
 
 // 9
 Route::get('/kantasejkan', function () {
-    return view('kantasejkan');
-})->name('kantasejkan');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('kantasejkan', compact('centros'));
+});
+
 
 // 10
 Route::get('/lagunadelostion', function () {
-    return view('lagunadelostion');
-})->name('lagunadelostion');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('lagunadelostion', compact('centros'));
+});
 
 
 // 11
 Route::get('/lasmargaritas', function () {
-    return view('lasmargaritas');
-})->name('lasmargaritas');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('lasmargaritas', compact('centros'));
+});
 
 // 12
 Route::get('/manglaressontecomapan', function () {
-    return view('manglaressontecomapan');
-})->name('manglaressontecomapan');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('manglaressontecomapan', compact('centros'));
+});
 
 // 13
 Route::get('/ranchodonaelia', function () {
-    return view('ranchodonaelia');
-})->name('ranchodonaelia');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('ranchodonaelia', compact('centros'));
+});
 
 // 14
 Route::get('/rocapartida', function () {
-    return view('rocapartida');
-})->name('rocapartida');
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('rocapartida', compact('centros'));
+});
 
 // 15
 Route::get('/selvaelmarinero', function () {
-    return view('selvaelmarinero');
-})->name('selvaelmarinero');
-
+    $centros = CentroTurist::all(); // o el query que uses
+    return view('selvaelmarinero', compact('centros'));
+});  
 
 
 //Route::get('/', function () {

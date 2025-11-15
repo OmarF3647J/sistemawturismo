@@ -2,38 +2,50 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="ITSSAT">
-  <meta name="description" content="Página del Tecnológico Superior de San Andrés Tuxtla">
-  <meta name="keywords" content="TecNM, Instituto Tecnológico Nacional de México, Tec, Tecnológico de San Andrés, Universidad, ITSSAT"/>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta name="author" content="Turismo Comunitario Los Tuxtlas">
+  <meta name="description" content="Descubre el turismo comunitario en Los Tuxtlas, Veracruz. Vive experiencias únicas en Apompal, Roca Partida, Benito Juárez, Las Margaritas, Laguna del Ostión y más destinos naturales.">
+  <meta name="keywords" content="turismo comunitario, Los Tuxtlas, Veracruz, ecoturismo, Apompal, Roca Partida, Benito Juárez, Arrecifes, Cabañas Encantadas, Kan Tasejkan, Laguna del Ostión, Las Margaritas, naturaleza, aventura, cascadas, playas, senderismo, Instituto Tecnológico de San Andrés, Universidad, ITSSAT">
 
-  <!-- Animate.css bounce -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <!-- WOW.js bounce -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+  <link rel="preload" as="image" href="{{ asset('images/apompal/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/benito-juarez/horizontal.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/arrecifes/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/benito-juarez/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/cabanas-encantadas/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/cascadas-encantadas/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/kan-tasejkan/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/laguna-del-ostion/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/las-margaritas/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/rancho-dona-elia/portada.jpg') }}">
+
+
+
   <!-- CSS -->
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <!-- JavaScript -->
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <!-- counter -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-    
-  <!-- CSS y js básico plantilla -->
-  <script src="{{ asset('js/spinner.js') }}"></script>
-  <link rel="stylesheet" href="{{ asset('css/spinner.css') }}">
-  <script src="https://code.jquery.com/jquery-latest.js"></script>
-
-  
   <!-- CSS estilos de esta página -->
-   <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-
+  <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+
+  <!-- Animate.css bounce -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- WOW.js bounce -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+  <!-- Counter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+  
 
   <!-- Icono pestaña -->
   <link rel="icon" href="{{ asset('images/favicon/tecnm.ico') }}"/>
@@ -46,9 +58,6 @@
 
 <body>
 
-<div id="preloader">
-    <div class="spinner"></div>
-</div>
 
 
 @include('partials.header')
@@ -70,8 +79,8 @@
   
   <div class="carrusel_portadas">
     <a href="{{ route('apompal') }}">
-      <img src="{{ asset('images/apompal/portada2.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Apompal Miguel Hidalgo</div>
+      <img src="{{ asset('images/apompal/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[1]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -79,8 +88,8 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('arrecifes') }}">
-      <img src="{{ asset('images/arrecifes/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Arrecifes</div>
+      <img src="{{ asset('images/arrecifes/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[2]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -88,18 +97,17 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('benitojuarez') }}">
-      <img src="{{ asset('images/benito-juarez/cascada2.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Benito Juárez</div>
+      <img src="{{ asset('images/benito-juarez/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[3]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
   </div>
   
-  
   <div class="carrusel_portadas">
     <a href="{{ route('cabanasencantadas') }}">
-      <img src="{{ asset('images/cabanas-encantadas/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Cabañas Encantadas</div>
+      <img src="{{ asset('images/cabanas-encantadas/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[4]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -107,18 +115,35 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('cascadasencantadas') }}">
-      <img src="{{ asset('images/cascadas-encantadas/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Cascadas encantadas</div>
+      <img src="{{ asset('images/cascadas-encantadas/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[5]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
   </div>
  
+ <div class="carrusel_portadas">
+    <a href="{{ route('ceytaks') }}">
+      <img src="{{ asset('images/noimage.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[6]->nomcentur }}</div>
+      <br>
+      <button class="btn-sobre-imagen">Conocer más...</button>
+    </a>
+  </div>
+
+ <div class="carrusel_portadas">
+    <a href="{{ route('elmirador') }}">
+      <img src="{{ asset('images/noimage.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[7]->nomcentur }}</div>
+      <br>
+      <button class="btn-sobre-imagen">Conocer más...</button>
+    </a>
+  </div>
 
   <div class="carrusel_portadas">
     <a href="{{ route('jomxuk') }}">
-      <img src="{{ asset('images/jomxuk/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Jomxuk</div>
+      <img src="{{ asset('images/jomxuk/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[8]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -126,8 +151,8 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('kantasejkan') }}">
-      <img src="{{ asset('images/kan-tasejkan/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Kan Tasejkan</div>
+      <img src="{{ asset('images/kan-tasejkan/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[9]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -135,8 +160,8 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('lagunadelostion') }}">
-      <img src="{{ asset('images/laguna-del-ostion/BARRA_LAGUNADELOSTION.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Laguna del Ostion</div>
+      <img src="{{ asset('images/laguna-del-ostion/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[10]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -144,8 +169,17 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('lasmargaritas') }}">
-      <img src="{{ asset('images/las-margaritas/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Las Margaritas</div>
+      <img src="{{ asset('images/las-margaritas/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[11]->nomcentur }}</div>
+      <br>
+      <button class="btn-sobre-imagen">Conocer más...</button>
+    </a>
+  </div>
+
+  <div class="carrusel_portadas">
+    <a href="{{ route('manglaressontecomapan') }}">
+      <img src="{{ asset('images/rancho-dona-elia/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[12]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -153,8 +187,8 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('ranchodonaelia') }}">
-      <img src="{{ asset('images/rancho-dona-elia/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Rancho Sustentable Doña Helia - Laguna encantada</div>
+      <img src="{{ asset('images/rancho-dona-elia/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[13]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -162,8 +196,8 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('rocapartida') }}">
-      <img src="{{ asset('images/roca-partida/portada.png') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Roca Partida</div>
+      <img src="{{ asset('images/roca-partida/portada.png') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[14]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -171,8 +205,8 @@
 
  <div class="carrusel_portadas">
     <a href="{{ route('selvaelmarinero') }}">
-      <img src="{{ asset('images/selva-el-marinero/portada.jpg') }}" loading="lazy">
-      <div class="titulo_carrera_telefono">Selva El Marinero</div>
+      <img src="{{ asset('images/selva-el-marinero/portada.jpg') }}">
+      <div class="titulo_carrera_telefono">{{ $centros[15]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
     </a>
@@ -229,78 +263,95 @@
 <div class="agrupador-centros-turisticos">
 
   <a href="{{ route('apompal') }}">
-      <div class="grid-item" style="background-image: url('{{ asset('images/apompal/portada2.jpg') }}');" loading="lazy">
+      <div class="grid-item" style="background-image: url('{{ asset('images/apompal/portada.jpg') }}');">
           <h3>{{ $centros[1]->nomcentur }}</h3>
       </div>
   </a>
 
   
   <a href="{{ route('arrecifes') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/arrecifes/portada.jpg') }}');" loading="lazy">
+    <div class="grid-item" style="background-image: url('{{ asset('images/arrecifes/portada.jpg') }}');">
         <h3>{{ $centros[2]->nomcentur }}</h3>
     </div>
   </a>
 
-
   <a href="{{ route('benitojuarez') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/benito-juarez/cascada2.jpg') }}');" loading="lazy">
+    <div class="grid-item" style="background-image: url('{{ asset('images/benito-juarez/portada.jpg') }}');">
         <h3>{{ $centros[3]->nomcentur }}</h3>
     </div>  
   </a>
     
   <a href="{{ route('cabanasencantadas') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/cabanas-encantadas/portada.jpg') }}');" loading="lazy">
-        <h3>Cabañas Encantadas</h3>
+    <div class="grid-item" style="background-image: url('{{ asset('images/cabanas-encantadas/portada.jpg') }}');">
+        <h3>{{ $centros[4]->nomcentur }}</h3>
     </div>
   </a>
 
   <a href="{{ route('cascadasencantadas') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/cascadas-encantadas/portada.jpg') }}');" loading="lazy">
-        <h3>Cascadas Encantadas</h3>
+    <div class="grid-item" style="background-image: url('{{ asset('images/cascadas-encantadas/portada.jpg') }}');">
+        <h3>{{ $centros[5]->nomcentur }}</h3>
+    </div>
+  </a>
+
+  <a href="{{ route('ceytaks') }}">
+    <div class="grid-item" style="background-image: url('{{ asset('images/noimage.jpg') }}');">
+        <h3>{{ $centros[6]->nomcentur }}</h3>
+    </div>
+  </a>
+
+  <a href="{{ route('elmirador') }}">
+    <div class="grid-item" style="background-image: url('{{ asset('images/noimage.jpg') }}');">
+        <h3>{{ $centros[7]->nomcentur }}</h3>
     </div>
   </a>
 
   <a href="{{ route('jomxuk') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/jomxuk/portada.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[6]->nomcentur }}</h3>
+    <div class="grid-item" style="background-image: url('{{ asset('images/jomxuk/portada.jpg') }}');">
+        <h3>{{ $centros[8]->nomcentur }}</h3>
     </div>
   </a>
 
 
   <a href="{{ route('kantasejkan') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/kan-tasejkan/portada.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[7]->nomcentur }}</h3>
+    <div class="grid-item" style="background-image: url('{{ asset('images/kan-tasejkan/portada.jpg') }}');">
+        <h3>{{ $centros[9]->nomcentur }}</h3>
     </div>
   </a>
 
 
   <a href="{{ route('lagunadelostion') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/laguna-del-ostion/BARRA_LAGUNADELOSTION.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[8]->nomcentur }}</h3>
-    </div>
-  </a>
-
-  <a href="{{ route('lasmargaritas') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/las-margaritas/portada.jpg') }}');" loading="lazy">
-        <h3>{{ $centros[9]->nomcentur }}</h3>
-    </div>
-  </a>
-
-  <a href="{{ route('ranchodonaelia') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/rancho-dona-elia/portada.jpg') }}');" loading="lazy">
+    <div class="grid-item" style="background-image: url('{{ asset('images/laguna-del-ostion/portada.jpg') }}');">
         <h3>{{ $centros[10]->nomcentur }}</h3>
     </div>
   </a>
 
-  <a href="{{ route('rocapartida') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/roca-partida/portada.png') }}');" loading="lazy">
+  <a href="{{ route('lasmargaritas') }}">
+    <div class="grid-item" style="background-image: url('{{ asset('images/las-margaritas/portada.jpg') }}');">
         <h3>{{ $centros[11]->nomcentur }}</h3>
     </div>
   </a>
 
-  <a href="{{ route('selvaelmarinero') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/selva-el-marinero/portada.jpg') }}');" loading="lazy">
+  <a href="{{ route('manglaressontecomapan') }}">
+    <div class="grid-item" style="background-image: url('{{ asset('images/noimage.jpg') }}');">
         <h3>{{ $centros[12]->nomcentur }}</h3>
+    </div>
+  </a>
+
+  <a href="{{ route('ranchodonaelia') }}">
+    <div class="grid-item" style="background-image: url('{{ asset('images/rancho-dona-elia/portada.jpg') }}');">
+        <h3>{{ $centros[13]->nomcentur }}</h3>
+    </div>
+  </a>
+
+  <a href="{{ route('rocapartida') }}">
+    <div class="grid-item" style="background-image: url('{{ asset('images/roca-partida/portada.png') }}');">
+        <h3>{{ $centros[14]->nomcentur }}</h3>
+    </div>
+  </a>
+
+  <a href="{{ route('selvaelmarinero') }}">
+    <div class="grid-item" style="background-image: url('{{ asset('images/selva-el-marinero/portada.jpg') }}');">
+        <h3>{{ $centros[15]->nomcentur }}</h3>
     </div>
   </a>
     
@@ -869,67 +920,6 @@
 @include('partials.footer')
 
 
-
-<!--------- Appr up contacto ------->
-<script>
-  // JavaScript
-  const content = document.getElementById('content');
-
-  // Función para verificar si el elemento está en el viewport
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top <= window.innerHeight && rect.bottom >= 0;
-  }
-
-  // Evento de scroll
-  window.addEventListener('scroll', () => {
-    if (isInViewport(content)) {
-      content.classList.add('visible'); // Añade la clase para hacerlo visible
-    }
-  });
-</script>
-
- 
-
-<script>
-  // Asegurar que autoplay se reanude tras interacción en móviles
-  document.addEventListener('touchstart', () => {
-    if (window.innerWidth <= 768) {
-      flktyMobile.playPlayer();
-    }
-  });
-
-</script>
-
-
-<script>
-    function animateCounter(target, from, to, duration) {
-        const counter = { value: from };
-
-        gsap.to(counter, {
-            value: to,
-            duration: duration,
-            ease: "power1.out",
-            onUpdate: function () {
-                // Selecciona el elemento y actualiza su texto.
-                // Usamos toLocaleString('es-MX') para que se muestren las comas (85,000).
-                document.querySelector(target).innerText = Math.ceil(counter.value).toLocaleString('es-MX');
-            },
-            onComplete: function () {
-                console.log(`Animación de ${target} completada.`);
-            }
-        });
-    }
-
-    // 🚀 Llamada corregida y simplificada:
-    // 1. Apuntamos directo a la clase '.counter'.
-    // 2. Establecemos el valor final en 85000.
-    // 3. El elemento .counter debe comenzar en 0 en tu HTML (o el valor 'from' de la función).
-  
-    animateCounter('.counter', 0, 85000, 5);
-</script>
-
-
 <!-- carrusel carreras -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -961,6 +951,66 @@
     });
   });
 </script>
+
+ 
+<!-- counter -->
+<script>
+function animateCounter(target, from, to, duration) {
+    const counter = { value: from };
+    gsap.to(counter, {
+        value: to,
+        duration: duration,
+        ease: "power1.out",
+        onUpdate: function () {
+            document.querySelector(target).innerText = Math.ceil(counter.value).toLocaleString('es-MX');
+        },
+        onComplete: function () {
+            console.log(`Animación de ${target} completada.`);
+        }
+    });
+}
+
+// 🚀 Detecta cuando el contador entra en pantalla
+document.addEventListener("DOMContentLoaded", () => {
+    const target = document.querySelector('.counter');
+    if (!target) return; // Previene errores si no existe
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Lanza la animación solo una vez
+                animateCounter('.counter', 0, 85000, 3);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5 // Se activa cuando el 50% del elemento es visible
+    });
+
+    observer.observe(target);
+});
+</script>
+
+
+<!--------- Appr ------->
+<script>
+  // JavaScript
+  const content = document.getElementById('content');
+
+  // Función para verificar si el elemento está en el viewport
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight && rect.bottom >= 0;
+  }
+
+  // Evento de scroll
+  window.addEventListener('scroll', () => {
+    if (isInViewport(content)) {
+      content.classList.add('visible'); // Añade la clase para hacerlo visible
+    }
+  });
+</script>
+
 
 <!-- WOW.js bounce -->
 <script>

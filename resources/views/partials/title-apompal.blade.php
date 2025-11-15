@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +53,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 1;
   mix-blend-mode: darken;
   pointer-events: none;
 }
@@ -215,7 +215,7 @@
 <body>
 
 
-  <h1 class="title">Apompal Miguel Hidalgo
+  <h1 class="title">{{ $centros[0]->nomcentur }}
     <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>

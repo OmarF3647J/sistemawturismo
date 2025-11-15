@@ -3,10 +3,29 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="ITSSAT">
-  <meta name="description" content="Página del Tecnológico Superior de San Andrés Tuxtla">
-  <meta name="keywords" content="TecNM, Instituto Tecnológico Nacional de México, Tec, Tecnológico de San Andrés, Universidad, ITSSAT"/>
+  <meta name="author" content="Turismo Comunitario Los Tuxtlas">
+  <meta name="description" content="Descubre el turismo comunitario en Los Tuxtlas, Veracruz. Vive experiencias únicas en Apompal, Roca Partida, Benito Juárez, Las Margaritas, Laguna del Ostión y más destinos naturales.">
+  <meta name="keywords" content="turismo comunitario, Los Tuxtlas, Veracruz, ecoturismo, Apompal, Roca Partida, Benito Juárez, Arrecifes, Cabañas Encantadas, Kan Tasejkan, Laguna del Ostión, Las Margaritas, naturaleza, aventura, cascadas, playas, senderismo, Instituto Tecnológico de San Andrés, Universidad, ITSSAT">
+
+
+  <link rel="preload" as="image" href="{{ asset('images/apompal/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/apompal/4.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/apompal/2.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/apompal/1.jpg') }}">
   
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- CSS estilos de esta página -->
+  <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/estilos-centros.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/docentes.css') }}">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+
 
   <!-- Animate.css bounce -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -14,42 +33,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <!-- CSS -->
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-  <!-- JavaScript -->
+  <!-- Flickity -->
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <!-- counter -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-    
-  <!-- CSS y js básico plantilla -->
-  <script src="{{ asset('js/spinner.js') }}"></script>
-  <link rel="stylesheet" href="{{ asset('css/spinner.css') }}">
-  <script src="https://code.jquery.com/jquery-latest.js"></script>
-
-  
-  <!-- CSS estilos de esta página -->
-   <link rel="stylesheet" href="{{ asset('css/estilos-centros.css') }}">
-   <link rel="stylesheet" href="{{ asset('css/docentes.css') }}">
-
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Icono pestaña -->
   <link rel="icon" href="{{ asset('images/favicon/tecnm.ico') }}"/>
   <!-- Titulo pestaña -->
-  <title>Apompal Miguel Hidalgo – ¡Conoce este Centro Ecoturístico!</title>
+  <title>Apompal – ¡Conoce este Centro Ecoturístico!</title>
 
 
 </head>
 
 
 <body>
-
-<div id="preloader">
-    <div class="spinner"></div>
-</div>
 
 
 @include('partials.header')
@@ -58,7 +55,7 @@
 
 
 
-<div class="imagen_full" style="background-image: url('{{ asset('images/apompal/portada2.jpg') }}');" loading="lazy">
+<div class="imagen_full" style="background-image: url('{{ asset('images/apompal/portada.jpg') }}');">
       <div class="texto-sobre-full">
         @include('partials.title-apompal')
       </div>
@@ -68,10 +65,10 @@
 
 <!---bounce left--->
 <div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
-  <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div>
+  <div class="descripcion_centros">El Lago El Apompal es un cuerpo de agua ubicado en el estado de Veracruz, cerca de Santiago Tuxtla.  Es un destino de ecoturismo popular que ofrece actividades como senderismo, observación de aves, y contacto con la naturaleza en un entorno de selva y cascadas.</div>
 </div><!-- end boounce -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d92274.50624197905!2d-95.11520129450182!3d18.41010298093382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9dd8c599d2117%3A0x675fa0cc0958abfd!2sMiguel%20Hidalgo%2C%2095873%20Ver.!3m2!1d18.371563!2d-94.95262269999999!5e1!3m2!1ses!2smx!4v1762739165916!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d92274.50624197905!2d-95.11520129450182!3d18.41010298093382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9dd8c599d2117%3A0x675fa0cc0958abfd!2sMiguel%20Hidalgo%2C%2095873%20Ver.!3m2!1d18.371563!2d-94.95262269999999!5e1!3m2!1ses!2smx!4v1762739165916!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
 <br>
@@ -212,7 +209,7 @@
 <div class="carousel-container-l">
   
     <div class="main-image-l">
-        <img id="featured-laboratorio">      
+        <img id="featured-laboratorio">
     </div>
 
 
@@ -245,7 +242,7 @@
   <div class="descripcion_guias"> Estas guías colaboran con este Centro Ecoturistico, pueden <b>llevarte</b> a este lugar y pueden ofrecerte algunas <b>actividades para que disfrutes de tu estancia... </b><br><br>¡Ponte en contacto con ellos y disfruta tu viaje!</div>
 </div>
 
-
+<!-- Agrupador guias turisticas -->
 <div class="agrupador-guias-turisticas">
 
     <div class="agrupador-itemgt-tarjeta">
@@ -751,155 +748,198 @@
 
  
 
-
-
-
 <!--Galeria-->
 <script>
-    // Las rutas de las imágenes se mantienen igual
-    const laboratorioImages = ['{{ asset('images/apompal/4.jpg') }}', '{{ asset('images/apompal/6.jpg') }}', '{{ asset('images/apompal/2.jpg') }}', '{{ asset('images/apompal/1.jpg') }}', '{{ asset('images/apompal/portada.jpg') }}', '{{ asset('images/apompal/7.jpg') }}', '{{ asset('images/apompal/5.jpg') }}', '{{ asset('images/apompal/3.jpg') }}'];
+  const laboratorioImages = [
+    '{{ asset('images/apompal/4.jpg') }}',
+    '{{ asset('images/apompal/2.jpg') }}',
+    '{{ asset('images/apompal/1.jpg') }}',
+    '{{ asset('images/apompal/portada.jpg') }}',
+    '{{ asset('images/apompal/5.jpg') }}',
+    '{{ asset('images/apompal/7.jpg') }}'
+  ];
 
-    // Esta es la URL de una imagen de baja calidad o un placeholder que se cargará INMEDIATAMENTE.
-    // Usamos una URL simple para el ejemplo. En un caso real, sería un SVG o una imagen muy pequeña.
-    const placeholderSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; 
+  // --- FUNCIÓN PRINCIPAL ---
+  function setupGallery(images, featuredId, thumbnailsId) {
+    const featuredImage = document.getElementById(featuredId);
+    const thumbnailsContainer = document.getElementById(thumbnailsId);
 
-    // --- FUNCIÓN DE CARGA DIFERIDA ---
-    function setupLazyLoading(images) {
-        // Opción de configuración: la imagen se carga cuando está al 100px de distancia de ser visible
-        const options = {
-            rootMargin: '100px', 
-            threshold: 0.01 // Dispara cuando 1% del elemento es visible
-        };
+    // Crear miniaturas (carga inmediata)
+    thumbnailsContainer.innerHTML = images.map((img, index) => `
+      <img 
+        class="thumbnail-l"
+        src="${img}" 
+        alt="Imagen ${index + 1}" 
+        data-index="${index}"
+      >
+    `).join('');
 
-        // 1. Definimos la acción que se ejecuta al intersectar (hacerse visible)
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const lazyImage = entry.target;
-                    // Mueve la URL final (guardada en data-src) al atributo src
-                    lazyImage.src = lazyImage.dataset.src;
-                    
-                    // Detenemos la observación una vez que la imagen se ha cargado
-                    observer.unobserve(lazyImage); 
-                }
-            });
-        }, options);
+    const thumbnails = thumbnailsContainer.querySelectorAll('.thumbnail-l');
+    let currentIndex = 0;
+    let modalIndex = 0;
 
-        // 2. Registramos todas las miniaturas para ser observadas
-        images.forEach(imageElement => {
-            observer.observe(imageElement);
-        });
-    }
-    // --- FIN FUNCIÓN DE CARGA DIFERIDA ---
+    // --- FUNCIÓN CAMBIAR IMAGEN PRINCIPAL ---
+    function changeImage(index) {
+      const newSrc = images[index];
+      const img = new Image();
+      img.src = newSrc;
 
+      featuredImage.classList.remove('fade-in');
+      void featuredImage.offsetWidth;
 
-    function setupGallery(images, featuredId, thumbnailsId) {
-        const featuredImage = document.getElementById(featuredId);
-        const thumbnailsContainer = document.getElementById(thumbnailsId);
-        
-        // --- CAMBIO CLAVE A: Generación de Miniaturas con Carga Diferida ---
-        // 1. Usamos 'src' para el placeholder (carga inmediata, ligero)
-        // 2. Usamos 'data-src' para guardar la URL real de alta resolución
-        thumbnailsContainer.innerHTML = images.map((img, index) => 
-            `<img 
-                class="thumbnail-l" 
-                src="${placeholderSrc}" 
-                data-src="${img}" 
-                alt="Imagen ${index + 1}" 
-                data-index="${index}"
-            >`).join('');
-        // --- FIN CAMBIO CLAVE A ---
-
-        const thumbnails = thumbnailsContainer.querySelectorAll('.thumbnail-l');
-        
-        // --- CAMBIO CLAVE B: Inicializamos la carga diferida para las miniaturas ---
-        setupLazyLoading(thumbnails);
-        // --- FIN CAMBIO CLAVE B ---
-
-
-        let currentIndex = 0;
-        
-        function changeImage(index) {
-
-            setTimeout(() => {
-                featuredImage.src = images[index];
-                
-        const img = new Image();
-          img.src = newSrc;
-
-          img.onload = () => {
-            featuredImage.src = newSrc;
-            featuredImage.classList.add('fade-in');
-          };
-    
-        featuredImage.classList.remove('fade-out');
-        void featuredImage.offsetWidth; // ⚙️ Reinicia la animación
+      img.onload = () => {
+        featuredImage.src = newSrc;
         featuredImage.classList.add('fade-in');
-    }, 300);
+      };
 
-    thumbnails.forEach(thumb => thumb.classList.remove('active'));
-    const targetThumb = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
-    targetThumb.classList.add('active');
+      thumbnails.forEach(t => t.classList.remove('active'));
+      const selected = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
+      if (selected) selected.classList.add('active');
 
-    currentIndex = parseInt(index);
-}
-
-
-        // ... Lógica de click y autoSlide ...
-        thumbnails.forEach(thumb => {
-            thumb.addEventListener('click', () => {
-                clearInterval(autoSlide);
-                changeImage(thumb.dataset.index);
-                autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
-            });
-        });
-
-        let autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
-        changeImage(0); // Carga la primera imagen inmediatamente
+      currentIndex = parseInt(index);
     }
 
-    window.onload = () => {
-        setupGallery(laboratorioImages, 'featured-laboratorio', 'laboratorio-thumbnails');
-    };
-  </script>
-<!-------------------- Fin Galeria------------------->
+    // --- CLICK EN MINIATURAS ---
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        clearInterval(autoSlide);
+        changeImage(thumb.dataset.index);
 
+        autoSlide = setInterval(() =>
+          changeImage((currentIndex + 1) % images.length), 3000
+        );
+      });
+    });
 
+    // --- AUTOSLIDE ---
+    let autoSlide = setInterval(() =>
+      changeImage((currentIndex + 1) % images.length), 3000
+    );
 
+    changeImage(0);
 
-<script>
-  // Manejo de miniaturas y modal
-  const thumbnails = document.querySelectorAll('.main-image-l img');
-  const modal = document.getElementById('modalImagen');
-  const modalImage = document.getElementById('imagenAmpliada');
+    // --- MODAL ---
+    const modal = document.getElementById('modalImagen');
+    const modalImage = document.getElementById('imagenAmpliada');
 
-  thumbnails.forEach((thumbnail) => {
-    thumbnail.addEventListener('click', () => {
-      modalImage.src = thumbnail.src;
+    function safePauseCarousel() {
+      try {
+        if (window.innerWidth >= 1024) {
+          if (typeof flktyDesktop !== 'undefined' && flktyDesktop.pausePlayer)
+            flktyDesktop.pausePlayer();
+        } else {
+          if (typeof flktyMobile !== 'undefined' && flktyMobile.pausePlayer)
+            flktyMobile.pausePlayer();
+        }
+      } catch {}
+    }
+
+    function safePlayCarousel() {
+      try {
+        if (window.innerWidth >= 1024) {
+          if (typeof flktyDesktop !== 'undefined' && flktyDesktop.playPlayer)
+            flktyDesktop.playPlayer();
+        } else {
+          if (typeof flktyMobile !== 'undefined' && flktyMobile.playPlayer)
+            flktyMobile.playPlayer();
+        }
+      } catch {}
+    }
+
+    // --- ABRIR MODAL ---
+    function openModalWithSrc(src) {
+      if (!src) return;
+
+      modalIndex = images.indexOf(src);
+      if (modalIndex === -1) modalIndex = currentIndex;
+
+      modalImage.src = src;
+
       modal.style.display = 'flex';
-      if (window.innerWidth > 768) {
-        flktyDesktop.pausePlayer();
-      } else {
-        flktyMobile.pausePlayer();
+      requestAnimationFrame(() => modal.classList.add('show'));
+
+      safePauseCarousel();
+    }
+
+    // --- CERRAR MODAL ---
+    function closeModal() {
+      modal.classList.remove('show');
+      setTimeout(() => {
+        modal.style.display = 'none';
+        modalImage.src = '';
+      }, 200);
+      safePlayCarousel();
+    }
+
+    // Click en imagen principal
+    featuredImage.style.cursor = 'zoom-in';
+    featuredImage.addEventListener('click', () => {
+      openModalWithSrc(featuredImage.src);
+    });
+
+    // Click en miniaturas → Abrir modal
+    thumbnailsContainer.addEventListener('click', e => {
+      if (e.target.tagName === 'IMG') openModalWithSrc(e.target.src);
+    });
+
+    // Click fuera → Cerrar
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+
+    // --- NAVEGACIÓN EN MODAL ---
+    function modalNext() {
+      modalIndex = (modalIndex + 1) % images.length;
+
+      modalImage.classList.remove("fade-in");
+      void modalImage.offsetWidth;
+
+      modalImage.src = images[modalIndex];
+      modalImage.classList.add("fade-in");
+    }
+
+    function modalPrev() {
+      modalIndex = (modalIndex - 1 + images.length) % images.length;
+
+      modalImage.classList.remove("fade-in");
+      void modalImage.offsetWidth;
+
+      modalImage.src = images[modalIndex];
+      modalImage.classList.add("fade-in");
+    }
+
+    // --- TECLAS DE FLECHA ---
+    window.addEventListener('keydown', e => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'ArrowRight') modalNext();
+        if (e.key === 'ArrowLeft') modalPrev();
+        if (e.key === 'Escape') closeModal();
       }
     });
-  });
 
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-      modalImage.src = '';
-      if (window.innerWidth > 768) {
-        flktyDesktop.playPlayer();
-      } else {
-        flktyMobile.playPlayer();
+    // --- SWIPE TÁCTIL ---
+    let touchStartX = 0;
+
+    modalImage.addEventListener("touchstart", e => {
+      touchStartX = e.touches[0].clientX;
+    });
+
+    modalImage.addEventListener("touchend", e => {
+      const endX = e.changedTouches[0].clientX;
+      const diffX = endX - touchStartX;
+
+      if (Math.abs(diffX) > 50) {
+        if (diffX < 0) modalNext();
+        else modalPrev();
       }
-    }
-  });
+    });
+  }
+
+  // --- INICIALIZAR ---
+  window.onload = () => {
+    setupGallery(laboratorioImages, 'featured-laboratorio', 'laboratorio-thumbnails');
+  };
 </script>
-
-
-
 
 
 </body>

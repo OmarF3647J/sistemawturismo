@@ -71,8 +71,8 @@ hr{
 
 .imagen_full{
     display: flex;
+    margin: 0 auto;
     margin-top: 8%;
-    margin-bottom: 2%;
     width: 100%;
     height: 600px;
     align-items: center; 
@@ -81,13 +81,15 @@ hr{
     background-position: center;
     background-image: linear-gradient(rgba(0, 0, 0, 0.459), rgba(0, 0, 0, 0.558)), url(--background-url);
     background-repeat: no-repeat;
+    filter: saturate(130%);
 }
 .imagen_full img{
   width: 100%;
   height: 100%;
-  
+  margin: 0 auto;
 }
 .texto-sobre-full {
+    margin: 0 auto;
     color: white;
     font-size: 350%;
     font-weight: bold;
@@ -138,6 +140,7 @@ hr{
   padding: 2%;
   background-color: #fff;
   border-radius: 8px;
+  border-left: solid 4px #0ec351;
   width: 85%;
   margin: 50px auto;
   margin-top: 2%;
@@ -252,7 +255,7 @@ hr{
   border-radius: 3px;
   transition: ease-in-out, transform 1.5s ease-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  filter: saturate(130%);
+  filter: saturate(126%);
 }
 
 
@@ -315,14 +318,24 @@ hr{
   height: auto; /* Limita la altura máxima al 90% del contenedor */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   filter: saturate(130%);
+  transition: opacity 0.25s ease;
+}
+/* Estado inicial oculto */
+#modalImagen {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: 
+      opacity .35s ease,
+      transform .35s ease;
 }
 
-
-
-
-
-
-
+/* Estado visible (cuando JS hace display:flex) */
+#modalImagen.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
 
 
 
@@ -696,8 +709,8 @@ width: 100%; /* Expande el borde hasta el ancho completo */
 	width: 100%; /* Expande el borde hasta el ancho completo */
   }
 .icon {
-  width: 16%;
-  height: 16%;
+  width: 22%;
+  height: 22%;
 }
 .texto_contacto{
   margin: 0;

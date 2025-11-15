@@ -6,14 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="ITSSAT">
   <meta name="description" content="Página del Tecnológico Superior de San Andrés Tuxtla">
-  <meta name="keywords" content="TecNM, Instituto Tecnológico Nacional de México, Tec, Tecnológico de San Andrés, Universidad, ITSSAT"/>
+  <meta name="keywords" content="TecNM, Instituto Tecnológico Nacional de México, Tec San Andrés, Tecnológico de San Andrés, Universidad, ITSSAT"/>
 
 
 
 <!-- CSS y js básico plantilla -->
-
-<script src="{{ asset('js/spinner.js') }}"></script>
-<link rel="stylesheet" href="{{ asset('css/spinner.css') }}">
 
 <link rel="stylesheet" href="{{ asset('css/header.css') }}">
 
@@ -34,7 +31,7 @@
     <div class="contenedor_verde_gobernacion">
           <div class="mini_cont">
             <a href="https://www.gob.mx">
-              <img src="{{ asset('images/logos/logo_gob_blanco.svg') }}" style="height: 30px;">
+              <img src="{{ asset('images/logos/logo_gob_blanco.svg') }}" style="height: 30px;" loading="eager">
             </a>
           </div>
           <div class="mini_cont">
@@ -89,18 +86,18 @@
 
           <!-- Btn tecnmn -->
           <div class="fant_btntecnm">
-            <a href="https://www.tecnm.mx/"><img src="{{ asset('images/logos/tecnm_menu.png') }}" width="110px"></a>&nbsp;
+            <a href="https://www.tecnm.mx/"><img src="{{ asset('images/logos/tecnm_menu.png') }}" width="110px" loading="eager"></a>&nbsp;
           </div>
 
 
           <div class="fant_home">
-            <a href="{{ route('inicio') }}"><img src="{{ asset('images/favicon/home.png') }}" width="30px"></a>&nbsp;
+            <a href="{{ route('inicio') }}"><img src="{{ asset('images/favicon/home.png') }}" width="30px" loading="eager"></a>&nbsp;
           </div>
 
 
           <div class="menu_bar">
             <a href="#" class="bt-menu" onclick="event.preventDefault();">
-              <img src="{{ asset('images/favicon/menu.png') }}" height="38px">
+              <img src="{{ asset('images/favicon/menu.png') }}" height="38px" loading="eager">
             </a>
           </div>
           
@@ -137,7 +134,7 @@
           </li>
           
           
-          <li><a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca de la carrera Ingeniería Informática">Contacto</a></li>
+          <li><a href="https://wa.me/5212941016169?text=Hola, me gustaría conocer más acerca del Turismo Comunitario de la Región de los Tuxtlas">Contacto</a></li>
         </ul>
       </nav>
     </header>

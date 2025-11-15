@@ -215,7 +215,7 @@
 <body>
 
 
-  <h1 class="title">Ceytaks
+  <h1 class="title">{{ $centros[5]->nomcentur }}
     <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>

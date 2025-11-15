@@ -9,7 +9,7 @@
   <meta name="keywords" content="TecNM, Instituto Tecnológico Nacional de México, Tec, Tecnológico de San Andrés, Universidad, ITSSAT"/>  
 </head>
 
-  <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/footer.css') }}" media="print" onload="this.media='all'">
 
 <body>
 

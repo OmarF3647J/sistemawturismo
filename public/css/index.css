@@ -80,6 +80,7 @@ a img {
     padding: 0;
     margin: 0;
     flex: 0 0 100%; /* una imagen por pantalla */
+    filter: saturate(125%) brightness(85%);
   }
   .carrusel_portadas img {
     width: 100%;
@@ -89,7 +90,6 @@ a img {
     padding: 0; 
     background-size: cover; /*rellena el contendor*/
     object-fit: cover; /* Recorta la imagen sin deformarla */
-    filter: saturate(120%) brightness(85%);
   } 
   .flickity-page-dots {
     position: static !important;
@@ -105,7 +105,7 @@ a img {
     background: #7f8b84; /* Un gris claro para los inactivos */
     
     /* Opcional: Aumentar la separación entre ellos */
-    margin: 0 8px; 
+    margin: 0 12px 4px 12px;
     
     /* Asegurarte de que sigan siendo círculos */
     border-radius: 50%;
@@ -309,10 +309,6 @@ a img {
     /* Opcional pero recomendado para máxima compatibilidad */
     -webkit-backdrop-filter: blur(2px);
 }
-
-
-
-
 
 
 .titulo-guias{
