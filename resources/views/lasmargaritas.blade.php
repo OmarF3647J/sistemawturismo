@@ -3,10 +3,29 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="ITSSAT">
-  <meta name="description" content="Página del Tecnológico Superior de San Andrés Tuxtla">
-  <meta name="keywords" content="TecNM, Instituto Tecnológico Nacional de México, Tec, Tecnológico de San Andrés, Universidad, ITSSAT"/>
+  <meta name="author" content="Turismo Comunitario Los Tuxtlas">
+  <meta name="description" content="Descubre el turismo comunitario en Los Tuxtlas, Veracruz. Vive experiencias únicas en Apompal, Roca Partida, Benito Juárez, Las Margaritas, Laguna del Ostión y más destinos naturales.">
+  <meta name="keywords" content="turismo comunitario, Los Tuxtlas, Veracruz, ecoturismo, Apompal, Roca Partida, Benito Juárez, Arrecifes, Cabañas Encantadas, Kan Tasejkan, Laguna del Ostión, Las Margaritas, naturaleza, aventura, cascadas, playas, senderismo, Instituto Tecnológico de San Andrés, Universidad, ITSSAT">
+
+
+  <link rel="preload" as="image" href="{{ asset('images/las-margaritas/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/las-margaritas/1.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/las-margaritas/2.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/las-margaritas/3.jpg') }}">
   
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- CSS estilos de esta página -->
+  <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/estilos-centros.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/docentes.css') }}">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+
 
   <!-- Animate.css bounce -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -14,42 +33,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <!-- CSS -->
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-  <!-- JavaScript -->
+  <!-- Flickity -->
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <!-- counter -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-    
-  <!-- CSS y js básico plantilla -->
-  <script src="{{ asset('js/spinner.js') }}"></script>
-  <link rel="stylesheet" href="{{ asset('css/spinner.css') }}">
-  <script src="https://code.jquery.com/jquery-latest.js"></script>
-
-  
-  <!-- CSS estilos de esta página -->
-   <link rel="stylesheet" href="{{ asset('css/estilos-centros.css') }}">
-   <link rel="stylesheet" href="{{ asset('css/docentes.css') }}">
-
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Icono pestaña -->
   <link rel="icon" href="{{ asset('images/favicon/tecnm.ico') }}"/>
   <!-- Titulo pestaña -->
-  <title>Centros Ecoturísticos – ¡Conoce la Región de los Tuxtlas!</title>
-
+  <title>Las Margaritas – ¡Conoce este Centro Ecoturístico!</title>
 
 </head>
 
 
 <body>
 
-<div id="preloader">
-    <div class="spinner"></div>
-</div>
 
 
 @include('partials.header')
@@ -58,7 +55,7 @@
 
 
 
-<div class="imagen_full" style="background-image: url('{{ asset('images/apompal/portada2.jpg') }}');" loading="lazy">
+<div class="imagen_full" style="background-image: url('{{ asset('images/las-margaritas/portada.jpg') }}');">
       <div class="texto-sobre-full">
         @include('partials.title-lasmargaritas')
       </div>
@@ -210,9 +207,18 @@
 
 <h2>Galería</h2>
 <div class="carousel-container-l">
+  
     <div class="main-image-l">
-        <img id="featured-laboratorio" src="mycss/img_css/info/a5.jpg" alt="Imagen Principal">
+        <img id="featured-laboratorio">
     </div>
+
+
+      <!-- Modal para ampliar -->
+    <div id="modalImagen" class="iframe-modal-img">
+      <img id="imagenAmpliada" src="" alt="Vista ampliada">
+    </div>
+
+    
     <div class="thumbnails-l" id="laboratorio-thumbnails">
         <!-- Las imágenes se añaden dinámicamente -->
     </div>
@@ -764,145 +770,200 @@
 
  
 
-
-<script>
-    function animateCounter(target, from, to, duration) {
-        const counter = { value: from };
-
-        gsap.to(counter, {
-            value: to,
-            duration: duration,
-            ease: "power1.out",
-            onUpdate: function () {
-                // Selecciona el elemento y actualiza su texto.
-                // Usamos toLocaleString('es-MX') para que se muestren las comas (85,000).
-                document.querySelector(target).innerText = Math.ceil(counter.value).toLocaleString('es-MX');
-            },
-            onComplete: function () {
-                console.log(`Animación de ${target} completada.`);
-            }
-        });
-    }
-    // 🚀 Llamada corregida y simplificada:
-    // 1. Apuntamos directo a la clase '.counter'.
-    // 2. Establecemos el valor final en 85000.
-    // 3. El elemento .counter debe comenzar en 0 en tu HTML (o el valor 'from' de la función).
-  
-    animateCounter('.counter', 0, 85000, 5);
-</script>
-
-
 <!--Galeria-->
 <script>
-    // Las rutas de las imágenes se mantienen igual
-    const laboratorioImages = ['{{ asset('images/apompal/4.jpg') }}', '{{ asset('images/apompal/2.jpg') }}', '{{ asset('images/apompal/3.jpg') }}', '{{ asset('images/apompal/1.jpg') }}', '{{ asset('images/apompal/5.jpg') }}'];
+  const laboratorioImages = [
+    '{{ asset('images/las-margaritas/5.jpg') }}',
+    '{{ asset('images/las-margaritas/2.jpg') }}',
+    '{{ asset('images/las-margaritas/3.jpg') }}',
+    '{{ asset('images/las-margaritas/portada.jpg') }}',
+    '{{ asset('images/las-margaritas/4.jpg') }}',
+    '{{ asset('images/las-margaritas/1.jpg') }}',
+    '{{ asset('images/las-margaritas/6.jpg') }}',
+    '{{ asset('images/las-margaritas/7.jpg') }}'
+  ];
 
-    // Esta es la URL de una imagen de baja calidad o un placeholder que se cargará INMEDIATAMENTE.
-    // Usamos una URL simple para el ejemplo. En un caso real, sería un SVG o una imagen muy pequeña.
-    const placeholderSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; 
+  // --- FUNCIÓN PRINCIPAL ---
+  function setupGallery(images, featuredId, thumbnailsId) {
+    const featuredImage = document.getElementById(featuredId);
+    const thumbnailsContainer = document.getElementById(thumbnailsId);
 
-    // --- FUNCIÓN DE CARGA DIFERIDA ---
-    function setupLazyLoading(images) {
-        // Opción de configuración: la imagen se carga cuando está al 100px de distancia de ser visible
-        const options = {
-            rootMargin: '100px', 
-            threshold: 0.01 // Dispara cuando 1% del elemento es visible
-        };
+    // Crear miniaturas (carga inmediata)
+    thumbnailsContainer.innerHTML = images.map((img, index) => `
+      <img 
+        class="thumbnail-l"
+        src="${img}" 
+        alt="Imagen ${index + 1}" 
+        data-index="${index}"
+      >
+    `).join('');
 
-        // 1. Definimos la acción que se ejecuta al intersectar (hacerse visible)
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const lazyImage = entry.target;
-                    // Mueve la URL final (guardada en data-src) al atributo src
-                    lazyImage.src = lazyImage.dataset.src;
-                    
-                    // Detenemos la observación una vez que la imagen se ha cargado
-                    observer.unobserve(lazyImage); 
-                }
-            });
-        }, options);
+    const thumbnails = thumbnailsContainer.querySelectorAll('.thumbnail-l');
+    let currentIndex = 0;
+    let modalIndex = 0;
 
-        // 2. Registramos todas las miniaturas para ser observadas
-        images.forEach(imageElement => {
-            observer.observe(imageElement);
-        });
+    // --- FUNCIÓN CAMBIAR IMAGEN PRINCIPAL ---
+    function changeImage(index) {
+      const newSrc = images[index];
+      const img = new Image();
+      img.src = newSrc;
+
+      featuredImage.classList.remove('fade-in');
+      void featuredImage.offsetWidth;
+
+      img.onload = () => {
+        featuredImage.src = newSrc;
+        featuredImage.classList.add('fade-in');
+      };
+
+      thumbnails.forEach(t => t.classList.remove('active'));
+      const selected = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
+      if (selected) selected.classList.add('active');
+
+      currentIndex = parseInt(index);
     }
-    // --- FIN FUNCIÓN DE CARGA DIFERIDA ---
 
+    // --- CLICK EN MINIATURAS ---
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        clearInterval(autoSlide);
+        changeImage(thumb.dataset.index);
 
-    function setupGallery(images, featuredId, thumbnailsId) {
-        const featuredImage = document.getElementById(featuredId);
-        const thumbnailsContainer = document.getElementById(thumbnailsId);
-        
-        // --- CAMBIO CLAVE A: Generación de Miniaturas con Carga Diferida ---
-        // 1. Usamos 'src' para el placeholder (carga inmediata, ligero)
-        // 2. Usamos 'data-src' para guardar la URL real de alta resolución
-        thumbnailsContainer.innerHTML = images.map((img, index) => 
-            `<img 
-                class="thumbnail-l" 
-                src="${placeholderSrc}" 
-                data-src="${img}" 
-                alt="Imagen ${index + 1}" 
-                data-index="${index}"
-            >`).join('');
-        // --- FIN CAMBIO CLAVE A ---
+        autoSlide = setInterval(() =>
+          changeImage((currentIndex + 1) % images.length), 3000
+        );
+      });
+    });
 
-        const thumbnails = thumbnailsContainer.querySelectorAll('.thumbnail-l');
-        
-        // --- CAMBIO CLAVE B: Inicializamos la carga diferida para las miniaturas ---
-        setupLazyLoading(thumbnails);
-        // --- FIN CAMBIO CLAVE B ---
+    // --- AUTOSLIDE ---
+    let autoSlide = setInterval(() =>
+      changeImage((currentIndex + 1) % images.length), 3000
+    );
 
+    changeImage(0);
 
-        let currentIndex = 0;
-        
-        // El resto de la lógica para cambiar la imagen principal se mantiene igual
-        function changeImage(index) {
-            featuredImage.style.opacity = 0;
-            setTimeout(() => {
-                // Aquí usamos la URL real del array original, no el placeholder
-                featuredImage.src = images[index]; 
-                featuredImage.style.opacity = 1;
-            }, 500);
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
-            
-            // Usamos data-index para asegurar que seleccionamos la miniatura correcta
-            // y la cargamos inmediatamente si aún no lo ha hecho el observer.
-            const targetThumb = thumbnailsContainer.querySelector(`[data-index="${index}"]`);
-            targetThumb.classList.add('active');
-            
-            // Aseguramos que la imagen principal también esté cargada
-            if (targetThumb.dataset.src && targetThumb.src === placeholderSrc) {
-                targetThumb.src = targetThumb.dataset.src;
-            }
+    // --- MODAL ---
+    const modal = document.getElementById('modalImagen');
+    const modalImage = document.getElementById('imagenAmpliada');
 
-            currentIndex = parseInt(index);
+    function safePauseCarousel() {
+      try {
+        if (window.innerWidth >= 1024) {
+          if (typeof flktyDesktop !== 'undefined' && flktyDesktop.pausePlayer)
+            flktyDesktop.pausePlayer();
+        } else {
+          if (typeof flktyMobile !== 'undefined' && flktyMobile.pausePlayer)
+            flktyMobile.pausePlayer();
         }
-
-        // ... Lógica de click y autoSlide ...
-        thumbnails.forEach(thumb => {
-            thumb.addEventListener('click', () => {
-                clearInterval(autoSlide);
-                changeImage(thumb.dataset.index);
-                autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
-            });
-        });
-
-        let autoSlide = setInterval(() => changeImage((currentIndex + 1) % images.length), 3000);
-        changeImage(0); // Carga la primera imagen inmediatamente
+      } catch {}
     }
 
-    window.onload = () => {
-        setupGallery(laboratorioImages, 'featured-laboratorio', 'laboratorio-thumbnails');
-    };
-  </script>
-<!-------------------- Fin Galeria------------------->
+    function safePlayCarousel() {
+      try {
+        if (window.innerWidth >= 1024) {
+          if (typeof flktyDesktop !== 'undefined' && flktyDesktop.playPlayer)
+            flktyDesktop.playPlayer();
+        } else {
+          if (typeof flktyMobile !== 'undefined' && flktyMobile.playPlayer)
+            flktyMobile.playPlayer();
+        }
+      } catch {}
+    }
 
+    // --- ABRIR MODAL ---
+    function openModalWithSrc(src) {
+      if (!src) return;
 
+      modalIndex = images.indexOf(src);
+      if (modalIndex === -1) modalIndex = currentIndex;
 
+      modalImage.src = src;
 
+      modal.style.display = 'flex';
+      requestAnimationFrame(() => modal.classList.add('show'));
 
+      safePauseCarousel();
+    }
+
+    // --- CERRAR MODAL ---
+    function closeModal() {
+      modal.classList.remove('show');
+      setTimeout(() => {
+        modal.style.display = 'none';
+        modalImage.src = '';
+      }, 200);
+      safePlayCarousel();
+    }
+
+    // Click en imagen principal
+    featuredImage.style.cursor = 'zoom-in';
+    featuredImage.addEventListener('click', () => {
+      openModalWithSrc(featuredImage.src);
+    });
+
+    // Click en miniaturas → Abrir modal
+    thumbnailsContainer.addEventListener('click', e => {
+      if (e.target.tagName === 'IMG') openModalWithSrc(e.target.src);
+    });
+
+    // Click fuera → Cerrar
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+
+    // --- NAVEGACIÓN EN MODAL ---
+    function modalNext() {
+      modalIndex = (modalIndex + 1) % images.length;
+
+      modalImage.classList.remove("fade-in");
+      void modalImage.offsetWidth;
+
+      modalImage.src = images[modalIndex];
+      modalImage.classList.add("fade-in");
+    }
+
+    function modalPrev() {
+      modalIndex = (modalIndex - 1 + images.length) % images.length;
+
+      modalImage.classList.remove("fade-in");
+      void modalImage.offsetWidth;
+
+      modalImage.src = images[modalIndex];
+      modalImage.classList.add("fade-in");
+    }
+
+    // --- TECLAS DE FLECHA ---
+    window.addEventListener('keydown', e => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'ArrowRight') modalNext();
+        if (e.key === 'ArrowLeft') modalPrev();
+        if (e.key === 'Escape') closeModal();
+      }
+    });
+
+    // --- SWIPE TÁCTIL ---
+    let touchStartX = 0;
+
+    modalImage.addEventListener("touchstart", e => {
+      touchStartX = e.touches[0].clientX;
+    });
+
+    modalImage.addEventListener("touchend", e => {
+      const endX = e.changedTouches[0].clientX;
+      const diffX = endX - touchStartX;
+
+      if (Math.abs(diffX) > 50) {
+        if (diffX < 0) modalNext();
+        else modalPrev();
+      }
+    });
+  }
+
+  // --- INICIALIZAR ---
+  window.onload = () => {
+    setupGallery(laboratorioImages, 'featured-laboratorio', 'laboratorio-thumbnails');
+  };
+</script>
 
 
 </body>

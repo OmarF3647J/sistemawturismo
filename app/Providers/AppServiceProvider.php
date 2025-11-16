@@ -78,7 +78,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('centros', $centros);
         });
 
-        View::composer('partials.title-jomkux', function ($view) {
+        View::composer('partials.title-jomxuk', function ($view) {
             // Utilizamos el modelo para obtener todos los centros
             $centros = CentroTurist::all(); 
             $view->with('centros', $centros);

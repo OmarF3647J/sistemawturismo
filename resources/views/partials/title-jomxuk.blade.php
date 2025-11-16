@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -215,7 +215,7 @@
 <body>
 
 
-  <h1 class="title">Jomxuk
+  <h1 class="title">{{ $centros[7]->nomcentur }}
     <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>

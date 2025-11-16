@@ -215,7 +215,7 @@
 <body>
 
 
-  <h1 class="title">{{ $centros[9]->nomcentur }}
+  <h1 class="title">{{ $centros[11]->nomcentur }}
     <div class="aurora">
       <div class="aurora__item"></div>
       <div class="aurora__item"></div>

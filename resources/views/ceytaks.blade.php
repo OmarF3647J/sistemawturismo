@@ -55,7 +55,7 @@
 
 
 
-<div class="imagen_full" style="background-image: url('{{ asset('images/noimage.jpg') }}');" loading="lazy">
+<div class="imagen_full" style="background-image: url('{{ asset('images/noimage.jpg') }}');">
       <div class="texto-sobre-full">
         @include('partials.title-ceytaks')
       </div>

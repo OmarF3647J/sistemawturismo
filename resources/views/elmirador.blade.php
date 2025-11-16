@@ -56,7 +56,7 @@
 
 
 
-<div class="imagen_full" style="background-image: url('{{ asset('images/noimage.jpg') }}');" loading="lazy">
+<div class="imagen_full" style="background-image: url('{{ asset('images/noimage.jpg') }}');">
       <div class="texto-sobre-full">
         @include('partials.title-elmirador')
       </div>
@@ -68,7 +68,6 @@
 <div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
   <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div>
 </div><!-- end boounce -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d184469.77616271164!2d-95.14720707993611!3d18.483867178492112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9c5748f825add%3A0xda1b39ab46cfe770!2sCentro%20Ecoturistico%20Los%20Arrecifes%2C%20Los%20arrecifes%2C%2C%20Mecayapan%2C%20Ver.!3m2!1d18.5344391!2d-94.8517384!5e1!3m2!1ses!2smx!4v1762760097102!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
 
