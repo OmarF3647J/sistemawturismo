@@ -7,8 +7,8 @@ import InputGroup from '@/Components/InputGroup.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputError from '@/Components/InputError.vue';
 import SelectInput from '@/Components/SelectInput.vue';
-
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+
 
 // PROPS: ahora incluimos los arrays de ids/relaciones que envía el controlador
 const props = defineProps({
@@ -16,28 +16,22 @@ const props = defineProps({
   productos: { type: Array, default: () => [] },
   actividadturist: { type: Array, default: () => [] }, // lista completa de opciones [{idacttur, nomacttur}, ...]
   guiasturist: { type: Array, default: () => [] },
-  // Estas props deben ser enviadas desde el controlador como arrays (ideal: array de ids)
   centrosturist_actividadturist: { type: [Array, null], default: () => [] },
   centrosturist_guiasturist: { type: [Array, null], default: () => [] },
+  flash: { type: Object, default: () => ({}) },
 });
 
 
-// --- Inicializar formulario ---
-// Detectamos si la prop centrosturist_actividadturist viene como:
-//  - array de ids: [1,2,3]
-//  - o array de objetos: [{idacttur:1}, {idacttur:2}] (por si la enviaste así)
-function normalizeIds(input, keyName = ['idacttur', 'idguiatur']) {
-  if (!input) return [];
-  if (!Array.isArray(input)) return [];
-  if (input.length === 0) return [];
-  // si los elementos son primitivos (números / strings) devolver tal cual
-  if (typeof input[0] === 'number' || typeof input[0] === 'string') return input;
-  // si son objetos y tienen la llave keyName, mapear
-  if (typeof input[0] === 'object' && input[0] !== null && keyName in input[0]) {
-    return input.map(i => i[keyName]);
+function normalizeIds(arr, key) {
+  if (!Array.isArray(arr)) return [];
+  if (arr.length === 0) return [];
+  if (typeof arr[0] === 'object' && arr[0] !== null && key in arr[0]) {
+    // array de objetos
+    return arr.map(item => item[key]);
+  } else {
+    // asumimos que es array de ids
+    return arr;
   }
-  // fallback: vacío
-  return [];
 }
 
 const form = useForm({
@@ -68,10 +62,6 @@ const classMsj = ref('hidden'); //clase del mensaje
 
 
 
-
-
-
-// options: convertir actividadturist (modelo) a {id,text}
 const options = ref([]);
 if (Array.isArray(props.actividadturist)) {
   props.actividadturist.forEach((row) => {
@@ -82,77 +72,6 @@ if (Array.isArray(props.actividadturist)) {
   });
 }
 
-// Computed: actividades seleccionadas (objetos) para mostrar chips
-const selectedActivities = computed(() => {
-  const ids = Array.isArray(form.idacttur) ? form.idacttur.map(i => Number(i)) : [];
-  return options.value.filter(opt => ids.includes(Number(opt.id)));
-});
-
-// función para quitar actividad (actualiza form.idacttur)
-function removeActivity(id) {
-  form.idacttur = (form.idacttur || []).filter(i => Number(i) !== Number(id));
-}
-
-// ---- Dropdown simulado: mantener abierto hasta clic fuera ----
-const activitiesOpen = ref(false);
-const activitiesWrapper = ref(null);
-
-// Añade/quita (toggle) una actividad por id. No cierra el dropdown.
-function addActivityById(id) {
-  if (id === undefined || id === null) return;
-  const current = Array.isArray(form.idacttur) ? form.idacttur.map(i => String(i)) : [];
-  const sid = String(id);
-  if (current.includes(sid)) {
-    // si ya existe -> quitar (toggle)
-    form.idacttur = current.filter(i => i !== sid);
-  } else {
-    // añadir
-    form.idacttur = [...current, sid];
-  }
-  // NO cerramos activitiesOpen aquí — el dropdown queda abierto hasta clic fuera
-}
-
-// manejar clic fuera para cerrar el dropdown
-function handleClickOutside(e) {
-  if (!activitiesWrapper.value) return;
-  if (!activitiesWrapper.value.contains(e.target)) {
-    activitiesOpen.value = false;
-  }
-}
-
-// cerrar con Escape
-function handleKeydown(e) {
-  if (e.key === 'Escape') activitiesOpen.value = false;
-}
-
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside);
-  document.addEventListener('keydown', handleKeydown);
-});
-onBeforeUnmount(() => {
-  document.removeEventListener('click', handleClickOutside);
-  document.removeEventListener('keydown', handleKeydown);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const optionsGguias = ref([]);
 
 if (Array.isArray(props.guiasturist)) {
@@ -162,54 +81,6 @@ if (Array.isArray(props.guiasturist)) {
   });
 }
 
-// Computed: actividades seleccionadas (objetos) para mostrar chips
-const selectedGuias = computed(() => {
-  const ids = Array.isArray(form.idguiatur) ? form.idguiatur.map(i => Number(i)) : [];
-  return optionsGguias.value.filter(opt => ids.includes(Number(opt.id)));
-});
-
-// es la función para quitar actividad (actualiza form.idguiatur)
-function removeGuias(id) {
-  form.idguiatur = (form.idguiatur || []).filter(i => Number(i) !== Number(id));
-}
-
-const selectedOptionGuias = ref('');
-
-
-// añadir inmediatamente la opción seleccionada al array form.idguiatur
-function addSelectedGuias() {
-  const id = selectedOptionGuias.value;
-  if (!id) return;
-
-  // convertir ids actuales a strings para evitar problemas con tipos
-  const ids = Array.isArray(form.idguiatur) ? form.idguiatur.map(i => String(i)) : [];
-
-  // evitar duplicados
-  if (!ids.includes(String(id))) {
-    form.idguiatur = [...ids, id];
-  }
-
-  // limpiar la selección para que el usuario pueda seleccionar otra de inmediato
-  selectedOptionGuias.value = '';
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// --- Mostrar imagen seleccionada ---
 const showImg = (e) => {
     const file = e.target.files && e.target.files[0];
     if (!file) return;
@@ -223,16 +94,35 @@ if (props.centrosturist != null && props.centrosturist.imgcentur) {
 }
 
 
-const ok = (m) => {
-    form.reset();
-    msj.value = m;
-    classMsj.value = 'block';
-    setTimeout(() => {
-        classMsj.value = 'hidden';
-    }, 5000);
-};
+if (props.centrosturist != null) {
+    form.idcentur = props.centrosturist.idcentur;
+    form.dircentur = props.centrosturist.dircentur;
+    form.nomcentur = props.centrosturist.nomcentur;
+    form.descentur = props.centrosturist.descentur;
+    form.rescentur = props.centrosturist.rescentur;
+    form.telcentur = props.centrosturist.telcentur;
+    form.corcentur = props.centrosturist.corcentur;
+    form.idproduct = props.centrosturist.idproduct;
+    srcImg.value = '/storage/' + props.centrosturist.imgcentur;
+}
 
 // Guardar y editar centro turístico
+// const guardar = () => {
+//     if (props.centrosturist == null) {
+//         form.post(route('centrosturist.store'), {
+//             forceFormData: true,
+//             onSuccess: () => {
+//                 ok('Centro Turístico creado con éxito');
+//                 srcImg.value = '/storage/img/example.jpg';
+//             },
+//         });
+//     } else {
+//         form.post(route('updatecentrosturist'), {
+//             forceFormData: true,
+//         });
+//     }
+// };
+
 const guardar = () => {
     if (props.centrosturist == null) {
         form.post(route('centrosturist.store'), {
@@ -243,28 +133,33 @@ const guardar = () => {
             },
         });
     } else {
-        form.post(route('updatecentrosturist', props.centrosturist.idcentur), {
+        form.post(route('updatecentrosturist'), {
             forceFormData: true,
             onSuccess: () => {
                 ok('Centro Turístico actualizado con éxito');
-            },
+
+                setTimeout(() => {
+                    location.reload();
+                }, 5000);
+            }
         });
     }
 };
 
 
-const deleteCentro = () => {
-    if (props.centrosturist != null) {
-        form.delete(route('centrosturist.destroy', props.centrosturist.idcentur), {
-            onSuccess: () => {
-                ok('Centro Turístico eliminado con éxito');
-            },
-        });
-    }
+const ok = (m) => {
+    form.reset();
+    msj.value = m;
+    classMsj.value = 'block';
+    setTimeout(() => {
+        classMsj.value = 'hidden';
+    }, 5000);
 };
+
 
 
 </script>
+
 
 
 <template>
@@ -284,23 +179,24 @@ const deleteCentro = () => {
         </template>
 
 
-            <div class="inline-flex overflow-hidden mb-4 w-full bg-white rounded-lg shadow-md" :class="classMsj" v-if="msj">
-                <!-- oculta el mensaje  -->
-                <!-- En el video no se agrega la siguiente linea v-if="msj -->
-				<div class="flex justify-center items-center w-12 bg-green-500">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
+          <div class="inline-flex overflow-hidden mb-4 w-full bg-white rounded-lg shadow-md" :class="classMsj" v-if="msj">
+                    <!-- oculta el mensaje  -->
+                    <!-- En el video no se agrega la siguiente linea v-if="msj -->
+            <div class="flex justify-center items-center w-12 bg-green-500">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
 
-				</div>
-				
-				<div class="px-4 py-2 -mx-3">
-					<div class="mx-3">
-						<span class="font-semibold text-green-600">Succes</span>
-						<p class="text-sm text-gray-600">{{ msj }}</p>
-					</div>
-				</div>
-			</div>
+            </div>
+            
+            <div class="px-4 py-2 -mx-3">
+              <div class="mx-3">
+                <span class="font-semibold text-green-600">Succes</span>
+                <p class="text-sm text-gray-600">{{ msj }}</p>
+              </div>
+            </div>
+          </div>
+
 
 
             
@@ -375,170 +271,7 @@ const deleteCentro = () => {
                     </SelectInput>
                     <InputError :message="form.errors.idproduct" />
 
-                    
-                    <!-- termina el codigo de producto con select porque necesito que el usuario seleccione la categoria -->
-
-
-
-                    
-                    
-
-                    <!-- :required="'require'"  agregar solo si es requerido el campo--> 
-                    <!-- <InputGroup v-else @change="showImg($event)" :text="'Imagen Centro Turístico'"  :type="'file'" :accept="'image/*'">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                        </svg>
-                    </InputGroup> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- cuadro que muestra las actividades seleccionadas como chips -->
-                    <!-- wrapper con ref para detectar clic fuera -->
-                    <div ref="activitiesWrapper" class="relative mt-1">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            Agencias Turísticas (selecciona 1 o más)
-                            <span class="text-red-500">*</span>
-                        </label>
-                       
-                        <div class="mb-2 flex flex-wrap gap-2">
-                            <template v-if="selectedActivities.length">
-                            <span v-for="act in selectedActivities" :key="act.id" class="inline-flex items-center px-2 py-1 rounded-full bg-gray-100 text-sm border" >
-                                <span class="mr-2">{{ act.text }}</span>
-                                <button type="button" @click="removeActivity(act.id)" class="inline-flex items-center justify-center w-5 h-5 rounded-full hover:bg-gray-200">
-                                <!-- simple X icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 8.586L15.293 3.293a1 1 0 0 1 1.414 1.414L11.414 10l5.293 5.293a1 1 0 0 1-1.414 1.414L10 11.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L8.586 10 3.293 4.707A1 1 0 0 1 4.707 3.293L10 8.586z" clip-rule="evenodd"/>
-                                </svg>
-                                </button>
-                            </span>
-                            </template>
-
-                            <template v-else>
-                            <span class="text-sm text-gray-500">No hay agencia seleccionadas</span>
-                            </template>
-                        </div>
-                         <!-- botón que actúa como 'select' -->
-                        <button type="button" @click.stop="activitiesOpen = !activitiesOpen" class="w-full text-left px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:ring focus:ring-indigo-500 focus:border-indigo-500 flex justify-between items-center" aria-haspopup="listbox" :aria-expanded="activitiesOpen" >
-
-                        <!-- lista de actividades -->
-                                            
-                        <span class="text-gray-400">Selecciona una actividad...</span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-
-                        <!-- menu desplegable (si activitiesOpen true) -->
-                        <div v-show="activitiesOpen" class="absolute z-50 mt-1 w-full bg-white border rounded-md shadow-lg max-h-48 overflow-auto" role="listbox" @click.stop>
-                            <button v-for="opt in options" :key="opt.id" type="button" @click.prevent="addActivityById(opt.id)" class="w-full text-left px-3 py-2 hover:bg-gray-100 flex justify-between items-center">
-                            <span>{{ opt.text }}</span>
-                            <span class="text-sm text-gray-500">
-                                <template v-if="(form.idacttur || []).map(i => String(i)).includes(String(opt.id))">✓</template>
-                            </span>
-                            </button>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <div class="mt-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            Agencias Turísticas (selecciona 1 o más)
-                            <span class="text-red-500">*</span>
-                        </label>
-
-                        <!-- chips -->
-                        <div class="mb-2 flex flex-wrap gap-2">
-                            <template v-if="selectedGuias.length">
-                            <span
-                                v-for="act in selectedGuias"
-                                :key="act.id"
-                                class="inline-flex items-center px-2 py-1 rounded-full bg-gray-100 text-sm border"
-                            >
-                                <span class="mr-2">{{ act.text }}</span>
-                                <button type="button"
-                                        @click="removeGuias(act.id)"
-                                        class="inline-flex items-center justify-center w-5 h-5 rounded-full hover:bg-gray-200"
-                                        aria-label="Quitar actividad">
-                                <!-- simple X icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 8.586L15.293 3.293a1 1 0 0 1 1.414 1.414L11.414 10l5.293 5.293a1 1 0 0 1-1.414 1.414L10 11.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L8.586 10 3.293 4.707A1 1 0 0 1 4.707 3.293L10 8.586z" clip-rule="evenodd"/>
-                                </svg>
-                                </button>
-                            </span>
-                            </template>
-
-                            <template v-else>
-                            <span class="text-sm text-gray-500">No hay agencia seleccionadas</span>
-                            </template>
-                        </div>
-
-                        <!-- select multiple (al cambiar actualiza form.idacttur automáticamente) -->
-                        <!-- SELECT DESPLEGABLE: al cambiar se añade inmediatamente -->
-                        <select
-                            v-model="selectedOptionGuias"
-                            @change="addSelectedGuias"
-                            class="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-500 focus:border-indigo-500"
-                            >
-                            <option value="">Selecciona una Agencia Turística...</option>
-                            <option
-                                v-for="opt in optionsGguias"
-                                :key="opt.id"
-                                :value="opt.id"
-                            >
-                                {{ opt.text }}
-                            </option>
-                        </select>
-
-
-                        <InputError :message="form.errors.idguiatur" />
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- <div class="mt-4">
                         <label class="block text-sm font-medium text-gray-700 mb-1">
                             Agencias Turísticas (selecciona 1 o más)
                             <span class="text-red-500">*</span>
@@ -561,29 +294,12 @@ const deleteCentro = () => {
                         </div>
 
                         <InputError :message="form.errors.idguiatur" />
-                    </div>  -->
-
-
-
-
-
-
-
-                    
-
-
-
-                    
-
-
-
-
-
+                    </div> 
 
 
 
                     <!-- CHECKBOXES: selección múltiple con casillas -->
-                    <!-- <div class="mt-4">
+                    <div class="mt-4">
                         <label class="block text-sm font-medium text-gray-700 mb-1">
                             Actividades (selecciona 1 o más)
                             <span class="text-red-500">*</span>
@@ -606,18 +322,7 @@ const deleteCentro = () => {
                         </div>
 
                         <InputError :message="form.errors.idacttur" />
-                    </div> -->
-
-
-
-
-
-
-
-
-
-
-
+                    </div>
 
 
 

@@ -9,6 +9,8 @@ use App\Models\guiasturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf; // para dompdf
+
 
 class CentrosturistController extends Controller
 {
@@ -109,8 +111,11 @@ class CentrosturistController extends Controller
     // si no viene, pasamos array vacío para no dejar residuos
     $centrosturist->actividadturist()->sync($request->input('idacttur', []));
     $centrosturist->guiasturist()->sync($request->input('idguiatur', []));
+// return redirect()->route('centrosturist.index')
+//     ->with('success', 'Centro Turístico creado con éxito');
 
-    return redirect()->route('centrosturist.index')->with('success', 'Centro turístico creado con éxito');
+        return redirect('centrosturist/create')->with('succes','Centro Turístico creado con éxito');
+ 
 }
 
 public function updatecentrosturist(Request $request)
@@ -133,7 +138,6 @@ public function updatecentrosturist(Request $request)
 
     $centrosturist = centrosturist::findOrFail($data['idcentur']);
 
-    // rellenar campos (usar fill si tiene $fillable en el modelo)
     $centrosturist->nomcentur = $data['nomcentur'];
     $centrosturist->dircentur = $data['dircentur'];
     $centrosturist->descentur = $data['descentur'];
@@ -152,12 +156,13 @@ public function updatecentrosturist(Request $request)
 
     $centrosturist->save();
 
-    // sincronizar relaciones many-to-many
     $centrosturist->actividadturist()->sync($request->input('idacttur', []));
     $centrosturist->guiasturist()->sync($request->input('idguiatur', []));
 
-    return redirect()->route('centrosturist.index')->with('success', 'Centro turístico actualizado con éxito');
+    return redirect()->route('centrosturist.index', $centrosturist->idcentur)
+                     ->with('success', 'Centro Turístico actualizado con éxito');
 }
+
 
 
     
@@ -207,7 +212,7 @@ public function updatecentrosturist(Request $request)
      */
     public function update(Request $request, centrosturist $centrosturist)
     {
-        
+
     }
 
     /**
@@ -224,4 +229,69 @@ public function updatecentrosturist(Request $request)
         // return back()->with('success', 'Centro turístico eliminado con éxito');
         return redirect()->route('centrosturist.index')->with('success', 'Centro turístico eliminado con éxito');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+ * Generar y mostrar/guardar PDF del centro turístico
+ */
+public function pdf(centrosturist $centrosturist)
+{
+    $centrosturist->load([
+        'producto:idproduct,nomproduct',
+        'actividadturist:idacttur,nomacttur',
+        'guiasturist:idguiatur,nomguiatur',
+        'guiasturist.actividadturist:idacttur,nomacttur'
+    ]);
+
+    $pdf = Pdf::loadView('pdf.centro', compact('centrosturist'))
+              ->setPaper('a4', 'portrait');
+
+    // Mostrar el PDF en nueva pestaña
+    return $pdf->stream("centro_{$centrosturist->idcentur}.pdf");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+}
+
+
+
+

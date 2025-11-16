@@ -1,3 +1,4 @@
+
 <?php
 
 use App\Http\Controllers\UserController;
@@ -5,6 +6,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\CentrosturistController;
+use App\Http\Controllers\ActividadturistController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +33,20 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard', [
+        // colección con relaciones para usar en la gráfica
+        'centrosturist' => App\Models\Centrosturist::with('actividadturist')->get(),
+        'guiasturist' => App\Models\Guiasturist::with('actividadturist')->get(),
+        // conteos para mostrar en los cards (números simples)
+        'centrosturist_count' => App\Models\Centrosturist::count(),
+        'guiasturist_count' => App\Models\Guiasturist::count(),
+        'actividadturist' => App\Models\Actividadturist::count(),
+        'serviciosturist' => App\Models\Serviciosturist::count(),
+        'producto' => App\Models\Producto::count(),
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/about', fn () => Inertia::render('About'))->name('about');
@@ -45,6 +62,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('serviciosturist', App\Http\Controllers\ServiciosturistController::class);
     Route::resource('producto', App\Http\Controllers\ProductoController::class);
     Route::post('updatecentrosturist', [App\Http\Controllers\CentrosturistController::class, 'updatecentrosturist'])->name('updatecentrosturist');
+    Route::post('updateguiasturist', [App\Http\Controllers\GuiasturistController::class, 'updateguiasturist'])->name('updateguiasturist');
+    Route::get('/centrosturist/{centrosturist}/pdf', [CentrosturistController::class, 'pdf'])
+    ->name('centrosturist.pdf');
 });
 
 require __DIR__.'/auth.php';
