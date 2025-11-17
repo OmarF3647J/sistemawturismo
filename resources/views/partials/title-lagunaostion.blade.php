@@ -14,8 +14,8 @@
 
 :root {
 
-  --clr-1: #40db5f;
-  --clr-2: #5be351ff;
+  --clr-1: #40d3dbff;
+  --clr-2: #51e3a9ff;
   --clr-3: #f7fdd2ff;
   --clr-4: #f0ffea;
 

@@ -64,7 +64,7 @@
 
 
 <!---bounce left--->
-<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
   <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div>
 </div><!-- end boounce -->
 <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d73890.89911012031!2d-94.84664631407145!3d18.18507203622389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85e9ef0ca72741af%3A0xbb438330b77fc2d8!2sSoteapan%2C%20Ver.!3m2!1d18.2296099!2d-94.87189289999999!4m5!1s0x85e9f23c3f135f27%3A0x7d04ec0e92691050!2sCentro%20Ecotur%C3%ADstico%20Kan%20Tasejkan%2C%20carretera%20transismica%20oteapan-soteapan%2C%20km%2022%2C%2095930%20Tonalapa%2C%20Ver.!3m2!1d18.1466413!2d-94.7981762!5e1!3m2!1ses!2smx!4v1763264344874!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -231,7 +231,7 @@
   Guías Turísticas Certificadas
 </div>
 
-<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
   <div class="descripcion_guias"> Estas guías colaboran con este Centro Ecoturistico, pueden <b>llevarte</b> a este lugar y pueden ofrecerte algunas <b>actividades para que disfrutes de tu estancia... </b><br><br>¡Ponte en contacto con ellos y disfruta tu viaje!</div>
 </div>
 

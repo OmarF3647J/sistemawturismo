@@ -64,10 +64,9 @@
 
 
 <!---bounce left--->
-<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
   <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div>
 </div><!-- end boounce -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d92274.50624197905!2d-95.11520129450182!3d18.41010298093382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9dd8c599d2117%3A0x675fa0cc0958abfd!2sMiguel%20Hidalgo%2C%2095873%20Ver.!3m2!1d18.371563!2d-94.95262269999999!5e1!3m2!1ses!2smx!4v1762739165916!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
 
@@ -237,7 +236,7 @@
   Guías Turísticas Certificadas
 </div>
 
-<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
   <div class="descripcion_guias"> Estas guías colaboran con este Centro Ecoturistico, pueden <b>llevarte</b> a este lugar y pueden ofrecerte algunas <b>actividades para que disfrutes de tu estancia... </b><br><br>¡Ponte en contacto con ellos y disfruta tu viaje!</div>
 </div>
 

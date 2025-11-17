@@ -147,6 +147,7 @@ a img {
     font-size: 20px; /* Tamaño del texto */
     text-align: center; /* Centra el texto dentro del botón */
     color: #1EF797;
+    text-shadow: 0 0 15px rgba(29, 30, 29, 0.785);
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     border: 2px solid #1EF797;
     /* 👇 Fondo con algo de transparencia */
@@ -215,7 +216,7 @@ a img {
 .imagen_full img{
   width: 100%;
   height: 100%;
-  filter: brightness(65%); /* Oscurece la imagen al 50% */
+  filter: brightness(60%); /* Oscurece la imagen al 50% */
   
 }
 .texto-sobre-full {
@@ -325,9 +326,9 @@ a img {
   margin: 3% auto;
   width: 95%;
   padding: 5%;
-  background-color: #fdc6e1b5;
+  background-color: #ffffff;
   text-align: justify;
-  color: #420822db;;
+  color: #da135c;;
   max-width: 850px;
 }
 
@@ -447,7 +448,7 @@ a img {
     text-align: center;
     font-size: 230%;
     font-weight: 600;
-    background: linear-gradient(to right, #c71919, #dc2085, #780931, #24a1cf, #1730f1);
+    background: linear-gradient(to right, #c71919, #da135c, #dc2085, #24a1cf, #1730f1);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -684,6 +685,9 @@ body{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.descripcion_guias{
+  padding: 4%;
 }
 
   /*-----cont videos padre-----*/

@@ -95,7 +95,7 @@ hr{
     font-weight: bold;
     width: 100%;
     height: 100%;
-    background-color: #090c0a4c;
+    background-color: #090c0a74; /*ocuridad de imagen full*/
     
     /* --- CAMBIOS CLAVE AQUÍ: Aplicamos Flexbox para centrar el contenido (el partial) --- */
     display: flex;
@@ -137,7 +137,7 @@ hr{
   display: block;
   justify-content: space-around;
   align-items: center;
-  padding: 2%;
+  padding: 3%;
   background-color: #fff;
   border-radius: 8px;
   border-left: solid 4px #0ec351;
@@ -152,8 +152,9 @@ hr{
   align-items: center;
   text-align: left;
   gap: 10px;
+  padding-bottom: 1%;
   margin: 1%;
-  padding-bottom: 10%;
+  margin-bottom: 10%;
   position: relative; /* Necesario para posicionar el pseudo-elemento */
 	transition: color 0.3s ease; /* Transición para el color del texto */
 }
@@ -173,17 +174,20 @@ hr{
 }
 
 .icon {
-  width: 16%;
-  height: 16%;
+  width: 50px;
+  height: 50px;
 }
 
 .texto_contacto{
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 5px
-}
+  margin-bottom: 5px;
 
+}
+.texto_contacto p{
+  white-space: normal;
+}
 .btn_enviawsp{
   margin: auto;
   width: 85%;
@@ -201,27 +205,16 @@ hr{
   color: #f7f9ff;
 }
 
-
-.visitantes{
-    width: 100%;
-    text-align: center;
-    font-size: 280%;
-    font-weight: 600;
-    background: linear-gradient(to right, #c719c1, #0432bd, #042a4e, #51299c, #c719c1);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-.counter{
-    width: 100%;
-    text-align: center;
-    font-size: 190%;
-    font-weight: 600;
-    background: linear-gradient(to right, #00e353, #07c116, #008177, #07c116, #00e353);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.mascotas{
+  margin: auto;
+  width: 90%;
+  padding: 7%;
+  background-color: #f3cf96e7;
+  text-align: center;
+  font-size: 130%;
+  color: #613e05e7;
+  border: solid 3px #f3bf06;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -356,7 +349,7 @@ hr{
   padding: 7%;
   background-color: #ffffff;
   text-align: justify;
-  color: #670c35f9;;
+  color: #da135c;
   max-width: 850px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -548,6 +541,55 @@ hr{
 
 
 
+/* Condicion especial para contacto */
+@media (min-width: 870px) {
+  /* Estilos contacto*/
+  .contacto-container {
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crea dos columnas de igual ancho (1fr) */
+    gap: 50px
+  }
+  .contacto-item {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+    margin: 1%;
+    padding-bottom: 8px;
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    transition: color 0.3s ease; /* Transición para el color del texto */
+  }
+  .contacto-item::after {
+    content: ""; /* Obligatorio para pseudo-elementos */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Empieza con un ancho de 0 */
+    height: 3px;
+    background-color: #66dafd; /* Color inicial del borde */
+    transition: width 0.5s ease; /* Efecto suave en la animación */
+    }
+  .contacto-item:hover::after {
+  width: 100%; /* Expande el borde hasta el ancho completo */
+  }
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+  .texto_contacto{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px
+  }
+
+}
+
+
+
+
+
 
 
 
@@ -564,46 +606,10 @@ body{
   padding: 4%;
   margin: 2% auto;
 }
-/* Estilos contacto*/
-.contacto-container {
-  width: 95%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Crea dos columnas de igual ancho (1fr) */
-  gap: 50px
-}
-.contacto-item {
-  display: flex;
-  align-items: center;
-  text-align: left;
-  gap: 10px;
-  margin: 1%;
-  padding-bottom: 8px;
-  position: relative; /* Necesario para posicionar el pseudo-elemento */
-	transition: color 0.3s ease; /* Transición para el color del texto */
-}
-.contacto-item::after {
-	content: ""; /* Obligatorio para pseudo-elementos */
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0; /* Empieza con un ancho de 0 */
-	height: 3px;
-	background-color: #66dafd; /* Color inicial del borde */
-	transition: width 0.5s ease; /* Efecto suave en la animación */
-  }
-.contacto-item:hover::after {
-width: 100%; /* Expande el borde hasta el ancho completo */
-}
-.icon {
-  width: 50px;
-  height: 50px;
-}
-.texto_contacto{
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 5px
-}
+
+
+
+
 .btn_enviawsp{
   margin: auto;
   width: 55%;
@@ -679,38 +685,10 @@ width: 100%; /* Expande el borde hasta el ancho completo */
     margin-top: 8%;
   }
 
-/* Estilos contacto*/
-.contacto-container {
-  display: flex;
-  width: 90%;
-}
 
-.contacto-item {
-  display: flex;
-  align-items: center;
-  text-align: left;
-  gap: 10px;
-  margin: 1%;
-  padding-bottom: 8px;
-  position: relative; /* Necesario para posicionar el pseudo-elemento */
-	transition: color 0.3s ease; /* Transición para el color del texto */
-}
-.contacto-item::after {
-	content: ""; /* Obligatorio para pseudo-elementos */
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 0; /* Empieza con un ancho de 0 */
-	height: 3px;
-	background-color: #66dafd; /* Color inicial del borde */
-	transition: width 0.5s ease; /* Efecto suave en la animación */
-  }
-  .contacto-item:hover::after {
-	width: 100%; /* Expande el borde hasta el ancho completo */
-  }
 .icon {
-  width: 22%;
-  height: 22%;
+  width: 40px;
+  height: 40px;
 }
 .texto_contacto{
   margin: 0;
@@ -735,6 +713,11 @@ width: 100%; /* Expande el borde hasta el ancho completo */
   color: #f7f9ff;
 }
 
+.mascotas{
+  margin: auto;
+  width: 90%;
+  padding: 3%;
+}
 
   /*-----cont videos padre-----*/
   .cont_videos {
@@ -796,12 +779,13 @@ width: 100%; /* Expande el borde hasta el ancho completo */
   .thumbnail-l {
     height: 120px;
   }
-  #iframeModal img, #modalImagen img {
-  width: 70%;
+  #modalImagen img {
+    height: 100%;
+    width: auto;
+    max-width: 70%;
+    object-fit: cover;     /* Rellena sin deformar ni desbordar */
+
   }
-
-
-
 
   .agrupador-guias-turisticas {
   /* Mantener 3 columnas, pero centrar el grid y darle un ancho máximo */

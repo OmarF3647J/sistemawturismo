@@ -105,7 +105,28 @@ header nav ul li .children {
     padding: 0;
 
 	z-index:1000;
-    font-size: 88%;  /*tamaño de letra de submenu en escritorio*/
+    font-size: 90%;  /*tamaño de letra de submenu en escritorio*/
+    
+    height: 500px;
+    overflow-y: auto;    /* activa scroll vertical */
+}
+/* Scroll personalizado del submenú */
+header nav ul li .children::-webkit-scrollbar {
+    width: 8px;               /* Ancho de la barra */
+}
+
+header nav ul li .children::-webkit-scrollbar-track {
+    background: #e1e1e1;      /* Color de fondo */
+    border-radius: 10px;
+}
+
+header nav ul li .children::-webkit-scrollbar-thumb {
+    background: #00a880;      /* Color del scroll */
+    border-radius: 10px;
+}
+
+header nav ul li .children::-webkit-scrollbar-thumb:hover {
+    background: #008f6c;      /* Color al pasar el mouse */
 }
 
 

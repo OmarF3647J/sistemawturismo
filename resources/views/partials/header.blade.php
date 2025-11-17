@@ -74,10 +74,10 @@
     <header>
 
       <div class="escritorio_btec">
-        <a href="https://www.tecnm.mx/"><img src="{{ asset('images/logos/tecnm_menu.png') }}" width="110px"></a>&nbsp;
+        <a href="https://www.tecnm.mx/"><img src="{{ asset('images/logos/tecnm_menu.png') }}" width="110px" loading="eager"></a>&nbsp;
       </div>
       <div class="escritorio_btec">
-        <a href="{{ route('inicio') }}"><img src="{{ asset('images/favicon/home.png') }}" width="30px"></a>&nbsp;
+        <a href="{{ route('inicio') }}"><img src="{{ asset('images/favicon/home.png') }}" width="30px" loading="eager"></a>&nbsp;
       </div>
 
 

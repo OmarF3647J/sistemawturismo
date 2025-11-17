@@ -64,7 +64,7 @@
 
 
 <!---bounce left--->
-<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
   <div class="descripcion_centros">El Lago El Apompal es un cuerpo de agua ubicado en el estado de Veracruz, cerca de Santiago Tuxtla.  Es un destino de ecoturismo popular que ofrece actividades como senderismo, observación de aves, y contacto con la naturaleza en un entorno de selva y cascadas.</div>
 </div><!-- end boounce -->
 
@@ -86,28 +86,28 @@
           <img src="{{ asset('images/favicon/reloj.png') }}" alt="Horaio" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Horario de Atención</div>
-              <p>9:00 a 17:00 hrs.</p>
+              <p>9:00 a 17:00 hrs. o más horarios 9:00 a 17:00 hrs. etc</p>
           </div>
       </div>
       <div class="contacto-item">
           <img src="{{ asset('images/favicon/responsable.png') }}" alt="Responsable" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Responsable</div>
-              <p>db</p>
+              <p>Ejemplo de un nombre muy largooooooooooooooooooooooooo, probando desbordamiento</p>
           </div>
       </div>
       <div class="contacto-item">
           <img src="{{ asset('images/favicon/correo_sinfondo.png') }}" alt="Correo electronico" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Correo Electrónico</div>
-              <p>ing_informatica@itssat.edu.mx</p>
+              <p>ing_informatica@itssat.edu.mx Prueba de varios correo, probando desbordamiento</p>
           </div>
       </div>
       <div class="contacto-item">
           <img src="{{ asset('images/favicon/llamada.png') }}" alt="Telefono" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Teléfono</div>
-              <p>222-456-7890</p>
+              <p>+52 222-456-7890 +52 222-456-7890 +52 222-456-7890</p>
           </div>
       </div>
   </div>
@@ -135,6 +135,10 @@
 
 <br>
 
+
+
+
+<br>
 <!--Servicios -->
 <div class="contenedor-docentes">
   <div class="docentes">   
@@ -200,29 +204,32 @@
     </div>
   </div>
 </div>
-
+<div class="mascotas">
+  <b>Este establecimiento acepta mascotas:</b> Si
+</div>
 
 
 <br><br><br><br><br>
 
 <h2>Galería</h2>
+<br>
 <div class="carousel-container-l">
   
-    <div class="main-image-l">
-        <img id="featured-laboratorio">
-    </div>
+  <div class="main-image-l">
+      <img id="featured-laboratorio">
+  </div>
 
 
-      <!-- Modal para ampliar -->
-    <div id="modalImagen" class="iframe-modal-img">
-      <img id="imagenAmpliada" src="" alt="Vista ampliada">
-    </div>
-
+  <!-- Modal para ampliar -->
+  <div id="modalImagen" class="iframe-modal-img">
+    <img id="imagenAmpliada" src="" alt="Vista ampliada">
+  </div>
 
     
-    <div class="thumbnails-l" id="laboratorio-thumbnails">
-        <!-- Las imágenes se añaden dinámicamente -->
-    </div>
+  <div class="thumbnails-l" id="laboratorio-thumbnails">
+    <!-- Las imágenes se añaden dinámicamente -->
+  </div>
+
 </div>
 
 
@@ -238,7 +245,7 @@
   Guías Turísticas Certificadas
 </div>
 
-<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
   <div class="descripcion_guias"> Estas guías colaboran con este Centro Ecoturistico, pueden <b>llevarte</b> a este lugar y pueden ofrecerte algunas <b>actividades para que disfrutes de tu estancia... </b><br><br>¡Ponte en contacto con ellos y disfruta tu viaje!</div>
 </div>
 

@@ -9,9 +9,9 @@
 
 
   <link rel="preload" as="image" href="{{ asset('images/apompal/portada.jpg') }}">
-  <link rel="preload" as="image" href="{{ asset('images/benito-juarez/horizontal.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/arrecifes/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/benito-juarez/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/benito-juarez/horizontal.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/cabanas-encantadas/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/cascadas-encantadas/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/kan-tasejkan/portada.jpg') }}">
@@ -178,7 +178,7 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('manglaressontecomapan') }}">
-      <img src="{{ asset('images/rancho-dona-elia/portada.jpg') }}">
+      <img src="{{ asset('images/manglares-sontecomapan/portada.jpg') }}">
       <div class="titulo_carrera_telefono">{{ $centros[12]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
@@ -196,7 +196,7 @@
 
   <div class="carrusel_portadas">
     <a href="{{ route('rocapartida') }}">
-      <img src="{{ asset('images/roca-partida/portada.png') }}">
+      <img src="{{ asset('images/roca-partida/portada.jpg') }}">
       <div class="titulo_carrera_telefono">{{ $centros[14]->nomcentur }}</div>
       <br>
       <button class="btn-sobre-imagen">Conocer más...</button>
@@ -254,7 +254,7 @@
 <br>
 
 <!---bounce left--->
-<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
+<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
   <div class="descripcion_centros"> Estos lugares ofrecen alojamiento en cabañas, sanitarios, espacio para camping, restaruantes, artesanías y <b>paisajes naturales inolvidables.</b></div>
 </div><!-- end boounce -->
 
@@ -332,7 +332,7 @@
   </a>
 
   <a href="{{ route('manglaressontecomapan') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/noimage.jpg') }}');">
+    <div class="grid-item" style="background-image: url('{{ asset('images/manglares-sontecomapan/portada.jpg') }}');">
         <h3>{{ $centros[12]->nomcentur }}</h3>
     </div>
   </a>
@@ -344,7 +344,7 @@
   </a>
 
   <a href="{{ route('rocapartida') }}">
-    <div class="grid-item" style="background-image: url('{{ asset('images/roca-partida/portada.png') }}');">
+    <div class="grid-item" style="background-image: url('{{ asset('images/roca-partida/portada.jpg') }}');">
         <h3>{{ $centros[14]->nomcentur }}</h3>
     </div>
   </a>
@@ -367,8 +367,8 @@
   Guías Turísticas Certificadas
 </div>
 
-<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.3s">
-  <div class="descripcion_guias"> Ellos pueden <b>llevarte</b> a los Centros Ecoturísticos de la región de Los Tuxtlas y pueden ofrecerte algunas <b>actividades.</b></div>
+<div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
+  <div class="descripcion_guias"> Ellos pueden <b>llevarte</b> a los Centros Ecoturísticos de la región de Los Tuxtlas y pueden ofrecerte algunas <b>actividades para que disfrutes de tu estancia...</b> <br><br>¡Ponte en contacto con ellos y disfruta tu viaje!</div>
 </div>
 
 
