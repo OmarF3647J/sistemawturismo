@@ -6,7 +6,7 @@ import DarkButton from '@/Components/DarkButton.vue';
 import { computed } from 'vue';
 
 
-const props = defineProps({centrosturist: {type:Object},actividadturist: {type:Object},guiasturist: {type:Object},productos: {type:Object},});
+const props = defineProps({centrosturist: {type:Object},actividadturist: {type:Object},guiasturist: {type:Object},productos: {type:Object}, serviciosturist: {type:Object},});
 
 //esto hace un filtrado de las actividades que realizan los guias unicamente en ese centro turistico
 const centerActIds = computed(() => {
@@ -31,7 +31,7 @@ const centerActIds = computed(() => {
                 </NavLink>
             </div>
         </template>
-        <div class="grid gap-9 bg-white mb-8 md:grid-cols-2 rounded-lg">
+        <div class="grid gap-10 bg-white mb-8 md:grid-cols-2 rounded-lg">
             <div class="min-w-0 p-4 rounded-lg shadow-xs">
                 <p>Nombre: <span class="text-gray-900 font-semibold">{{ centrosturist.nomcentur }}</span></p>
                 <p>Dirección: <span class="text-gray-900 font-semibold">{{ centrosturist.dircentur }}</span></p>
@@ -40,6 +40,17 @@ const centerActIds = computed(() => {
                 <p>Telefono: <span class="text-gray-900 font-semibold">{{ centrosturist.telcentur }}</span></p>
                 <p>Correo: <span class="text-gray-900 font-semibold">{{ centrosturist.corcentur }}</span></p>
                 <p>Categoría: <span class="text-gray-900 font-semibold">{{centrosturist.producto.nomproduct }}</span></p>
+                <p>Servicios con los que cuenta: 
+                    <span class="text-gray-900 font-semibold">
+                        <!-- ml-10 el numero funciona como tabulador o espaciado -->
+                        <ul class="ml-10 list-disc"> 
+                            <!-- actividad es solo una variable par6a el ciclo for -->
+                            <li v-for="servicio in (centrosturist?.serviciosturist ?? [])" :key="servicio.idsertur">
+                                {{ servicio.nomsertur }}
+                            </li>
+                        </ul>
+                    </span>
+                </p>
                 <p>Actividades que se realizan: 
                     <span class="text-gray-900 font-semibold">
                         <!-- ml-10 el numero funciona como tabulador o espaciado -->

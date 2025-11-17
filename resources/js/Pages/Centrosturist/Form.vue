@@ -14,10 +14,12 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 const props = defineProps({
   centrosturist: { type: Object, default: null },
   productos: { type: Array, default: () => [] },
-  actividadturist: { type: Array, default: () => [] }, // lista completa de opciones [{idacttur, nomacttur}, ...]
+  actividadturist: { type: Array, default: () => [] }, 
   guiasturist: { type: Array, default: () => [] },
+  serviciosturist: { type: Array, default: () => [] },
   centrosturist_actividadturist: { type: [Array, null], default: () => [] },
   centrosturist_guiasturist: { type: [Array, null], default: () => [] },
+  centrosturist_serviciosturist: { type: Array, default: () => [] },
   flash: { type: Object, default: () => ({}) },
 });
 
@@ -47,6 +49,7 @@ const form = useForm({
     // normalizamos la prop para que siempre tengamos un array de ids
     idacttur: normalizeIds(props.centrosturist_actividadturist, 'idacttur'),
     idguiatur: normalizeIds(props.centrosturist_guiasturist, 'idguiatur'),
+    idsertur: normalizeIds(props.centrosturist_serviciosturist, 'serviciosturist'),
 });
 
 const titleform = ref(
@@ -60,6 +63,14 @@ const classMsj = ref('hidden'); //clase del mensaje
 
 
 
+const optionsServicios = ref([]);
+
+if (Array.isArray(props.serviciosturist)) {
+  props.serviciosturist.forEach((row) => {
+    // adaptar a la forma esperada: idacttur y nomacttur
+    optionsServicios.value.push({ id: row.idsertur ?? row.id ?? row.value, text: row.nomsertur ?? row.name ?? row.label ?? '' });
+  });
+}
 
 
 const options = ref([]);
@@ -271,14 +282,51 @@ const ok = (m) => {
                     </SelectInput>
                     <InputError :message="form.errors.idproduct" />
 
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Actividades (selecciona 1 o más)
+                            <span class="text-red-500">*</span>
+                        </label>
+
+                        <div class="grid gap-2 mt-2">
+                            <template v-for="opt in optionsServicios" :key="opt.id">
+                            <label class="flex items-center space-x-2">
+                                <input
+                                type="checkbox"
+                                :value="opt.id"
+                                v-model="form.idsertur"
+                                class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                                />
+                                <span class="text-sm text-gray-700">{{ opt.text }}</span>
+                            </label>
+                            </template>
+                        </div>
+
+                        <InputError :message="form.errors.idsertur" />
+                    </div>
+
+
+
+
+
+
+
                     <div class="mt-4">
                         <label class="block text-sm font-medium text-gray-700 mb-1">
                             Agencias Turísticas (selecciona 1 o más)
                             <span class="text-red-500">*</span>
                         </label>
-
-
-                    
                         <div class="grid gap-2 mt-2">
                             <template v-for="opt in optionsGguias" :key="opt.id">
                             <label class="flex items-center space-x-2">
@@ -305,8 +353,6 @@ const ok = (m) => {
                             <span class="text-red-500">*</span>
                         </label>
 
-
-                    
                         <div class="grid gap-2 mt-2">
                             <template v-for="opt in options" :key="opt.id">
                             <label class="flex items-center space-x-2">

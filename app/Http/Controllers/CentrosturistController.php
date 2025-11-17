@@ -6,6 +6,7 @@ use App\Models\centrosturist;
 use App\Models\producto;
 use App\Models\actividadturist;
 use App\Models\guiasturist;
+use App\Models\serviciosturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -19,17 +20,19 @@ class CentrosturistController extends Controller
      */
     public function index()
     {
-        $centrosturist = centrosturist::with('producto','actividadturist','guiasturist.actividadturist')->paginate(10);
+        $centrosturist = centrosturist::with('producto','serviciosturist','actividadturist','guiasturist.actividadturist')->paginate(10);
         // los nombre de las relaciones deben coincidir con los definidos en el modelo
         // producto y actividadturist son las relaciones definidas en el modelo centrosturist
         $productos = producto::all();
         $actividadturist = actividadturist::all();
         $guiasturist = guiasturist::all();
+        $serviciosturist =serviciosturist::all();
         return Inertia::render('Centrosturist/Index', [
             'centrosturist' => $centrosturist,
             'productos' => $productos,
             'actividadturist' => $actividadturist,
             'guiasturist' => $guiasturist,
+            'serviciosturist' => $serviciosturist,
         ]);
         // opcion de IA 
         // return Inertia::render('Centrosturist/Index', [
@@ -65,6 +68,7 @@ class CentrosturistController extends Controller
             'productos'       => producto::all(),
             'actividadturist' => actividadturist::all(),
             'guiasturist'     => guiasturist::all(),
+            'serviciosturist' => serviciosturist::all(),
         ]);
     }
 
@@ -86,6 +90,9 @@ class CentrosturistController extends Controller
         'idacttur.*'  => 'exists:actividadturists,idacttur',
         'idguiatur'   => 'nullable|array',
         'idguiatur.*' => 'exists:guiasturists,idguiatur',
+        'idsertur'   => 'nullable|array',
+        'idsertur.*' => 'exists:serviciosturists,idsertur',
+        
     ]);
 
     // Crear modelo con los campos concretos (usar fill si tienes $fillable)
@@ -111,6 +118,8 @@ class CentrosturistController extends Controller
     // si no viene, pasamos array vacío para no dejar residuos
     $centrosturist->actividadturist()->sync($request->input('idacttur', []));
     $centrosturist->guiasturist()->sync($request->input('idguiatur', []));
+    $centrosturist->serviciosturist()->sync($request->input('idsertur', []));
+    
 // return redirect()->route('centrosturist.index')
 //     ->with('success', 'Centro Turístico creado con éxito');
 
@@ -133,6 +142,8 @@ public function updatecentrosturist(Request $request)
         'idacttur.*'  => 'exists:actividadturists,idacttur',
         'idguiatur'   => 'nullable|array',
         'idguiatur.*' => 'exists:guiasturists,idguiatur',
+        'idsertur'   => 'nullable|array',
+        'idsertur.*' => 'exists:serviciosturists,idsertur',
         'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
     ]);
 
@@ -158,6 +169,7 @@ public function updatecentrosturist(Request $request)
 
     $centrosturist->actividadturist()->sync($request->input('idacttur', []));
     $centrosturist->guiasturist()->sync($request->input('idguiatur', []));
+    $centrosturist->serviciosturist()->sync($request->input('idsertur', []));
 
     return redirect()->route('centrosturist.index', $centrosturist->idcentur)
                      ->with('success', 'Centro Turístico actualizado con éxito');
@@ -172,6 +184,7 @@ public function updatecentrosturist(Request $request)
             'producto:idproduct,nomproduct',
             'actividadturist:idacttur,nomacttur',              
             'guiasturist:idguiatur,nomguiatur',
+            'serviciosturist:idsertur,nomsertur',
             'guiasturist.actividadturist:idacttur,nomacttur' // esto es para mostrar las actividades por guia
         ]);
 
@@ -193,8 +206,10 @@ public function updatecentrosturist(Request $request)
             'productos'       => producto::all(),
             'actividadturist' => actividadturist::all(),
             'guiasturist'     => guiasturist::all(),
+            'serviciosturist' => serviciosturist::all(),
             'centrosturist_actividadturist' => $centrosturist->actividadturist()->pluck('actividadturists.idacttur')->toArray(),
             'centrosturist_guiasturist'     => $centrosturist->guiasturist()->pluck('guiasturists.idguiatur')->toArray(),
+            'centrosturist_serviciosturist'     => $centrosturist->serviciosturist()->pluck('serviciosturists.idsertur')->toArray(),
 
         ]);
 
@@ -255,41 +270,22 @@ public function updatecentrosturist(Request $request)
 public function pdf(centrosturist $centrosturist)
 {
     $centrosturist->load([
-        'producto:idproduct,nomproduct',
-        'actividadturist:idacttur,nomacttur',
-        'guiasturist:idguiatur,nomguiatur',
-        'guiasturist.actividadturist:idacttur,nomacttur'
+        'producto',
+        'actividadturist',
+        'guiasturist',
+        'guiasturist.actividadturist'
     ]);
 
+
     $pdf = Pdf::loadView('pdf.centro', compact('centrosturist'))
-              ->setPaper('a4', 'portrait');
+              ->setPaper('letter', 'portrait');
+
 
     // Mostrar el PDF en nueva pestaña
     return $pdf->stream("centro_{$centrosturist->idcentur}.pdf");
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 }
 
 

@@ -63,8 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('producto', App\Http\Controllers\ProductoController::class);
     Route::post('updatecentrosturist', [App\Http\Controllers\CentrosturistController::class, 'updatecentrosturist'])->name('updatecentrosturist');
     Route::post('updateguiasturist', [App\Http\Controllers\GuiasturistController::class, 'updateguiasturist'])->name('updateguiasturist');
-    Route::get('/centrosturist/{centrosturist}/pdf', [CentrosturistController::class, 'pdf'])
-    ->name('centrosturist.pdf');
+    Route::get('/centrosturist/{centrosturist}/pdf', [CentrosturistController::class, 'pdf'])->name('centrosturist.pdf');
 });
 
 require __DIR__.'/auth.php';

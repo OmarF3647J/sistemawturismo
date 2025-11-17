@@ -14,7 +14,8 @@ ChartJS.register(ArcElement);
 const props = defineProps({
   centrosturist: { type: Array, default: () => [] },       // <-- coleccion
   centrosturist_count: { type: Number, default: 0 },       // <-- conteo para el card
-  guiasturist: { type: Number, default: 0 },
+  guiasturist: {type: Array, default: () => [] },
+  guiasturist_count: { type: Number, default: 0 }, 
   actividadturist: { type: Number, default: 0 },
   serviciosturist: { type: Number, default: 0 },
   producto: { type: Number, default: 0 },

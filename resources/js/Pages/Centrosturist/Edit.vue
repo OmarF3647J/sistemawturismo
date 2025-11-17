@@ -6,8 +6,10 @@ const props = defineProps({
   productos: { type: Array, default: () => [] },
   actividadturist: { type: Array, default: () => [] },
   guiasturist: { type: Array, default: () => [] },
+  serviciosturist: { type: Array, default: () => [] },
   centrosturist_actividadturist: { type: Array, default: () => [] },
   centrosturist_guiasturist: { type: Array, default: () => [] },
+  centrosturist_serviciosturist: { type: Array, default: () => [] },
 });
 
 // const props = defineProps({
@@ -27,8 +29,11 @@ const props = defineProps({
     :productos="productos" 
     :actividadturist="actividadturist"
     :guiasturist="guiasturist"
+    :serviciosturist="serviciosturist"
     :centrosturist_actividadturist="centrosturist_actividadturist"
-:centrosturist_guiasturist="centrosturist_guiasturist">
+    :centrosturist_guiasturist="centrosturist_guiasturist"
+    :centrosturist_serviciosturist="centrosturist_serviciosturist"
+    >
     </Form>
 </template>
 
