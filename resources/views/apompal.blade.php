@@ -205,7 +205,7 @@
   </div>
 </div>
 <div class="mascotas">
-  <b>Este establecimiento acepta mascotas:</b> Si
+  <b>Este establecimiento acepta mascotas:</b> Sí
 </div>
 
 
