@@ -200,7 +200,9 @@
     </div>
   </div>
 </div>
-
+<div class="mascotas">
+  <b>Este establecimiento acepta mascotas:</b> Sí
+</div>
 
 
 <br><br><br><br><br>

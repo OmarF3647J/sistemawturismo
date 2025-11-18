@@ -109,8 +109,6 @@
         <ul>
           <li><a href="{{ route('inicio') }}">Inicio</a></li>
 
-          <li><a href="{{ route('inicio') }}">Turismo Comunitario</a></li>
-
           <li class="submenu">
           <a href="#">Centros Ecoturísticos</a>
             <ul class="children">

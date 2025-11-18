@@ -7,9 +7,9 @@
 /*diseños generales*/
 body{
   font-family: "Lexend","Century Gothic", Arial;
-  background: #dfe2ec;
+  background: #e6ebef;
   text-decoration: none;
-  color: #373a49;
+  color: #37493e;
   padding-top: 0;
 }
 
@@ -17,15 +17,16 @@ p {
   margin: 0;
   font-size: 16px;
   color: #555;
+  font-weight: 300;
 }
 
 h2{
     width: 100%;
     text-align: center;
-    font-size: 300%;
+    font-size: 320%;
     font-weight: 600;
     font-family: "Lexend","Century Gothic", Arial;
-    background: linear-gradient(to right, #130bae, #1c1aad, #178508, #117e20);
+    background: linear-gradient(to right, #1207d6, #130bae, #1c1aad, #128b3e, #03a964, #03a964);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -111,12 +112,15 @@ hr{
 .descripcion_centros{
   margin: 3% auto;
   width: 95%;
+  max-width: 850px;
   padding: 7%;
   background-color: #fffffffa;
   text-align: justify;
   color: #0e5832;
-  max-width: 850px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent; /* Define a transparent border */
+  border-image: linear-gradient(to bottom, #ffffff, #07c660) 1; /* Apply the gradient and slice value */
+  border-image-slice: 1; 
 }
 
 /* appear */
@@ -140,7 +144,6 @@ hr{
   padding: 3%;
   background-color: #fff;
   border-radius: 8px;
-  border-left: solid 4px #0ec351;
   width: 85%;
   margin: 50px auto;
   margin-top: 2%;
@@ -153,7 +156,7 @@ hr{
   text-align: left;
   gap: 10px;
   padding-bottom: 1%;
-  margin: 1%;
+  margin: 2%;
   margin-bottom: 10%;
   position: relative; /* Necesario para posicionar el pseudo-elemento */
 	transition: color 0.3s ease; /* Transición para el color del texto */
@@ -181,40 +184,92 @@ hr{
 .texto_contacto{
   margin: 0;
   font-size: 18px;
-  font-weight: 600;
   margin-bottom: 5px;
-
-}
-.texto_contacto p{
   white-space: normal;
 }
+
+
+
 .btn_enviawsp{
   margin: auto;
   width: 85%;
   padding: 4%;
-  background-color: #f7f9ff;
+  background-color: white;
   color: #09168b;
   font-size: 110%;
   font-weight: 600;
   border: 3px solid  #09168b;
   position: relative; /* Necesario para posicionar el pseudo-elemento */
-  transition: transform 0.3s ease; /* Suavidad en la transicion */}
+  transition: transform 0.3s ease; /* Suavidad en la transicion */
+}
 .btn_enviawsp:hover{
   transform: scale(0.95); /* Escala al 120% del tamaÃ±o original */
   background: #09168b;
-  color: #f7f9ff;
+  color: white;
 }
+
+
 
 .mascotas{
   margin: auto;
   width: 90%;
-  padding: 7%;
+  max-width: 890px;
+  padding: 6%;
   background-color: #f3cf96e7;
   text-align: center;
   font-size: 130%;
   color: #613e05e7;
   border: solid 3px #f3bf06;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10%;
+}
+
+.titulo-actividades{
+  width: 100%;
+  margin: 0 auto;
+  padding: 1%;
+  text-align: left;
+  font-size: 290%;
+  font-weight: 600;
+  font-family: "Lexend","Century Gothic", Arial;
+  background: linear-gradient(to right, #1207d6, #130bae, #1c1aad, #128b3e, #03a964, #03a964);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.actividades{
+  margin: auto;
+  width: 90%;
+  max-width: 900px;
+  padding: 6%;
+  background-color: #e9f3efe7;
+  text-align: left;
+  font-size: 130%;
+  color: #00744ee7;
+}
+
+
+.lista-img {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-img li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.lista-img li::before {
+    content: "";
+    background-image: url('/images/favicon/casilla-de-verificacion.png');
+    background-size: cover; /* Hace que se vea completa */
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 2px;
 }
 
 
@@ -330,8 +385,6 @@ hr{
   transform: scale(1);
 }
 
-
-
 /*Guias*/
 .titulo-guias{
     width: 100%;
@@ -350,8 +403,9 @@ hr{
   background-color: #ffffff;
   text-align: justify;
   color: #da135c;
-  max-width: 850px;
+  max-width: 950px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
 }
 
 /* Grid de guias turisticas */
@@ -362,6 +416,7 @@ hr{
     gap: 15px; /* Espacio entre los contenedores */
     padding: 10px;
     margin: 0 auto;
+    max-width: 1000px;
 }
 
 /* Agrupador de imagen con tarjeta de guias */
@@ -449,21 +504,6 @@ hr{
   transform: scale(1.05);
 }
 
- /*---videos--*/
-  .cont_videos{
-    display: block;
-    height: auto;
-    background-color: none;
-  }
-
-  .child_videos{
-    width: 100%;
-    height: auto;
-    background-color: none;
-  }
-  video{
-    background-color: none;
-  }
 
 .titulo_opinion_turistas{
     width: 100%;
@@ -608,8 +648,6 @@ body{
 }
 
 
-
-
 .btn_enviawsp{
   margin: auto;
   width: 55%;
@@ -625,6 +663,9 @@ body{
   transform: scale(0.95); /* Escala al 120% del tamaÃ±o original */
   background: #09168b;
   color: #f7f9ff;
+}
+.titulo-actividades{
+  text-align: center;
 }
 
 .main-image-l {
@@ -642,7 +683,7 @@ body{
     -webkit-text-fill-color: transparent;
 }
 .descripcion_guias{
-  padding: 4%;
+  padding: 3%;
   margin: 2% auto;
 }
 
@@ -657,13 +698,6 @@ body{
   height: 250px; 
 }
 
-.agrupador_opinion {
-  grid-template-columns: repeat(3, 1fr); /* 3 tarjetas lado a lado */
-  gap: 0; /* sin separación, las líneas de borde marcan separación */
-}
-.opinion_turista .bloque-1 { background-color: var(--bg1); font-size: 0.95rem; padding: 2%;}
-.opinion_turista .bloque-2 { background-color: var(--bg2); font-size: 1.25rem; font-weight: 700; padding: 2%;}
-.opinion_turista .bloque-3 { background-color: var(--bg3); font-size: 0.9rem; color: #666; padding: 2%;}
 
 }/* fin tabletas*/
 
@@ -685,7 +719,9 @@ body{
     margin-top: 8%;
   }
 
-
+.contacto-container {
+  width: 75%;
+}
 .icon {
   width: 40px;
   height: 40px;
@@ -715,39 +751,12 @@ body{
 
 .mascotas{
   margin: auto;
-  width: 90%;
   padding: 3%;
+  margin-bottom: 8%;
 }
-
-  /*-----cont videos padre-----*/
-  .cont_videos {
-    width: 100%;
-    height: auto;
-    position: relative; /* Para posicionamiento relativo de los hijos si se requiere */
-    overflow: hidden; /* Manejo de flotantes */
-    align-items: center;
-    text-align: center;
-    padding: 0;
-    margin: 0 auto;
-    margin-bottom: 5px;
-    background-color: none;
-  }
-  .child_videos{
-    width: 50%; /* Ajusta el ancho según lo necesario */
-    height: 100%; /* Ocupa toda la altura del padre */
-    float: left; /* Mantiene los hijos alineados a la izquierda */
-    box-sizing: border-box; /* Asegura que padding y border no afecten el ancho */
-    display: flex; /* Habilita flexbox */
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
-    text-align: center; /* Centra el texto dentro del contenedor */
-    padding: 0;
-    margin: 0 auto;
-  }
-  video{
-    background: #f9f9ffac;
-    margin: 0 auto;
-  }
+.actividades{
+  padding: 4%;
+}
 
 
 /*-----Galeria-----*/
@@ -787,6 +796,10 @@ body{
 
   }
 
+  .descripcion_guias{
+    padding: 3%;
+  }
+
   .agrupador-guias-turisticas {
   /* Mantener 3 columnas, pero centrar el grid y darle un ancho máximo */
     grid-template-columns: repeat(3, 1fr);
@@ -815,20 +828,8 @@ body{
 
 /* Monitor pc (mínimo 1440px) */
 @media (min-width: 1440px) {
-body{
+  body{
     background: #dfe2ec;
-}
-
-  
-
-  .agrupador-centros-turisticos {
-    /* Mantener 3 columnas, pero dar más espacio a los lados */
-    max-width: 1200px;
-  }
-
-  .agrupador-guias-turisticas {
-    /* Mantener 3 columnas, pero dar más espacio a los lados */
-    max-width: 1200px;
   }
 
 

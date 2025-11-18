@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
 body{
-    font-family: Lexend, Century Gothic, sans-serif;
+    font-family: "Lexend", Arial, Century Gothic, sans-serif;
 }
 .contenedor-docentes {
     width: 90%;
+    max-width: 900px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f2f3fb;
+    background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .docentes {
@@ -22,7 +25,7 @@ body{
 }
 .card {
     text-align: center;
-    width: 18%;
+    width: 40%;
 }
 .img-docente {
     width: 100px;
@@ -40,8 +43,9 @@ body{
 .role-docente {
     font-weight: 550;
     color: #374864;
-    font-family: Arial;
-    font-size: 15px;
+    font-family: "Lexend", Arial, Century Gothic, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }
 .btn-pdf_docentes {
     padding: 10px 20px;
@@ -81,8 +85,21 @@ body{
     border: none;
 }
 
-@media only screen and (max-width: 768px) {
+
+/* Tabletas (mínimo 600px) */
+@media (min-width: 600px) {
     .card {
-        width: 40%;
+        width: 18%;
     }
+}/* Fin tabletas*/
+
+
+/* Laptops (mínimo 600px) */
+@media (min-width: 1024px) {
+    .contenedor-docentes{
+        width: 70%;
+
+        
+    }
+
 }

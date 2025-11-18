@@ -202,6 +202,39 @@
     </div>
   </div>
 </div>
+<div class="mascotas">
+  Este establecimiento <b>Sí</b> acepta mascotas
+</div>
+
+
+<br><br>
+
+<div class="titulo-actividades">
+  ¿Qué actividades puedes realizar?
+</div>
+
+<div class="actividades">
+  <ul class="lista-img">
+    <li>Camping todo incluido</li>
+    <li>Ciclismo de montaña</li>
+    <li>Guías en la zona</li>
+    <li>Kayak de travesía</li>
+    <li>Kayaks</li>
+    <li>Llanting</li>
+    <li>Nados y saltos al agua</li>
+    <li>Observación de aves</li>
+    <li>Rappel</li>
+    <li>Senderismo</li>
+    <li>Senderos de gran recorrido</li>
+    <li>Snorkel en mar y río</li>
+    <li>Tirolesa</li>
+    <li>Tour en Kayaks</li>
+    <li>Tours Guiados</li>
+    <li>Tours en lancha</li>
+    <li>Turismo de naturaleza y aventura</li>
+
+  </ul>
+</div>
 
 
 
