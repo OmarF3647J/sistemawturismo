@@ -12,10 +12,12 @@ class centrosturist extends Model
     /** @use HasFactory<\Database\Factories\CentrosturistFactory> */
     use HasFactory;
 
+    
+
     protected $primaryKey = 'idcentur';
 
-    protected $fillable = ['nomcentur', 'dircentur', 'descentur', 'rescentur','telcentur', 'corcentur','imgcentur', 'idproduct'];
-
+    protected $fillable = ['nomcentur', 'dircentur', 'descentur', 'rescentur','telcentur', 'corcentur','imgcentur', 'idproduct','activo'];
+public const ACTIVO_VALUES = ['Si', 'No'];
     public function producto() : BelongsTo {
         return $this->belongsTo(producto::class, 'idproduct', 'idproduct');
     }

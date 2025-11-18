@@ -31,12 +31,13 @@ const centerActIds = computed(() => {
                 </NavLink>
             </div>
         </template>
-        <div class="grid gap-10 bg-white mb-8 md:grid-cols-2 rounded-lg">
+        <div class="grid gap-11 bg-white mb-8 md:grid-cols-2 rounded-lg">
             <div class="min-w-0 p-4 rounded-lg shadow-xs">
                 <p>Nombre: <span class="text-gray-900 font-semibold">{{ centrosturist.nomcentur }}</span></p>
                 <p>Dirección: <span class="text-gray-900 font-semibold">{{ centrosturist.dircentur }}</span></p>
                 <p>Descripción: <span class="text-gray-900 font-semibold">{{ centrosturist.descentur }}</span></p>
                 <p>Responsable: <span class="text-gray-900 font-semibold">{{ centrosturist.rescentur }}</span></p>
+                <p>Acepta mascotas: <span class="text-gray-900 font-semibold">{{ centrosturist.activo }}</span></p>
                 <p>Telefono: <span class="text-gray-900 font-semibold">{{ centrosturist.telcentur }}</span></p>
                 <p>Correo: <span class="text-gray-900 font-semibold">{{ centrosturist.corcentur }}</span></p>
                 <p>Categoría: <span class="text-gray-900 font-semibold">{{centrosturist.producto.nomproduct }}</span></p>

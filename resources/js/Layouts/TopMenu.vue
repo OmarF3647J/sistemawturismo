@@ -1,12 +1,74 @@
 <template>
     <header class="z-10 py-4 bg-white shadow-md">
       <div class="container flex justify-between items-center px-6 mx-auto h-full text-purple-600 md:justify-end">
+
+        
+          
+        
+          
+
         <!-- Mobile hamburger -->
         <button @click="$page.props.showingMobileMenu = !$page.props.showingMobileMenu" class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple" aria-label="Menu">
           <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
           </svg>
         </button>
+
+        <img
+  src="/storage/logos/header3.jpg"
+  class="block md:hidden w-auto h-5 object-contain m-auto"
+/>
+
+<img
+  src="/storage/logos/ITSSAT.jpg"
+  alt="ITSSAT"
+  class="hidden md:block h-9 m-auto"
+/>
+
+<img
+  src="/storage/logos/TECNM.png"
+  alt="TECNM"
+  class="hidden md:block h-9 m-auto"
+/>
+<img
+  src="/storage/logos/SECTUR.png"
+  alt="SECTUR"
+  class="hidden md:block h-9 m-auto"
+/>
+
+<img
+  src="/storage/logos/SEP.png"
+  alt="SEP"
+  class="hidden lg:block h-9 m-auto"
+/>
+
+
+          <!-- <img
+            src="/storage/logos/ITSSAT.jpg"
+            alt="ITSSAT"
+            class="hidden md:block h-10 m-auto"
+          />
+          <img
+            src="/storage/logos/TECNM.png"
+            alt="TECNM"
+            class="hidden md:block h-10 m-auto"
+          />
+          <img
+            src="/storage/logos/SECTUR.png"
+            alt="SECTUR"
+            class="hidden md:block h-10 m-auto"
+          />
+          <img
+            src="/storage/logos/SEP.png"
+            alt="SEP"
+            class="hidden md:block h-10 m-auto"
+          />
+
+          <img
+            src="/storage/logos/header3.jpg"
+            class="block md:hidden w-auto h-5 object-contain m-auto"
+          /> -->
+
 
         <Dropdown>
           <template #trigger>

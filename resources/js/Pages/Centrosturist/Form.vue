@@ -7,6 +7,7 @@ import InputGroup from '@/Components/InputGroup.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputError from '@/Components/InputError.vue';
 import SelectInput from '@/Components/SelectInput.vue';
+import SelectMac from '@/Components/SelectMac.vue';
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 
 
@@ -35,13 +36,17 @@ function normalizeIds(arr, key) {
     return arr;
   }
 }
-
+const optionsActivo = [
+  { id: 'Si', text: 'Si' },
+  { id: 'No', text: 'No' }
+];
 const form = useForm({
     idcentur: props.centrosturist ? props.centrosturist.idcentur : '',
     dircentur: props.centrosturist ? props.centrosturist.dircentur : '',
     nomcentur: props.centrosturist ? props.centrosturist.nomcentur : '',
     descentur: props.centrosturist ? props.centrosturist.descentur : '',
     rescentur: props.centrosturist ? props.centrosturist.rescentur : '',
+  activo: props.centrosturist ? props.centrosturist.activo : '',
     telcentur: props.centrosturist ? props.centrosturist.telcentur : '',
     corcentur: props.centrosturist ? props.centrosturist.corcentur : '',
     imgcentur: null,
@@ -111,6 +116,7 @@ if (props.centrosturist != null) {
     form.nomcentur = props.centrosturist.nomcentur;
     form.descentur = props.centrosturist.descentur;
     form.rescentur = props.centrosturist.rescentur;
+    form.activo = props.centrosturist.activo;
     form.telcentur = props.centrosturist.telcentur;
     form.corcentur = props.centrosturist.corcentur;
     form.idproduct = props.centrosturist.idproduct;
@@ -239,26 +245,43 @@ const ok = (m) => {
                     </InputGroup>
                     <InputError :message="form.errors.dircentur" />
 
-                    <InputGroup :text="'Descripción Centro Turístico'" :required="'required'" v-model="form.descentur">
+                    <InputGroup :text="'Descripción Centro Turístico'" :required="'required'" v-model="form.descentur" >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                         </svg>
                     </InputGroup>
                     <InputError :message="form.errors.descentur" />
                     
-                    <InputGroup :text="'Responsable Centro Turístico'" :required="'required'" v-model="form.rescentur">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
-                        </svg>
-                    </InputGroup>
-                    <InputError :message="form.errors.rescentur" />
+                    <div class="flex flex-col md:flex-row gap-4">
 
-                    <InputGroup :text="'Telefono Centro Turístico'" :required="'required'" v-model="form.telcentur" >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                        </svg>
-                    </InputGroup>
-                    <InputError :message="form.errors.telcentur" />
+                        <div class="w-full md:w-1/2">
+                            <InputGroup
+                                :text="'Responsable Centro Turístico'"
+                                :required="'required'"
+                                v-model="form.rescentur"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                                </svg>
+                            </InputGroup>
+                            <InputError :message="form.errors.rescentur" />
+                        </div>
+
+                        <div class="w-full md:w-1/2">
+                            <InputGroup
+                                :text="'Telefono Centro Turístico'"
+                                :required="'required'"
+                                v-model="form.telcentur"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                                </svg>
+                            </InputGroup>
+                            <InputError :message="form.errors.telcentur" />
+                        </div>
+
+                    </div>
+
 
                     <InputGroup :text="'Correo Centro Turístico'" :required="'required'" v-model="form.corcentur">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -282,6 +305,13 @@ const ok = (m) => {
                     </SelectInput>
                     <InputError :message="form.errors.idproduct" />
 
+                    <SelectMac :text="'Acepta Mascota:'" :required="'required'" v-model="form.activo" :options="optionsActivo" class="mt-4">        
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+                        </svg>
+                    </SelectMac>
+                    <InputError :message="form.errors.activo" />
 
 
 
@@ -293,94 +323,113 @@ const ok = (m) => {
 
 
 
-                    <div class="mt-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            Actividades (selecciona 1 o más)
-                            <span class="text-red-500">*</span>
-                        </label>
 
-                        <div class="grid gap-2 mt-2">
-                            <template v-for="opt in optionsServicios" :key="opt.id">
-                            <label class="flex items-center space-x-2">
-                                <input
-                                type="checkbox"
-                                :value="opt.id"
-                                v-model="form.idsertur"
-                                class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                                />
-                                <span class="text-sm text-gray-700">{{ opt.text }}</span>
-                            </label>
-                            </template>
-                        </div>
-
-                        <InputError :message="form.errors.idsertur" />
-                    </div>
+                    
 
 
-
-
-
-
-
-                    <div class="mt-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            Agencias Turísticas (selecciona 1 o más)
-                            <span class="text-red-500">*</span>
-                        </label>
-                        <div class="grid gap-2 mt-2">
-                            <template v-for="opt in optionsGguias" :key="opt.id">
-                            <label class="flex items-center space-x-2">
-                                <input
-                                type="checkbox"
-                                :value="opt.id"
-                                v-model="form.idguiatur"
-                                class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                                />
-                                <span class="text-sm text-gray-700">{{ opt.text }}</span>
-                            </label>
-                            </template>
-                        </div>
-
-                        <InputError :message="form.errors.idguiatur" />
-                    </div> 
-
-
-
-                    <!-- CHECKBOXES: selección múltiple con casillas -->
-                    <div class="mt-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            Actividades (selecciona 1 o más)
-                            <span class="text-red-500">*</span>
-                        </label>
-
-                        <div class="grid gap-2 mt-2">
-                            <template v-for="opt in options" :key="opt.id">
-                            <label class="flex items-center space-x-2">
-                                <input
-                                type="checkbox"
-                                :value="opt.id"
-                                v-model="form.idacttur"
-                                class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                                />
-                                <span class="text-sm text-gray-700">{{ opt.text }}</span>
-                            </label>
-                            </template>
-                        </div>
-
-                        <InputError :message="form.errors.idacttur" />
-                    </div>
-
-
-
-                    <PrimaryButton>
-                        Guardar
-                    </PrimaryButton>
+                    
                 </form>
             </div>
+            
             <div class="min-w-0 p-4 rounded-lg shadow-xs">
                 <!-- <img :src="'/storage/'+centrosturist.imgcentur" :alt="centrosturist.nomcentur"> -->
                 <img :src="srcImg"  />
             </div>
         </div>
+        
+
+
+
+
+<form @submit.prevent="guardar" class="mb-4">
+    <div class="flex flex-col md:flex-row gap-9 w-full bg-white rounded-lg">
+  <!-- CONTENEDOR EN UNA SOLA FILA -->
+
+        <!-- BLOQUE 1 -->
+        <div class="ml-9 mt-4 w-full md:w-1/3">
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                Servicios (selecciona 1 o más)
+                <span class="text-red-500">*</span>
+            </label>
+
+            <div class="grid gap-2 mt-2">
+                <template v-for="opt in optionsServicios" :key="opt.id">
+                    <label class="flex items-center space-x-2">
+                        <input
+                            type="checkbox"
+                            :value="opt.id"
+                            v-model="form.idsertur"
+                            class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                        />
+                        <span class="text-sm text-gray-700">{{ opt.text }}</span>
+                    </label>
+                </template>
+            </div>
+
+            <InputError :message="form.errors.idsertur" />
+        </div>
+
+        <!-- BLOQUE 2 -->
+        <div class="ml-9 mt-4 w-full md:w-1/3">
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                Agencias Turísticas (selecciona 1 o más)
+                <span class="text-red-500">*</span>
+            </label>
+
+            <div class="grid gap-2 mt-2">
+                <template v-for="opt in optionsGguias" :key="opt.id">
+                    <label class="flex items-center space-x-2">
+                        <input
+                            type="checkbox"
+                            :value="opt.id"
+                            v-model="form.idguiatur"
+                            class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                        />
+                        <span class="text-sm text-gray-700">{{ opt.text }}</span>
+                    </label>
+                </template>
+            </div>
+
+            <InputError :message="form.errors.idguiatur" />
+        </div>
+
+        <!-- BLOQUE 3 -->
+        <div class="ml-9 mt-4 mb-4 w-full md:w-1/3">
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+                Actividades (selecciona 1 o más)
+                <span class="text-red-500">*</span>
+            </label>
+
+            <div class="grid gap-2 mt-2">
+                <template v-for="opt in options" :key="opt.id">
+                    <label class="flex items-center space-x-2">
+                        <input
+                            type="checkbox"
+                            :value="opt.id"
+                            v-model="form.idacttur"
+                            class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                        />
+                        <span class="text-sm text-gray-700">{{ opt.text }}</span>
+                    </label>
+                </template>
+            </div>
+
+            <InputError :message="form.errors.idacttur" />
+        </div>
+
+    </div>
+
+<br>
+
+    <PrimaryButton>
+        Guardar
+    </PrimaryButton>
+</form>
+
+
+
+
+
+
     </AuthenticatedLayout>
 </template>

@@ -69,6 +69,7 @@ class CentrosturistController extends Controller
             'actividadturist' => actividadturist::all(),
             'guiasturist'     => guiasturist::all(),
             'serviciosturist' => serviciosturist::all(),
+            'optionsActivo' => Centrosturist::ACTIVO_VALUES,
         ]);
     }
 
@@ -82,8 +83,9 @@ class CentrosturistController extends Controller
         'dircentur'   => 'required|max:100',
         'descentur'   => 'required|max:350',
         'rescentur'   => 'required|max:80',
+        'activo' => 'required|in:Si,No',
         'telcentur'   => 'required|max:10',
-        'corcentur'   => 'required|max:50',
+        'corcentur'   => 'required|email|max:50',
         'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
         'idproduct'   => 'required|exists:productos,idproduct',
         'idacttur'    => 'nullable|array',
@@ -101,6 +103,7 @@ class CentrosturistController extends Controller
     $centrosturist->dircentur = $data['dircentur'];
     $centrosturist->descentur = $data['descentur'];
     $centrosturist->rescentur = $data['rescentur'];
+    $centrosturist->activo = $data['activo'];
     $centrosturist->telcentur = $data['telcentur'];
     $centrosturist->corcentur = $data['corcentur'];
     $centrosturist->idproduct = $data['idproduct'];
@@ -123,7 +126,7 @@ class CentrosturistController extends Controller
 // return redirect()->route('centrosturist.index')
 //     ->with('success', 'Centro Turístico creado con éxito');
 
-        return redirect('centrosturist/create')->with('succes','Centro Turístico creado con éxito');
+        return redirect('centrosturist/create')->with('success','Centro Turístico creado con éxito');
  
 }
 
@@ -135,6 +138,7 @@ public function updatecentrosturist(Request $request)
         'dircentur'   => 'required|max:100',
         'descentur'   => 'required|max:350',
         'rescentur'   => 'required|max:80',
+        'activo'      => 'required',
         'telcentur'   => 'required|max:10',
         'corcentur'   => 'required|email|max:50',
         'idproduct'   => 'required|exists:productos,idproduct',
@@ -146,13 +150,14 @@ public function updatecentrosturist(Request $request)
         'idsertur.*' => 'exists:serviciosturists,idsertur',
         'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
     ]);
-
+$data['activo'] = ucfirst(strtolower($data['activo']));
     $centrosturist = centrosturist::findOrFail($data['idcentur']);
 
     $centrosturist->nomcentur = $data['nomcentur'];
     $centrosturist->dircentur = $data['dircentur'];
     $centrosturist->descentur = $data['descentur'];
     $centrosturist->rescentur = $data['rescentur'];
+    $centrosturist->activo = $data['activo'];
     $centrosturist->telcentur = $data['telcentur'];
     $centrosturist->corcentur = $data['corcentur'];
     $centrosturist->idproduct = $data['idproduct'];

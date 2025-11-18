@@ -18,7 +18,11 @@
     <aside v-show="$page.props.showingMobileMenu" class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white md:hidden">
       <div class="py-4 text-gray-500">
         <Link class="ml-6 text-lg font-bold text-gray-800" :href="route('dashboard')">
-        Windmill
+        <img
+        src="/storage/logos/ITSSAT-COMUNITARIO.jpg"
+        alt="Logo"
+        class="h-20 w-auto m-auto rounded-full"
+      >
       </Link>
         <ul class="mt-6">
 
