@@ -11,7 +11,6 @@
   <link rel="preload" as="image" href="{{ asset('images/manglares-sontecomapan/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/manglares-sontecomapan/4.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/manglares-sontecomapan/2.jpg') }}">
-  <link rel="preload" as="image" href="{{ asset('images/manglares-sontecomapan/1.jpg') }}">
   
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

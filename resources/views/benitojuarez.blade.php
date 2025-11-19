@@ -115,7 +115,7 @@
 
 
 
-    <a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca del Turismo Comunitario">
+    <a href="https://wa.me/5212941016169?text=Hola, me gustaría agendar una cita ¿Cómo llego a este lugar?">
       <div title="Clic para enviar mensaje" class="btn_enviawsp">
         Quiero hablar con una persona...
       </div>
@@ -200,11 +200,40 @@
     </div>
   </div>
 </div>
+
 <div class="mascotas">
-  <b>Este establecimiento acepta mascotas:</b> Sí
+  Este establecimiento <b>Sí</b> acepta mascotas
 </div>
 
 
+<br><br>
+
+<div class="titulo-actividades">
+  ¿Qué actividades puedes realizar?
+</div>
+
+<div class="actividades">
+  <ul class="lista-img">
+    <li>Camping todo incluido</li>
+    <li>Ciclismo de montaña</li>
+    <li>Guías en la zona</li>
+    <li>Kayak de travesía</li>
+    <li>Kayaks</li>
+    <li>Llanting</li>
+    <li>Nados y saltos al agua</li>
+    <li>Observación de aves</li>
+    <li>Rappel</li>
+    <li>Senderismo</li>
+    <li>Senderos de gran recorrido</li>
+    <li>Snorkel en mar y río</li>
+    <li>Tirolesa</li>
+    <li>Tour en Kayaks</li>
+    <li>Tours Guiados</li>
+    <li>Tours en lancha</li>
+    <li>Turismo de naturaleza y aventura</li>
+
+  </ul>
+</div>
 <br><br><br><br><br>
 
 <h2>Galería</h2>
@@ -698,7 +727,7 @@
 
 <br>
 <!------------------------ wsp icon -------------------------->
-<a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca de la oferta educativa que ofrece el ITSSAT">
+<a href="https://wa.me/5212941016169?text=Hola, me gustaría agendar una cita ¿Cómo llego a este lugar?">
   <div id="wsp" title="Whatsapp">
     <img src="{{ asset('images/favicon/whatsapp.png') }}" width="60px">
   </div>

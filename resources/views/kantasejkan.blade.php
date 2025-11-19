@@ -752,7 +752,7 @@
 
 <br>
 <!------------------------ wsp icon -------------------------->
-<a href="https://wa.me/5212941016169?text=Hola, me gustaría saber más acerca de la oferta educativa que ofrece el ITSSAT">
+<a href="https://wa.me/5212941016169?text=Hola, me gustaría agendar una cita ¿Cómo llego a este lugar?">
   <div id="wsp" title="Whatsapp">
     <img src="{{ asset('images/favicon/whatsapp.png') }}" width="60px">
   </div>

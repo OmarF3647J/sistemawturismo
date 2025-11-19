@@ -7,7 +7,7 @@
   <meta name="description" content="Descubre el turismo comunitario en Los Tuxtlas, Veracruz. Vive experiencias únicas en Apompal, Roca Partida, Benito Juárez, Las Margaritas, Laguna del Ostión y más destinos naturales.">
   <meta name="keywords" content="turismo comunitario, Los Tuxtlas, Veracruz, ecoturismo, Apompal, Roca Partida, Benito Juárez, Arrecifes, Cabañas Encantadas, Kan Tasejkan, Laguna del Ostión, Las Margaritas, naturaleza, aventura, cascadas, playas, senderismo, Instituto Tecnológico de San Andrés, Universidad, ITSSAT">
 
-  <link rel="preload" as="image" href="{{ asset('images/rancho-elia/portada.jpg') }}">
+  <link rel="preload" as="image" href="{{ asset('images/rancho-dona-elia/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/rancho-dona-elia/2.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/rancho-dona-elia/3.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/rancho-dona-elia/10.jpg') }}">
