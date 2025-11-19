@@ -188,7 +188,7 @@ $data['activo'] = ucfirst(strtolower($data['activo']));
         $centrosturist->load([
             'producto:idproduct,nomproduct',
             'actividadturist:idacttur,nomacttur',              
-            'guiasturist:idguiatur,nomguiatur',
+            'guiasturist',
             'serviciosturist:idsertur,nomsertur',
             'guiasturist.actividadturist:idacttur,nomacttur' // esto es para mostrar las actividades por guia
         ]);

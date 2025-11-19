@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('telcentur', 10);
             $table->string('corcentur', 50);
             $table->string('imgcentur', 100);
-            $table->String('activo', ['Si', 'No']);
+            $table->enum('activo', ['Si', 'No']);
             $table->foreignId('idproduct')->nullable()->constrained('productos', 'idproduct')
                 ->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();

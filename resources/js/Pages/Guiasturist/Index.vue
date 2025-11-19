@@ -142,7 +142,7 @@ const ok = (m) => {
                             <td class="px-4 py-3 text-sm">{{ guias.telguiatur }}</td>
                             <td class="px-4 py-3 text-sm">{{ guias.corguiatur }}</td>
                             <td class="px-4 py-3 text-sm" >
-                                <img v-if="guias.imgguiatur" :src="`/storage/${guias.imgguiatur}`" width="75">
+                                <img v-if="guias.imgguiatur" :src="`/storage/${guias.imgguiatur}`" class="rounded" width="75">
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 <NavLink :href="route('guiasturist.show', guias.idguiatur)">
