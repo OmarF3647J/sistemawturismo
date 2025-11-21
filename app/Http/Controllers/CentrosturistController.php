@@ -249,26 +249,7 @@ $data['activo'] = ucfirst(strtolower($data['activo']));
         // return back()->with('success', 'Centro turístico eliminado con éxito');
         return redirect()->route('centrosturist.index')->with('success', 'Centro turístico eliminado con éxito');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     /**
  * Generar y mostrar/guardar PDF del centro turístico
  */
