@@ -1,0 +1,348 @@
+* {
+	padding:0;
+	margin:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* 👈 elimina el flash azul en móviles */
+}
+
+
+.menu_bar {
+	display:none;
+}
+
+header {
+	width: 100%;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	text-align: center;
+    display: flex; /* Usamos flexbox en el contenedor */
+    background-image: linear-gradient(to right, #253576,#253576, #2bd87e);
+    box-shadow: 0 2px 8px rgba(26, 25, 25, 0.219); /* Sombra: desplazamiento-x | desplazamiento-y | desenfoque | propagación | color */
+    font-size: 105%;
+}
+
+/* hj1 usado 2 veces */
+.escritorio_btec{
+    display: inline;  /* Se muestra como un bloque */
+    margin: auto;          /* Se posiciona en la parte superior */
+    height: auto;
+    text-align: right;
+    justify-content: right;
+    border: none;
+    width: 20%;
+}
+
+/* menu */
+header nav {
+	z-index:1000;
+	width: 80%;
+	margin: 0;
+    padding-left: 1px;
+}
+
+
+header nav ul {
+	list-style:none;
+}
+
+header nav ul li {
+	display:inline-block;
+	position: relative;
+	margin: 0;
+    padding: 0;
+    border-bottom: 0;
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    transition: color 0.3s ease; /* Transicion para el color del texto */
+}
+/*Estilo de linea creciente*/
+header nav ul li:after {
+    content: ""; /* Obligatorio para pseudo-elementos */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Empieza con un ancho de 0 */
+    height: 3px;
+    background-color: #09ff80; /* Color inicial del borde */
+    transition: width 0.5s ease; /* Efecto suave en la animaciÃ³n */
+}
+
+header nav ul li:hover:after {
+    width: 100%; /* Expande el borde hasta el ancho completo */
+
+}
+
+header nav ul li a {
+    margin: 0;
+	color:#fff;
+	display:block;
+	height: 100%;
+	text-decoration:none;
+	padding-top: 18px;/*distancia debajo de opciones primarias*/
+	padding-bottom: 18px;/*distancia debajo de opciones primarias*/
+	padding-right: 13px;
+	padding-left: 13px;
+	font-size: 80%; /*tamaño de letra de menu en escritorio*/
+	font-family: "Lexend","Century Gothic", Arial;
+}
+
+header nav ul li a span {
+    margin: 0;
+	margin-right:10px;
+    padding: 0;
+}
+
+header nav ul li .children {
+    margin: 0;
+	display: none;
+	background-color: #f5f4f4;
+	position: absolute;
+    top: 100%; /* Distancia debajo del elemento principal */
+	width: 150%;
+    padding: 0;
+
+	z-index:1000;
+    font-size: 90%;  /*tamaño de letra de submenu en escritorio*/
+    
+    height: 500px;
+    overflow-y: auto;    /* activa scroll vertical */
+}
+/* Scroll personalizado del submenú */
+header nav ul li .children::-webkit-scrollbar {
+    width: 8px;               /* Ancho de la barra */
+}
+
+header nav ul li .children::-webkit-scrollbar-track {
+    background: #e1e1e1;      /* Color de fondo */
+    border-radius: 10px;
+}
+
+header nav ul li .children::-webkit-scrollbar-thumb {
+    background: #00a880;      /* Color del scroll */
+    border-radius: 10px;
+}
+
+header nav ul li .children::-webkit-scrollbar-thumb:hover {
+    background: #008f6c;      /* Color al pasar el mouse */
+}
+
+
+header nav ul li:hover .children {
+	display: block;
+	background: #f5f4f4;
+    padding-bottom: 4px;/*Interlineado de opciones secundarias*/
+}
+
+header nav ul li .children li {
+	display:block;
+	overflow: hidden;
+	border-bottom: none;
+}
+
+header nav ul li .children li a {
+	display: block;
+	color: #313131;
+    padding-top: 12px; /*distancia arriba del la opción del submenu*/
+    padding-bottom: 12px; /*distancia arriba del la opción del submenu*/
+    padding-left: 30px;
+    text-align: left;
+    
+}
+
+header nav ul li .children li a span {
+	float: right;
+	position: relative;
+    margin: 0;
+    pad: 0;
+	top: 6px;
+	margin-right:0;
+}
+
+header nav ul li .caret {
+	position: relative;
+	top: 6px;
+	margin-right: 0;
+}
+
+
+
+.fant_btntecnm {
+    display: none;  /* Se muestra como un bloque */
+}
+
+.fant_home{
+    display: none;  /* Se muestra como un bloque */
+}
+
+
+
+
+
+
+/* Moviles */
+@media (max-width: 983px) {
+	
+    body {
+		margin: 0;
+        padding: 0;
+    }
+
+    .escritorio_btec{
+        display: none;
+    }
+
+    header{
+        display: inline;
+    }
+
+    header nav {
+        width: 100%;
+    }
+
+
+    .agrupador_3btns {
+        display: flex;               /* Alinea los elementos horizontalmente */
+        justify-content: space-between; /* Espacio equitativo entre los elementos */
+        align-items: center;         /* Centra verticalmente los elementos */
+        padding: 0;
+        margin: 0;
+      }
+
+
+
+      
+    /* Botones TecNM y Home */
+    .fant_btntecnm{
+        display: inline;  /* Se muestra como un bloque */
+        width: 34%;     /* Ocupa todo el ancho de la pantalla */
+        height: 70%;
+        top: 0;
+        margin: 0;          /* Se posiciona en la parte superior */
+        margin-left: 1%;
+        text-align: center;
+        justify-content: center;
+        border: none;
+    }
+
+    .fant_home{
+        display: inline;  /* Se muestra como un bloque */
+        top: 0;/* Se posiciona en la parte superior */
+        margin: 0; 
+        width: 34%;/* Ocupa todo el ancho de la pantalla */
+        height: 80%;   
+        padding: 5%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    
+
+    /* Estilo para la barra de menú fija */
+    .menu_bar {
+        display: inline;  /* Se muestra como un bloque */
+        width: 30%;     /* Ocupa todo el ancho de la pantalla */
+        height: 100%;
+        top: 0;          /* Se posiciona en la parte superior */
+		margin: 0;
+        padding: 1%;
+        padding-left: 4%;
+		align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    
+    /* Estilo del botón o enlace de menú dentro de la barra */
+    .menu_bar .bt-menu {
+        display: block;        /* Se muestra como un bloque */
+        margin: auto;
+        padding: 0;
+        width: 50%;
+        height: 40%;
+        overflow: hidden;      /* Se asegura de que el contenido extra no se desborde */     /* Negrita */
+        text-decoration: none; /* Elimina el subrayado del texto */
+        /*background-attachment: fixed;*/
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        border-bottom: 3px solid #ffffff00;
+    }
+   .bt-menu img{
+        padding: 3px;
+
+    }
+    .bt-menu img:active{
+        border-bottom: 3px solid rgba(228, 255, 242, 0.95);
+    }
+
+
+    /* Estilo para la barra de navegación fija */
+    header nav {
+        width: 80%;                /* Ancho del 80% de la pantalla */
+        height: 100%;  /* Altura 100% menos los 80px del padding-top en el body */
+        position: fixed;           /* Fija la navegación en la pantalla */
+        left: -100%;               /* Lo posiciona fuera de la pantalla (a la derecha) */
+        margin: 0;                 /* Elimina márgenes */
+		margin-top: 0;
+		padding-bottom: 0;
+        overflow: scroll;          /* Permite el desplazamiento si el contenido es más grande que el área disponible */
+		background-color: #f1f4ff;
+    }
+
+    /* Estilo para los elementos de lista dentro de la barra de navegación */
+    header nav ul li {
+        display: block;
+        color: #2a273a;
+        font-size: 90%;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Un borde inferior blanco semitransparente */
+		padding-left: 5%;
+		text-align: left;
+    }
+
+    /* Estilo para los enlaces dentro de los elementos de lista */
+    header nav ul li a {
+        display: block; /* Hace que el enlace ocupe todo el espacio del elemento de lista */
+        color: #2a273a;
+        font-size: 110%;
+		font-weight: 400;
+        font-family: "Lexend","Century Gothic", Arial;
+
+    }
+
+
+    /* Estilo para los submenús dentro de los elementos de lista */
+    header nav ul li .children {
+        display: none;  
+        background-color: #f1f4ff;    /* Color de fondo de las opciones secundarias mientras esté estático */
+        width: 100%;       /* Los submenús ocupan el 100% del ancho del ítem principal */
+        position: relative; /* Posición relativa dentro del ítem principal */
+    }
+    
+    /* Oculta los elementos hijos (submenús) cuando se pasa el mouse sobre el ítem del menú */
+    /* con el hover se mantiene el color que tiene por defecto en version escritorio */
+    header nav ul li:hover .children {
+        display: none;  /* Al pasar el mouse sobre el ítem de la lista, oculta el submenú */
+        background-color: #ffffff;
+    }
+
+
+    /* Estilo para los enlaces dentro de los submenús */
+    header nav ul li .children li a {
+        margin-left: 20px; /* Se agrega un margen izquierdo de 20px a los enlaces de los submenús */
+        color: #333333;
+        font-weight: normal;
+        font-size: 122%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+    }
+
+    /* Estilo para los íconos de "caret" (generalmente una flecha hacia abajo o hacia la derecha) */
+    header nav ul li .caret {
+        float: right; /* Flota el ícono hacia la derecha del elemento de lista */
+    }
+}

@@ -1,0 +1,119 @@
+/* Asegura que la agrupación ocupe el ancho completo */
+*{
+      -webkit-tap-highlight-color: transparent; /* 👈 elimina el flash azul en móviles */
+}
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* Contenedor principal para los contenedores */
+    .agrupador_header{
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    /* Contendor top  */
+    .contenedor_verde_gobernacion{
+      margin: 0;
+      padding-top: 0.5%;
+      padding-bottom: 0.3%;
+      height: 15%;
+      background-color: #611232;
+      color: #fff;
+      text-align: center;
+      border-bottom: 1px solid #555;
+      display: flex; /* Cambiamos a flex para controlar la alineación de los hijos */
+      align-items: flex-start; /* Alinea los elementos hijos en la parte superior */
+      justify-content: center; /* Centrado horizontal de los mini_cont */
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .mini_cont{
+      margin: 0;
+      width: 30%;
+      display: flex; /* Cambiamos a flex para permitir centrado vertical */
+      align-items: center; /* Centrado vertical del contenido dentro de mini_cont */
+      justify-content: center; /* Centrado horizontal del contenido dentro de mini_cont */
+      text-decoration: none;
+      font-size: 13px;
+      font-family: Arial;
+    }  
+    .mini_cont a {
+      color: #9c9cad;
+    }
+    .mini_cont a:hover{
+      color: white;
+    }
+    #mc_derecha{
+      margin: 0;
+      width: 30%;
+      padding-top: 7px;
+      display: flex; /* Cambiamos a flex para permitir centrado vertical */
+      align-items: center; /* Centrado vertical del contenido dentro de mini_cont */
+      justify-content: center; /* Centrado horizontal del contenido dentro de mini_cont */
+      text-decoration: none;
+      font-size: 13px;
+      font-family: Arial;
+    } 
+
+
+
+/* Logos de gobernacion */
+    .logos_header{
+      position: relative;
+      margin-right: 2%;
+      transition: transform 0.3s ease; /* Suavidad en la transición */
+
+    }
+    .logos_header:hover{
+      transform: scale(1.2); /* Escala al 120% del tamaño original */
+    }
+
+    /* Contenedor 2 que se oculta */
+    #contenedorDesvanecer {
+      background-color: white;
+      margin: 0;
+      align-items: center;
+      padding-left: 0.5%;
+      padding-right: 0.5%;
+      padding-top: 0.2%;
+      padding-bottom: 0.2%;
+    }
+
+    /* Contenedor 3 para pegarse al contenedor 1 */
+    #contenedorPegajoso {
+      background-image: linear-gradient(to right, #253576,#253576, #2bd87e);
+      transition: margin-top 0.5s ease; /* Suavidad en el movimiento hacia arriba */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Efecto de desvanecimiento en el scroll para el contenedor 2 */
+    .oculto {
+      opacity: 0;
+      height: 0; /* Ajusta la altura para eliminar el espacio */
+      pointer-events: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .contenedor_verde_gobernacion{
+        padding-left: 2px;
+        padding-right: 20px;
+     }
+
+      .mini_cont{
+        width: 25%;
+      }
+
+      #contenedorDesvanecer {
+        display: none;
+      }
+
+
+    }/*Fin moviles*/

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+body{
+    font-family: "Lexend", Arial, Century Gothic, sans-serif;
+}
+.contenedor-docentes {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.docentes {
+    text-align: center;
+}
+.titulo-docentes {
+    color: #1c1a6a;
+}
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.card {
+    text-align: center;
+    width: 40%;
+}
+.img-docente {
+    width: 100px;
+    height: 100px;
+    padding: 3%;
+    border-bottom: 2px solid #46c36b;
+    margin-bottom: 10px;
+}
+
+.texto-docente {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+.role-docente {
+    font-weight: 550;
+    color: #374864;
+    font-family: "Lexend", Arial, Century Gothic, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+.btn-pdf_docentes {
+    padding: 10px 20px;
+    border: none;   
+    background-color: transparent;
+    transition: transform 0.3s ease; /* Suavidad en la transición */
+}
+
+.btn-pdf_docentes:hover {
+    transform: scale(1.1); /* Escala al 120% del tamaño original */
+}
+
+.modal-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    width: 80%;
+    height: 80%;
+    background-color: #0000002c;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* Tabletas (mínimo 600px) */
+@media (min-width: 600px) {
+    .card {
+        width: 18%;
+    }
+}/* Fin tabletas*/
+
+
+/* Laptops (mínimo 600px) */
+@media (min-width: 1024px) {
+    .contenedor-docentes{
+        width: 70%;
+
+        
+    }
+
+}

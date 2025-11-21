@@ -1,0 +1,273 @@
+*{
+  margin: 0;
+}
+
+/*Enlaces*/
+a{
+  text-decoration: none;
+  border: none;
+  color: inherit;
+}
+
+a img {
+  border: none; /* Elimina bordes en navegadores más antiguos */
+}
+
+
+/* label visitas*/
+.cont-visitas{
+  margin-left: 3px;
+  width: 25%;
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
+}
+.label-visitas{
+  width: 50%;
+  display: inline;
+  font-size: 95%;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.counter-number{
+  display: inline;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* wtsp*/
+#wsp {
+  position: fixed;
+  display: inline;
+  bottom: 20px;  /* Distancia desde la parte inferior de la pantalla */
+  right: 20px;   /* Distancia desde el borde derecho de la pantalla */
+  color: white;   /* Color del texto */
+  border: none;   /* Sin borde */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;  /* Espaciado alrededor del texto */
+  border-radius: 50px;  /* Botón redondeado */
+  font-size: 16px;  /* Tamaño de la fuente */
+  cursor: pointer;  /* Cambia el cursor al pasar sobre el botón */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Transiciones suaves */
+}
+
+#wsp:hover {
+  transform: scale(1.1);  /* Agranda el botón ligeramente al pasar el cursor */
+}
+
+
+
+
+/* -----------------------Footer -------------------------*/
+footer{
+    margin-top: 5%;
+    text-decoration: none;
+}
+
+/* Estilos para los contenedores del footer */
+.cont_footer1{
+    display: flex; /* Usar flexbox para alinear horizontalmente */
+    justify-content: space-between; /* Espaciado entre elementos */
+    background: #082656;
+    padding: 1% 6% 3% 9%;
+    color: white;
+    text-align: left; /* Alinea el texto dentro de los contenedores a la izquierda */
+}
+
+
+.cont_footer2{
+    display: flex; /* Usar flexbox para alinear horizontalmente */
+    justify-content: space-between; /* Espaciado entre elementos */
+    background: #082656;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.cont_footer3 {
+    display: flex; /* Usar flexbox para alinear horizontalmente */
+    justify-content: space-between; /* Espaciado entre elementos */
+    background: #611232;
+    padding-left: 1%;
+    font-family: Didact Gothic, Arial;
+}
+.cont_footer4{
+    display: flex; /* Usar flexbox para alinear horizontalmente */
+    justify-content: space-between; /* Espaciado entre elementos */
+    background-image: url(pleca.svg);
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* La imagen cubrirá todo el área del contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    height: 80%; /* Asegúrate de que el contenedor tenga altura establecida */
+    user-select: none; /* Evita que el contenido sea seleccionado */
+    pointer-events: none; /* Desactiva interacciones como clics y arrastres */
+    -webkit-user-drag: none; /* Evita el arrastre en navegadores WebKit */
+}
+
+/* Estilo para cada elemento del footer */
+.footer_item_azules{
+    width: 100%;
+    flex: 1; /* Cada elemento ocupa el mismo espacio */
+    padding: 10px; /* Espaciado interno en cada elemento */
+    text-decoration: none;
+    font-family: "Century Gothic", Arial;
+    font-weight: 300;
+    text-align: left;
+}
+
+
+/* Año y aviso de privacidad */
+.f2_1{
+  width: 50%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: flex; /* Cambia el modelo de caja */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  text-decoration: none;
+  text-align: center; /* Centrar texto */
+  font-family: "Century Gothic", Arial;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+}
+
+.f2_2{
+  width: 50%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: flex; /* Cambia el modelo de caja */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  text-decoration: none;
+  text-align: center; /* Centrar texto */
+  font-family: "Century Gothic", Arial;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+}
+
+/* Estilo para cada elemento del footer */
+.footer_item_gob {
+    width: 100%;
+    flex: 1; /* Cada elemento ocupa el mismo espacio */
+    text-align: center; /* Centrar texto */
+    padding: 5%; /* Espaciado interno en cada elemento */
+    padding-left: 3%;
+    padding-right: 2%;
+    margin: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    text-align: left;
+    font-family: "Century Gothic", Arial;
+    user-select: none; /* Evita que el contenido sea seleccionado */
+    -webkit-user-drag: none; /* Evita el arrastre en navegadores WebKit */
+}
+
+
+/* Estilos de lista de footer*/
+.enlaces_footer_gob{
+  list-style-type: none; /* Elimina los puntos predeterminados */
+  padding: 0; /* Elimina el espacio interno */
+  margin: 0; /* Elimina el espacio externo */
+}
+
+.enlaces_footer_gob li{
+  margin: 10px 0; /* Agrega espacio entre elementos */
+}
+
+.enlaces_footer_gob a{
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  font-family: Arial, sans-serif; /* Cambia la fuente */
+  color: #c5c7ce;
+}
+
+.enlaces_footer_gob a:hover {
+  color: white;
+}
+
+
+
+/* wtsp */
+#wsp {
+  position: fixed;
+  display: inline;
+  bottom: 20px;  /* Distancia desde la parte inferior de la pantalla */
+  right: 20px;   /* Distancia desde el borde derecho de la pantalla */
+  color: white;   /* Color del texto */
+  border: none;   /* Sin borde */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;  /* Espaciado alrededor del texto */
+  border-radius: 50px;  /* Botón redondeado */
+  font-size: 16px;  /* Tamaño de la fuente */
+  cursor: pointer;  /* Cambia el cursor al pasar sobre el botón */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Transiciones suaves */
+}
+
+#wsp:hover {
+  transform: scale(1.1);  /* Agranda el botón ligeramente al pasar el cursor */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Estilos para TELEFONOS*/
+/* Reglas de estilo para tamaños de pantalla de hasta 768 píxeles de ancho */
+@media only screen and (max-width: 768px) {
+  .btn_enviawsp{
+    width: 85%;
+    padding: 4%;
+  }
+
+/*--------------------------------*/
+  .cont_footer1,
+  .cont_footer2,
+  .cont_footer3 {
+    padding-top: 3%;
+    flex-direction: column; /* Apilar elementos verticalmente en móviles */
+    align-items: center; /* Centrar elementos apilados */
+    padding-left: 8%;
+  }
+
+  .cont_footer4{
+    height: 100%;
+  }
+
+  .footer-item_azules {
+      width: 100%; /* Hacer que cada elemento ocupe todo el ancho disponible */
+      margin-bottom: 5%; /* Espaciado entre elementos apilados */
+    }
+  
+  .f2_1{
+    width: 90%;
+    margin: 6%;
+  }
+  .f2_2{
+    width: 90%;
+    margin: 6%;
+  }
+
+ }/*fin condicion moviles*/
+
+
+
+
+
+
+
+

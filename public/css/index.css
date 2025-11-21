@@ -1,0 +1,809 @@
+@charset "UTF-8";
+  * {
+    box-sizing: border-box;
+     -webkit-tap-highlight-color: transparent; /* 👈 elimina el flash azul en móviles */
+  }
+  
+/*diseños generales*/
+body{
+  font-family: "Lexend","Century Gothic", Arial;
+  background: #dfe2ec;
+  text-decoration: none;
+  color: #373a49;
+  padding-top: 0;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+h2{
+    width: 100%;
+    text-align: center;
+    font-size: 300%;
+    font-weight: 600;
+    font-family: "Lexend","Century Gothic", Arial;
+    background: linear-gradient(to right, #19c71f, #15cc43, #117e4b, #117e4b, #38bd04, #178508);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3{
+  font-family: "Lexend","Century Gothic", Arial;
+  width: 100%;
+  font-weight: 300;
+}
+h4{
+  font-family: "Lexend","Century Gothic", Arial;
+}
+
+h5{
+  color: #e6e6ec;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+}
+h5 a{
+  text-decoration: none;
+  color: inherit;
+}
+
+a{
+  text-decoration: none;
+  border: none;
+  color: inherit;
+}
+a img {
+  border: none; /* Elimina bordes en navegadores más antiguos */
+}
+
+ 
+
+
+  /*------carrusel carreras--------*/
+  .carrusel_carreras {
+    width: 100%;
+    margin: 0 auto;
+    aspect-ratio: 16 / 12; /* Mantiene proporción sin forzar altura */
+    margin-top: 20%;
+  }
+  .carrusel_portadas {
+    width: 100%; /* Ajusta al tamaño del carrusel */
+    margin-right: 0;
+    height: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    flex: 0 0 100%; /* una imagen por pantalla */
+    filter: saturate(125%) brightness(85%);
+  }
+  .carrusel_portadas img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0;
+    padding: 0; 
+    background-size: cover; /*rellena el contendor*/
+    object-fit: cover; /* Recorta la imagen sin deformarla */
+  } 
+  .flickity-page-dots {
+    position: static !important;
+    margin-top: 15px;
+    text-align: center;
+  }
+  .flickity-page-dots .dot {
+    /* CLAVE 1: Aumentar el tamaño del círculo */
+    width: 20px;
+    height: 20px; 
+    
+    /* CLAVE 2: Cambiar el color de fondo de los dots NO activos */
+    background: #7f8b84; /* Un gris claro para los inactivos */
+    
+    /* Opcional: Aumentar la separación entre ellos */
+    margin: 0 12px 4px 12px;
+    
+    /* Asegurarte de que sigan siendo círculos */
+    border-radius: 50%;
+}
+.flickity-page-dots .dot.is-selected {
+    /* CLAVE 3: Cambiar el color del dot ACTIVO */
+    background: #12db5f; /* Un gris claro para los inactivos */
+    border: solid 3px #3c7b62;
+}
+/*fin carrusel*/
+
+
+  /*nombre centrtos turisticos dentro de carrusel*/
+  .titulo_carrera_telefono{
+    width: 90%;
+    position: absolute; /* Posiciona el botón sobre la imagen */
+    top: 42%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
+    left: 50%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
+    transform: translate(-50%, -50%); /* Centra el botón completamente */
+    padding: 15px 25px; /* Ajusta el tamaño del botón */
+    font-family: "Lexend","Century Gothic", Arial;
+    font-weight: bold;
+    font-size: 200%; /* Tamaño del texto */
+    color: #fff; /* Color del texto */
+    text-shadow: 0 0 15px rgba(0, 0, 0, 1.0);
+    text-align: center; /* Centra el texto dentro del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+
+  /*btn conocer mas*/
+  .btn-sobre-imagen {
+    position: absolute; /* Posiciona el botón sobre la imagen */
+    margin: auto;
+    top: 70%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
+    left: 30%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
+    padding: 3%; /* Ajusta el tamaño del botón */
+    font-family: "Lexend","Century Gothic", Arial;
+    font-weight: 400;
+    font-size: 20px; /* Tamaño del texto */
+    text-align: center; /* Centra el texto dentro del botón */
+    color: #1EF797;
+    text-shadow: 0 0 15px rgba(29, 30, 29, 0.785);
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border: 2px solid #1EF797;
+    /* 👇 Fondo con algo de transparencia */
+    background-color: #1ef79544; 
+    /* 🎨 PROPIEDAD CLAVE: Aplica el desenfoque al fondo (lo que está detrás del elemento) */
+    backdrop-filter: blur(8px); 
+    /* Opcional pero recomendado para máxima compatibilidad */
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 0.3s ease; /* Suavidad en la transición */
+
+  }
+  .btn-sobre-imagen:hover {
+     transform: scale(1.1); /* Escala al 120% del tamaño original */
+  }
+
+
+.visitantes{
+    width: 100%;
+    text-align: center;
+    font-size: 280%;
+    font-weight: 600;
+    background: linear-gradient(to right, #c719c1, #0432bd, #042a4e, #51299c, #c719c1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+.counter{
+    width: 100%;
+    text-align: center;
+    font-size: 190%;
+    font-weight: 600;
+    background: linear-gradient(to right, #00e353, #07c116, #008177, #07c116, #00e353);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* appear */
+#content {
+  margin-top: 8vh; /* Asegurarse de que esté más abajo de la pantalla inicial */
+  opacity: 0; /* Inicialmente invisible */
+  transform: translateY(20px); /* Desplazado hacia abajo */
+  transition: opacity 2s ease, transform 2s ease; /* Transición suave */
+}
+#content.visible {
+  opacity: 1; /* Aparece gradualmente */
+  transform: translateY(0); /* Se mueve a su posición original */
+}
+
+
+.imagen_full{
+  display: flex;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  width: 100%;
+  height: 600px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/benito-juarez/horizontal.jpg');
+  background-repeat: no-repeat;
+}
+.imagen_full img{
+  width: 100%;
+  height: 100%;
+  filter: brightness(60%); /* Oscurece la imagen al 50% */
+  
+}
+.texto-sobre-full {
+    color: white;
+    font-size: 350%; /* 40px (puedes ajustar esto) */
+    font-weight: bold;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+
+
+.descripcion_centros{
+  margin: 3% auto;
+  width: 95%;
+  padding: 5%;
+  background-color: #56e7786e;
+  text-align: justify;
+  color: #0a5235;
+}
+
+
+
+/* Agrupador principal del centtos turisticos */
+.agrupador-centros-turisticos {
+    display: grid;
+    /* 2 columnas iguales en móvil */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; /* Espacio entre los contenedores */
+    padding: 10px;
+    margin: 0 auto;
+}
+
+/* Estilos de cada contenedor (card) */
+.grid-item {
+    /* Propiedades para la imagen */
+    width: 100%;
+    height: 200px; /* Altura fija para empezar */
+    background-size: cover; /* Para rellenar con imagen de fondo CSS */
+    background-position: center;
+    /* Diseño interno del contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Necesario para posicionar el overlay de hover */
+    /* Sin esquinas redondeadas */
+    border-radius: 0; 
+    overflow: hidden; /* Oculta lo que se salga, útil para el hover */
+    filter: saturate(130%);
+    transition: transform 0.3s ease; 
+
+}
+.grid-item:hover{
+  transform: scale(1.02); 
+}
+
+
+
+/* Estilo del texto centrado */
+.grid-item h3 {
+    color: white;
+    font-size: 140%;
+    font-weight: 600;
+    z-index: 2; /* Para que esté sobre el overlay */
+    text-align: center;
+    text-shadow: 0 0 15px rgba(29, 30, 29, 0.71);
+}
+
+/* El elemento/efecto de hover */
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Inicialmente transparente */
+    /* Transición suave para el efecto de difuminado/oscurecimiento */
+    transition: background-color 0.3s ease; 
+    z-index: 1;
+    background-color: rgba(27, 26, 26, 0.33);
+}
+
+/* Efecto al pasar el mouse (hover) */
+.grid-item:hover::before {
+    /* Oscurece la imagen (simula difuminado) */
+    background-color: rgba(0, 0, 0, 0.394);
+    backdrop-filter: blur(2px); 
+    /* Opcional pero recomendado para máxima compatibilidad */
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.titulo-guias{
+    width: 100%;
+    text-align: center;
+    font-size: 280%;
+    font-weight: 600;
+    background: linear-gradient(to right, #da135c, #da135c, #be1738, #da135c, #da135c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.descripcion_guias{
+  margin: 3% auto;
+  width: 95%;
+  padding: 6%;
+  background-color: #ffffff;
+  text-align: justify;
+  color: #da135c;;
+}
+
+/* Grid de guias turisticas */
+.agrupador-guias-turisticas {
+    display: grid;
+    /* 2 columnas iguales en móvil */
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 15px; /* Espacio entre los contenedores */
+    padding: 10px;
+    margin: 0 auto;
+}
+
+/* Agrupador de imagen con tarjeta de guias */
+.agrupador-itemgt-tarjeta{
+  width: 100%;
+  position: center;
+  margin-bottom: 6%;
+}
+
+/* Estilos de cada contenedor (card) */
+.grid-itemgt {
+    /* Propiedades para la imagen */
+    width: 100%;
+    height: 300px; /* Altura fija para empezar */
+    background-size: cover; /* Para rellenar con imagen de fondo CSS */
+    background-position: center;
+    /* Diseño interno del contenedor */
+
+    position: relative; /* Necesario para posicionar el overlay de hover */
+    
+    /* Sin esquinas redondeadas */
+    border-radius: 0; 
+    overflow: hidden; /* Oculta lo que se salga, útil para el hover */
+}
+.grid-itemgt img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  /* CLAVE 1: Suaviza la transición (0.3 segundos) */
+  transition: transform 0.3s ease-in-out;
+  /* CLAVE 2: Inicia la imagen en su tamaño normal (escala 1) */
+  transform: scale(1);
+}
+
+.grid-itemgt:hover img{
+  transform: scale(1.05);
+}
+
+.tarjeta-guia{
+  background-color: white;
+  font-size: 100%;
+  padding: 6%;
+  margin-bottom: 7%;
+  color: #4b4b4b;
+  text-align: justify;
+  align-items: center;
+}
+.tarjeta-guia h4{
+  font-weight: 500;
+  margin-bottom: 3%;
+}
+.tarjeta-guia h3{
+  font-weight: 600;
+  margin-bottom: 6%;
+  color: #2f2d35;
+}
+
+
+/* Contenedor de iconos */
+.btn-redes-sociales {
+  display: flex;                  /* Activa el modo flex */
+  justify-content: center;        /* Centra horizontalmente */
+  align-items: center;            /* Centra verticalmente (si hay altura fija) */
+  gap: 15px;                      /* Espacio entre iconos */
+  margin-top: 10px;
+  width: 100%;                    /* Ocupa todo el ancho disponible */
+}
+
+.cat {
+  display: flex;                  /* Centra el ícono dentro */
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  transition: transform 0.3s ease;
+}
+
+.cat img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.cat:hover img {
+  transform: scale(1.05);
+}
+
+ /*---videos--*/
+  .cont_videos{
+    display: block;
+    height: auto;
+    background-color: none;
+  }
+  .child_videos{
+    width: 100%;
+    height: auto;
+    background-color: none;
+  }
+  video{
+    background-color: none;
+  }
+
+.titulo_opinion_turistas{
+    width: 100%;
+    text-align: center;
+    font-size: 230%;
+    font-weight: 600;
+    background: linear-gradient(to right, #c71919, #da135c, #dc2085, #24a1cf, #1730f1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Tarjeta de opinión del turista */
+:root{
+  --card-height: 260px;   /* alt. tarjeta — ajustar según necesites */
+  --bg1: #ffffff;
+  --bg2: #ffffff;
+  --bg3: #ffffff;
+}
+
+/* Contenedor principal (mobile-first: 1 columna) */
+.agrupador_opinion {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 tarjeta por fila en móvil */
+  gap: 0;                     /* sin separación entre tarjetas */
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  box-sizing: border-box;
+}
+
+/* Tarjeta Individual: 3 filas apiladas (sin espacios) */
+.opinion_turista {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr; /* 3 filas iguales */
+  height: var(--card-height);
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 2%;
+}
+
+/* Cada bloque (fila) centrado vertical y horizontalmente */
+.opinion_turista .bloque {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3%;   /* acolchonamiento interno (no separa elementos) */
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  /* quitar cualquier margin para que queden pegados */
+  margin: 0;
+  /* línea separadora superior (se verá como filas separadas) */
+  border-top: 1px solid rgba(0,0,0,0.08);
+  background: transparent;
+}
+
+/* Evitar que la primera fila dibuje su propia línea superior */
+.opinion_turista .bloque:first-child {
+  border-top: none;
+}
+
+/* Estilos visuales por fila (opcional, puedes cambiar color o quitar) */
+.opinion_turista .bloque-1 { background-color: var(--bg1); font-size: 0.95rem; padding: 4%;}
+.opinion_turista .bloque-2 { background-color: var(--bg2); font-size: 1.25rem; font-weight: 700; padding: 4%;}
+.opinion_turista .bloque-3 { background-color: var(--bg3); font-size: 0.9rem; color: #666; padding: 4%;}
+
+/* ====
+
+
+
+
+
+
+
+
+
+/* Tabletas (mínimo 600px) */
+@media (min-width: 600px) {
+
+body{
+    background: #dfe2ec;
+}
+/*Carrusel inicial*/
+.carrusel_carreras {
+  margin-top: 20%;
+  aspect-ratio: 16 / 12;
+}
+
+.titulo_carrera_telefono{
+    font-size: 420%; /* Tamaño del texto */
+}
+.btn-sobre-imagen{
+    left: 38%;
+    padding: 15px 25px; /* Ajusta el tamaño del botón */
+    font-family: "Lexend", "Century Gothic", Arial;
+    font-weight: bold;   
+}
+
+.descripcion_centros{
+  padding: 2%;
+  margin: 1% auto;
+}
+.descripcion_guias{
+  padding: 2%;
+  margin: 2% auto;
+}
+.agrupador-centros-turisticos {
+  /* 3 columnas iguales en tabletas */
+  grid-template-columns: repeat(3, 1fr); 
+  padding: 20px;
+}
+
+  /* Opcional: Aumentar la altura de los contenedores en tabletas */
+.grid-item {
+  height: 250px; 
+}
+
+.titulo-guias{
+    background: linear-gradient(to right, #da135c, #da135c, #be1738, #da135c, #da135c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Guias */
+.agrupador-guias-turisticas {
+  /* 3 columnas iguales en tabletas */
+  grid-template-columns: repeat(2, 1fr); 
+  padding: 20px;
+}
+
+  /* Opcional: Aumentar la altura de los contenedores en tabletas */
+.grid-itemgt {
+  height: 250px; 
+}
+
+.agrupador_opinion {
+  grid-template-columns: repeat(3, 1fr); /* 3 tarjetas lado a lado */
+  gap: 0; /* sin separación, las líneas de borde marcan separación */
+  width: 95%;
+}
+.opinion_turista .bloque {
+  padding: 8%;
+}
+.opinion_turista .bloque-1 { background-color: var(--bg1); font-size: 0.95rem; padding: 4%;}
+.opinion_turista .bloque-2 { background-color: var(--bg2); font-size: 1.25rem; font-weight: 700; padding: 4%;}
+.opinion_turista .bloque-3 { background-color: var(--bg3); font-size: 0.9rem; color: #666; padding: 4%;}
+
+}/* fin tabletas*/
+
+
+
+
+/* Laptops (mínimo 1024px) */
+@media (min-width: 1024px) {
+body{
+    background: #dfe2ec;
+}
+
+  /*Carrusel inicial*/
+  .carrusel_carreras {
+    margin-top: 3%;
+    aspect-ratio: 16 / 7;
+  }
+  .carrusel_portadas {
+    width: 100%; /* Ajusta al tamaño del carrusel */
+    height: 100%;
+    margin-right: 10px;
+    position: relative;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+  .carrusel_portadas img {
+    width: 100%;
+    height: 100%;
+    display: block; 
+    filter: saturate(120%);
+    filter: brightness(65%); /* Oscurece la imagen al 50% */
+    background-size: cover; /*rellena el contendor*/
+    object-fit: cover; /* Recorta la imagen sin deformarla */
+  }/*fin carrusel*/
+  
+.titulo_carrera_telefono{
+    width: 70%;
+    position: absolute; /* Posiciona el botón sobre la imagen */
+    top: 50%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
+    left: 48%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
+    padding: 15px 25px; /* Ajusta el tamaño del botón */
+    font-family: "Lexend", "Century Gothic", Arial;
+    font-size: 390%; /* Tamaño del texto */
+    font-weight: bold;
+    color: #fff; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    text-align: left; /* Centra el texto dentro del botón */
+}
+
+  /*btn conocer mas*/
+  .btn-sobre-imagen {
+    position:fixed; /* Posiciona el botón sobre la imagen */
+    top: 67%; /* Ajusta la posición vertical (50% desde la parte superior del contenedor) */
+    left: 18%; /* Ajusta la posición horizontal (50% desde la parte izquierda del contenedor) */
+    padding: 15px 25px; /* Ajusta el tamaño del botón */
+    font-family: "Lexend", "Century Gothic", Arial;
+    font-weight: bold;
+    font-size: 20px; /* Tamaño del texto */
+    text-align: center; /* Centra el texto dentro del botón */
+    color: #1EF797;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border: 3px solid #1EF797;
+    /* 👇 Fondo con algo de transparencia */
+    background-color: #1ef79544; 
+    /* 🎨 PROPIEDAD CLAVE: Aplica el desenfoque al fondo (lo que está detrás del elemento) */
+    backdrop-filter: blur(8px); 
+    /* Opcional pero recomendado para máxima compatibilidad */
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 0.3s ease; /* Suavidad en la transición */
+
+  }
+  .btn-sobre-imagen:hover {
+     transform: scale(1.1); /* Escala al 120% del tamaño original */
+  }
+
+
+  .visitantes{
+      width: 100%;
+      text-align: center;
+      font-size: 300%;
+      font-weight: 600;
+      background: linear-gradient(to right, #c719c1, #0432bd, #042a4e, #51299c, #c719c1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+  .counter{
+      width: 100%;
+      text-align: center;
+      font-size: 200%;
+      font-weight: 600;
+      background: linear-gradient(to right, #00e353, #07c116, #008177, #07c116, #00e353);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+  .descripcion_centros{
+    width: 70%;
+  }
+  .descripcion_guias{
+    width: 70%;
+    padding: 3%;
+    margin-bottom: 0;
+  }
+
+  /*-----cont videos padre-----*/
+  .cont_videos {
+    width: 100%;
+    height: auto;
+    position: relative; /* Para posicionamiento relativo de los hijos si se requiere */
+    overflow: hidden; /* Manejo de flotantes */
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background-color: none;
+  }
+  .child_videos{
+    width: 50%; /* Ajusta el ancho según lo necesario */
+    height: 100%; /* Ocupa toda la altura del padre */
+    float: left; /* Mantiene los hijos alineados a la izquierda */
+    box-sizing: border-box; /* Asegura que padding y border no afecten el ancho */
+    display: flex; /* Habilita flexbox */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto dentro del contenedor */
+    padding: 0;
+    margin: 0 auto;
+  }
+  video{
+    background: #f9f9ffac;
+    margin: 0 auto;
+  }
+
+  .agrupador-centros-turisticos {
+  /* Mantener 3 columnas, pero centrar el grid y darle un ancho máximo */
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px; 
+  }
+  .grid-item h3 {
+    color: white;
+    font-size: 150%;
+  }
+  .agrupador-guias-turisticas {
+  /* Mantener 3 columnas, pero centrar el grid y darle un ancho máximo */
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px; 
+  }
+  .grid-itemgt h3 {
+    color: white;
+    font-size: 150%;
+  }
+  .agrupador_opinion {
+    font-size: 1.2rem;
+    padding: 2rem;
+  }
+
+  :root { --card-height: 240px; }
+  .opinion_turista .bloque-1 { padding: 3%;}
+  .opinion_turista .bloque-2 { padding: 3%;}
+  .opinion_turista .bloque-3 { padding: 3%;}  
+
+}/*fin laptops*/
+
+
+
+
+
+
+/* Monitores de escritorio (mínimo 1440px) */
+@media (min-width: 1440px) {
+body{
+    background: #dfe2ec;
+}
+
+  /*------carrusel carreras--------*/
+  .carrusel_carreras {
+    width: 100%;
+    margin: 0 auto;
+    aspect-ratio: 16 / 6; /* Mantiene proporción sin forzar altura */
+  }
+
+  .carrusel_portadas {
+    height: 100%;
+    
+  }
+
+  .agrupador-centros-turisticos {
+    /* Mantener 3 columnas, pero dar más espacio a los lados */
+    max-width: 1100px;
+  }
+  .grid-item {
+      /* Propiedades para la imagen */
+      height: 300px; /
+  }
+  .agrupador-guias-turisticas {
+    /* Mantener 3 columnas, pero dar más espacio a los lados */
+    max-width: 1100px;
+  }
+
+
+  .contenedor_opiniones {
+    max-width: 1300px;
+    margin: 0 auto; /* centra el grid */
+  }
+  
+  .agrupador_opinion {
+    font-size: 1.3rem;
+  }
+
+  :root { --card-height: 260px; }
+  .opinion_turista .bloque { font-size: 1rem; }
+
+}/* fin monitores */
+
+
+
+
+
+
