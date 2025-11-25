@@ -9,9 +9,6 @@ use Illuminate\Http\Request;
 
 class ServiciosturistController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $serviciosturist = serviciosturist::with('centrosturist')->get();
@@ -22,17 +19,14 @@ class ServiciosturistController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
+
+
+    
     public function create()
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -42,26 +36,16 @@ class ServiciosturistController extends Controller
         $serviciosturist->save();
         return redirect()->route('serviciosturist.index');
     }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(serviciosturist $serviciosturist)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(serviciosturist $serviciosturist)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, serviciosturist $serviciosturist)
     {
         $request->validate([
@@ -71,9 +55,6 @@ class ServiciosturistController extends Controller
         return redirect()->route('serviciosturist.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(serviciosturist $serviciosturist)
     {
         $serviciosturist->delete();

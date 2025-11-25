@@ -10,8 +10,6 @@ import SelectInput from '@/Components/SelectInput.vue';
 import SelectMac from '@/Components/SelectMac.vue';
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 
-
-// PROPS: ahora incluimos los arrays de ids/relaciones que envía el controlador
 const props = defineProps({
   centrosturist: { type: Object, default: null },
   productos: { type: Array, default: () => [] },
@@ -29,10 +27,8 @@ function normalizeIds(arr, key) {
   if (!Array.isArray(arr)) return [];
   if (arr.length === 0) return [];
   if (typeof arr[0] === 'object' && arr[0] !== null && key in arr[0]) {
-    // array de objetos
     return arr.map(item => item[key]);
   } else {
-    // asumimos que es array de ids
     return arr;
   }
 }
@@ -51,7 +47,6 @@ const form = useForm({
     corcentur: props.centrosturist ? props.centrosturist.corcentur : '',
     imgcentur: null,
     idproduct: props.centrosturist ? props.centrosturist.idproduct : '',
-    // normalizamos la prop para que siempre tengamos un array de ids
     idacttur: normalizeIds(props.centrosturist_actividadturist, 'idacttur'),
     idguiatur: normalizeIds(props.centrosturist_guiasturist, 'idguiatur'),
     idsertur: normalizeIds(props.centrosturist_serviciosturist, 'serviciosturist'),
@@ -64,15 +59,11 @@ const titleform = ref(
 const req = ref('*Campo obligatorio');
 const srcImg = ref('/storage/img/example.jpg');
 const msj = ref('');
-const classMsj = ref('hidden'); //clase del mensaje
-
-
-
+const classMsj = ref('hidden');
 const optionsServicios = ref([]);
 
 if (Array.isArray(props.serviciosturist)) {
   props.serviciosturist.forEach((row) => {
-    // adaptar a la forma esperada: idacttur y nomacttur
     optionsServicios.value.push({ id: row.idsertur ?? row.id ?? row.value, text: row.nomsertur ?? row.name ?? row.label ?? '' });
   });
 }
@@ -92,7 +83,6 @@ const optionsGguias = ref([]);
 
 if (Array.isArray(props.guiasturist)) {
   props.guiasturist.forEach((row) => {
-    // adaptar a la forma esperada: idacttur y nomacttur
     optionsGguias.value.push({ id: row.idguiatur ?? row.id ?? row.value, text: row.nomguiatur ?? row.name ?? row.label ?? '' });
   });
 }
@@ -104,7 +94,6 @@ const showImg = (e) => {
     srcImg.value = URL.createObjectURL(file);
 };
 
-// si tenemos centrosturist con imagen, mostrarla
 if (props.centrosturist != null && props.centrosturist.imgcentur) {
     srcImg.value = '/storage/' + props.centrosturist.imgcentur;
 }
@@ -123,22 +112,6 @@ if (props.centrosturist != null) {
     srcImg.value = '/storage/' + props.centrosturist.imgcentur;
 }
 
-// Guardar y editar centro turístico
-// const guardar = () => {
-//     if (props.centrosturist == null) {
-//         form.post(route('centrosturist.store'), {
-//             forceFormData: true,
-//             onSuccess: () => {
-//                 ok('Centro Turístico creado con éxito');
-//                 srcImg.value = '/storage/img/example.jpg';
-//             },
-//         });
-//     } else {
-//         form.post(route('updatecentrosturist'), {
-//             forceFormData: true,
-//         });
-//     }
-// };
 
 const guardar = () => {
     if (props.centrosturist == null) {
@@ -163,7 +136,6 @@ const guardar = () => {
     }
 };
 
-
 const ok = (m) => {
     form.reset();
     msj.value = m;
@@ -173,11 +145,7 @@ const ok = (m) => {
     }, 5000);
 };
 
-
-
 </script>
-
-
 
 <template>
     <Head title="Centros Turísticos" />
@@ -197,8 +165,6 @@ const ok = (m) => {
 
 
           <div class="inline-flex overflow-hidden mb-4 w-full bg-white rounded-lg shadow-md" :class="classMsj" v-if="msj">
-                    <!-- oculta el mensaje  -->
-                    <!-- En el video no se agrega la siguiente linea v-if="msj -->
             <div class="flex justify-center items-center w-12 bg-green-500">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -222,13 +188,6 @@ const ok = (m) => {
             <div class="min-w-0 p-4 rounded-lg shadow-xs">
 
                 <form class="mt-6 mb-6 space-y-6 max-w-xl" @submit.prevent="guardar">
-
-                    <!-- <InputGroup :text="'Nombre Centro Turístico'" :required="'required'" v-model="form.idcentur">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819" />
-                        </svg>
-                    </InputGroup>
-                    <InputError :message="form.errors.idcentur" /> -->
 
                     <InputGroup :text="'Nombre Centro Turístico'" :required="'required'" v-model="form.nomcentur">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -281,8 +240,6 @@ const ok = (m) => {
                         </div>
 
                     </div>
-
-
                     <InputGroup :text="'Correo Centro Turístico'" :required="'required'" v-model="form.corcentur">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -313,123 +270,89 @@ const ok = (m) => {
                     </SelectMac>
                     <InputError :message="form.errors.activo" />
 
-
-
-
-
-
-
-
-
-
-
-
-                    
-
-
-                    
                 </form>
             </div>
             
             <div class="min-w-0 p-4 rounded-lg shadow-xs">
-                <!-- <img :src="'/storage/'+centrosturist.imgcentur" :alt="centrosturist.nomcentur"> -->
                 <img :src="srcImg"  />
             </div>
         </div>
-        
-
-
-
-
-<form @submit.prevent="guardar" class="mb-4">
-    <div class="flex flex-col md:flex-row gap-9 w-full bg-white rounded-lg">
-  <!-- CONTENEDOR EN UNA SOLA FILA -->
-
-        <!-- BLOQUE 1 -->
-        <div class="ml-9 mt-4 w-full md:w-1/3">
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-                Servicios (selecciona 1 o más)
-                <span class="text-red-500">*</span>
-            </label>
-
-            <div class="grid gap-2 mt-2">
-                <template v-for="opt in optionsServicios" :key="opt.id">
-                    <label class="flex items-center space-x-2">
-                        <input
-                            type="checkbox"
-                            :value="opt.id"
-                            v-model="form.idsertur"
-                            class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                        />
-                        <span class="text-sm text-gray-700">{{ opt.text }}</span>
+        <form @submit.prevent="guardar" class="mb-4">
+            <div class="flex flex-col md:flex-row gap-9 w-full bg-white rounded-lg">
+                <div class="ml-9 mt-4 w-full md:w-1/3">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Servicios (selecciona 1 o más)
+                        <span class="text-red-500">*</span>
                     </label>
-                </template>
-            </div>
 
-            <InputError :message="form.errors.idsertur" />
-        </div>
+                    <div class="grid gap-2 mt-2">
+                        <template v-for="opt in optionsServicios" :key="opt.id">
+                            <label class="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    :value="opt.id"
+                                    v-model="form.idsertur"
+                                    class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                                />
+                                <span class="text-sm text-gray-700">{{ opt.text }}</span>
+                            </label>
+                        </template>
+                    </div>
 
-        <!-- BLOQUE 2 -->
-        <div class="ml-9 mt-4 w-full md:w-1/3">
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-                Agencias Turísticas (selecciona 1 o más)
-                <span class="text-red-500">*</span>
-            </label>
-
-            <div class="grid gap-2 mt-2">
-                <template v-for="opt in optionsGguias" :key="opt.id">
-                    <label class="flex items-center space-x-2">
-                        <input
-                            type="checkbox"
-                            :value="opt.id"
-                            v-model="form.idguiatur"
-                            class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                        />
-                        <span class="text-sm text-gray-700">{{ opt.text }}</span>
+                    <InputError :message="form.errors.idsertur" />
+                </div>
+                <div class="ml-9 mt-4 w-full md:w-1/3">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Agencias Turísticas (selecciona 1 o más)
+                        <span class="text-red-500">*</span>
                     </label>
-                </template>
-            </div>
 
-            <InputError :message="form.errors.idguiatur" />
-        </div>
+                    <div class="grid gap-2 mt-2">
+                        <template v-for="opt in optionsGguias" :key="opt.id">
+                            <label class="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    :value="opt.id"
+                                    v-model="form.idguiatur"
+                                    class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                                />
+                                <span class="text-sm text-gray-700">{{ opt.text }}</span>
+                            </label>
+                        </template>
+                    </div>
 
-        <!-- BLOQUE 3 -->
-        <div class="ml-9 mt-4 mb-4 w-full md:w-1/3">
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-                Actividades (selecciona 1 o más)
-                <span class="text-red-500">*</span>
-            </label>
-
-            <div class="grid gap-2 mt-2">
-                <template v-for="opt in options" :key="opt.id">
-                    <label class="flex items-center space-x-2">
-                        <input
-                            type="checkbox"
-                            :value="opt.id"
-                            v-model="form.idacttur"
-                            class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                        />
-                        <span class="text-sm text-gray-700">{{ opt.text }}</span>
+                    <InputError :message="form.errors.idguiatur" />
+                </div>
+                <div class="ml-9 mt-4 mb-4 w-full md:w-1/3">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Actividades (selecciona 1 o más)
+                        <span class="text-red-500">*</span>
                     </label>
-                </template>
+
+                    <div class="grid gap-2 mt-2">
+                        <template v-for="opt in options" :key="opt.id">
+                            <label class="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    :value="opt.id"
+                                    v-model="form.idacttur"
+                                    class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                                />
+                                <span class="text-sm text-gray-700">{{ opt.text }}</span>
+                            </label>
+                        </template>
+                    </div>
+
+                    <InputError :message="form.errors.idacttur" />
+                </div>
+
             </div>
+        <br>
 
-            <InputError :message="form.errors.idacttur" />
-        </div>
-
-    </div>
-
-<br>
-
-    <PrimaryButton>
-        Guardar
-    </PrimaryButton>
-</form>
-
-
-
-
-
+            <PrimaryButton>
+                Guardar
+            </PrimaryButton>
+        </form>
 
     </AuthenticatedLayout>
 </template>

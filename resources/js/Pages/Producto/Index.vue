@@ -20,13 +20,8 @@ const form = useForm({
     nomproduct: '',
     idcentur: '',
 });
-
 const v = ref({idproduct: '',nomproduct: '',centrosturist: []
-
 });
-
-
-
 const showModalView = ref(false); //para la vista de detalle
 const showModalForm = ref(false); //para el formulario de crear y editar    
 const showModalDelete = ref(false); //para eliminar
@@ -34,8 +29,6 @@ const title = ref(''); //titulo del modal
 const operation = ref(1); //operacion a realizar create o edit
 const msj = ref(''); //mensaje de exito o error
 const classMsj = ref(''); //clase del mensaje   
-
-
 const openModalView = (producto) => {
     v.value = producto;
     showModalView.value = true;
@@ -58,9 +51,6 @@ const openModalDelete = (producto) => {
     value.idproduct = producto.idproduct;
     value.nomproduct = producto.nomproduct;
 };
-
-
-
 const closeModalView = () => {
     showModalView.value = false;
 };
@@ -71,12 +61,6 @@ const closeModalForm = () => {
 const closeModalDelete = () => {
     showModalDelete.value = false;
 };
-
-
-
-
-
-
 const guardar = () => {
     if (operation.value === 1) {
         form.post('/producto', {
@@ -104,23 +88,6 @@ const ok = (m) => {
         classMsj.value = 'hidden';
     }, 5000);
 }
-
-
-
-
-
-//cierra ambos modales y muestra el mensaje de exito
-
-// const ok = (m) => {
-//     if (m) {
-//         msj.value = m;
-//         classMsj.value = 'alert-success';
-//     }
-//     closeModalForm();
-    
-// }
-
-// función para eliminar actividad turística
 const deleteProducto = () => {
     form.delete(route('producto.destroy', v.value.idproduct), {
         onSuccess: () => {
@@ -128,10 +95,6 @@ const deleteProducto = () => {
         },
     });
 };
-
-
-
-
 </script>
 
 <template>
@@ -166,10 +129,6 @@ const deleteProducto = () => {
 					</div>
 				</div>
 			</div>
-
-
-
-        
         <div class="w-full overflow-hidden rounded-lg border shadow-md">
             <div class="w-full overflow-x-auto bg-white">
                 <table class="w-full whitespace-no-wrap">
@@ -215,20 +174,6 @@ const deleteProducto = () => {
                 </table>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <Modal :show ="showModalView" @close="closeModalView">
             <div class="p-6">
                 <p>ID de la categoría: <span class="text-lg font-medium text-gray-900">{{ v.idproduct }}</span></p>
@@ -285,24 +230,10 @@ const deleteProducto = () => {
                     Estas seguro de eliminar la categoría turística: 
                     <span class="text-2xl font-medium text-gray-900">{{ v.nomproduct }}</span> ?</p>
 
-                    <!-- Una forma de eliminar (es necesario hacer una función función "deleteActividad" que se relaciones con el controlador)-->
-                     <!-- se pasa el parametro actividad a openModalDelete -->
                     <PrimaryButton @click = "deleteProducto">
                         Si, Eliminar
                     </PrimaryButton>
 
-
-
-                    <!-- Una forma de eliminar (sin necesidad de hacer uan función "deleteActividad")-->
-                     
-                    <!-- <PrimaryButton @click ="form.delete(`/actividadturist/${v.idacttur}`, {
-                        onSuccess: () => {
-                            ok('Actividad eliminada con éxito');
-                        },
-                    })" class="mt-6 bg-red-600 hover:bg-red-700 focus:border-red-700 focus:ring-red-700">   
-
-                        Si, Eliminar
-                    </PrimaryButton> -->
             </div>
             <div class="m-6 flex justify-end">
                 <SecondaryButton @click="closeModalDelete">Cerrar</SecondaryButton>

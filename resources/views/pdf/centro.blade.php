@@ -6,8 +6,6 @@
   <style>
     body { font-family: Arial, sans-serif; font-size: 12px;  margin-top: 90px; margin-bottom: 90px;}
     
-    
-    
     .linea {
       border: 1px solid #ccc;
       width: 86%;
@@ -25,7 +23,6 @@
       text-align: justify; 
       font-size: 17px;
       line-height: 1.4;
-      /* margin-bottom:20px;  */
       margin: 0 auto;
     }
 
@@ -33,12 +30,9 @@
       display: table;
       width: 100%;
       table-layout: fixed;
-      /* background: #20b338ff; */
       margin: 0 auto;
       margin-top:-20px;
       margin-bottom:-15px;
-      /* margin-top: 20px; */
-      /* border-spacing: 10px; separación interna */
     }
 
     .centrosturist > div {
@@ -49,14 +43,12 @@
     }
 
     .contacto {
-      /* background: #9178beff; */
       width: 30%;
       line-height: 1.3;
       padding:0 10px 0 90px;
     }
 
     .servicios {
-      /* background: #e9e9e9; */
       width: 30%;
       line-height:2;
       padding:0 90px 0 10px;
@@ -88,12 +80,12 @@
     
     .footer-img {
       width: 100%;
-      object-fit: cover; /* llena el area sin deformar */
+      object-fit: cover; 
       display: block;
     }
     .header-img {
       width: 100%;
-      object-fit: cover; /* llena el area sin deformar */
+      object-fit: cover; 
       display: block;
       position: fixed;
       top: 0;
@@ -103,21 +95,19 @@
     }
 
     .footer-img-container {
-      page-break-after: always; /* fuerza salto de página después del footer */
+      page-break-after: always; 
     }
 
     .guia-container {
       width: 70%;
       font-size: 17px;
       line-height: 1;
-      /* border:1px solid #ccc; */
       margin: -10px auto;
-      page-break-inside: avoid; /* evita cortar el bloque */
+      page-break-inside: avoid; 
     }
 
   </style>
 
- 
 
 </head>
 <body>
@@ -131,18 +121,13 @@
         }
     @endphp
   <img src="{{ $headerImg }}" class="header-img" alt="imagen">
-
-
   <div class="titulo">
     <h1>Centro Turístico: {{ $centrosturist->nomcentur }}</h1>
   </div>
-
   <div class="descripcion">
     <p>{{ $centrosturist->descentur }}</p>
   </div>
-
   <hr class="linea">
-
   <div class="centrosturist">
     <div class="contacto">
       <h3 class="titulo_tablas">DIRECCIÓN Y CONTACTO</h3>
@@ -152,7 +137,6 @@
       <p><strong><b>Telefono: </b></strong> {{ $centrosturist->telcentur ?? '-' }}</p>
       <p><strong><b>Correo: </b></strong> {{ $centrosturist->corcentur ?? '-' }}</p>
     </div>
-
     <div class="servicios">
       <h3 class="titulo_tablas">SERVICIOS TURÍSTICOS</h3>
       <ul>
@@ -162,16 +146,11 @@
       </ul>
     </div>
   </div>
-
-
-
   <h2 class="titulo_tablas">GUÍAS TURÍSTICOS Y SUS ACTIVIDADES</h2>
-
   @php
     $guides = $centrosturist->guiasturist ?? collect();
     $actividadesCentro = $centrosturist->actividadturist ?? collect();
   @endphp
-
 
   @if($guides->isNotEmpty())
       @foreach($guides as $g)
@@ -220,13 +199,6 @@
   @endif
 
 
-  
-  <!-- @php
-    $path = storage_path('app/public/imgReportes/pie_pagina.png');
-@endphp -->
-
-<!-- forma segura -->
-
 @php
     $path = storage_path('app/public/imgReportes/footer.jpg');
     $footerImg = null;
@@ -236,11 +208,6 @@
         $footerImg = 'data:image/'.$type.';base64,'.base64_encode($data);
     }
 @endphp
-
-
-
-
-
 <div class="page-bottom-spacer"></div>
 
 <footer class="footer-img-container">
@@ -248,17 +215,6 @@
         <img src="{{ $footerImg }}" class="footer-img" alt="imagen">
     @endif
 </footer>
-  
-  
-
 </footer>
-
-
-
-
-
 </body>
-
-
-
 </html>

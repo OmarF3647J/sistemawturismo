@@ -17,7 +17,9 @@ class centrosturist extends Model
     protected $primaryKey = 'idcentur';
 
     protected $fillable = ['nomcentur', 'dircentur', 'descentur', 'rescentur','telcentur', 'corcentur','imgcentur', 'idproduct','activo'];
-public const ACTIVO_VALUES = ['Si', 'No'];
+
+    public const ACTIVO_VALUES = ['Si', 'No'];
+    
     public function producto() : BelongsTo {
         return $this->belongsTo(producto::class, 'idproduct', 'idproduct');
     }

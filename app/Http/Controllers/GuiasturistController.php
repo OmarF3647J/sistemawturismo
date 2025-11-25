@@ -12,14 +12,9 @@ use Illuminate\Support\Facades\Storage;
 
 class GuiasturistController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $guiasturist = guiasturist::with('actividadturist', 'centrosturist')->paginate(10);
-        // los nombre de las relaciones deben coincidir con los definidos en el modelo
-        // actividadturist es la relacion definida en el modelo guiasturist
         $actividadturist = actividadturist::all();
         $centrosturist = centrosturist::all();
         return Inertia::render('Guiasturist/Index', [
@@ -29,22 +24,14 @@ class GuiasturistController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        // $actividadturist = actividadturist::all();
-        // $centrosturist = centrosturist::all();
         return Inertia::render('Guiasturist/Create', [
             'actividadturist' => actividadturist::all(),
             'centrosturist' => centrosturist::all(),
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -64,38 +51,18 @@ class GuiasturistController extends Controller
         $guiasturist->nomresguiatur = $data['nomresguiatur'];
         $guiasturist->telguiatur = $data['telguiatur'];
         $guiasturist->corguiatur = $data['corguiatur'];
-
-
-
-
         if ($request->hasFile('imgguiatur')) {
             $path = $request->file('imgguiatur')->store('img', 'public');
             $guiasturist->imgguiatur = $path;
         } else {
             $guiasturist->imgguiatur = null;
         }
-
-
         $guiasturist->save();
-
         $guiasturist->actividadturist()->sync($request->input('idacttur', []));
         $guiasturist->centrosturist()->sync($request->input('idcentur', []));
 
         return redirect('guiasturist/create')->with('succes','Agencia turística creado con éxito');
-        // return redirect()->route('guiasturist.index')->with('success', 'Guía turística creada correctamente.');
     }
-
-    
-
-
-
-
-
-
-
-
-
-
 
     public function updateguiasturist(Request $request)
     {
@@ -134,12 +101,6 @@ class GuiasturistController extends Controller
 
         return redirect()->route('guiasturist.index')->with('success', 'Guía turística actualizada correctamente.');
     }
-
-
-
-
-
-
     public function show(guiasturist $guiasturist)
     {
         $guiasturist->load([
@@ -151,10 +112,6 @@ class GuiasturistController extends Controller
             'guiasturist' => $guiasturist,
         ]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(guiasturist $guiasturist)
     {
         
@@ -166,18 +123,10 @@ class GuiasturistController extends Controller
             'centrosturist_guiasturist' => $guiasturist->centrosturist()->pluck('centrosturists.idcentur')->toArray(),
         ]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, guiasturist $guiasturist)
     {
-        //
+        
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(guiasturist $guiasturist)
     {
         $guiasturist->delete();
