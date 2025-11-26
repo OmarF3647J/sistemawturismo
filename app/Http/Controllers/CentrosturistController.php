@@ -73,7 +73,7 @@ class CentrosturistController extends Controller
             $centrosturist->imgcentur = $path;
         } else {
             $centrosturist->imgcentur = null;
-        }
+        }   
         $centrosturist->save();
         $centrosturist->actividadturist()->sync($request->input('idacttur', []));
         $centrosturist->guiasturist()->sync($request->input('idguiatur', []));
