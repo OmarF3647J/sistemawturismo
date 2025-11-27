@@ -7,7 +7,7 @@
 /*diseños generales*/
 body{
   font-family: "Lexend","Century Gothic", Arial;
-  background: #e6ebef;
+  background: #dfe2ec;
   text-decoration: none;
   color: #37493e;
   padding-top: 0;
@@ -242,7 +242,7 @@ hr{
   width: 90%;
   max-width: 900px;
   padding: 6%;
-  background-color: #e9f3efe7;
+  background-color: #ffffffe7;
   text-align: left;
   font-size: 130%;
   color: #00744ee7;
@@ -636,9 +636,7 @@ hr{
 /* Tabletas (mínimo 600px) */
 @media (min-width: 600px) {
 
-body{
-    background: #dfe2ec;
-}
+
 .imagen_full{
   margin-top: 18%;
 }
@@ -712,9 +710,7 @@ body{
 
 /* Laptops (mínimo 1024px) */
 @media (min-width: 1024px) {
-  body{
-      background: #dfe2ec;
-  }
+
   .imagen_full{
     margin-top: 8%;
   }
@@ -828,9 +824,6 @@ body{
 
 /* Monitor pc (mínimo 1440px) */
 @media (min-width: 1440px) {
-  body{
-    background: #dfe2ec;
-  }
 
 
   .contenedor_opiniones {

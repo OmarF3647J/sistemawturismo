@@ -221,7 +221,7 @@
 
 <!---Contador vacacionistas--->
 <div class="visitantes">
-  Más de  <div class="counter">85,000</div>
+  Más de  <div class="counter">185,000</div>
 </div>
 <div class="visitantes">visitantes en el último año...</div>
 
@@ -979,7 +979,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Lanza la animación solo una vez
-                animateCounter('.counter', 0, 85000, 3);
+                animateCounter('.counter', 0, 185000, 3);
                 observer.unobserve(entry.target);
             }
         });
