@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\Models\CentroTurist;
-
+use App\Models\centrosturist;
 
 
 
@@ -25,6 +24,15 @@ public function inicio(){
     return view('inicio', compact('centros'));
 }
 
+public function apompal()
+{
+    // colección completa (la que tu vista usa con $centros[0] en varias partes)
+    $centros = centrosturist::all();
 
+    // centro específico (id = 1) con sus actividades
+    $centro = centrosturist::with('actividadturist')->find(1);
+
+    return view('apompal', compact('centros', 'centro'));
+}
 
 }

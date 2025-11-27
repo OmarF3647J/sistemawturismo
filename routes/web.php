@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SitioController;
 use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\View; // Agregamos la clase View
-use App\Models\CentroTurist; // Agregamos tu modelo
-
 
 use Inertia\Inertia;
 use App\Http\Controllers\CentrosturistController;
@@ -210,6 +208,15 @@ Route::middleware('auth')->group(function () {
     Route::post('updatecentrosturist', [App\Http\Controllers\CentrosturistController::class, 'updatecentrosturist'])->name('updatecentrosturist');
     Route::post('updateguiasturist', [App\Http\Controllers\GuiasturistController::class, 'updateguiasturist'])->name('updateguiasturist');
     Route::get('/centrosturist/{centrosturist}/pdf', [CentrosturistController::class, 'pdf'])->name('centrosturist.pdf');
+    Route::get('/apompal', [SitioController::class, 'apompal'])->name('apompal');
+// ruta de prueba (opcional) que devuelve JSON del centro 1
+// Route::get('/prueba/actividades', function () {
+//     $centro = \App\Models\centrosturist::with('actividadturist')->find(1);
+//     return $centro ?? 'No existe centro id=1';
+// });
+
+
+
 });
 
 require __DIR__.'/auth.php';

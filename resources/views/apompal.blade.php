@@ -212,32 +212,28 @@
 
 <br><br>
 
+<!-- <pre>{{ var_export(isset($centro) ? $centro->actividadturist->toArray() : 'NO HAY $centro', true) }}</pre> -->
+
+
 <div class="titulo-actividades">
   ¿Qué actividades puedes realizar?
 </div>
 
 <div class="actividades">
-  <ul class="lista-img">
-    <li>Camping todo incluido</li>
-    <li>Ciclismo de montaña</li>
-    <li>Guías en la zona</li>
-    <li>Kayak de travesía</li>
-    <li>Kayaks</li>
-    <li>Llanting</li>
-    <li>Nados y saltos al agua</li>
-    <li>Observación de aves</li>
-    <li>Rappel</li>
-    <li>Senderismo</li>
-    <li>Senderos de gran recorrido</li>
-    <li>Snorkel en mar y río</li>
-    <li>Tirolesa</li>
-    <li>Tour en Kayaks</li>
-    <li>Tours Guiados</li>
-    <li>Tours en lancha</li>
-    <li>Turismo de naturaleza y aventura</li>
-
-  </ul>
+  @if(isset($centro) && $centro->actividadturist->isNotEmpty())
+    <ul class="lista-img">
+      @foreach ($centro->actividadturist as $actividad)
+        <li>{{ $actividad->nomacttur ?? 'Actividad #' . ($actividad->idacttur ?? '-') }}</li>
+      @endforeach
+    </ul>
+  @else
+    <p>No hay actividades registradas para este centro (id = 1).</p>
+  @endif
 </div>
+
+
+
+
 
 
 
