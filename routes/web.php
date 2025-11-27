@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SitioController;
 use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\View; // Agregamos la clase View
+use App\Models\centrosturist;
 
 use Inertia\Inertia;
 use App\Http\Controllers\CentrosturistController;
