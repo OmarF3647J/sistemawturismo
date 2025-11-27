@@ -68,9 +68,7 @@
   <div class="descripcion_centros">{{ $centros[0]->descentur }}</div>
 </div><!-- end boounce -->
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d92274.50624197905!2d-95.11520129450182!3d18.41010298093382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9dd8c599d2117%3A0x675fa0cc0958abfd!2sMiguel%20Hidalgo%2C%2095873%20Ver.!3m2!1d18.371563!2d-94.95262269999999!5e1!3m2!1ses!2smx!4v1762739165916!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d92285.01114344833!2d-95.03807575195312!3d18.390496232442405!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9dd415145f455%3A0x81772a66d9bc8eed!2sCentro%20Ecotur%C3%ADstico%20El%20Apompal%20Ejido%20Miguel%20Hidalgo%2095873%20Catemaco%2C%20Ver.!3m2!1d18.372275899999998!2d-94.9543631!5e1!3m2!1ses!2smx!4v1764219314835!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <br>
 
 <!--appear scroll-->
