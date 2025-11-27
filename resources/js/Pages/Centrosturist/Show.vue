@@ -90,13 +90,27 @@ const centerActIds = computed(() => {
         </div>
       </div>
 
-      <div class="flex items-start justify-center">
-        <img
-          :src="`/storage/${centrosturist.imgcentur}`"
-          :alt="centrosturist.nomcentur"
-          class="w-full md:w-[320px] h-64 md:h-64 object-cover rounded-lg shadow-md"
-        />
-      </div>
+      <div class="flex flex-col items-center justify-center space-y-3">
+  <!-- Contenedor de imagen -->
+  <div>
+    <img
+      :src="`/storage/${centrosturist.imgcentur}`"
+      :alt="centrosturist.nomcentur"
+      class="w-full md:w-[320px] h-64 md:h-64 object-cover rounded-lg shadow-md  mb-2"
+    />
+  </div>
+
+  <!-- Contenedor de texto -->
+  <div class="text-center">
+    <dt class="text-sm text-[16px] text-gray-500 mb-2">Horario de atención:</dt>
+            
+    <p class="text-sm text-gray-800 text-[16px]">
+      {{ centrosturist.horcentur }}
+    </p>
+  </div>
+</div>
+
+
     </div>
   </div>
 

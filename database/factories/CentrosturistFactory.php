@@ -20,6 +20,9 @@ class CentrosturistFactory extends Factory
             'nomcentur' => $this->faker->company(),
             'dircentur' => $this->faker->address(),
             'descentur' => $this->faker->paragraph(3),
+
+            'horcentur' => $this->faker->text(100),
+
             'rescentur' => $this->faker->name(),
             'telcentur' => $this->faker->numerify('##########'),
             'corcentur' => $this->faker->unique()->safeEmail(),

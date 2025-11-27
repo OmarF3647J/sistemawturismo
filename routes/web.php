@@ -38,23 +38,6 @@ use App\Http\Controllers\ActividadturistController;
 // });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/turismocomunitario', [SitioController::class, 'inicio'])->name('inicio');
 
 Route::get('/', function () {

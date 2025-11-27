@@ -86,7 +86,7 @@
           <img src="{{ asset('images/favicon/reloj.png') }}" alt="Horaio" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Horario de Atención</div>
-              <p>9:00 a 17:00 hrs. o más horarios 9:00 a 17:00 hrs. etc</p>
+              <p>{{ $centros[0]->horcentur }}</p>
           </div>
       </div>
       <div class="contacto-item">

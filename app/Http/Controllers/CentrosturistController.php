@@ -49,20 +49,29 @@ class CentrosturistController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nomcentur'   => 'required|max:80','dircentur'   => 'required|max:100',
-            'descentur'   => 'required|max:350','rescentur'   => 'required|max:80',
-            'activo' => 'required|in:Si,No', 'telcentur'   => 'required|max:10',
-            'corcentur'   => 'required|email|max:50', 'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
+            'nomcentur'   => 'required|max:80',
+            'dircentur'   => 'required|max:100',
+            'descentur'   => 'required|max:350',
+            'rescentur'   => 'required|max:80',
+            'horcentur' => 'required|max:100',
+            'activo' => 'required|in:Si,No', 
+            'telcentur'   => 'required|max:10',
+            'corcentur'   => 'required|email|max:50', 
+            'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
             'idproduct'   => 'required|exists:productos,idproduct',
-            'idacttur'    => 'nullable|array', 'idacttur.*'  => 'exists:actividadturists,idacttur',
-            'idguiatur'   => 'nullable|array', 'idguiatur.*' => 'exists:guiasturists,idguiatur',
-            'idsertur'   => 'nullable|array', 'idsertur.*' => 'exists:serviciosturists,idsertur',
+            'idacttur'    => 'nullable|array', 
+            'idacttur.*'  => 'exists:actividadturists,idacttur',
+            'idguiatur'   => 'nullable|array', 
+            'idguiatur.*' => 'exists:guiasturists,idguiatur',
+            'idsertur'   => 'nullable|array', 
+            'idsertur.*' => 'exists:serviciosturists,idsertur',
             
         ]);
         $centrosturist = new centrosturist();
         $centrosturist->nomcentur = $data['nomcentur'];
         $centrosturist->dircentur = $data['dircentur'];
         $centrosturist->descentur = $data['descentur'];
+        $centrosturist->horcentur = $data['horcentur'];
         $centrosturist->rescentur = $data['rescentur'];
         $centrosturist->activo = $data['activo'];
         $centrosturist->telcentur = $data['telcentur'];
@@ -85,20 +94,30 @@ class CentrosturistController extends Controller
     public function updatecentrosturist(Request $request)
     {
         $data = $request->validate([
-            'idcentur'    => 'required|exists:centrosturists,idcentur', 'nomcentur'   => 'required|max:80',
-            'dircentur'   => 'required|max:100', 'descentur'   => 'required|max:350',
-            'rescentur'   => 'required|max:80', 'activo'      => 'required',
-            'telcentur'   => 'required|max:10', 'corcentur'   => 'required|email|max:50',
-            'idproduct'   => 'required|exists:productos,idproduct', 'idacttur'    => 'nullable|array',
-            'idacttur.*'  => 'exists:actividadturists,idacttur', 'idguiatur'   => 'nullable|array',
-            'idguiatur.*' => 'exists:guiasturists,idguiatur', 'idsertur'   => 'nullable|array',
-            'idsertur.*' => 'exists:serviciosturists,idsertur', 'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
+            'idcentur'    => 'required|exists:centrosturists,idcentur',
+            'nomcentur'   => 'required|max:80',
+            'dircentur'   => 'required|max:100', 
+            'descentur'   => 'required|max:350',
+            'rescentur'   => 'required|max:80', 
+            'horcentur' => 'required|max:100',
+            'activo'      => 'required',
+            'telcentur'   => 'required|max:10', 
+            'corcentur'   => 'required|email|max:50',
+            'idproduct'   => 'required|exists:productos,idproduct', 
+            'idacttur'    => 'nullable|array',
+            'idacttur.*'  => 'exists:actividadturists,idacttur', 
+            'idguiatur'   => 'nullable|array',
+            'idguiatur.*' => 'exists:guiasturists,idguiatur', 
+            'idsertur'   => 'nullable|array',
+            'idsertur.*' => 'exists:serviciosturists,idsertur', 
+            'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
         ]);
         $data['activo'] = ucfirst(strtolower($data['activo']));
         $centrosturist = centrosturist::findOrFail($data['idcentur']);
         $centrosturist->nomcentur = $data['nomcentur'];
         $centrosturist->dircentur = $data['dircentur'];
         $centrosturist->descentur = $data['descentur'];
+        $centrosturist->horcentur = $data['horcentur'];
         $centrosturist->rescentur = $data['rescentur'];
         $centrosturist->activo = $data['activo'];
         $centrosturist->telcentur = $data['telcentur'];

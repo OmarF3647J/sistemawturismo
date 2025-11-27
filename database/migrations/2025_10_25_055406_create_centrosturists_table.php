@@ -12,6 +12,9 @@ return new class extends Migration
             $table->id('idcentur');
             $table->string('nomcentur', 80);
             $table->string('dircentur', 100);
+
+            $table->string('horcentur',100);
+
             $table->string('descentur', 350);
             $table->string('rescentur', 80);
             $table->string('telcentur', 10);

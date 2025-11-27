@@ -16,7 +16,7 @@ class centrosturist extends Model
 
     protected $primaryKey = 'idcentur';
 
-    protected $fillable = ['nomcentur', 'dircentur', 'descentur', 'rescentur','telcentur', 'corcentur','imgcentur', 'idproduct','activo'];
+    protected $fillable = ['nomcentur', 'dircentur', 'descentur', 'rescentur', 'horcentur','telcentur', 'corcentur','imgcentur', 'idproduct','activo'];
 
     public const ACTIVO_VALUES = ['Si', 'No'];
     
