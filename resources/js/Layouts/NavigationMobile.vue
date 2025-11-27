@@ -19,7 +19,6 @@
       <div class="py-4 text-gray-500">
         <Link class="ml-6 text-lg font-bold text-gray-800" :href="route('dashboard')">
         <img
-        src="/storage/logos/ITSSAT-COMUNITARIO.jpg"
         alt="Logo"
         class="h-20 w-auto m-auto rounded-full"
       >
