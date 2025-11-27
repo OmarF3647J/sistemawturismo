@@ -7,7 +7,14 @@
 /*diseños generales*/
 body{
   font-family: "Lexend","Century Gothic", Arial;
-  background: #f2f2f2;
+background-image: linear-gradient(
+        /* Dirección: de arriba hacia abajo */
+        to bottom, 
+        
+        white,
+                
+        #e4e9ea
+    );
   text-decoration: none;
   color: #373a49;
   padding-top: 0;
@@ -30,6 +37,7 @@ h2{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 
 h3{
   font-family: "Lexend","Century Gothic", Arial;
@@ -228,7 +236,18 @@ a img {
 }
 
 
-
+.titulo-centros{
+    width: 100%;
+    text-align: center;
+    font-size: 370%;
+    font-weight: 600;
+    font-family: "Lexend","Century Gothic", Arial;
+    background: linear-gradient(to right, #117e4b, #117e4b, #117e4b, #16b11b, #088557);
+    background-clip: text;
+    -webkit-text-stroke: 1px #1b8352;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+}
 .descripcion_centros{
   margin: 3% auto;
   width: 95%;
@@ -377,6 +396,7 @@ a img {
 
 .tarjeta-guia{
   background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-size: 100%;
   padding: 6%;
   margin-bottom: 7%;
@@ -519,9 +539,7 @@ a img {
 /* Tabletas (mínimo 600px) */
 @media (min-width: 600px) {
 
-body{
-    background: #dfe2ec;
-}
+
 /*Carrusel inicial*/
 .carrusel_carreras {
   margin-top: 20%;
@@ -594,9 +612,7 @@ body{
 
 /* Laptops (mínimo 1024px) */
 @media (min-width: 1024px) {
-body{
-    background: #dfe2ec;
-}
+
 
   /*Carrusel inicial*/
   .carrusel_carreras {
@@ -758,9 +774,7 @@ body{
 
 /* Monitores de escritorio (mínimo 1440px) */
 @media (min-width: 1440px) {
-body{
-    background: #dfe2ec;
-}
+
 
   /*------carrusel carreras--------*/
   .carrusel_carreras {

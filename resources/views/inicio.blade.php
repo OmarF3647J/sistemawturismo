@@ -12,14 +12,15 @@
   <link rel="preload" as="image" href="{{ asset('images/arrecifes/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/benito-juarez/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/benito-juarez/horizontal.jpg') }}">
+
+    <!-- 
   <link rel="preload" as="image" href="{{ asset('images/cabanas-encantadas/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/cascadas-encantadas/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/kan-tasejkan/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/laguna-del-ostion/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/las-margaritas/portada.jpg') }}">
   <link rel="preload" as="image" href="{{ asset('images/rancho-dona-elia/portada.jpg') }}">
-
-
+-->
 
   <!-- CSS -->
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -69,7 +70,7 @@
     "cellAlign": "left", 
     "contain": true, 
     "wrapAround": true, 
-    "autoPlay": 3000, 
+    "autoPlay": 5000, 
     "pauseAutoPlayOnHover": false, 
     "prevNextButtons": true, 
     "selectedAttraction": 0.01, 
@@ -247,8 +248,8 @@
 
 <!--Menu centros ecoturisticos-->
 <div style="text-align: center;">
-  <h2>Centros Ecoturísticos</h2>
-  <h3><b>en la región de los Tuxtlas.</b></h3>
+  <div class="titulo-centros">Centros Ecoturísticos</div>
+  <span style="font-size: 180%">en la región de <b>Los Tuxtlas.</b></span>
 </div><!--fin agrupador centros ecoturisticos  -->
 
 <br>
@@ -927,7 +928,7 @@
       cellAlign: 'left',
       contain: true,
       wrapAround: true,
-      autoPlay: 3000, // Cambio automático cada 3 segundos
+      autoPlay: 5000, // Cambio automático cada 3 segundos
       pauseAutoPlayOnHover: false, 
       prevNextButtons: true, // Habilita botones de navegación
       selectedAttraction: 0.01,
