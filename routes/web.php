@@ -55,12 +55,13 @@ Route::get('/centro/{nombre}', [SitioController::class, 'centro'])->name('centro
 
 // 1 impresion en vistas de blade.php
 Route::get('/apompal', function () {
-    $centros = centrosturist::all(); // o el query que uses
+    $centros = centrosturist::all();
     return view('apompal', compact('centros'));
-})->name('apompal'); 
+})->name('apompal');
+Route::get('/apompal', [SitioController::class, 'mostrarCentro'])->name('apompal');
 
-////reporte pdf
-Route::get('/reportes/Apompal-CentroTuristico', [ReporteController::class, 'generarPDF'])->name('reportes.Apompal-CentroTuristico');
+// ////reporte pdf
+// Route::get('/reportes/Apompal-CentroTuristico', [ReporteController::class, 'generarPDF'])->name('reportes.Apompal-CentroTuristico');
 
 
 
@@ -69,43 +70,50 @@ Route::get('/arrecifes', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('arrecifes', compact('centros'));
 })->name('arrecifes');
+Route::get('/arrecifes', [SitioController::class, 'mostrarCentro'])->name('arrecifes');
+
 
 // 3
 Route::get('/benitojuarez', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('benitojuarez', compact('centros'));
 })->name('benitojuarez');
+Route::get('/benitojuarez', [SitioController::class, 'mostrarCentro'])->name('benitojuarez');
 
 // 4
 Route::get('/cabanasencantadas', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('cabanasencantadas', compact('centros'));
 })->name('cabanasencantadas');
+Route::get('/cabanasencantadas', [SitioController::class, 'mostrarCentro'])->name('cabanasencantadas');
 
 // 5
 Route::get('/cascadasencantadas', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('cascadasencantadas', compact('centros'));
 })->name('cascadasencantadas');
-
+Route::get('/cascadasencantadas', [SitioController::class, 'mostrarCentro'])->name('cascadasencantadas');
 
 // 6
 Route::get('/ceytaks', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('ceytaks', compact('centros'));
 })->name('ceytaks');
+Route::get('/ceytaks', [SitioController::class, 'mostrarCentro'])->name('ceytaks');
 
 // 7
 Route::get('/elmirador', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('elmirador', compact('centros'));
 })->name('elmirador');
+Route::get('/elmirador', [SitioController::class, 'mostrarCentro'])->name('elmirador');
 
 // 8
 Route::get('/jomxuk', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('jomxuk', compact('centros'));
 })->name('jomxuk');
+Route::get('/jomxuk', [SitioController::class, 'mostrarCentro'])->name('jomxuk');
 
 
 // 9
@@ -113,6 +121,7 @@ Route::get('/kantasejkan', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('kantasejkan', compact('centros'));
 })->name('kantasejkan');
+Route::get('/kantasejkan', [SitioController::class, 'mostrarCentro'])->name('kantasejkan');
 
 
 // 10
@@ -120,6 +129,7 @@ Route::get('/lagunadelostion', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('lagunadelostion', compact('centros'));
 })->name('lagunadelostion');
+Route::get('/lagunadelostion', [SitioController::class, 'mostrarCentro'])->name('lagunadelostion');
 
 
 // 11
@@ -127,30 +137,36 @@ Route::get('/lasmargaritas', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('lasmargaritas', compact('centros'));
 })->name('lasmargaritas');
+Route::get('/lasmargaritas', [SitioController::class, 'mostrarCentro'])->name('lasmargaritas');
 
 // 12
 Route::get('/manglaressontecomapan', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('manglaressontecomapan', compact('centros'));
 })->name('manglaressontecomapan');
+Route::get('/manglaressontecomapan', [SitioController::class, 'mostrarCentro'])->name('manglaressontecomapan');
+
 
 // 13
 Route::get('/ranchodonaelia', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('ranchodonaelia', compact('centros'));
 })->name('ranchodonaelia');
+Route::get('/ranchodonaelia', [SitioController::class, 'mostrarCentro'])->name('ranchodonaelia');
 
 // 14
 Route::get('/rocapartida', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('rocapartida', compact('centros'));
 })->name('rocapartida');
+Route::get('/rocapartida', [SitioController::class, 'mostrarCentro'])->name('rocapartida');
 
 // 15
 Route::get('/selvaelmarinero', function () {
     $centros = centrosturist::all(); // o el query que uses
     return view('selvaelmarinero', compact('centros'));
 })->name('selvaelmarinero');
+Route::get('/selvaelmarinero', [SitioController::class, 'mostrarCentro'])->name('selvaelmarinero');
 
 
 
@@ -192,7 +208,6 @@ Route::middleware('auth')->group(function () {
     Route::post('updatecentrosturist', [App\Http\Controllers\CentrosturistController::class, 'updatecentrosturist'])->name('updatecentrosturist');
     Route::post('updateguiasturist', [App\Http\Controllers\GuiasturistController::class, 'updateguiasturist'])->name('updateguiasturist');
     Route::get('/centrosturist/{centrosturist}/pdf', [CentrosturistController::class, 'pdf'])->name('centrosturist.pdf');
-    Route::get('/apompal', [SitioController::class, 'apompal'])->name('apompal');
 // ruta de prueba (opcional) que devuelve JSON del centro 1
 // Route::get('/prueba/actividades', function () {
 //     $centro = \App\Models\centrosturist::with('actividadturist')->find(1);

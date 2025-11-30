@@ -65,7 +65,8 @@
 
 <!---bounce left--->
 <div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
-  <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div>
+   <div class="descripcion_centros">{{ $centros[11]->descentur }}</div>
+ <!-- <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div> -->
 </div><!-- end boounce -->
 <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d47238.25949751295!2d-95.07661544557894!3d18.464288012904994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x85c20b8fbe48d4c1%3A0x9c3f122a1576601!2sCatemaco%2C%20Ver.!3m2!1d18.4212621!2d-95.1129658!4m5!1s0x85e9d901b9eda05f%3A0x9ce1fe5d57c6bd9b!2s95880%20Sontecomapan%2C%20Ver.!3m2!1d18.5038899!2d-95.035!5e1!3m2!1ses!2smx!4v1763277219687!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
@@ -85,28 +86,28 @@
           <img src="{{ asset('images/favicon/reloj.png') }}" alt="Horaio" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Horario de Atención</div>
-              <p>9:00 a 17:00 hrs.</p>
+              <p>{{ $centros[11]->horcentur }}</p>
           </div>
       </div>
       <div class="contacto-item">
           <img src="{{ asset('images/favicon/responsable.png') }}" alt="Responsable" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Responsable</div>
-              <p>db</p>
+              <p>{{ $centros[11]->rescentur }}</p>
           </div>
       </div>
       <div class="contacto-item">
           <img src="{{ asset('images/favicon/correo_sinfondo.png') }}" alt="Correo electronico" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Correo Electrónico</div>
-              <p>ing_informatica@itssat.edu.mx</p>
+              <p>{{ $centros[11]->corcentur }}</p>
           </div>
       </div>
       <div class="contacto-item">
           <img src="{{ asset('images/favicon/llamada.png') }}" alt="Telefono" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Teléfono</div>
-              <p>222-456-7890</p>
+              <p>+ 52 {{ $centros[11]->telcentur }}</p>
           </div>
       </div>
   </div>
@@ -200,7 +201,7 @@
   </div>
 </div>
 <div class="mascotas">
-  Este establecimiento <b>Sí</b> acepta mascotas
+  Este establecimiento <b>{{ $centros[11]->activo }}</b> acepta mascotas
 </div>
 
 
@@ -211,26 +212,15 @@
 </div>
 
 <div class="actividades">
-  <ul class="lista-img">
-    <li>Camping todo incluido</li>
-    <li>Ciclismo de montaña</li>
-    <li>Guías en la zona</li>
-    <li>Kayak de travesía</li>
-    <li>Kayaks</li>
-    <li>Llanting</li>
-    <li>Nados y saltos al agua</li>
-    <li>Observación de aves</li>
-    <li>Rappel</li>
-    <li>Senderismo</li>
-    <li>Senderos de gran recorrido</li>
-    <li>Snorkel en mar y río</li>
-    <li>Tirolesa</li>
-    <li>Tour en Kayaks</li>
-    <li>Tours Guiados</li>
-    <li>Tours en lancha</li>
-    <li>Turismo de naturaleza y aventura</li>
-
-  </ul>
+  @if(isset($centro) && $centro->actividadturist->isNotEmpty())
+    <ul class="lista-img">
+      @foreach ($centro->actividadturist as $actividad)
+        <li>{{ $actividad->nomacttur ?? 'Actividad #' . ($actividad->idacttur ?? '-') }}</li>
+      @endforeach
+    </ul>
+  @else
+    <p>No hay actividades registradas para este centro (id = 9).</p>
+  @endif
 </div>
 
 

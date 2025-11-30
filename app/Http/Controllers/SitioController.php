@@ -24,15 +24,64 @@ public function inicio(){
     return view('inicio', compact('centros'));
 }
 
-public function apompal()
+public function mostrarCentro($id = null)
 {
-    // colección completa (la que tu vista usa con $centros[0] en varias partes)
+    // Detectamos qué ruta se está usando
+    if (request()->routeIs('apompal')) {
+        $id = 1;
+        $vista = 'apompal';
+    } elseif (request()->routeIs('arrecifes')) {
+        $id = 2;
+        $vista = 'arrecifes';
+    } elseif (request()->routeIs('benitojuarez')) {
+        $id = 3;
+        $vista = 'benitojuarez';
+    } elseif (request()->routeIs('cabanasencantadas')) {
+        $id = 4;
+        $vista = 'cabanasencantadas';
+    } elseif (request()->routeIs('cascadasencantadas')) {
+        $id = 5;
+        $vista = 'cascadasencantadas';
+    } elseif (request()->routeIs('ceytaks')) {
+        $id = 6;
+        $vista = 'ceytaks';
+    } elseif (request()->routeIs('elmirador')) {
+        $id = 7;
+        $vista = 'elmirador';
+    } elseif (request()->routeIs('jomxuk')) {
+        $id = 8;
+        $vista = 'jomxuk';
+    } elseif (request()->routeIs('kantasejkan')) {
+        $id = 9;
+        $vista = 'kantasejkan';
+    } elseif (request()->routeIs('lagunadelostion')) {
+        $id = 10;
+        $vista = 'lagunadelostion';
+    } elseif (request()->routeIs('lasmargaritas')) {
+        $id = 11;
+        $vista = 'lasmargaritas';
+    } elseif (request()->routeIs('manglaressontecomapan')) {
+        $id = 12;
+        $vista = 'manglaressontecomapan';
+    } elseif (request()->routeIs('ranchodonaelia')) {
+        $id = 13;
+        $vista = 'ranchodonaelia';
+    } elseif (request()->routeIs('rocapartida')) {
+        $id = 14;
+        $vista = 'rocapartida';
+    } elseif (request()->routeIs('selvaelmarinero')) {
+        $id = 15;
+        $vista = 'selvaelmarinero';
+    } 
+
+    // colección completa
     $centros = centrosturist::all();
 
-    // centro específico (id = 1) con sus actividades
-    $centro = centrosturist::with('actividadturist')->find(1);
+    // centro específico con actividades
+    $centro = centrosturist::with('actividadturist')->findOrFail($id);
 
-    return view('apompal', compact('centros', 'centro'));
+    return view($vista, compact('centros', 'centro'));
 }
+
 
 }

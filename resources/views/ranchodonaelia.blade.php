@@ -64,7 +64,8 @@
 
 <!---bounce left--->
 <div class="wow animate__animated animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.1s">
-  <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div>
+  <div class="descripcion_centros">{{ $centros[12]->descentur }}</div>
+  <!-- <div class="descripcion_centros"> Breve descripción que el reponsable quiera contar sobre su centro ecoturístico, en que comunidad se ubica el centro turístico y a cuántos km está ubicado desde un punto de referencia conocido. O también puede escribir porqué es tan mítico este lugar.</b></div> -->
 </div><!-- end boounce -->
 <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d11360.682450898446!2d-95.20493606925533!3d18.449700338761037!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x85c2730043e109a5%3A0x53e91f6e2abdffc0!2sCatedral%20de%20San%20Jose%20y%20San%20Andr%C3%A9s%2C%20Constituci%C3%B3n%20Nte.%2C%20Centro%2C%20San%20Andr%C3%A9s%20Tuxtla%2C%20Ver.!3m2!1d18.4487602!2d-95.2120561!4m5!1s0x85c27181c43e1c0f%3A0x6f2a11fae8d007b9!2sRancho%20Sustentable%20Do%C3%B1a%20Elia%2C%20Camino%20a%20arroyo%20seco%20km%203.3%20Colonia%2C%20Laguna%20Encantada%2C%2095760%20San%20Andr%C3%A9s%20Tuxtla%2C%20Ver.!3m2!1d18.4559371!2d-95.1857837!5e1!3m2!1ses!2smx!4v1763343708054!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
@@ -83,28 +84,28 @@
           <img src="{{ asset('images/favicon/reloj.png') }}" alt="Horaio" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Horario de Atención</div>
-              <p>9:00 a 17:00 hrs.</p>
+              <p>{{ $centros[12]->horcentur }}</p>
           </div>
       </div>
       <div class="contacto-item">
           <img src="{{ asset('images/favicon/responsable.png') }}" alt="Responsable" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Responsable</div>
-              <p>db</p>
+              <p>{{ $centros[12]->rescentur }}</p>
           </div>
       </div>
       <div class="contacto-item">
           <img src="{{ asset('images/favicon/correo_sinfondo.png') }}" alt="Correo electronico" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Correo Electrónico</div>
-              <p>ing_informatica@itssat.edu.mx</p>
+              <p>{{ $centros[12]->corcentur }}</p>
           </div>
       </div>
       <div class="contacto-item">
           <img src="{{ asset('images/favicon/llamada.png') }}" alt="Telefono" class="icon" loading="lazy">
           <div>
               <div class="texto_contacto">Teléfono</div>
-              <p>222-456-7890</p>
+              <p>+ 52 {{ $centros[12]->telcentur }}</p>
           </div>
       </div>
   </div>
@@ -198,7 +199,7 @@
   </div>
 </div>
 <div class="mascotas">
-  Este establecimiento <b>Sí</b> acepta mascotas
+  Este establecimiento <b>{{ $centros[12]->activo }}</b> acepta mascotas
 </div>
 
 
@@ -209,26 +210,15 @@
 </div>
 
 <div class="actividades">
-  <ul class="lista-img">
-    <li>Camping todo incluido</li>
-    <li>Ciclismo de montaña</li>
-    <li>Guías en la zona</li>
-    <li>Kayak de travesía</li>
-    <li>Kayaks</li>
-    <li>Llanting</li>
-    <li>Nados y saltos al agua</li>
-    <li>Observación de aves</li>
-    <li>Rappel</li>
-    <li>Senderismo</li>
-    <li>Senderos de gran recorrido</li>
-    <li>Snorkel en mar y río</li>
-    <li>Tirolesa</li>
-    <li>Tour en Kayaks</li>
-    <li>Tours Guiados</li>
-    <li>Tours en lancha</li>
-    <li>Turismo de naturaleza y aventura</li>
-
-  </ul>
+  @if(isset($centro) && $centro->actividadturist->isNotEmpty())
+    <ul class="lista-img">
+      @foreach ($centro->actividadturist as $actividad)
+        <li>{{ $actividad->nomacttur ?? 'Actividad #' . ($actividad->idacttur ?? '-') }}</li>
+      @endforeach
+    </ul>
+  @else
+    <p>No hay actividades registradas para este centro (id = 9).</p>
+  @endif
 </div>
 
 
