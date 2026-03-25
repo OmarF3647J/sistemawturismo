@@ -1,0 +1,33 @@
+name: Despliegue Automático a HostGator
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Obtener código del repositorio
+      uses: actions/checkout@v3
+
+    # # Paso 1: Subir TODO el proyecto a la carpeta /sistema
+    # - name: Subir núcleo del proyecto a /sistema
+    #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    #   with:
+
+    #     server-dir: ./sistema/
+    #     # Excluimos public del core si no quieres duplicados, 
+    #     # aunque usualmente se deja para que Laravel encuentre sus rutas.
+
+    # Paso 2: Subir SOLAMENTE el contenido de la carpeta public a public_html
+    - name: Subir contenido de public a public_html
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./public/
+        server-dir: ./public_html/
