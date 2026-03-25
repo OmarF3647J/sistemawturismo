@@ -21,7 +21,7 @@ jobs:
     #     server-dir: ./sistema/
     #     # Excluimos public del core si no quieres duplicados, 
     #     # aunque usualmente se deja para que Laravel encuentre sus rutas.
-
+# 
     # Paso 2: Subir SOLAMENTE el contenido de la carpeta public a public_html
     - name: Subir contenido de public a public_html
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
