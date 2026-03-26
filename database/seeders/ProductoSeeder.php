@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\producto;
+use App\Models\Producto;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,7 +14,7 @@ class ProductoSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        producto::insert([
+        Producto::insert([
             ['nomproduct' => 'Servicios Turísticos Comunitarios'],
             ['nomproduct' => 'Sociedad Cooperativa de Responsabilidad Limitada'],
         ]);

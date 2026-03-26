@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\actividadturist;
-use App\Models\guiasturist;
+use App\Models\Actividadturist;
+use App\Models\Guiasturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -11,8 +11,8 @@ class ActividadturistController extends Controller
 {
     public function index()
     {
-        $actividadturist = actividadturist::with('guiasturist')->get();
-        $guiasturist = guiasturist::all();
+        $actividadturist = Actividadturist::with('guiasturist')->get();
+        $guiasturist = Guiasturist::all();
         return Inertia::render('Actividadturist/Index', [
             'actividadturist' => $actividadturist,
             'guiasturist' => $guiasturist,
@@ -32,15 +32,15 @@ class ActividadturistController extends Controller
         $actividadturist->save();
         return redirect()->route('actividadturist.index');
     }
-    public function show(actividadturist $actividadturist)
+    public function show(Actividadturist $actividadturist)
     {
         //
     }
-    public function edit(actividadturist $actividadturist)
+    public function edit(Actividadturist $actividadturist)
     {
         //
     }
-    public function update(Request $request, actividadturist $actividadturist)
+    public function update(Request $request, Actividadturist $actividadturist)
     {
         $request->validate([
             'nomacttur' => 'required|string|max:50',
@@ -48,7 +48,7 @@ class ActividadturistController extends Controller
         $actividadturist->update($request->input());
         return redirect()->route('actividadturist.index');
     }
-    public function destroy(actividadturist $actividadturist)
+    public function destroy(Actividadturist $actividadturist)
     {
         $actividadturist->delete();
         return redirect()->route('actividadturist.index');

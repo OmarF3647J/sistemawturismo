@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\centrosturist;
-use App\Models\producto;
-use App\Models\actividadturist;
-use App\Models\guiasturist;
-use App\Models\serviciosturist;
+use App\Models\Centrosturist;
+use App\Models\Producto;
+use App\Models\Actividadturist;
+use App\Models\Guiasturist;
+use App\Models\Serviciosturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,16 +17,16 @@ class CentrosturistController extends Controller
 {
     public function index()
     {
-        $centrosturist = centrosturist::with('producto',
+        $centrosturist = Centrosturist::with('producto',
         'serviciosturist',
         'actividadturist',
         'guiasturist.actividadturist')
         ->paginate(10);
 
-        $productos = producto::all();
-        $actividadturist = actividadturist::all();
-        $guiasturist = guiasturist::all();
-        $serviciosturist =serviciosturist::all();
+        $productos = Producto::all();
+        $actividadturist = Actividadturist::all();
+        $guiasturist = Guiasturist::all();
+        $serviciosturist = Serviciosturist::all();
         return Inertia::render('Centrosturist/Index', [
             'centrosturist' => $centrosturist,
             'productos' => $productos,
@@ -41,8 +41,8 @@ class CentrosturistController extends Controller
     public function create()
     {
         return Inertia::render('Centrosturist/Create', [
-            'productos'       => producto::all(),'actividadturist' => actividadturist::all(),
-            'guiasturist'     => guiasturist::all(),'serviciosturist' => serviciosturist::all(),
+            'productos'       => Producto::all(),'actividadturist' => Actividadturist::all(),
+            'guiasturist'     => Guiasturist::all(),'serviciosturist' => Serviciosturist::all(),
             'optionsActivo' => Centrosturist::ACTIVO_VALUES,
         ]);
     }
@@ -67,7 +67,7 @@ class CentrosturistController extends Controller
             'idsertur.*' => 'exists:serviciosturists,idsertur',
             
         ]);
-        $centrosturist = new centrosturist();
+        $centrosturist = new Centrosturist();
         $centrosturist->nomcentur = $data['nomcentur'];
         $centrosturist->dircentur = $data['dircentur'];
         $centrosturist->descentur = $data['descentur'];
@@ -113,7 +113,7 @@ class CentrosturistController extends Controller
             'imgcentur'   => 'nullable|file|mimes:jpg,jpeg,png',
         ]);
         $data['activo'] = ucfirst(strtolower($data['activo']));
-        $centrosturist = centrosturist::findOrFail($data['idcentur']);
+        $centrosturist = Centrosturist::findOrFail($data['idcentur']);
         $centrosturist->nomcentur = $data['nomcentur'];
         $centrosturist->dircentur = $data['dircentur'];
         $centrosturist->descentur = $data['descentur'];
@@ -141,7 +141,7 @@ class CentrosturistController extends Controller
 
 
     
-    public function show(centrosturist $centrosturist)
+    public function show(Centrosturist $centrosturist)
     {
         $centrosturist->load([
             'producto:idproduct,nomproduct',
@@ -155,25 +155,25 @@ class CentrosturistController extends Controller
             'centrosturist' => $centrosturist,
         ]);
     }
-    public function edit(centrosturist $centrosturist)
+    public function edit(Centrosturist $centrosturist)
     {
         return Inertia::render('Centrosturist/Edit', [
             'centrosturist' => $centrosturist,
-            'productos'       => producto::all(),
-            'actividadturist' => actividadturist::all(),
-            'guiasturist'     => guiasturist::all(),
-            'serviciosturist' => serviciosturist::all(),
+            'productos'       => Producto::all(),
+            'actividadturist' => Actividadturist::all(),
+            'guiasturist'     => Guiasturist::all(),
+            'serviciosturist' => Serviciosturist::all(),
             'centrosturist_actividadturist' => $centrosturist->actividadturist()->pluck('actividadturists.idacttur')->toArray(),
             'centrosturist_guiasturist'     => $centrosturist->guiasturist()->pluck('guiasturists.idguiatur')->toArray(),
             'centrosturist_serviciosturist'     => $centrosturist->serviciosturist()->pluck('serviciosturists.idsertur')->toArray(),
 
         ]);
     }
-    public function update(Request $request, centrosturist $centrosturist)
+    public function update(Request $request, Centrosturist $centrosturist)
     {
 
     }
-    public function destroy(centrosturist $centrosturist)
+    public function destroy(Centrosturist $centrosturist)
     {
         if ($centrosturist->imgcentur) {
             Storage::disk('public')->delete($centrosturist->imgcentur);
@@ -182,7 +182,7 @@ class CentrosturistController extends Controller
         $centrosturist->delete();
         return redirect()->route('centrosturist.index')->with('success', 'Centro turístico eliminado con éxito');
     }
-    public function pdf(centrosturist $centrosturist)
+    public function pdf(Centrosturist $centrosturist)
     {
         $centrosturist->load([
             'producto',

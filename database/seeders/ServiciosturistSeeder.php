@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\serviciosturist;
+use App\Models\Serviciosturist;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +15,7 @@ class ServiciosturistSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        serviciosturist::insert([
+        Serviciosturist::insert([
             ['nomsertur' => 'Hospedaje'],
             ['nomsertur' => 'Restaurante'],
             ['nomsertur' => 'Guía turística'],

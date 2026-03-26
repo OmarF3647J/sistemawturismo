@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\{User,producto, centrosturist, serviciosturist, guiasturist, actividadturist};
+use App\Models\{User,Producto, Centrosturist, Serviciosturist, Guiasturist, Actividadturist};
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
             ServiciosturistSeeder::class,
             ActividadturistSeeder::class,
         ]);
-        $centros = centrosturist::factory(15)->create();
-        $guias =  guiasturist::factory(12)->create();
+        $centros = Centrosturist::factory(15)->create();
+        $guias =  Guiasturist::factory(12)->create();
 
-        $servicios = serviciosturist::all();
-        $actividades = actividadturist::all();
+        $servicios = Serviciosturist::all();
+        $actividades = Actividadturist::all();
 
         foreach ($centros as $centro) {
             $centro->serviciosturist()->attach($servicios->random(4)); // 2 servicios

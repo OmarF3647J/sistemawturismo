@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\guiasturist;
-use App\Models\actividadturist;
-use App\Models\centrosturist;
+use App\Models\Guiasturist;
+use App\Models\Actividadturist;
+use App\Models\Centrosturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,9 +14,9 @@ class GuiasturistController extends Controller
 {
     public function index()
     {
-        $guiasturist = guiasturist::with('actividadturist', 'centrosturist')->paginate(10);
-        $actividadturist = actividadturist::all();
-        $centrosturist = centrosturist::all();
+        $guiasturist = Guiasturist::with('actividadturist', 'centrosturist')->paginate(10);
+        $actividadturist = Actividadturist::all();
+        $centrosturist = Centrosturist::all();
         return Inertia::render('Guiasturist/Index', [
             'guiasturist' => $guiasturist,
             'actividadturist' => $actividadturist,
@@ -27,8 +27,8 @@ class GuiasturistController extends Controller
     public function create()
     {
         return Inertia::render('Guiasturist/Create', [
-            'actividadturist' => actividadturist::all(),
-            'centrosturist' => centrosturist::all(),
+            'actividadturist' => Actividadturist::all(),
+            'centrosturist' => Centrosturist::all(),
         ]);
     }
 
@@ -46,7 +46,7 @@ class GuiasturistController extends Controller
             'idcentur.*' => 'exists:centrosturists,idcentur',
         ]);
 
-        $guiasturist = new guiasturist();
+        $guiasturist = new Guiasturist();
         $guiasturist->nomguiatur = $data['nomguiatur'];
         $guiasturist->nomresguiatur = $data['nomresguiatur'];
         $guiasturist->telguiatur = $data['telguiatur'];
@@ -79,7 +79,7 @@ class GuiasturistController extends Controller
             'idcentur.*' => 'exists:centrosturists,idcentur',
         ]);
 
-        $guiasturist = guiasturist::findOrFail($data['idguiatur']);
+        $guiasturist = Guiasturist::findOrFail($data['idguiatur']);
         $guiasturist->nomguiatur = $data['nomguiatur'];
         $guiasturist->nomresguiatur = $data['nomresguiatur'];
         $guiasturist->telguiatur = $data['telguiatur'];
@@ -101,7 +101,7 @@ class GuiasturistController extends Controller
 
         return redirect()->route('guiasturist.index')->with('success', 'Guía turística actualizada correctamente.');
     }
-    public function show(guiasturist $guiasturist)
+    public function show(Guiasturist $guiasturist)
     {
         $guiasturist->load([
             'centrosturist:idcentur,nomcentur',
@@ -112,22 +112,22 @@ class GuiasturistController extends Controller
             'guiasturist' => $guiasturist,
         ]);
     }
-    public function edit(guiasturist $guiasturist)
+    public function edit(Guiasturist $guiasturist)
     {
         
         return Inertia::render('Guiasturist/Edit', [
             'guiasturist' => $guiasturist,
-            'actividadturist' => actividadturist::all(),
-            'centrosturist' => centrosturist::all(),
+            'actividadturist' => Actividadturist::all(),
+            'centrosturist' => Centrosturist::all(),
             'guiasturist_actividadturist' => $guiasturist->actividadturist()->pluck('actividadturists.idacttur')->toArray(),
             'centrosturist_guiasturist' => $guiasturist->centrosturist()->pluck('centrosturists.idcentur')->toArray(),
         ]);
     }
-    public function update(Request $request, guiasturist $guiasturist)
+    public function update(Request $request, Guiasturist $guiasturist)
     {
         
     }
-    public function destroy(guiasturist $guiasturist)
+    public function destroy(Guiasturist $guiasturist)
     {
         $guiasturist->delete();
         return redirect()->route('guiasturist.index')->with('success', 'Agencia turística eliminada correctamente');

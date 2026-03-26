@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\serviciosturist;
-use App\Models\centrosturist;
+use App\Models\Serviciosturist;
+use App\Models\Centrosturist;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -11,8 +11,8 @@ class ServiciosturistController extends Controller
 {
     public function index()
     {
-        $serviciosturist = serviciosturist::with('centrosturist')->get();
-        $centrosturist = centrosturist::all();
+        $serviciosturist = Serviciosturist::with('centrosturist')->get();
+        $centrosturist = Centrosturist::all();
         return Inertia::render('Serviciosturist/Index', [
             'serviciosturist' => $serviciosturist,
             'centrosturist' => $centrosturist,
@@ -36,17 +36,17 @@ class ServiciosturistController extends Controller
         $serviciosturist->save();
         return redirect()->route('serviciosturist.index');
     }
-    public function show(serviciosturist $serviciosturist)
+    public function show(Serviciosturist $serviciosturist)
     {
         //
     }
 
-    public function edit(serviciosturist $serviciosturist)
+    public function edit(Serviciosturist $serviciosturist)
     {
         //
     }
 
-    public function update(Request $request, serviciosturist $serviciosturist)
+    public function update(Request $request, Serviciosturist $serviciosturist)
     {
         $request->validate([
             'nomsertur' => 'required|string|max:25',
@@ -55,7 +55,7 @@ class ServiciosturistController extends Controller
         return redirect()->route('serviciosturist.index');
     }
 
-    public function destroy(serviciosturist $serviciosturist)
+    public function destroy(Serviciosturist $serviciosturist)
     {
         $serviciosturist->delete();
         return redirect()->route('serviciosturist.index');

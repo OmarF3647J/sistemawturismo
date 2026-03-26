@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\actividadturist;
+use App\Models\Actividadturist;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +15,7 @@ class ActividadturistSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        actividadturist::insert([
+        Actividadturist::insert([
             ['nomacttur' => 'Senderismo'],
             ['nomacttur' => 'Kayak'],
             ['nomacttur' => 'Ciclismo'],
