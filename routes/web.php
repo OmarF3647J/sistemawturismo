@@ -180,7 +180,7 @@ Route::get('/selvaelmarinero', [SitioController::class, 'mostrarCentro'])->name(
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard', [
         // colección con relaciones para usar en la gráfica
-        'centrosturist' => App\Models\Centrosturist::with('actividadturist')->get(),
+        'centrosturist' => App\Models\centrosturist::with('actividadturist')->get(),
         'guiasturist' => App\Models\Guiasturist::with('actividadturist')->get(),
         // conteos para mostrar en los cards (números simples)
         'centrosturist_count' => App\Models\Centrosturist::count(),
