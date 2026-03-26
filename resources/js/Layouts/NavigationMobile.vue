@@ -1,19 +1,20 @@
 <template>
   <transition
       enter-active-class="transition ease-in-out duration-150"
-      
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
       leave-active-class="transition ease-in-out duration-150"
-      >
-<div 
-  v-show="$page.props.showingMobileMenu" 
-  @click="$page.props.showingMobileMenu = false"
->
-</div>  </transition>
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0">
+    <div v-show="$page.props.showingMobileMenu" class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
+  </transition>
   <transition
       enter-active-class="transition ease-in-out duration-150"
-      
+      enter-from-class="opacity-0 transform -translate-x-20"
+      enter-to-class="opacity-100"
       leave-active-class="transition ease-in-out duration-150"
-     >
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0 transform -translate-x-20">
     <aside v-show="$page.props.showingMobileMenu" class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white md:hidden">
       <div class="py-4 text-gray-500">
         <Link class="ml-6 text-lg font-bold text-gray-800" :href="route('dashboard')">
@@ -195,16 +196,13 @@ export default {
         showingProductoMenu.value = !showingProductoMenu.value
       }
     }
-   function closeAllMenus() {
-  showingCentrosMenu.value = false
-  showingGuiasMenu.value = false
-  showingActividadMenu.value = false
-  showingServiciosMenu.value = false
-  showingProductoMenu.value = false
-  
-  // Agrega esta línea para cerrar el sidebar global
-  this.$page.props.showingMobileMenu = false 
-}
+    function closeAllMenus() {
+      showingCentrosMenu.value = false
+      showingGuiasMenu.value = false
+      showingActividadMenu.value = false
+      showingServiciosMenu.value = false
+      showingProductoMenu.value = false
+    }
 
     return {
       showingCentrosMenu,
