@@ -214,6 +214,12 @@ Route::middleware('auth')->group(function () {
 //     return $centro ?? 'No existe centro id=1';
 // });
 
+    Route::get('/limpiar-todo', function() {
+        Artisan::call('route:clear');
+        Artisan::call('view:clear');
+        Artisan::call('cache:clear');
+        return 'Caché limpia, jefe';
+    });
 
 
 });
