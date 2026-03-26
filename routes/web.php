@@ -183,7 +183,7 @@ Route::get('/dashboard', function () {
         'centrosturist' => App\Models\centrosturist::with('actividadturist')->get(),
         'guiasturist' => App\Models\Guiasturist::with('actividadturist')->get(),
         // conteos para mostrar en los cards (números simples)
-        'centrosturist_count' => App\Models\Centrosturist::count(),
+        'centrosturist_count' => App\Models\centrosturist::count(),
         'guiasturist_count' => App\Models\Guiasturist::count(),
         'actividadturist' => App\Models\Actividadturist::count(),
         'serviciosturist' => App\Models\Serviciosturist::count(),
