@@ -184,10 +184,10 @@ Route::get('/dashboard', function () {
         'guiasturist' => App\Models\Guiasturist::with('actividadturist')->get(),
         // conteos para mostrar en los cards (números simples)
         'centrosturist_count' => App\Models\centrosturist::count(),
-        'guiasturist_count' => App\Models\Guiasturist::count(),
-        'actividadturist' => App\Models\Actividadturist::count(),
-        'serviciosturist' => App\Models\Serviciosturist::count(),
-        'producto' => App\Models\Producto::count(),
+        'guiasturist_count' => App\Models\guiasturist::count(),
+        'actividadturist' => App\Models\actividadturist::count(),
+        'serviciosturist' => App\Models\serviciosturist::count(),
+        'producto' => App\Models\producto::count(),
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
