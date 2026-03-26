@@ -181,7 +181,7 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard', [
         // colección con relaciones para usar en la gráfica
         'centrosturist' => App\Models\centrosturist::with('actividadturist')->get(),
-        'guiasturist' => App\Models\Guiasturist::with('actividadturist')->get(),
+        'guiasturist' => App\Models\guiasturist::with('actividadturist')->get(),
         // conteos para mostrar en los cards (números simples)
         'centrosturist_count' => App\Models\centrosturist::count(),
         'guiasturist_count' => App\Models\guiasturist::count(),
